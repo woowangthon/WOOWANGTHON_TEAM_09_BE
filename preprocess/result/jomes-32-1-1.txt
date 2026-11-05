@@ -1,0 +1,1813 @@
+https://www.jomes.org | 1J Obes Metab Syndr 2023;32:1-24 
+Evaluation and Treatment of Obesity and Its Comorbidities: 
+2022 Update of Clinical Practice Guidelines for 
+Obesity by the Korean Society for the Study of Obesity
+Kyoung-Kon Kim1, Ji-Hee Haam2, Bom Taeck Kim3, Eun Mi Kim4, Jung Hwan Park5, Sang Youl Rhee6,7, Eonju Jeon8, Eungu Kang9, 
+Ga Eun Nam10, Hye Yeon Koo11, Jeong-Hyun Lim12, Jo-Eun Jeong13, Jong-Hee Kim14, Jong Won Kim15, Jung Ha Park16,17,  
+Jun Hwa Hong18, Sang Eok Lee19, Se Hee Min20, Seung Jun Kim21, Sunyoung Kim7,22, Yang-Hyun Kim23, Yeon Ji Lee24,  
+Yoon Jeong Cho25, Young-Jun Rhie26, Youn-hee Kim27, Jee-Hyun Kang28,*, Chang Beom Lee29,*,  
+Committee of Clinical Practice Guidelines, Korean Society for the Study of Obesity (KSSO)
+1Department of Family Medicine, Gachon University College of Medicine, Incheon; 2Deptartment of Family Medicine, CHA Bundang Medical Center, CHA University, 
+Seongnam; 3Department of Family Practice & Community Health, Ajou University School of Medicine, Suwon; 4Department of Dietetics, Kangbuk Samsung 
+Hospital, Seoul; 5Department of Internal Medicine, Hanyang University College of Medicine, Seoul; 6Department of Endocrinology and Metabolism, College of 
+Medicine, Kyung Hee University, Seoul; 7Center for Digital Health, Medical Science Research Institute, Kyung Hee University Medical Center, Seoul; 8Division of 
+Endocrinology and Metabolism, Department of Internal Medicine, Daegu Catholic University School of Medicine, Daegu; 9Department of Pediatrics, Korea University 
+Ansan Hospital, Ansan; 10Department of Family Medicine, Korea University Guro Hospital, Korea University College of Medicine, Seoul; 11Department of Family 
+Medicine, Seoul National University Bundang Hospital, Seongnam; 12Department of Food Service and Nutrition Care, Seoul National University Hospital, Seoul; 
+13Department of Psychiatry, Daejeon St. Mary’s Hospital, College of Medicine, The Catholic University of Korea, Daejeon; 14Department of Physical Education, 
+Hanyang University, Seoul; 15Department of Surgery, Chung-Ang University College of Medicine, Seoul; 16Department of Family Medicine, Jeju National University 
+Hospital, Jeju; 17Department of Family Medicine, College of Medicine, Kyung Hee University, Seoul; 18Department of Internal Medicine, Daejeon Eulji Medical Center, 
+Eulji University, Daejeon; 19Department of Surgery, Konyang University College of Medicine, Daejeon; 20Department of Internal Medicine, Asan Medical Center, 
+University of Ulsan College of Medicine, Seoul; 21Department of Psychiatry, Konyang University College of Medicine, Daejeon; 22Depertment of Family Medicine, 
+Kyung Hee University Medical Center, College of Medicine, Kyung Hee University, Seoul; 23Department of Family Medicine, Korea University Anam Hospital, Korea 
+University College of Medicine, Seoul; 24Department of Family Medicine, Inha University College of Medicine, Incheon; 25Department of Family Medicine, Daegu 
+Catholic University School of Medicine, Daegu; 26Department of Pediatrics, Korea University College of Medicine, Seoul; 27Mindscan Clinic, Heart Scan Health Care, 
+Seoul; 28Department of Family Medicine, Konyang University College of Medicine, Daejeon; 29Division of Endocrinology and Metabolism, Department of Internal 
+Medicine, Hanyang University Guri Hospital, Hanyang University College of Medicine, Guri, Korea
+The goal of the 8th edition of the Clinical Practice Guidelines for Obesity is to help primary care physician provide 
+safe, effective care to patients with obesity by offering evidence-based recommendations to improve the quality 
+of treatment. The Committee for Clinical Practice Guidelines comprised individuals with multidisciplinary exper-
+tise in obesity management. A steering board of seven experts oversaw the entire project. Recommendations 
+were developed as the answers to key questions formulated in patient/problem, intervention, comparison, out-
+comes (PICO) format. Guidelines underwent multi-level review and cross-checking and received endorsement 
+from relevant scientific societies. This edition of the guidelines includes criteria for diagnosing obesity, abdomi-
+nal obesity, and metabolic syndrome; evaluation of obesity and its complications; weight loss goals; and treat-
+ment options such as diet, exercise, behavioral therapy, pharmacotherapy, and bariatric and metabolic surgery 
+for Korean people with obesity. Compared to the previous edition of the guidelines, the current edition includes 
+five new topics to keep up with the constantly evolving field of obesity: diagnosis of obesity, obesity in women, 
+obesity in patients with mental illness, weight maintenance after weight loss, and the use of information and 
+communication technology-based interventions for obesity treatment. This edition of the guidelines features 
+has improved organization, more clearly linking key questions in PICO format to recommendations and key ref-
+erences. We are confident that these new Clinical Practice Guidelines for Obesity will be a valuable resource for 
+all healthcare professionals as they describe the most current and evidence-based treatment options for obesity 
+in a well-organized format.
+Click here to check the Graphical Abstract.
+Key words: Obesity, Practice guideline, Republic of Korea, Diagnosis, Therapeutics, Comorbidity 
+Received February 6, 2023
+Reviewed February 28, 2023
+Accepted March 14, 2023
+* Corresponding author  
+Jee-Hyun Kang
+ 
+https://orcid.org/0000-0003-4416-8895
+Department of Family Medicine, 
+Konyang University College of Medicine, 
+158 Gwanjeodong-ro, Seo-gu, Daejeon 
+35365, Korea
+Tel: +82-42-600-9240
+Fax: +82-42-600-9095
+E-mail: jeehyunkang@yahoo.co.kr
+* Co-corresponding author  
+Chang Beom Lee
+ 
+https://orcid.org/0000-0003-4891-834X
+Division of Endocrinology and 
+Metabolism, Department of Internal 
+Medicine, Hanyang University Guri 
+Hospital, Hanyang University College of 
+Medicine, 153 Gyeongchun-ro, Guri 
+11923, Korea
+Tel: +82-31-560-2153
+Fax: +82-31-551-5285
+E-mail: lekang@hanyang.ac.kr
+The first two authors contributed equally 
+to this study.
+pISSN 2508-6235
+eISSN 2508-7576
+Journal of Obesity & Metabolic Syndrome 2023;32:1-24
+https://doi.org/10.7570/jomes23016 1 / 1CROSSMARK_logo_3_Test
+2017-03-16https://crossmark-cdn.crossref.org/widget/v2.0/logos/CROSSMARK_Color_square.svg
+Review
+Copyright © 2023 Korean Society for the Study of Obesity
+ This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (https://creativecommons.org/licenses/by-nc/4.0/) which permits 
+unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-242 | https://www.jomes.org
+INTRODUCTION
+The prevalence of obesity is rapidly increasing in Korea, with the 
+current obesity epidemic in the country characterized by a rapid 
+increase in morbid obesity and obesity in children, adolescents, 
+and young adults.1 This is a worrying trend as obesity is associated 
+with a range of comorbidities such as diabetes and heart disease.2,3 
+While prevention of obesity is important in managing the condi-
+tion, treatment also becomes crucial in controlling obesity-related 
+comorbidities.4 It is vital that both prevention and treatment strate-
+gies be implemented to effectively combat the obesity epidemic in 
+Korea. This will help to improve personal and public health in the 
+long-term.5
+The target audience of “Clinical Practice Guidelines for Obesity 
+2022” is primary healthcare professionals, including primary care 
+physician who manage adults, children, and adolescents with obe-
+sity living in Korea. The guidelines have two main objectives. The 
+first is to provide evidence-based recommendations that can assist 
+primary care physicians in making safe and effective clinical deci-
+sions. T o accomplish this, the guidelines are clear in their level of 
+evidence and consider the balance between benefits and harms. 
+The second objective is to improve the quality of care by providing 
+high-quality, evidence-based information that helps primary care 
+physicians avoid unnecessary and risky treatments, ultimately lead-
+ing to better outcomes for patients.
+METHODS
+Development process
+“Clinical Practice Guidelines for Obesity 2022” is the 8th edition 
+of obesity management guidelines published by the Korean Society 
+for the Study of Obesity (KSSO). T o evaluate the 7th edition and 
+gather opinions on appropriate updates for the 8th edition, a survey 
+was conducted of members of the Committee of Clinical Practice 
+Guidelines and executive members of KSSO. As a result, five new 
+topics were added: diagnosis of obesity, obesity in women, obesity 
+in patients with mental illness, weight maintenance after weight 
+loss, and obesity treatment using information and communication 
+technology (ICT)-based interventions. As a result, the 8th edition 
+of the guidelines now includes 14 topics.
+The development period of the guidelines was from January 
+2021 to November 2022. Adaptation guideline development was 
+applied to develop this edition of the guidelines according to the 
+manual of the Korean Ministry of Health & Welfare and Korean 
+Academy of Medical Science.6 The recommendations provided are 
+clear and easy to understand.
+Steering board
+A steering board comprising seven experts was established to 
+oversee the entire project and planned and confirmed all processes. 
+The adequacy of key questions was discussed with their authors 
+and the steering board to ensure relevance and appropriateness. 
+Conflicts among authors and reviewers regarding recommenda-
+tions were resolved with the steering board’s guidance to ensure 
+that all final recommendations are fair and unbiased. The steering 
+board played a crucial role in ensuring the success and integrity of 
+the project by providing oversight and resolving any issues.
+Personnel involved in the development of the guidelines
+The Committee of Clinical Practice Guidelines comprised mul-
+tidisciplinary experts in obesity management including family phy-
+sicians, endocrinologists, clinical nutritionists, exercise specialists, 
+pediatricians, surgeons, and psychiatrists. All members of the com-
+mittee received education on developing clinical practice guidelines, 
+developing key questions, and writing recommendations through 
+literature review, through participation in multiple workshops. T o 
+effectively develop clinical practice guidelines, tasks such as litera-
+ture and previous guidelines screening, evaluation of selected guide-
+lines, and extraction of evidence for deriving recommendations 
+were carried out by the committee members based on their profes-
+sional areas of expertise. We used the extracted evidence to derive 
+recommendations and develop clinical guidelines.
+Key questions
+The key questions for each topic were developed using the pa-
+tient/problem, intervention, comparison, outcomes (PICO) for-
+mat so that the answers could be used as recommendations. This 
+format clearly presents alternatives depending on the target popula-
+tion and clinical condition being addressed. Key questions and 
+their corresponding recommendations are presented in T able 1.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 3
+Table 1. Key questions and recommendations
+1. Diagnosis of obesity
+Q1-1. Is measuring BMI in adults an appropriate way to evaluate the risk of obesity-related comorbidities?
+R1-1-1. It is recommended to measure BMI at least once a year in all adults (I, B).21,60
+R1-1-2. Considering the risk of obesity-related comorbidities, the criterion for adult obesity in Korea is a BMI of 25 kg/m2 or higher (IIa, B).15,61-69
+Q1-2. Does dividing obesity into grades help evaluate the risk of obesity-related diseases in adults?
+R1-2.  Obesity is divided into class 1 obesity (BMI 25.0−29.9 kg/m2), class 2 obesity (BMI 30.0−34.9 kg/m2), and class 3 obesity (severe obesity, BMI 35.0 kg/m2 or higher) in Korea, 
+ considering the risk of obesity-related comorbidities (IIa, B).38,63
+Q1-3. Does measuring WC in addition to BMI help evaluate the risk of obesity-related comorbidities in adults?
+R1-3. The criteria for determining abdominal obesity by measuring WC are 90 cm or more for men and 85 cm or more for women in Korea (IIa, B).70
+2. Pre-treatment evaluation of obesity
+Q2-1. Is it necessary to confirm the cause of obesity in adults before treatment?
+R2-1.  Before starting treatment, consider conducting a medical interview and screening tests for genetic diseases, endocrinologic diseases, and medications that may cause  
+obesity (IIa, B).16,17
+Q2-2. Is it necessary to confirm the presence of obesity-related comorbidities before treating adult patients with obesity?
+R2-2.  Because obesity increases the risk of hypertension, type 2 diabetes, dyslipidemia, gout, arthritis, cardiovascular disease, and cancer and increases mortality rate, it is 
+ recommended to conduct a medical interview and screening test for these diseases (I, A).18,38,39
+Q2-3. What should the weight loss goal for adults with obesity be before treatment?
+R2-3. It is recommended to set a primary goal of losing 5%−10% of initial body weight within 6 months (I, A).18-20
+3. Diet therapy
+Q3-1. How much should energy intake be restricted for weight loss in adults with obesity or overweight?
+R3-1-1.  It is recommended to individualize the amount of energy restriction for weight loss in adults with obesity or overweight based on personal characteristics and medical 
+ conditions (I, A).38,39
+R3-1-2.  Very low energy diets should only be performed under supervision of trained professionals under limited circumstances and should be implemented along with intensive 
+ lifestyle interventions (I, A).40,71,72
+Q3-2. Do differences in macronutrient content in nutritional approaches affect the efficacy of weight loss and improvement of metabolic markers in adults with obesity?
+R3-2-1.  While diverse types of diets (low energy, low carbohydrate, low-fat, high protein, etc.) can be chosen, it is recommended to use a diet that is nutritionally appropriate and 
+ achieves an energy deficit, emphasizing healthy eating habits (I, A).38-40
+R3-2-2. It is recommended to individualize the composition of macronutrients (carbohydrates, fats, proteins) based on personal characteristics and medical conditions (I, A).38-40
+4. Exercise therapy
+Q4-1. How should the decision of exercise participation be made before exercise therapy in adults with obesity?
+R4-1.  If there are symptoms of cardiovascular, metabolic, or renal diseases or if there are no symptoms but there is a history of cardiovascular, metabolic, or renal diseases and 
+ regular exercise is not performed, exercise should be started after consulting a doctor. In other cases, low to moderate intensity exercise without prior medical permission is 
+ appropriate (I, A).73,74
+Q4-2. What is the amount and method of exercise that can help lose weight in adults with obesity?
+R4-2.  For weight loss, it is recommended to perform aerobic exercise for at least 150 minutes per week, 3−5 times a week and resistance exercise using large muscle groups, 
+ 2−3 times a week (I, A).75-81
+Q4-3. What is the difference in weight loss effect between the combination of aerobic and resistance exercise versus aerobic exercise alone in adults with obesity?
+R4-3.  Exercise that combines aerobic exercise and resistance exercise is more effective for weight loss than either aerobic exercise alone or resistance exercise alone. Therefore, 
+ it is recommended to perform a combination of both aerobic and resistance exercise for weight loss (I, A).80,82
+Q4-4. What is the difference in weight loss effect between exercise alone and exercise performed in combination with diet therapy in adults with obesity?
+R4-4. For effective weight loss, it is recommended to combine exercise with diet therapy (I, A).76,83
+5. Behavioral therapy
+Q5-1.  Are comprehensive lifestyle interventions that incorporate behavioral therapy techniques more effective for weight loss and its maintenance in adults with obesity than 
+ typical treatments (e.g., providing advice and educational materials)?
+R5-1-1. For weight loss, comprehensive lifestyle improvement such as reducing energy intake and increasing physical activity based on behavioral therapy is recommended (I, A).84,85
+R5-1-2. For effective weight loss, it is recommended that a trained therapist conduct face-to-face behavioral therapy for at least 6 months (I, A).71,86,87
+R5-1-3. For effective maintenance of weight loss, it is recommended that a trained therapist conduct behavioral therapy for at least 1 year (I, A).86,88-90
+R5-1-4. If a 2.5% weight loss is not achieved within 1 month of behavioral therapy, consider reinforcing the lifestyle interventions based on behavioral therapy (IIa, B).21,91,92
+Q5-2. What measures are necessary for weight loss and its maintenance in adults with obesity who drink alcohol?
+R5-2. It is recommended to evaluate alcohol consumption during behavioral therapy for weight loss and its maintenance (I, A).93-95
+Q5-3. What treatment is needed to reduce weight gain when trying to quit smoking during obesity treatment?
+R5-3. When attempting to quit smoking during obesity treatment, consider using smoking cessation medications in conjunction with behavioral therapy to prevent weight gain (IIa, B).96-98
+(Continued to the next page)
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-244 | https://www.jomes.org
+6. Pharmacotherapy
+Q6-1. Is it appropriate to only use medication to treat obesity in adults with obesity?
+R6-1.  The basic treatment for obesity is diet therapy, exercise therapy, and behavioral therapy, and it is recommended to use medication as an additional treatment method only in 
+ combination with these (I, A).99-112
+Q6-2. What are the indications for obesity pharmacotherapy in adults with obesity?
+R6-2. In Korean adults with a BMI of 25 kg/m2 or more who have failed to lose weight with non-medicinal treatment, pharmacotherapy should be considered (IIa, B).21,40,61,113
+Q6-3. What medications should be used for weight loss in adults with obesity?
+R6-3. For long-term weight management, it is recommended to use medications that have been approved based on large-scale clinical trials (I, A).99,114
+Q6-4. Should anti-obesity medication be maintained in case of an insufficient response?
+R6-4. If at least 5% weight loss is not achieved within 3 months of maintenance dosage of anti-obesity medication, it is recommended to change or stop the medication (I, A).115-120
+7. Bariatric surgery
+Q7-1.  Which group of patients will benefit the most from weight loss or show improvement in obesity-related comorbidities if they undergo bariatric/metabolic surgery compared to 
+ non-surgical treatment?
+R7-1-1.  Bariatric/metabolic surgery should be considered in Korean adults with a BMI of 35 kg/m2 or more, or a BMI of 30 kg/m2 or more with obesity-related comorbidities, who 
+ have failed to lose weight with non-surgical treatment (IIa, B).40,48
+R7-1-2.  Bariatric/metabolic surgery should be considered in individuals with type 2 diabetes mellitus with a BMI of 27.5 kg/m2 or more and a blood sugar level that is not properly 
+ controlled with non-surgical treatment (IIa, B).40,48
+Q7-2. What should be evaluated before performing bariatric/metabolic surgery in patients who need it?
+R7-2-1.  It is recommended to collect a medical and psychosocial history, conduct a physical examination, and run diagnostic tests to evaluate the safety of the potential bariatric/ 
+ metabolic surgery (I, A).121,122
+R7-2-2. Appropriate evaluation of nutritional status should be considered before bariatric/metabolic surgery (IIa, B).123
+R7-2-3. It is recommended to quit smoking at least 6 weeks prior to bariatric/metabolic surgery (I, B).124
+Q7-3. What type of bariatric/metabolic surgery should be performed in patients who need it?
+R7-3.  It is recommended to choose from among standard procedures that have been proven to be effective and safe, such as sleeve gastrectomy, Roux-en-Y gastric bypass, 
+ adjustable gastric banding, and biliopancreatic diversion/duodenal switch, taking into account the individual’s status (I, A).40
+Q7-4. Does continuous follow-up management after bariatric/metabolic surgery affect the outcome? If so, what is the appropriate follow-up method for management and evaluation?
+R7-4-1. It is recommended to conduct multidisciplinary follow-up management for all patients who have undergone bariatric/metabolic surgery (I, B).47-50
+R7-4-2. It is recommended to supplement micronutrients and conduct regular follow-up examinations according to the surgical procedure after bariatric/metabolic surgery (I, B).76,81,84
+8. Obesity in the elderly
+Q8-1. What should be considered when evaluating obesity in the elderly?
+R8-1. It is recommended to evaluate WC in conjunction with BMI when diagnosing obesity in the elderly (I, A).8-10
+Q8-2. When does weight loss help in the elderly?
+R8-2. Weight loss should be considered when the benefits outweigh the risks for the elderly (IIa, B).21-32
+Q8-3. What should be considered for effective and safe obesity treatment in the elderly?
+R8-3-1. In managing obesity in the elderly, it may be necessary to evaluate osteoporosis and sarcopenia (IIb, B).21,35-37
+R8-3-2. For treatment of obesity in the elderly, it is recommended to prioritize a low energy diet rich in protein and to increase physical activity (I, A).125-128
+R8-3-3.  When treating obesity in the elderly, pharmacotherapy and surgical treatments may be considered with caution, taking into account the presence of accompanying 
+ diseases and medications to ensure patient safety (IIb, B).21,40,56-59,129
+9. Obesity in children and adolescents
+Q9-1. How is obesity diagnosed in children and adolescents?
+R9-1-1.  It is recommended to prevent and treat childhood and adolescent obesity, because obesity in this age group easily progresses to adult obesity and is associated with a 
+ high risk of obesity-related comorbidities (I, A).130-132
+R9-1-2.  When diagnosing obesity for children and adolescents older than 2 years, it is recommended to use the BMI percentile for age and sex based on the 2017 Korean National 
+ Growth Chart for Children and Adolescents. A BMI in the 85th percentile or higher should be considered to indicate pre-obesity (overweight), while a BMI in the 95th 
+ percentile or higher should be considered to indicate obesity (I, A).12-14,130
+R9-1-3. Individualized medical risk assessment should be considered in children and adolescents with pre-obesity or obesity (IIa, B).14,130,132
+Q9-2. What are the treatment goals and principles for obesity in children and adolescents?
+R9-2.  Treatment of obesity in children and adolescents is recommended to maintain appropriate weight while supplying the energy and nutrients necessary for normal growth 
+ and to habituate a healthy lifestyle (I, A).14,52,130,132-135
+Q9-3. What are safe and effective treatment strategies for obesity in children and adolescents?
+R9-3-1. Comprehensive lifestyle modifications including diet, exercise, and behavioral therapy are recommended for treatment of obesity in children and adolescents (I, A).14,52,130
+R9-3-2.  In cases where weight gain and obesity-related comorbidities are sustained even with intensive diet, exercise, and behavioral therapy, obesity pharmacotherapy by an 
+ experienced specialist should be considered (IIa, B).130,133,134,136
+R9-3-3.  In cases where weight gain and obesity-related comorbidities are sustained even with intensive multidisciplinary treatment and pharmacotherapy for obesity, surgical 
+ therapy may be considered in limited cases, only after completion of growth and puberty (IIb, C).52-55
+Table 1. Continued
+(Continued to the next page)
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 5
+10. Obesity in women
+Q10-1. Does weight loss help in reducing pregnancy complications in women with obesity who are preparing for pregnancy?
+R10-1. Women who are considering pregnancy are recommended to maintain a normal weight to reduce obstetric and perinatal risks (I, A).137-145
+Q10-2. What are the appropriate lifestyle habits for weight management during pregnancy and after delivery in women with obesity?
+R10-2-1.  In pregnant women with obesity, a balanced diet and regular physical activity should be considered for appropriate rather than excessive weight gain during pregnancy 
+ (IIa, B).146-150
+R10-2-2.  Active lifestyle interventions, such as modification of diet and an increase in physical activity, are recommended for weight management after delivery in women with 
+ obesity (I, A).151
+Q10-3. Does menopause increase the risk of obesity and its comorbidities?
+R10-3.  Because menopause can lead to abdominal obesity, which increases the risk of obesity-related comorbidities, appropriate weight management is recommended for 
+ menopausal women with obesity (I, A).152-158
+Q10-4. Should hormone therapy be used to aid weight loss or to prevent weight gain in menopausal women?
+R10-4. Hormone therapy is not recommended for the purpose of weight loss in menopausal women (III, A).159
+11. Obesity in patients with mental illness
+Q11-1. Is it necessary to conduct screening tests for obesity and metabolic diseases in patients with severe mental illness for proper management?
+R11-1.  It is recommended to conduct screening tests for obesity and metabolic diseases in patients with severe mental illness who are taking medications related to weight gain 
+ for prevention and management of metabolic diseases (I, B).160
+Q11-2.  For patients with obesity and severe mental illness, is it effective and mentally safe to implement comprehensive lifestyle interventions, obesity pharmacotherapy, and 
+ bariatric surgery?
+R11-2. For weight loss in patients with obesity and severe mental illness, comprehensive lifestyle interventions are recommended (I, A).161-166 
+Q11-3. Is distinguishing whether a patient with obesity also has binge eating disorder useful in predicting the effectiveness of obesity treatment?
+R11-3.  Because patients with obesity in conjunction with binge eating disorder may experience less weight loss in response to typical obesity treatments, the presence of binge 
+ eating disorder should be considered for evaluation when treating obesity (IIa, C).167,168
+Q11-4. What kind of obesity treatment is effective at inducing weight loss and improving symptoms of obstructive sleep apnea in patients with obesity and obstructive sleep apnea?
+R11-4. Comprehensive lifestyle interventions for weight loss are recommended for patients with obesity and obstructive sleep apnea (I, A).169-174 
+12. Weight maintenance after weight loss
+Q12-1.  Are there different long-term outcomes for obesity-related comorbidities in adults with obesity who have successfully maintained weight loss compared to those who have 
+ not?
+R12-1. It is recommended to maintain weight loss for more than 1 year to prevent and manage obesity-related comorbidities (I, A).88,175-184
+Q12-2. What treatment is effective for long-term weight management and outcomes in adults with obesity?
+R12-2-1. It is recommended to use a combination of diet, exercise, and cognitive behavioral therapy for weight maintenance after weight loss (I, A).185-193
+R12-2-2. The use of anti-obesity medications that are approved for long-term use may also be considered (IIb, B).88,107,194
+Q12-3. Is additional obesity pharmacotherapy helpful for long-term weight management in patients with morbid obesity who have regained weight after bariatric/metabolic surgery?
+R12-3.  In patients who have regained weight after bariatric/metabolic surgery, the use of anti-obesity medications in conjunction with lifestyle modifications may be considered 
+ (IIb, B).195-198
+13. Metabolic syndrome
+Q13-1. What are the diagnostic criteria for metabolic syndrome in Korean adults?
+R13-1. In Korea, adults are diagnosed with metabolic syndrome if they meet three or more of the following criteria (-, A).70,199,200
+(1) Abdominal obesity (WC ≥ 90 cm in men and ≥ 85 cm in women)
+(2) Elevated blood pressure ( ≥ 130/85 mmHg or use of hypertension medications)
+(3) Elevated fasting blood sugar ( ≥ 100 mg/dL or use of diabetes medications)
+(4) Elevated triglycerides ( ≥ 150 mg/dL or use of lipid-lowering drugs)
+(5) Low HDL cholesterol ( < 40 mg/dL in men and < 50 mg/dL in women or use of lipid-lowering drugs)
+Q13-2. What are effective interventions for treating and managing metabolic syndrome in adults?
+R13-2. To treat and manage metabolic syndrome, lifestyle modifications and, if necessary, drug interventions for individual components are recommended (I, A).201-211
+14. Obesity treatment using ICT-based interventions
+Q14-1. Can information and communication technology-based methods be used to modify lifestyle to manage obesity and metabolic syndrome?
+R14-1. ICT-based interventions should be considered for managing obesity and metabolic syndrome (IIa, B).212,213
+Q14-2. Are ICT-based interventions effective at inducing weight loss and maintenance compared to conventional treatment in adults with obesity?
+R14-2. ICT-based interventions may be considered as part of a comprehensive strategy for weight loss (IIb, B).214-216
+BMI, body mass index; WC, waist circumference; HDL, high-density lipoprotein; ICT, information and communication technology.
+Table 1. Continued
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-246 | https://www.jomes.org
+Literature review
+A medical librarian developed literature search strategies and for-
+mulas specifically tailored to each database search engine. Utilizing 
+these strategies, the librarian systematically searched through litera-
+ture-search software for selected topics and established key ques-
+tions. These searches were executed in PICO format. The publica-
+tion date range of the literature searched was between January 2010 
+and May 2021. Report types searched were systematic reviews, 
+meta-analyses, randomized clinical trials, cohort studies, and guide-
+lines. Narrative reviews were also included for topics lacking ran-
+domized clinical trials. Electronic databases of Pubmed (Medline), 
+Embase, Cochrane Library, KoreaMed, RISS (KERIS), ScienceOn, 
+Guidelines International Network (GIN), National Institute for 
+Health and Care Excellence (NICE), Scottish Intercollegiate Guide-
+lines Network (SIGN), National Health and Medical Research 
+Council (NHMRC), and Google were searched.
+Level of evidence and recommendations
+The level of evidence of the literature (or guidelines) used for 
+developing the recommendations was classified into four categories 
+(A, B, C, and D in Supplementary T able 1). The Committee of 
+Clinical Practice Guidelines used the modified Grading of Recom-
+mendation Assessments, Development, and Evaluation (GRADE) 
+method to determine the strength of the recommendations consid-
+ering the level of evidence, benefits and harms, feasibility, accept-
+ability, and level of applicability in primary care practice. There were 
+four grades of recommendations (I, IIa, IIb, and III in Supplemen-
+tary T able 1)7. Even if the level of evidence was low, recommenda-
+tions that were considered to have clear benefits or high applicabili-
+ty in clinical practice were upgraded by agreement of the Commit-
+tee of Clinical Practice Guidelines.
+Employment of multi-level reviews and cross-checks
+After initial development of the recommendations, a small group 
+discussion method was used to review these recommendations. 
+Review and cross-checking by the steering board and writing mem-
+bers resulted in revision of the initial recommendations and expla-
+nations. Then, at KSSO congresses, two public hearings on the up-
+dated management guidelines were held. The revised version after 
+the public hearings was reviewed by executive members of KSSO 
+who were not members of the guidelines committee. Finally, the 
+steering board supervised and confirmed the final version. Endorse-
+Table 2. Diagnostic criteria for obesity, abdominal obesity, and metabolic syndrome and risk of comorbidity according to BMI and WC in Koreans
+Classification* BMI (kg/m2) Risk of comorbidity according to WC
+< 90 cm (men), < 85 cm (women) ≥ 90 cm (men), ≥ 85 cm (women)
+Adults ( ≥ 18 years)
+Underweight < 18.5 Low Average
+Normal 18.5–22.9 Average Increased
+Pre-obesity    23–24.9 Increased High
+Class 1 obesity    25–29.9 High Severe
+Class 2 obesity    30–34.9 Severe Very severe
+Class 3 obesity ≥ 35 Very severe Very severe
+Metabolic syndrome in adults
+Adults are diagnosed with metabolic syndrome if they meet three or more of the following criteria.
+(1) Abdominal obesity (WC ≥ 90 cm in men and ≥ 85 cm in women)
+(2) Elevated blood pressure ( ≥ 130/85 mmHg or use of hypertension medications)
+(3) Elevated fasting blood sugar ( ≥ 100 mg/dL or use of diabetes medications)
+(4) Elevated triglycerides ( ≥ 150 mg/dL or use of lipid-lowering drugs)
+(5) Low HDL-cholesterol ( < 40 mg/dL in men and < 50 mg/dL in women or use of lipid-lowering drugs)
+Children and adolescents (2−18 years old) BMI percentile for sex and age based on 2017 Korean National Growth Chart for Children and Adolescents 
+Pre-obesity 85th–94.9th
+Obesity ≥ 95th
+*Pre-obesity may be defined as overweight or at-risk weight, and class 3 obesity may be defined as extreme obesity.
+BMI, body mass index; WC, waist circumference; HDL, high-density lipoprotein.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 7
+ment was requested and received from relevant scientific societies 
+and associations.
+DIAGNOSTIC CRITERIA FOR OBESITY, 
+ABDOMINAL OBESITY, AND METABOLIC 
+SYNDROME 
+Diagnostic criteria for obesity, abdominal obesity, and metabolic 
+syndrome remain the same as in the previous version (T able 2). 
+Diagnosis of obesity based on body mass index (BMI) applies re-
+gardless of age in adults. However, in the elderly, the same BMI 
+may indicate a higher body fat percentage due to changes in body 
+composition caused by decreased muscle and bone mass, as well as 
+a decrease in height. Therefore, we recommended evaluation of 
+waist circumference (WC) in conjunction with BMI when diag-
+nosing obesity in the elderly (I, A).8-10 For children and adolescents 
+older than 2 years, use of the BMI percentile for age and sex based 
+on the 2017 Korean National Growth Chart for Children and Ado-
+lescents is recommended; a BMI in the 85th percentile or higher is 
+considered to indicate pre-obesity (overweight), while that in the 
+95th percentile or higher is considered to indicate obesity (I, A).11-14 
+Obesity in adults is divided into class 1, class 2, and class 3 obesity 
+(extreme obesity) (BMI 35.0 kg/m2 or higher) in Korea (IIa, B).12,15 
+Criteria used to diagnose obesity and abdominal obesity have been 
+established, taking into account the risk of obesity-related comor-
+bidities.
+Although the cut-off values for each criterion were the same as 
+those used in the previous KSSO guidelines, levels of evidence and 
+grades of recommendations were modified through evaluation.
+ 
+EVALUATING OBESITY STATUS AND 
+RELATED COMORBIDITIES AND SETTING 
+TREATMENT GOALS PRIOR TO 
+TREATMENT INITIATION
+More than 90% of obesity cases are due to an imbalance between 
+energy intake and expenditure, known as primary obesity. Howev-
+er, in some cases, secondary causes such as genetic and congenital 
+disorders, medications, neurological and endocrine diseases, or 
+psychiatric illnesses may be present (T able 3). Accurately identify-
+ing and addressing these underlying causes can lead to more effec-
+tive weight loss. Therefore, prior to initiating obesity treatment, a 
+medical interview and screening tests should be considered to 
+identify secondary obesity and its causes (IIa, B).16,17
+People with obesity are at an increased risk for comorbidities 
+stemming from metabolic abnormalities, such as hypertension, car-
+diovascular disease, type 2 diabetes, dyslipidemia, metabolic syn-
+drome, gallbladder disease, gout, and some types of cancer. They 
+Table 3. Causes of secondary obesity
+Classification Causes
+Monogenic 
+obesity
+Leptin deficiency
+Leptin receptor deficiency
+Proopiomelanocortin (POMC) deficiency
+Melanocortin 4 receptor (MC4R) deficiency
+Other
+Congenital  
+syndromic 
+obesity
+Prader-Willi syndrome
+Laurence-Moon-Biedl syndrome
+Alström syndrome
+Cohen syndrome
+Carpenter syndrome
+Other
+Drugs Antipsychotics: thioridazine, olanzepine, clozapine, quetiapine,  
+risperidone
+Tricyclic antidepressants: imipramine, amitriptyline, nortriptyline, 
+doxepin
+Selective serotonin reuptake inhibitors: paroxetine
+Noradrenergic and specific serotonergic antidepressants: mirtazapine
+Mood stabilizers: lithium
+Anti-convulsants: valproate, carbamazepine, gabapentin, pregabalin
+Anti-diabetics: insulin, sulfonylurea, glinide, thiazolidinedione
+Serotonin receptor antagonists: pizotifen
+H1 antihistamines: cyproheptadine
+β-Blockers: propranolol, metoprolol, atenolol, nadolol
+α-Blockers: terazosin, prazosin, clonidine
+Steroids: oral contraceptives, glucocorticoids
+Neuroendocrine 
+diseases
+Hypothalamic obesity: trauma, tumor, infective disorder, neurosurgery, 
+elevated intracranial pressure
+Cushing's syndrome
+Insulinoma
+Polycystic ovary syndrome
+Growth hormone deficiency in adults
+Hypothyroidism
+Psychiatric  
+disorders
+Affective disorder: major depression, bipolar disorder, seasonal  
+affective disorder
+Anxiety disorder: panic disorder, agoraphobia
+Binge eating disorder
+Attention deficit hyperactivity disorder
+Alcohol dependency
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-248 | https://www.jomes.org
+also are at higher risk of developing weight-related conditions such 
+as arthritis, low back pain, and obstructive sleep apnea compared to 
+normal weight individuals. These obesity-related comorbidities are 
+illustrated according to body system in Fig. 1. Refer to T able 4 for a 
+list of tests used to evaluate obesity and its associated comorbidities.
+The goal of obesity treatment is not exclusively centered on achiev-
+ing weight loss, but rather a reduction in the risk of obesity-related 
+diseases and an increase in overall health. A weight loss of 5% to 
+10%, along with improvements in lifestyle, have been shown to 
+have clinically significant benefits. We recommend losing 5% to 
+10% of initial body weight within 6 months (I, A).18-20 
+Obesity in the elderly increases the risk of various diseases and 
+medical costs, but there is insufficient evidence to show that weight 
+loss can effectively prevent or treat obesity-related complications. 
+Additionally, elderly individuals have a high incidence of osteope-
+nia and osteoporosis, which increases the risk of fractures. Weight 
+loss in this population may also be associated with decreased bone 
+density and muscle mass. When treating obesity in older adults, 
+evaluation of osteoporosis should be considered in high-risk groups, 
+and weight loss should be considered when the benefits outweigh 
+the risks (IIa, B).21-34 Compared to the previous version of these 
+guidelines, the current version recommends evaluation of osteopo-
+rosis and sarcopenia when treating obesity in the elderly (IIb, B).21,35-37
+Figure 1. Comorbidities of obesity by body system.
+
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 9
+LIFESTYLE-RELATED THERAPY
+Diet, exercise, and behavioral therapy that induce lifestyle im-
+provements are the mainstays of obesity treatment. General princi-
+ples in this field remain unchanged from the previous edition of the 
+guidelines. See T able 1 for detailed recommendations. 
+This edition of the guidelines recommends individualizing the 
+amount of energy restriction and the composition of macronutri-
+ents (carbohydrates, fats, proteins) for weight loss. Adequate pro-
+tein intake is important to prevent sarcopenic obesity in the treat-
+ment of elderly obesity. A very low energy diet (VLED) that se-
+verely restricts calorie intake to 800 kcal or less per day can result in 
+significant short-term weight loss; however, this rapid weight loss 
+method can cause various medical problems. Therefore, VLED 
+should only be performed under the supervision of trained profes-
+sionals under limited circumstances. In the 8th edition guidelines, 
+Table 4. Evaluation of obesity and its related comorbidities
+Obesity
+1.  BMI should be measured regularly at least once a year in all adults. People with a BMI between 23 and 24.9 kg/m2 are classified as with pre-obesity, while those with a BMI of 
+ 25 kg/m2 or above are classified as with obesity.
+2. WC should be measured to assess abdominal obesity. Individuals with abdominal obesity are considered at elevated risk for obesity-related comorbidities.
+3. Evaluate comorbidities in people with pre-obesity or obesity
+History taking Obtain a comprehensive history, including past medical history, family history, current medications, smoking and alcohol use, social history, previous 
+weight loss attempts, history of weight change, reason for weight gain, dietary habits, eating disorders, physical activity level, exercise habits, mental 
+health status including depression and stress, desired weight, and motivation for weight loss
+Physical examination Measure height, weight, WC, vital signs, body composition (using BIA or DXA if necessary), and visceral fat amount (using CT or MRI if necessary) and 
+conduct a systemic physical examination to assess comorbidities
+Laboratory evaluation Measure fasting blood glucose, serum lipid profile, uric acid, thyroid-stimulating hormone, liver function tests, complete blood count, renal function tests, 
+and inflammatory markers and conduct tests for evaluation of secondary obesity (if necessary)
+Obesity-related comorbidities
+System Comorbidities Suggested tests
+Cardio-cerebrovascular Coronary artery disease, hypertension, ischemic stroke, congestive heart  
+failure, atherosclerosis, pulmonary embolism, varicose veins, deep vein 
+thromboembolism, etc.
+Blood pressure, pulse rate, electrocardiography. Conduct a thorough 
+examination for suspected diseases if necessary.
+Gastrointestinal Gallstone, nonalcoholic fatty liver disease, gastroesophageal reflux, herniaLiver function tests. Conduct abdominal ultrasound and/or upper  
+endoscopy if necessary.
+Pulmonary Asthma, obstructive sleep apnea, obesity hypoventilation syndrome Chest X-ray, pulmonary function tests, measurement of neck  
+circumference, polysomnography if necessary.
+Endocrine Type 2 diabetes mellitus, insulin resistance, metabolic syndrome, dyslipidemia, 
+hyperuricemia, gout
+Fasting blood glucose, serum lipid profile, uric acid. Glycated  
+hemoglobin and/or fasting insulin if necessary.
+Tumor Esophageal cancer, stomach cancer, colorectal cancer, hepatoma, pancreatic 
+cancer, gallbladder cancer, kidney cancer, leukemia, multiple myeloma, 
+lymphoma, prostate cancer (man), postmenopausal breast cancer (woman), 
+endometrial cancer (woman), cervix cancer (woman)
+Conduct a thorough examination for suspected diseases if necessary.
+Urogenital Hypogonadism, menstrual abnormalities, polycystic ovary syndrome, infertility, 
+subfertility, precocious puberty, gynecomastia, erectile disorder, adverse  
+maternal outcomes (gestational diabetes, preeclampsia, eclampsia,  
+miscarriage, dystocia, elevated risk of cesarean sections), congenital  
+disorders (neural tube defects, cleft lip and cleft palate, hydrocephalus,  
+congenital heart diseases), stress incontinence
+Conduct a thorough examination for suspected diseases if necessary.
+Musculoskeletal Disability, low back pain, osteoarthritis, spine diseases, foot disorders Conduct a thorough examination for suspected diseases if necessary.
+Nervous Idiopathic intracranial hypertension, dementia, meralgia paresthetica Conduct a thorough examination for suspected diseases if necessary.
+Psychiatric Depression, anxiety, low self-esteem, eating disorder, decreased work  
+performance, low quality of life, body dissatisfaction
+Conduct a thorough examination for suspected diseases if necessary.
+Other Acanthosis nigricans, skin infections, periodontal disease, increased risk of 
+anesthesia complications, lymphedema
+Conduct a thorough examination for suspected diseases if necessary.
+BMI, body mass index; WC, waist circumference; BIA, bioelectrical impedance analysis; DXA, dual-energy X-ray absorptiometry; CT, computed tomography; MRI, magnetic reso-
+nance imaging. 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2410 | https://www.jomes.org
+we recommend a nutritionally appropriate diet and reduction of 
+energy intake as was recommended in the previous edition of the 
+guidelines and additionally emphasize “healthy eating habits” (I, 
+A).38-40 Refer to T able 5 for the diverse types of diets that can be 
+implemented.
+With regard to exercise therapy, individuals with symptoms of 
+cardiovascular, metabolic, or renal diseases or those with a history 
+of these diseases but who do not regularly exercise should consult a 
+doctor before starting. In other cases, it is safe to start a low to mod-
+erate intensity exercise regimen without obtaining medical clear-
+ance. This edition of the guidelines recommends aerobic exercise 
+for at least 150 minutes per week, 3 to 5 times a week, and resis-
+tance exercise using large muscle groups 2 to 3 times per week for 
+weight loss. Furthermore, increasing aerobic exercise to 250 to 300 
+minutes per week is suggested for more meaningful weight loss. 
+Compared to exercise therapy alone, it has been shown that body 
+weight, BMI, and WC are more improved when exercise therapy is 
+combined with dietary therapy.
+Comprehensive lifestyle improvement such as reducing energy 
+intake and increasing physical activity based on behavioral therapy 
+are recommended for weight loss in this edition of the guidelines, 
+similar to the previous edition. Additionally, third-wave cognitive 
+behavioral therapy, such as mindfulness-based cognitive therapy 
+and acceptance and commitment therapy, is newly introduced in 
+this edition of the guidelines.41-45 Compared with the previous ver-
+sion of the guidelines, this edition recommends intensifying life-
+style interventions based on behavioral therapy if weight loss of 
+2.5% is not achieved within 1 month of starting therapy and high-
+lights the roles of alcohol consumption and smoking during behav-
+ioral therapy for weight loss and maintenance.
+PHARMACOTHERAPY
+Despite the development of many new peptide anti-obesity med-
+ications, with some of these currently under consideration for ap-
+proval by the Korean Ministry of Food and Drug Safety, there have 
+been no new approvals of anti-obesity medications for adults with 
+obesity since the 7th edition of the guidelines (up to February 2023). 
+However, liraglutide was newly approved during that period for 
+patients with obesity aged 12 years or older. Therefore, currently 
+available anti-obesity medications for children and adolescents in 
+Korea are phentermine (for those aged 16 or older) for short-term 
+treatment and orlistat (for those aged 12 or older) and liraglutide 
+(for those aged 12 or older) for long-term treatment (T able 6).46 In 
+adults with obesity, orlistat, naltrexone/bupropion extended re-
+lease (ER), liraglutide, and phentermine/topiramate ER are avail-
+able for long-term weight loss, while phentermine, diethylpropion, 
+phendimetrazine, and mazindol are available for short-term treat-
+ment in Korea.
+Table 5. Summary of the characteristics of diverse diet therapies
+Diet therapy Characteristic
+Low energy  
+diet
+Energy intake reduction by 500-1,000 kcal per day
+This enables the consumption of a nutritionally appropriate meal.
+0.5−1.0 kg/week of weight loss is expected.
+A maximum effect on weight loss may be attained within 6 months, 
+with a gradual decrease thereafter.
+Very low  
+energy diet
+Energy restriction to 800 kcal/day or less
+Rapid weight loss is possible in a short period of time, but there is no 
+significant difference in the long-term compared to a low energy diet.
+Medical supervision is necessary to prevent serious medical outcomes.
+Should be accompanied by interventions for long-term lifestyle  
+improvements.
+Very low  
+carbohydrate 
+diet
+Limit carbohydrate consumption to less than 130 g/day or 30% of 
+total energy (restrict to less than 50 g or 10% of total energy at 
+start and increase gradually)
+Initial weight loss effect is greater than with a low energy diet, but 
+the long-term effect is either similar or minimally better.
+This may improve serum triglyceride level but also increase the risk 
+of cardiovascular disease due to elevation of LDL cholesterol.
+Low  
+carbohydrate 
+diet
+Limit carbohydrate consumption to 40%−45% of total energy typically 
+Initial weight loss effect is greater than the low energy diet, but the 
+long-term effect is either similar or minimally better.
+This may improve serum triglyceride level but also increase the risk 
+of cardiovascular disease due to elevation of LDL cholesterol.
+High protein 
+diet
+Usual protein intake of 25%−30% of total energy
+Helpful to prevent excessive carbohydrate intake, loss of lean mass, 
+and maintain an appropriate protein nutrition status
+Effective for weight loss/maintenance compared to a low energy 
+diet but not to a large extent
+Intermittent  
+energy  
+restriction
+Alternative dietary approach to the conventional continuous  
+energy-restricted diet
+   -  Intermittent fasting: an eating pattern that alternates between  
+ periods of fasting and non-fasting days 
+   -  Time-restricted diet: a type of eating pattern that allows eating 
+ within a particular window of time each day
+There is no significant or minimal difference in the degree of weight 
+loss compared to continuous energy restriction methods.
+There is limited evidence on the long-term effects of this diet type 
+on obesity.
+LDL, low-density lipoprotein.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 11
+Obesity pharmacotherapy is recommended as an additional 
+treatment method for Korean adults with a BMI of 25 kg/m² or 
+higher after failure of non-pharmacological methods. Medication 
+selection should consider accompanying diseases (T able 7). Given 
+the diverse responses of individuals to these medications and the 
+potential for adverse events, it is recommended to discontinue the 
+medication in the event of a lack of response. In adults, if greater 
+than 5% weight loss is not achieved within 3 months of mainte-
+nance dosage, the medication should be discontinued or changed. 
+In children and adolescents, if there is less than a 4% decrease in 
+BMI or BMI z-score despite 12 weeks of medication, the medica-
+tion should be considered ineffective and changed or discontinued.
+BARIATRIC AND METABOLIC SURGERY
+The indications for bariatric/metabolic surgery for obesity are 
+the same as in the previous version of the guidelines and are shown 
+in T able 1. A standard procedure that has been proven to be effec-
+Table 6. Anti-obesity medications for the pediatric population
+Drug name Mechanism of action Indication Considerations
+Orlistat Pancreatic and gastric lipase inhibitor Obesity
+≥ 12 years old
+Flatulence, oily spotty stools, diarrhea, vitamin/mineral deficiencies
+Phentermine Sympathomimetic amine Obesity
+> 16 years old
+Short-term use
+Increases heart rate and blood pressure and causes dry mouth,  
+insomnia, constipation, anxiety, irritability
+Liraglutide 3.0 mg GLP-1 receptor agonist Adolescents (12−17-year-old) with a BMI 
+corresponding to ≥ 30 kg/m2 for adults 
+and body weight > 60 kg
+Abdominal pain, nausea, vomiting, diarrhea, potential hypoglycemia; 
+contraindicated with history or family history of medullary thyroid 
+carcinoma, MEN type 2, ESRD
+Approved by the Korean Ministry of Food and Drug Safety.
+GLP-1, glucagon-like peptide-1; BMI, body mass index; MEN, multiple endocrine neoplasia; ESRD, end-stage renal disease.
+Table 7.  Selection of anti-obesity medication according to comorbidities
+Comorbidities
+Anti-obesity medication
+Orlistat Naltrexone/bupropion ER Liraglutide 3.0 mg Phentermine/topiramate ER
+Type 2 diabetes mellitus
+Hypertension Monitor blood pressure and 
+heart rate
+Monitor heart rate Monitor heart rate
+Contraindicated in uncontrolled 
+hypertension
+Coronary artery disease Monitor blood pressure and 
+heart rate
+Chronic kidney 
+disease
+Mild (eGFR 60−89 mL/min)
+Moderate (eGFR 30−59 mL/min) Do not exceed
+8 mg/90 mg bid per day
+Do not exceed 7.5 mg/46 mg per day
+Severe (eGFR < 30 mL/min) Monitor for urolithiasis  
+(oxalate stones) 
+Do not exceed 8 mg/90 mg bid 
+per day
+Do not exceed 7.5 mg/46 mg per day
+Not recommended for end 
+stage renal disease
+Not recommended for end stage renal 
+disease
+Liver cirrhosis Mild to moderate (Child-Pugh 5–9) Monitor for gall stones Do not exceed 8 mg/90 mg bid 
+per day
+Monitor for gall 
+stones
+Do not exceed 7.5 mg/46 mg per day
+Severe (Child- Pugh > 9)
+Obstructive sleep apnea Recommend 15 mg/92 mg per day
+Depression Do not exceed 7.5 mg/46 mg per day
+Glaucoma
+Pancreatitis
+ Available;  With caution;  Not recommended or contraindicated;  Limited evidence.
+ER, extended release; eGFR, estimated glomerular filtration rate.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2412 | https://www.jomes.org
+tive and safe, such as sleeve gastrectomy, Roux-en-Y gastric bypass, 
+adjustable gastric banding, or biliopancreatic diversion/duodenal 
+switch, is recommended based on patient condition (I, A).40,47 Af-
+ter bariatric/metabolic surgery, multidisciplinary follow-up man-
+agement should be scheduled for all patients (I, B).47-50 In addition, 
+micronutrient supplementation should be initiated, and regular fol-
+low-up examinations should be conducted according to the surgi-
+cal procedure (I, B).47,48,51 For children and adolescents with obesi-
+ty, in cases where weight gain and obesity-related comorbidities re-
+main despite intensive multidisciplinary treatment and pharmaco-
+therapy for obesity, surgical therapy may be considered in limited 
+cases, only after completion of growth and puberty (IIb, C).52-55 In 
+pediatric and adolescent cases, surgery may be considered if the 
+BMI is 35 kg/m2 or higher, the BMI is higher than 120% of the 
+95th percentile, and there are obesity-related comorbidities or if 
+BMI is 40 kg/m2 or higher or exceeds 140% of the 95th percentile. 
+Bariatric surgery in the elderly is considered safe and effective; 
+however, indications for bariatric surgery in obese elderly people in 
+Asia, including Korea, have not been established. Age does not 
+seem to increase the risk of complications after bariatric surgery. 
+Therefore, if the risk of complications after surgery is not greater 
+than the impact of obesity-related disabilities, surgical treatment for 
+elderly people with obesity may be considered, taking into account 
+accompanying diseases, medications, and safety (IIb, B).21,40,56-59
+NEW TOPICS INCLUDED IN THIS EDITION 
+OF THE GUIDELINES
+T o stay current with the constantly evolving field of obesity, new 
+main topics such as obesity in women, obesity in patients with 
+mental illness, weight maintenance after weight loss, and the use of 
+ICT-based interventions for obesity treatment are included in the 
+8th edition guidelines.
+Women should maintain a normal weight before pregnancy due 
+to the higher obstetric and perinatal risks associated with obesity. 
+However, there is limited evidence to support the obstetric and 
+perinatal benefits of non-pharmacological and pharmacological 
+weight loss methods in women with obesity. Although a meta-
+analysis has shown positive impacts of bariatric surgery on sponta-
+neous pregnancy in infertile women, these findings should be ap-
+proached with caution due to the quality of the included data.
+The current guidelines also address pregnancy-related weight 
+gain and the relationship between obesity and menopause. During 
+pregnancy, women with obesity should maintain a balanced diet 
+and engage in regular physical activity to achieve appropriate 
+weight gain. After delivery, active lifestyle interventions are recom-
+mended for weight management. Appropriate weight management 
+is also recommended for women who are obese and in the meno-
+pausal period due to the increased risk of obesity-related comor-
+bidities. Hormone therapy should not be used solely for the pur-
+pose of weight loss in menopausal women.
+Severe mental illness has been linked to obesity and its comor-
+bidities. Additionally, depression may also contribute to the devel-
+opment of obesity and an unhealthy metabolic state. Another im-
+portant factor to consider in the clinical context is that many medi-
+cations used to treat severe mental illness can cause weight gain. 
+In light of this, the guidelines include key questions about screen-
+ing tests for obesity and metabolic diseases and comprehensive life-
+style interventions for weight loss in patients with severe mental ill-
+ness who are taking medications; recommendations are shown in 
+T able 1.
+Long-term maintenance after weight loss is more beneficial for 
+overall health and well-being than is short-term weight loss. One of 
+the most significant benefits of weight maintenance is prevention 
+of diabetes. Additionally, it can improve the apnea-hypopnea index 
+in individuals with obesity and obstructive sleep apnea, improve 
+cerebral blood flow, and lower blood pressure. Furthermore, weight 
+maintenance has been found to be associated with a lower mortali-
+ty rate in individuals with obesity. The importance of long-term 
+maintenance of weight loss and maintenance methods are high-
+lighted in T able 1. 
+Another new area addressed in this edition of the guidelines is 
+the use of ICT-based interventions for obesity. ICT-based interven-
+tions can supplement the lack of psychological and behavioral 
+counseling provided by healthcare professionals and can facilitate 
+achievement and maintenance of lifestyle modifications. Based on 
+available evidence, technology-based interventions are recom -
+mended for obesity treatment (T able 1).
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 13
+CONCLUSION
+The 8th edition of the Clinical Practice Guidelines for Obesity of 
+KSSO was developed after reviewing all relevant scientific evidence 
+and is intended for use by medical professionals, nutritionists, phys-
+ical educators, and other related professionals in actual practice.
+Methodologically, this edition of the guidelines features better 
+links key questions in PICO format to recommendations and key 
+references as answers to each key questions, increasing organization 
+(T able 1). When developing clinical practice guidelines, it is im-
+portant to involve stakeholders in the process, and our guideline 
+development group included members from all relevant expert 
+groups. However, a limitation of our work is the lack of investiga-
+tion into the perspectives and preferences of the target population 
+(patients, the general public, etc.) to whom the guidelines will be 
+applied. Additional limitations include insufficient description of 
+barriers and facilitators to executing the guidelines and lack of con-
+sideration of potential resources that may be required for applica-
+tion of the guidelines. In the future, clinical practice guidelines 
+should address these methodological limitations.
+The 8th edition of Clinical Practice Guidelines for Obesity has 
+incorporated several new topics to keep up with the constantly 
+evolving field of obesity. One of the new topics, ‘obesity in women,’ 
+will be of great benefit to medical professionals treating women 
+during their reproductive years, pregnancy, and postmenopausal 
+stages. Additionally, two important topics, ‘obesity in patients with 
+mental illness’ and ‘weight maintenance after weight loss,’ were 
+added to provide strategies to address the most challenging issues 
+faced by medical professionals treating obesity. The use of ICT is 
+becoming increasingly important in medical fields, and the new 
+topic ‘obesity treatment using ICT-based interventions’ will pro-
+vide a foundation for further knowledge development in this area.
+We are confident that the 8th edition of the Clinical Practice 
+Guidelines for Obesity will be a useful tool for all healthcare profes-
+sionals treating patients with obesity and will play a crucial role in 
+improving the health of the Korean population.
+CONFLICTS OF INTEREST 
+In order to confirm the presence or absence of conflicts of inter-
+est among all members involved in the development of these guide-
+lines, a survey was conducted on whether they had received more 
+than 10 million Korean won in sponsorship or consulting fees over 
+the past 2 years on topics related to the development of these guide-
+lines, whether they have rights to economic benefits such as stock 
+options from specific institutions or pharmaceutical companies, 
+and whether they hold official/unofficial positions in pharmaceuti-
+cal companies. The survey results indicated no conflicting or po-
+tential conflicts of interest.
+Ga Eun Nam has worked as an Associate Editor of the Journal of 
+Obesity and Metabolic Syndrome since 2020. However, she was not 
+involved in peer reviewer selection, evaluation, or the decision pro-
+cess for this article. There are no other potential conflicts of interest 
+relevant to this article to report.
+SUPPLEMENTARY MATERIALS
+Supplementary materials can be found online at https://doi.org/ 
+10.7570/jomes23016.
+ACKNOWLEDGMENTS 
+Financial support was received from Korean Society for the Study 
+of Obesity. However, the financial supporter did not directly or in-
+directly influence the content or development process of these 
+guidelines.
+AUTHOR CONTRIBUTIONS 
+Study concept and design: KKK, JHH, BTK, EMK, JHP , SYR, 
+JHK, and CBL; acquisition of data: all authors; analysis and inter-
+pretation of data: all authors; drafting of the manuscript: KKK, 
+JHK, and JHH; critical revision of the manuscript: KKK and JHK; 
+obtained funding: CBL; administrative, technical, or material sup-
+port: KKK, JHK, and JHH; and study supervision: JHK.
+ 
+REFERENCES
+1. Yang YS, Han BD, Han K, Jung JH, Son JW; T askforce T eam 
+of the Obesity Fact Sheet of the Korean Society for the Study 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2414 | https://www.jomes.org
+of Obesity. Obesity fact sheet in Korea, 2021: trends in obesi-
+ty prevalence and obesity-related comorbidity incidence strati-
+fied by age from 2009 to 2019. J Obes Metab Syndr 2022;31: 
+169-77.
+2. Guh DP , Zhang W, Bansback N, Amarsi Z, Birmingham CL, 
+Anis AH. The incidence of co-morbidities related to obesity 
+and overweight: a systematic review and meta-analysis. BMC 
+Public Health 2009;9:88.
+3. Schienkiewitz A, Mensink GB, Scheidt-Nave C. Comorbidity 
+of overweight and obesity in a nationally representative sam-
+ple of German adults aged 18-79 years. BMC Public Health 
+2012;12:658.
+4. Haase CL, Lopes S, Olsen AH, Satylganova A, Schnecke V , 
+McEwan P . Weight loss and risk reduction of obesity-related 
+outcomes in 0.5 million people: evidence from a UK primary 
+care database. Int J Obes (Lond) 2021;45:1249-58.
+5. Thavorncharoensap M. ADBI Working Paper 654: Effective-
+ness of obesity prevention and control [Internet]. SSRN; 2017 
+[cited 2023 Mar 21]. Available from: http://dx.doi.org/10. 
+2139/ssrn.3016129.
+6. Korean Ministry of Health & Welfare, Korean Academy of 
+Medical Sciences. Adaptation process for developing Korean 
+clinical practice guidelines. KAMS; 2011.
+7. Schünemann HJ, Wiercioch W, Brozek J, Etxeandia-Ikobaltze-
+ta I, Mustafa RA, Manja V , et al. GRADE Evidence to Decision 
+(EtD) frameworks for adoption, adaptation, and de novo de-
+velopment of trustworthy recommendations: GRADE-ADO-
+LOPMENT . J Clin Epidemiol 2017;81:101-10.
+8. Graf CE, Herrmann FR, Spoerri A, Makhlouf AM, Sørensen 
+TI, Ho S, et al. Impact of body composition changes on risk 
+of all-cause mortality in older adults. Clin Nutr 2016;35:1499-
+505.
+9. Zamboni M, Mazzali G, Zoico E, Harris TB, Meigs JB, Di 
+Francesco V , et al. Health consequences of obesity in the el-
+derly: a review of four unresolved questions. Int J Obes (Lond) 
+2005;29:1011-29.
+10. Zaslavsky O, Rillamas-Sun E, LaCroix AZ, Woods NF, Tin-
+ker LF, Zisberg A, et al. Association between anthropomet-
+ric measures and long-term survival in frail older women: 
+observations from the women’s health initiative study. J Am 
+Geriatr Soc 2016;64:277-84.
+11. Committee of Childhood and Adolescence of the Korean 
+Society for the Study of Obesity. Obesity in children and 
+adolescents. 3rd ed. The Korean Society for the Study of 
+Obesity; 2019.
+12. Kim BY, Kang SM, Kang JH, Kang SY, Kim KK, Kim KB, et 
+al. 2020 Korean Society for the Study of Obesity guidelines 
+for the management of obesity in Korea. J Obes Metab Syn-
+dr 2021;30:81-92.
+13. Kelly AS, Barlow SE, Rao G, Inge TH, Hayman LL, Stein-
+berger J, et al. Severe obesity in children and adolescents: 
+identification, associated health risks, and treatment approach-
+es: a scientific statement from the American Heart Associa-
+tion. Circulation 2013;128:1689-712.
+14. US Preventive Services T ask Force; Grossman DC, Bibbins-
+Domingo K, Curry SJ, Barry MJ, Davidson KW, et al. Screen-
+ing for obesity in children and adolescents: US Preventive 
+Services T ask Force recommendation statement. JAMA 2017; 
+317:2417-26.
+15. Bays HE, Chapman RH, Grandy S; SHIELD Investigators’ 
+Group. The relationship of body mass index to diabetes mel-
+litus, hypertension and dyslipidaemia: comparison of data 
+from two national surveys. Int J Clin Pract 2007;61:737-47. 
+16. Goodarzi MO. Genetics of obesity: what genetic association 
+studies have taught us about the biology of obesity and its 
+complications. Lancet Diabetes Endocrinol 2018;6:223-36.
+17. Qasim A, Turcotte M, de Souza RJ, Samaan MC, Champre-
+don D, Dushoff J, et al. On the origin of obesity: identifying 
+the biological, environmental and cultural drivers of genetic 
+risk among human populations. Obes Rev 2018;19:121-49.
+18. Lyznicki JM, Y oung DC, Riggs JA, Davis RM; Council on 
+Scientific Affairs, American Medical Association. Obesity: 
+assessment and management in primary care. Am Fam Phy-
+sician 2001;63:2185-96.
+19. Bray GA, Heisel WE, Afshin A, Jensen MD, Dietz WH, Long 
+M, et al. The science of obesity management: an endocrine 
+society scientific statement. Endocr Rev 2018;39:79-132.
+20. US Preventive Services T ask Force; Curry SJ, Krist AH, Ow-
+ens DK, Barry MJ, Caughey AB, et al. Behavioral weight loss 
+interventions to prevent obesity-related morbidity and mor-
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 15
+tality in adults: US Preventive Services T ask Force recom-
+mendation statement. JAMA 2018;320:1163-71.
+21. Garvey WT , Mechanick JI, Brett EM, Garber AJ, Hurley DL, 
+Jastreboff AM, et al. American Association of Clinical Endo-
+crinologists and American College of Endocrinology com-
+prehensive clinical practice guidelines for medical care of pa-
+tients with obesity. Endocr Pract 2016;22 Suppl 3:1-203.
+22. Sanchez-Santos MT , Judge A, Gulati M, Spector TD, Hart 
+DJ, Newton JL, et al. Association of metabolic syndrome 
+with knee and hand osteoarthritis: a community-based study 
+of women. Semin Arthritis Rheum 2019;48:791-8.
+23. Xie L, Chen Y, T an A, Gao Y, Yang X, Mo Z, et al. Central 
+obesity indicating a higher prevalence of lower urinary tract 
+symptoms: a case-control matching analysis from a Chinese 
+cross-sectional study in males. Low Urin T ract Symptoms 
+2019;11:O135-40.
+24. Russell T , Duntley S. Sleep disordered breathing in the el-
+derly. Am J Med 2011;124:1123-6.
+25. Lim S, Kwon SY, Y oon JW, Kim SY, Choi SH, Park YJ, et al. 
+Association between body composition and pulmonary func-
+tion in elderly people: the Korean Longitudinal Study on 
+Health and Aging. Obesity (Silver Spring) 2011;19:631-8.
+26. Arnold M, Freisling H, Stolzenberg-Solomon R, Kee F, 
+O’Doherty MG, Ordóñez-Mena JM, et al. Overweight dura-
+tion in older adults and cancer risk: a study of cohorts in 
+Europe and the United States. Eur J Epidemiol 2016;31:893-
+904.
+27. Lee KR, Hwang IC, Han KD, Jung J, Seo MH. Waist circum-
+ference and risk of breast cancer in Korean women: a nation-
+wide cohort study. Int J Cancer 2018;142:1554-9.
+28. Y oo S, Oh S, Park J, Cho SY, Cho MC, Son H, et al. Effects 
+of metabolic syndrome on the prevalence of prostate cancer: 
+historical cohort study using the National Health Insurance 
+Service Database. J Cancer Res Clin Oncol 2019;145:775-80.
+29. Villareal DT , Apovian CM, Kushner RF, Klein S; American 
+Society for Nutrition; NAASO, The Obesity Society. Obesi-
+ty in older adults: technical review and position statement of 
+the American Society for Nutrition and NAASO, The Obe-
+sity Society. Am J Clin Nutr 2005;82:923-34.
+30. Park S, Joo YH, McIntyre RS, Kim B. Metabolic syndrome 
+and elevated C-reactive protein levels in elderly patients with 
+newly diagnosed depression. Psychosomatics 2014;55:640-9.
+31. Danat IM, Clifford A, Partridge M, Zhou W, Bakre AT , Chen 
+A, et al. Impacts of overweight and obesity in older age on 
+the risk of dementia: a systematic literature review and a 
+meta-analysis. J Alzheimers Dis 2019;70(s1):S87-99.
+32. Jee SH, Sull JW, Park J, Lee SY, Ohrr H, Guallar E, et al. Body-
+mass index and mortality in Korean men and women. N 
+Engl J Med 2006;355:779-87.
+33. Amiri S, Behnezhad S, Hasani J. Body mass index and risk 
+of frailty in older adults: a systematic review and meta-analy-
+sis. Obesity Medicine 2020;18:100196.
+34. Neri SG, Oliveira JS, Dario AB, Lima RM, Tiedemann A. 
+Does obesity increase the risk and severity of falls in people 
+aged 60 years and older? A systematic review and meta-anal-
+ysis of observational studies. J Gerontol A Biol Sci Med Sci 
+2020;75:952-60.
+35. Seimon RV , Wild-T aylor AL, Keating SE, McClintock S, Harp-
+er C, Gibson AA, et al. Effect of weight loss via severe vs 
+moderate energy restriction on lean mass and body compo-
+sition among postmenopausal women with obesity: the 
+TEMPO diet randomized clinical trial. JAMA Netw Open 
+2019;2:e1913733.
+36. Kim S, Kim M, Won CW. Validation of the Korean version 
+of the SARC-F Questionnaire to assess sarcopenia: Korean 
+Frailty and Aging Cohort Study. J Am Med Dir Assoc 2018; 
+19:40-5.e1.
+37. Zhang X, Xie X, Dou Q, Liu C, Zhang W, Yang Y, et al. As-
+sociation of sarcopenic obesity with the risk of all-cause mor-
+tality among adults over a broad range of different settings: a 
+updated meta-analysis. BMC Geriatr 2019;19:183.
+38. Jensen MD, Ryan DH, Apovian CM, Ard JD, Comuzzie AG, 
+Donato KA, et al. 2013 AHA/ACC/TOS guideline for the 
+management of overweight and obesity in adults: a report of 
+the American College of Cardiology/American Heart Asso-
+ciation T ask Force on Practice Guidelines and The Obesity 
+Society. Circulation 2014;129(25 Suppl 2):S102-38.
+39. Yumuk V , T sigos C, Fried M, Schindler K, Busetto L, Micic D, 
+et al. European guidelines for obesity management in adults. 
+Obes Facts 2015;8:402-24.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2416 | https://www.jomes.org
+40. Wharton S, Lau DC, Vallis M, Sharma AM, Biertho L, Camp-
+bell-Scherer D, et al. Obesity in adults: a clinical practice 
+guideline. CMAJ 2020;192:E875-91.
+41. Bays JC. Mindful eating: a guide to rediscovering a healthy 
+and joyful relationship with food. Shambhala; 2009.
+42. Alberts HJ, Thewissen R, Raes L. Dealing with problematic 
+eating behaviour: the effects of a mindfulness-based inter-
+vention on eating behaviour, food cravings, dichotomous 
+thinking and body image concern. Appetite 2012;58:847-51.
+43. Mason AE, Lustig RH, Brown RR, Acree M, Bacchetti P , 
+Moran PJ, et al. Acute responses to opioidergic blockade as 
+a biomarker of hedonic eating among obese women enrolled 
+in a mindfulness-based weight loss intervention trial. Appe-
+tite 2015;91:311-20.
+44. Rogers JM, Ferrari M, Mosely K, Lang CP , Brennan L. Mind-
+fulness-based interventions for adults who are overweight or 
+obese: a meta-analysis of physical and psychological health 
+outcomes. Obes Rev 2017;18:51-67.
+45. Braden A, Ferrell E, Anderson LN, Grant J, Watford T , Barn-
+hart W. Adapted dialectical behavioral therapy for overweight/
+obese emotional eaters. Obesity 2020;28:46.
+46. Chung YL, Rhie YJ. Severe obesity in children and adoles-
+cents: metabolic effects, assessment, and treatment. J Obes 
+Metab Syndr 2021;30:326-35.
+47. Haskins IN, Amdur R, Vaziri K. The effect of smoking on 
+bariatric surgical outcomes. Surg Endosc 2014;28:3074-80.
+48. Di Lorenzo N, Antoniou SA, Batterham RL, Busetto L, Go-
+doroja D, Iossa A, et al. Clinical practice guidelines of the 
+European Association for Endoscopic Surgery (EAES) on 
+bariatric surgery: update 2020 endorsed by IFSO-EC, EASO 
+and ESPCOP . Surg Endosc 2020;34:2332-58.
+49. Rudolph A, Hilbert A. Post-operative behavioural manage-
+ment in bariatric surgery: a systematic review and meta-anal-
+ysis of randomized controlled trials. Obes Rev 2013;14:292-
+302.
+50. Stewart F, Avenell A. Behavioural interventions for severe 
+obesity before and/or after bariatric surgery: a systematic re-
+view and meta-analysis. Obes Surg 2016;26:1203-14.
+51. Li Z, Zhou X, Fu W. Vitamin D supplementation for the 
+prevention of vitamin D deficiency after bariatric surgery: a 
+systematic review and meta-analysis. Eur J Clin Nutr 2018; 
+72:1061-70.
+52. Styne DM, Arslanian SA, Connor EL, Farooqi IS, Murad 
+MH, Silverstein JH, et al. Pediatric obesity-assessment, treat-
+ment, and prevention: an endocrine society clinical practice 
+guideline. J Clin Endocrinol Metab 2017;102:709-57.
+53. Bolling CF, Armstrong SC, Reichard KW, Michalsky MP; 
+Section on Obesity, Section on Surgery. Metabolic and bar-
+iatric surgery for pediatric patients with severe obesity. Pedi-
+atrics 2019;144:e20193224.
+54. Armstrong SC, Bolling CF, Michalsky MP , Reichard KW; 
+Section on Obesity, Section on Surgery. Pediatric metabolic 
+and bariatric surgery: evidence, barriers, and best practices. 
+Pediatrics 2019;144:e20193223.
+55. Pratt JS, Browne A, Browne NT , Bruzoni M, Cohen M, De-
+sai A, et al. ASMBS pediatric metabolic and bariatric surgery 
+guidelines, 2018. Surg Obes Relat Dis 2018;14:882-901.
+56. Nabuco HC, T omeleri CM, Fernandes RR, Sugihara Junior P , 
+Cavalcante EF, Cunha PM, et al. Effect of whey protein sup-
+plementation combined with resistance training on body 
+composition, muscular strength, functional capacity, and 
+plasma-metabolism biomarkers in older women with sarco-
+penic obesity: a randomized, double-blind, placebo-con -
+trolled trial. Clin Nutr ESPEN 2019;32:88-95.
+57. Han TS, Wu FC, Lean ME. Obesity and weight manage -
+ment in the elderly: a focus on men. Best Pract Res Clin En-
+docrinol Metab 2013;27:509-25.
+58. Daigle CR, Andalib A, Corcelles R, Cetin D, Schauer PR, 
+Brethauer SA. Bariatric and metabolic outcomes in the su-
+per-obese elderly. Surg Obes Relat Dis 2016;12:132-7.
+59. Haywood C, Sumithran P . T reatment of obesity in older 
+persons: a systematic review. Obes Rev 2019;20:588-98.
+60. Heymsfield SB, Peterson CM, Thomas DM, Heo M, Schuna 
+JM, Hong S, et al. Scaling of adult body weight to height 
+across sex and race/ethnic groups: relevance to BMI. Am J 
+Clin Nutr 2014;100:1455-61.
+61. World Health Organization. The Asia-Pacific perspective: 
+redefining obesity and its treatment. WHO; 2000.
+62. Seo MH, Kim YH, Han K, Lee WY, Y oo SJ. Prevalence of 
+obesity and incidence of obesity-related comorbidities in 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 17
+Koreans based on National Health Insurance Service Health 
+Checkup Data 2006-2015 ( J Obes Metab Syndr 2018;27: 
+46-52). J Obes Metab Syndr 2018;27:198-9.
+63. T obias DK, Pan A, Jackson CL, O’Reilly EJ, Ding EL, Wil-
+lett WC, et al. Body-mass index and mortality among adults 
+with incident type 2 diabetes. N Engl J Med 2014;370:233-44.
+64. Twig G, Afek A, Derazne E, Tzur D, Cukierman-Yaffe T , 
+Gerstein HC, et al. Diabetes risk among overweight and obese 
+metabolically healthy young adults. Diabetes Care 2014;37: 
+2989-95.
+65. Abdullah A, Peeters A, de Courten M, Stoelwinder J. The 
+magnitude of association between overweight and obesity 
+and the risk of diabetes: a meta-analysis of prospective cohort 
+studies. Diabetes Res Clin Pract 2010;89:309-19.
+66. Schienkiewitz A, Schulze MB, Hoffmann K, Kroke A, Boe-
+ing H. Body mass index history and risk of type 2 diabetes: 
+results from the European Prospective Investigation into 
+Cancer and Nutrition (EPIC)-Potsdam Study. Am J Clin 
+Nutr 2006;84:427-33.
+67. Strazzullo P , D’Elia L, Cairella G, Garbagnati F, Cappuccio 
+FP , Scalfi L. Excess body weight and incidence of stroke: 
+meta-analysis of prospective studies with 2 million partici-
+pants. Stroke 2010;41:e418-26.
+68. Rea TD, Heckbert SR, Kaplan RC, Psaty BM, Smith NL, 
+Lemaitre RN, et al. Body mass index and the risk of recur -
+rent coronary events following acute myocardial infarction. 
+Am J Cardiol 2001;88:467-72.
+69. Prospective Studies Collaboration; Whitlock G, Lewington S, 
+Sherliker P , Clarke R, Emberson J, et al. Body-mass index 
+and cause-specific mortality in 900 000 adults: collaborative 
+analyses of 57 prospective studies. Lancet 2009;373:1083-96.
+70. Lee SY, Park HS, Kim DJ, Han JH, Kim SM, Cho GJ, et al. 
+Appropriate waist circumference cutoff points for central 
+obesity in Korean adults. Diabetes Res Clin Pract 2007;75: 
+72-80.
+71. Jensen MD, Ryan DH, Apovian CM, Ard JD, Comuzzie 
+AG, Donato KA, et al. 2013 AHA/ACC/TOS guideline for 
+the management of overweight and obesity in adults: a re-
+port of the American College of Cardiology/American Heart 
+Association T ask Force on Practice Guidelines and The Obe-
+sity Society. J Am Coll Cardiol 2014;63(25 Pt B):2985-3023.
+72. Muscogiuri G, El Ghoch M, Colao A, Hassapidou M, Yumuk 
+V , Busetto L, et al. European guidelines for obesity manage-
+ment in adults with a very low-calorie ketogenic diet: a sys-
+tematic review and meta-analysis. Obes Facts 2021;14:222-45.
+73. American College of Sports Medicine. ACSM’s exercise test-
+ing and prescription. 11th ed. Wolter Kluwer; 2021.
+74. Go G. Physical activity status and task. Health Welf Policy 
+Forum 2013;198:38-47.
+75. Donnelly JE, Blair SN, Jakicic JM, Manore MM, Rankin JW, 
+Smith BK, et al. Appropriate physical activity intervention 
+strategies for weight loss and prevention of weight regain for 
+adults. Med Sci Sports Exerc 2009;41:459-71.
+76. Kim KB, Kim K, Kim C, Kang SJ, Kim HJ, Y oon S, et al. Ef-
+fects of exercise on the body composition and lipid profile 
+of individuals with obesity: a systematic review and meta-
+analysis. J Obes Metab Syndr 2019;28:278-94.
+77. González-Nóvoa JA, Campanioni S, Busto L, Fariña J, Ro-
+dríguez-Andina JJ, Vila D, et al. Improving intensive care unit 
+early readmission prediction using optimized and explainable 
+machine learning. Int J Environ Res Public Health 2023;20: 
+3455.
+78. Liguori G, American College of Sports Medicine. ACSM’s 
+guidelines for exercise testing and prescription. 10th ed. Lip-
+pincott Williams & Wilkins; 2020.
+79. Morze J, Rücker G, Danielewicz A, Przybyłowicz K, Neuen-
+schwander M, Schlesinger S, et al. Impact of different train-
+ing modalities on anthropometric outcomes in patients with 
+obesity: a systematic review and network meta-analysis. Obes 
+Rev 2021;22:e13218.
+80. Oppert JM, Bellicha A, van Baak MA, Battista F, Beaulieu K, 
+Blundell JE, et al. Exercise training in the management of 
+overweight and obesity in adults: synthesis of the evidence 
+and recommendations from the European Association for 
+the Study of Obesity Physical Activity Working Group. Obes 
+Rev 2021;22 Suppl 4:e13273.
+81. Thorogood A, Mottillo S, Shimony A, Filion KB, Joseph L, 
+Genest J, et al. Isolated aerobic exercise and weight loss: a 
+systematic review and meta-analysis of randomized controlled 
+trials. Am J Med 2011;124:747-55.
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2418 | https://www.jomes.org
+82. Schwingshackl L, Dias S, Strasser B, Hoffmann G. Impact of 
+different training modalities on anthropometric and meta-
+bolic characteristics in overweight/obese subjects: a system-
+atic review and network meta-analysis. PLoS One 2013;8: 
+e82853.
+83. Washburn RA, Szabo AN, Lambourne K, Willis EA, Ptom-
+ey LT , Honas JJ, et al. Does the method of weight loss effect 
+long-term changes in weight, body composition or chronic 
+disease risk factors in overweight or obese adults? A system-
+atic review. PLoS One 2014;9:e109849.
+84. Hamman RF, Wing RR, Edelstein SL, Lachin JM, Bray GA, 
+Delahanty L, et al. Effect of weight loss with lifestyle inter-
+vention on risk of diabetes. Diabetes Care 2006;29:2102-7.
+85. Look AHEAD Research Group. Eight-year weight losses 
+with an intensive lifestyle intervention: the look AHEAD 
+study. Obesity (Silver Spring) 2014;22:5-13.
+86. American College of Cardiology/American Heart Associa-
+tion T ask Force on Practice Guidelines, Obesity Expert Pan-
+el, 2013. Expert Panel Report: Guidelines (2013) for the 
+management of overweight and obesity in adults. Obesity 
+(Silver Spring) 2014;22 Suppl 2:S41-410.
+87. Svetkey LP , Stevens VJ, Brantley PJ, Appel LJ, Hollis JF, Lo-
+ria CM, et al. Comparison of strategies for sustaining weight 
+loss: the weight loss maintenance randomized controlled tri-
+al. JAMA 2008;299:1139-48.
+88. Look AHEAD Research Group; Wing RR. Long-term ef -
+fects of a lifestyle intervention on weight and cardiovascular 
+risk factors in individuals with type 2 diabetes mellitus: four-
+year results of the Look AHEAD trial. Arch Intern Med 2010; 
+170:1566-75.
+89. Perri MG, Nezu AM, McKelvey WF, Shermer RL, Renjilian 
+DA, Viegener BJ. Relapse prevention training and problem-
+solving therapy in the long-term management of obesity. J 
+Consult Clin Psychol 2001;69:722-6.
+90. Lv N, Azar KM, Rosas LG, Wulfovich S, Xiao L, Ma J. Be -
+havioral lifestyle interventions for moderate and severe obe-
+sity: a systematic review. Prev Med 2017;100:180-93.
+91. Carels RA, Darby L, Cacciapaglia HM, Douglass OM, Harp-
+er J, Kaplar ME, et al. Applying a stepped-care approach to 
+the treatment of obesity. J Psychosom Res 2005;59:375-83.
+92. Miller CK, Nagaraja HN, Weinhold KR. Early weight-loss 
+success identifies nonresponders after a lifestyle intervention 
+in a worksite diabetes prevention trial. J Acad Nutr Diet 2015; 
+115:1464-71.
+93. Golzarand M, Salari-Moghaddam A, Mirmiran P . Associa-
+tion between alcohol intake and overweight and obesity: a 
+systematic review and dose-response meta-analysis of 127 ob-
+servational studies. Crit Rev Food Sci Nutr 2022;62:8078-98.
+94. Choi S, Kim K, Lee JK, Choi JY, Shin A, Park SK, et al. As-
+sociation between change in alcohol consumption and met-
+abolic syndrome: analysis from the health examinees study. 
+Diabetes Metab J 2019;43:615-26.
+95. Chao AM, Wadden TA, T ronieri JS, Berkowitz RI. Alcohol 
+intake and weight loss during intensive lifestyle intervention 
+for adults with overweight or obesity and diabetes. Obesity 
+(Silver Spring) 2019;27:30-40.
+96. Bush T , Lovejoy JC, Deprey M, Carpenter KM. The effect 
+of tobacco cessation on weight gain, obesity, and diabetes 
+risk. Obesity (Silver Spring) 2016;24:1834-41.
+97. Farley AC, Hajek P , Lycett D, Aveyard P . Interventions for 
+preventing weight gain after smoking cessation. Cochrane 
+Database Syst Rev 2012;1:CD006219.
+98. Ussher MH, T aylor A, Faulkner G. Exercise interventions 
+for smoking cessation. Cochrane Database Syst Rev 2012;1: 
+CD002295.
+99. Sjöström L, Rissanen A, Andersen T , Boldrin M, Golay A, 
+Koppeschaar HP , et al. Randomised placebo-controlled trial 
+of orlistat for weight loss and prevention of weight regain in 
+obese patients. Lancet 1998;352:167-72.
+100. Wadden TA, Berkowitz RI, Sarwer DB, Prus-Wisniewski R, 
+Steinberg C. Benefits of lifestyle modification in the phar -
+macologic treatment of obesity: a randomized trial. Arch In-
+tern Med 2001;161:218-27.
+101. T orgerson JS, Hauptman J, Boldrin MN, Sjöström L. XENi-
+cal in the prevention of diabetes in obese subjects (XENDOS) 
+study: a randomized study of orlistat as an adjunct to life -
+style changes for the prevention of type 2 diabetes in obese 
+patients. Diabetes Care 2004;27:155-61.
+102. Wadden TA, Berkowitz RI, Womble LG, Sarwer DB, Phelan 
+S, Cato RK, et al. Randomized trial of lifestyle modification 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 19
+and pharmacotherapy for obesity. N Engl J Med 2005;353: 
+2111-20.
+103. Poston WS, Haddock CK, Pinkston MM, Pace P , Reeves 
+RS, Karakoc N, et al. Evaluation of a primary care-oriented 
+brief counselling intervention for obesity with and without 
+orlistat. J Intern Med 2006;260:388-98.
+104. Greenway FL, Fujioka K, Plodkowski RA, Mudaliar S, Gut-
+tadauria M, Erickson J, et al. Effect of naltrexone plus bupro-
+pion on weight loss in overweight and obese adults (COR-
+I): a multicentre, randomised, double-blind, placebo-con-
+trolled, phase 3 trial. Lancet 2010;376:595-605.
+105. Wadden TA, Foreyt JP , Foster GD, Hill JO, Klein S, O’Neil 
+PM, et al. Weight loss with naltrexone SR/bupropion SR 
+combination therapy as an adjunct to behavior modification: 
+the COR-BMOD trial. Obesity (Silver Spring) 2011;19:  
+110-20.
+106. Allison DB, Gadde KM, Garvey WT , Peterson CA, Schwiers 
+ML, Najarian T , et al. Controlled-release phentermine/topi-
+ramate in severely obese adults: a randomized controlled tri-
+al (EQUIP). Obesity (Silver Spring) 2012;20:330-42.
+107. Garvey WT , Ryan DH, Look M, Gadde KM, Allison DB, 
+Peterson CA, et al. Two-year sustained weight loss and met-
+abolic benefits with controlled-release phentermine/topira-
+mate in obese and overweight adults (SEQUEL): a random-
+ized, placebo-controlled, phase 3 extension study. Am J Clin 
+Nutr 2012;95:297-308.
+108. Apovian CM, Aronne L, Rubino D, Still C, Wyatt H, Burns C, 
+et al. A randomized, phase 3 trial of naltrexone SR/bupropi-
+on SR on weight and obesity-related risk factors (COR-II). 
+Obesity (Silver Spring) 2013;21:935-43.
+109. Hollander P , Gupta AK, Plodkowski R, Greenway F, Bays H, 
+Burns C, et al. Effects of naltrexone sustained-release/bupro-
+pion sustained-release combination therapy on body weight 
+and glycemic parameters in overweight and obese patients 
+with type 2 diabetes. Diabetes Care 2013;36:4022-9.
+110. Garvey WT , Ryan DH, Henry R, Bohannon NJ, T oplak H, 
+Schwiers M, et al. Prevention of type 2 diabetes in subjects 
+with prediabetes and metabolic syndrome treated with phen-
+termine and topiramate extended release. Diabetes Care 
+2014;37:912-21.
+111. Davies MJ, Bergenstal R, Bode B, Kushner RF, Lewin A, 
+Skjøth TV , et al. Efficacy of liraglutide for weight loss among 
+patients with type 2 diabetes: the SCALE diabetes random-
+ized clinical trial. JAMA 2015;314:687-99.
+112. Pi-Sunyer X, Astrup A, Fujioka K, Greenway F, Halpern A, 
+Krempf M, et al. A randomized, controlled trial of 3.0 mg of 
+liraglutide in weight management. N Engl J Med 2015;373: 
+11-22.
+113. North American Association for the Study of Obesity, Na-
+tional Heart, Lung, and Blood Institute, National Institutes 
+of Health (U.S.), NHLBI Obesity Education Initiative. The 
+practical guide: identification, evaluation, and treatment of 
+overweight and obesity in adults. National Heart, Lung, and 
+Blood Institute; 2000.
+114. Smith SR, Weissman NJ, Anderson CM, Sanchez M, Chuang 
+E, Stubbe S, et al. Multicenter, placebo-controlled trial of 
+lorcaserin for weight management. N Engl J Med 2010;363: 
+245-56.
+115. T oplak H, Ziegler O, Keller U, Hamann A, Godin C, Wittert 
+G, et al. X-PERT: weight reduction with orlistat in obese 
+subjects receiving a mildly or moderately reduced-energy 
+diet: early response to treatment predicts weight maintenance. 
+Diabetes Obes Metab 2005;7:699-708.
+116. Finer N, Ryan DH, Renz CL, Hewkin AC. Prediction of re-
+sponse to sibutramine therapy in obese non-diabetic and di-
+abetic patients. Diabetes Obes Metab 2006;8:206-13.
+117. Rissanen A, Lean M, Rössner S, Segal KR, Sjöström L. Pre-
+dictive value of early weight loss in obesity management with 
+orlistat: an evidence-based assessment of prescribing guide-
+lines. Int J Obes Relat Metab Disord 2003;27:103-9.
+118. Alonso-T roncoso I, Carollo-Limeres C, Rios-Prego M, Guler 
+I, Cadarso-Suárez C, F-Mariño A. Liraglutide in a real-world 
+setting: joint modeling of metabolic response, prediction of 
+efficacy, and cardiovascular risk. Endocrinol Diabetes Nutr 
+(Engl Ed) 2019;66:376-84. 
+119. Fujioka K, Plodkowski R, O’Neil PM, Gilder K, Walsh B, 
+Greenway FL. The relationship between early weight loss 
+and weight loss at 1 year with naltrexone ER/bupropion ER 
+combination therapy. Int J Obes (Lond) 2016;40:1369-75.
+120. Fujioka K, O’Neil PM, Davies M, Greenway F, Lau DC, 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2420 | https://www.jomes.org
+Claudius B, et al. Early weight loss with liraglutide 3.0 mg 
+predicts 1-year weight loss and is associated with improve-
+ments in clinical markers. Obesity (Silver Spring) 2016;24: 
+2278-88.
+121. Schauer PR, Bhatt DL, Kirwan JP , Wolski K, Aminian A, 
+Brethauer SA, et al. Bariatric surgery versus intensive medical 
+therapy for diabetes: 5-year outcomes. N Engl J Med 2017; 
+376:641-51.
+122. Mingrone G, Panunzi S, De Gaetano A, Guidone C, Iaconelli 
+A, Nanni G, et al. Bariatric-metabolic surgery versus conven-
+tional medical treatment in obese patients with type 2 dia-
+betes: 5-year follow-up of an open-label, single-centre, ran-
+domised controlled trial. Lancet 2015;386:964-73.
+123. Bennett S, Gostimir M, Shorr R, Mallick R, Mamazza J, Nev-
+ille A. The role of routine preoperative upper endoscopy in 
+bariatric surgery: a systematic review and meta-analysis. Surg 
+Obes Relat Dis 2016;12:1116-25.
+124. Sauerland S, Angrisani L, Belachew M, Chevallier JM, Favretti 
+F, Finer N, et al. Obesity surgery: evidence-based guidelines 
+of the European Association for Endoscopic Surgery (EAES). 
+Surg Endosc 2005;19:200-21.
+125. Volkert D, Beck AM, Cederholm T , Cruz-Jentoft A, Goisser S, 
+Hooper L, et al. ESPEN guideline on clinical nutrition and 
+hydration in geriatrics. Clin Nutr 2019;38:10-47.
+126. Venditti EM, Marcus MD, Miller RG, Arena VC, Greenspan 
+SL, Rockette-Wagner B. Group lifestyle phone maintenance 
+for weight, health, and physical function in adults aged 65-
+80 years: a randomized clinical trial. J Gerontol A Biol Sci 
+Med Sci 2021;76:352-60.
+127. Dong F, Zhang Y, Huang Y, Wang Y, Zhang G, Hu X, et al. 
+Long-term lifestyle interventions in middle-aged and elderly 
+men with nonalcoholic fatty liver disease: a randomized 
+controlled trial. Sci Rep 2016;6:36783.
+128. Ballin M, Lundberg E, Sörlén N, Nordström P , Hult A, Nor-
+dström A. Effects of interval training on visceral adipose tis-
+sue in centrally obese 70-year-old individuals: a randomized 
+controlled trial. J Am Geriatr Soc 2019;67:1625-31.
+129. Giordano S, Victorzon M. Bariatric surgery in elderly patients: 
+a systematic review. Clin Interv Aging 2015;10:1627-35.
+130. Committee of Childhood and Adolescence of the Korean 
+Society for the Study of Obesity. Obesity in children and 
+adolescents. 3rd ed. The Korean Society for the Study of 
+Obesity; 2019.
+131. The Korean Centers for Disease Control and Prevention, 
+The Korean Pediatric Society. 2017 Korean national growth 
+chart for children and adolescents. KCDC; 2017.
+132. Korean Society of Pediatric Endocrinology. Pediatric endo-
+crinology. 3rd ed. Gunja Publishing Co.; 2014.
+133. Barlow SE; Expert Committee. Expert Committee recom-
+mendations regarding the prevention, assessment, and treat-
+ment of child and adolescent overweight and obesity: sum-
+mary report. Pediatrics 2007;120 Suppl 4:S164-92.
+134. Speiser PW, Rudolf MC, Anhalt H, Camacho-Hubner C, 
+Chiarelli F, Eliakim A, et al. Childhood obesity. J Clin Endo-
+crinol Metab 2005;90:1871-87.
+135. Zwiauer KF. Prevention and treatment of overweight and 
+obesity in children and adolescents. Eur J Pediatr 2000;159 
+Suppl 1:S56-68.
+136. Seo YG, Lim H, Kim Y, Ju YS, Lee HJ, Jang HB, et al. The 
+effect of a multidisciplinary lifestyle intervention on obesity 
+status, body composition, physical fitness, and cardiometa-
+bolic risk markers in children and adolescents with obesity. 
+Nutrients 2019;11:137.
+137. Ovesen P , Rasmussen S, Kesmodel U. Effect of prepregnan-
+cy maternal overweight and obesity on pregnancy outcome. 
+Obstet Gynecol 2011;118(2 Pt 1):305-12.
+138. Schummers L, Hutcheon JA, Bodnar LM, Lieberman E, 
+Himes KP . Risk of adverse pregnancy outcomes by prepreg-
+nancy body mass index: a population-based study to inform 
+prepregnancy weight loss counseling. Obstet Gynecol 
+2015;125:133-43.
+139. Doherty DA, Magann EF, Francis J, Morrison JC, Newnham 
+JP . Pre-pregnancy body mass index and pregnancy outcomes. 
+Int J Gynaecol Obstet 2006;95:242-7.
+140. Lim J, Han K, Kim SY, Cho YH, Y oon YS, Park HS, et al. 
+Effects of central obesity on maternal complications in Ko-
+rean women of reproductive age. Obes Res Clin Pract 2019; 
+13:156-63.
+141. Kim BY, Kim B, Han K, Chon SJ, Y oo SJ, Kim KK, et al. 
+Pre-pregnancy metabolic syndrome and insulin administra-
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 21
+tion in gestational diabetes: a nationwide population-based 
+cohort study. Obes Res Clin Pract 2021;15:362-7.
+142. Boots C, Stephenson MD. Does obesity increase the risk of 
+miscarriage in spontaneous conception: a systematic review. 
+Semin Reprod Med 2011;29:507-13.
+143. Zhou Y, Li H, Zhang Y, Zhang L, Liu J, Liu J. Association of 
+maternal obesity in early pregnancy with adverse pregnancy 
+outcomes: a Chinese prospective cohort analysis. Obesity 
+(Silver Spring) 2019;27:1030-6.
+144. Broughton DE, Moley KH. Obesity and female infertility: 
+potential mediators of obesity’s impact. Fertil Steril 2017;  
+107:840-7.
+145. Luke B, Brown MB, Missmer SA, Bukulmez O, Leach R, 
+Stern JE, et al. The effect of increasing obesity on the response 
+to and outcome of assisted reproductive technology: a na-
+tional study. Fertil Steril 2011;96:820-5.
+146. National Institute for Health and Care Excellence. Weight 
+management before, during and after pregnancy. NICE; 
+2010.
+147. Magro-Malosso ER, Saccone G, Di Mascio D, Di T ommaso 
+M, Berghella V . Exercise during pregnancy and risk of pre-
+term birth in overweight and obese women: a systematic re-
+view and meta-analysis of randomized controlled trials. Acta 
+Obstet Gynecol Scand 2017;96:263-73.
+148. Piccinini-Vallis H, Adamo K, Bell R, Pereira L, Nerenberg K. 
+Canadian Adult Obesity Clinical Practice Guidelines: 
+Weight management over the reproductive years for adult 
+women living with obesity [Internet]. ASOI; 2020 [cited 
+2023 Mar 21]. Available from: https://asoi.info/wp-con-
+tent/uploads/2022/10/18_IR_WeightManagementRepro-
+ductiveY ears-FINAL.pdf.
+149. Goldstein RF, Abell SK, Ranasinha S, Misso M, Boyle JA, 
+Black MH, et al. Association of gestational weight gain with 
+maternal and infant outcomes: a systematic review and me-
+ta-analysis. JAMA 2017;317:2207-25.
+150. Streuling I, Beyerlein A, von Kries R. Can gestational weight 
+gain be modified by increasing physical activity and diet 
+counseling? A meta-analysis of interventional trials. Am J 
+Clin Nutr 2010;92:678-87.
+151. Nascimento SL, Pudwell J, Surita FG, Adamo KB, Smith 
+GN. The effect of physical exercise strategies on weight loss 
+in postpartum women: a systematic review and meta-analy-
+sis. Int J Obes (Lond) 2014;38:626-35.
+152. Greendale GA, Sternfeld B, Huang M, Han W, Karvonen-
+Gutierrez C, Ruppert K, et al. Changes in body composition 
+and weight during the menopause transition. JCI Insight 
+2019;4:e124865.
+153. Ambikairajah A, Walsh E, T abatabaei-Jafari H, Cherbuin N. 
+Fat mass changes during menopause: a metaanalysis. Am J 
+Obstet Gynecol 2019;221:393-409.e50.
+154. Leeners B, Geary N, T obler PN, Asarian L. Ovarian hormones 
+and obesity. Hum Reprod Update 2017;23:300-21.
+155. Arner P , Lithell H, Wahrenberg H, Brönnegard M. Expres-
+sion of lipoprotein lipase in different human subcutaneous 
+adipose tissue regions. J Lipid Res 1991;32:423-9.
+156. Lovejoy JC, Champagne CM, de Jonge L, Xie H, Smith SR. 
+Increased visceral fat and decreased energy expenditure dur-
+ing the menopausal transition. Int J Obes (Lond) 2008;32: 
+949-58.
+157. Kozakowski J, Gietka-Czernel M, Leszczyńska D, Majos A. 
+Obesity in menopause: our negligence or an unfortunate in-
+evitability? Prz Menopauzalny 2017;16:61-5.
+158. Zamboni M, Armellini F, Milani MP , De Marchi M, T odes-
+co T , Robbi R, et al. Body fat distribution in pre- and post-
+menopausal women: metabolic and anthropometric vari -
+ables and their inter-relationships. Int J Obes Relat Metab 
+Disord 1992;16:495-504.
+159. Norman RJ, Flight IH, Rees MC. Oestrogen and progesto-
+gen hormone replacement therapy for peri-menopausal and 
+post-menopausal women: weight and body fat distribution. 
+Cochrane Database Syst Rev 2000;2:CD001018.
+160. Bonfioli E, Berti L, Goss C, Muraro F, Burti L. Health pro-
+motion lifestyle interventions for weight management in 
+psychosis: a systematic review and meta-analysis of randomised 
+controlled trials. BMC Psychiatry 2012;12:78.
+161. Mugisha J, De Hert M, Stubbs B, Basangwa D, Vancampfort 
+D. Physical health policies and metabolic screening in men-
+tal health care systems of sub-Saharan African countries: a 
+systematic review. Int J Ment Health Syst 2017;11:31.
+162. Hardy S, Hinks P , Gray R. Screening for cardiovascular risk 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2422 | https://www.jomes.org
+in patients with severe mental illness in primary care: a com-
+parison with patients with diabetes. J Ment Health 2013;22: 
+42-50.
+163. Mangurian C, Newcomer JW, Modlin C, Schillinger D. Dia-
+betes and cardiovascular care among people with severe men-
+tal illness: a literature review. J Gen Intern Med 2016;31:  
+1083-91.
+164. Singh VK, Karmani S, Malo PK, Virupaksha HG, Muralidhar 
+D, Venkatasubramanian G, et al. Impact of lifestyle modifica-
+tion on some components of metabolic syndrome in persons 
+with severe mental disorders: a meta-analysis. Schizophr Res 
+2018;202:17-25.
+165. Naslund JA, Whiteman KL, McHugo GJ, Aschbrenner KA, 
+Marsch LA, Bartels SJ. Lifestyle interventions for weight loss 
+among overweight and obese adults with serious mental ill-
+ness: a systematic review and meta-analysis. Gen Hosp Psy-
+chiatry 2017;47:83-102.
+166. Speyer H, Jakobsen AS, Westergaard C, Nørgaard HC, Jør-
+gensen KB, Pisinger C, et al. Lifestyle interventions for weight 
+management in people with serious mental illness: a system-
+atic review with meta-analysis, trial sequential analysis, and 
+meta-regression analysis exploring the mediators and mod-
+erators of treatment effects. Psychother Psychosom 2019;88: 
+350-62.
+167. Palavras MA, Hay P , Filho CA, Claudino A. The efficacy of 
+psychological therapies in reducing weight and binge eating 
+in people with bulimia nervosa and binge eating disorder 
+who are overweight or obese: a critical synthesis and meta-
+analyses. Nutrients 2017;9:299.
+168. Grilo CM, Lydecker JA, Morgan PT , Gueorguieva R. Nal-
+trexone + bupropion combination for the treatment of 
+binge-eating disorder with obesity: a randomized, controlled 
+pilot study. Clin Ther 2021;43:112-22.e1.
+169. Anandam A, Akinnusi M, Kufel T , Porhomayon J, El-Solh 
+AA. Effects of dietary weight loss on obstructive sleep apnea: 
+a meta-analysis. Sleep Breath 2013;17:227-34.
+170. Thomasouli MA, Brady EM, Davies MJ, Hall AP , Khunti K, 
+Morris DH, et al. The impact of diet and lifestyle manage-
+ment strategies for obstructive sleep apnoea in adults: a sys-
+tematic review and meta-analysis of randomised controlled 
+trials. Sleep Breath 2013;17:925-35.
+171. Araghi MH, Chen YF, Jagielski A, Choudhury S, Banerjee D, 
+Hussain S, et al. Effectiveness of lifestyle interventions on 
+obstructive sleep apnea (OSA): systematic review and meta-
+analysis. Sleep 2013;36:1553-62.
+172. Mitchell LJ, Davidson ZE, Bonham M, O’Driscoll DM, Ham-
+ilton GS, T ruby H. Weight loss from lifestyle interventions 
+and severity of sleep apnoea: a systematic review and meta-
+analysis. Sleep Med 2014;15:1173-83.
+173. Carneiro-Barrera A, Díaz-Román A, Guillén-Riquelme A, 
+Buela-Casal G. Weight loss and lifestyle interventions for 
+obstructive sleep apnoea in adults: systematic review and 
+meta-analysis. Obes Rev 2019;20:750-62.
+174. Lins-Filho O, Porto Aguiar JL, Vieira de Almeida JR, Soares 
+AH, Ritti-Dias R, Julia da Silva M, et al. Effect of exercise 
+training on body composition in patients with obstructive 
+sleep apnea: a systematic review and meta-analysis. Sleep 
+Med 2021;87:105-13.
+175. Diabetes Prevention Program Research Group. Long-term 
+effects of lifestyle intervention or metformin on diabetes de-
+velopment and microvascular complications over 15-year 
+follow-up: the Diabetes Prevention Program Outcomes Study. 
+Lancet Diabetes Endocrinol 2015;3:866-75.
+176. Merlotti C, Morabito A, Ceriani V , Pontiroli AE. Prevention 
+of type 2 diabetes in obese at-risk subjects: a systematic re-
+view and meta-analysis. Acta Diabetol 2014;51:853-63.
+177. Clamp LD, Hume DJ, Lambert EV , Kroff J. Enhanced insu-
+lin sensitivity in successful, long-term weight loss maintainers 
+compared with matched controls with no weight loss histo-
+ry. Nutr Diabetes 2017;7:e282.
+178. Kuna ST , Reboussin DM, Strotmeyer ES, Millman RP , Zam-
+mit G, Walkup MP , et al. Effects of weight loss on obstruc-
+tive sleep apnea severity: ten-year results of the Sleep AHEAD 
+study. Am J Respir Crit Care Med 2021;203:221-9.
+179. Romero-Gómez M, Zelber-Sagi S, T renell M. T reatment of 
+NAFLD with diet, physical activity and exercise. J Hepatol 
+2017;67:829-46.
+180. Bliddal H, Leeds AR, Stigsgaard L, Astrup A, Christensen R. 
+Weight loss as treatment for knee osteoarthritis symptoms 
+in obese patients: 1-year results from a randomised controlled 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-24 https://www.jomes.org | 23
+trial. Ann Rheum Dis 2011;70:1798-803.
+181. Espeland MA, Luchsinger JA, Neiberg RH, Carmichael O, 
+Laurienti PJ, Pi-Sunyer X, et al. Long term effect of intensive 
+lifestyle intervention on cerebral blood flow. J Am Geriatr 
+Soc 2018;66:120-6.
+182. Espeland MA, Carmichael O, Hayden K, Neiberg RH, New-
+man AB, Keller JN, et al. Long-term impact of weight loss 
+intervention on changes in cognitive function: exploratory 
+analyses from the action for health in diabetes randomized 
+controlled clinical trial. J Gerontol A Biol Sci Med Sci 2018; 
+73:484-91.
+183. Espeland MA, Erickson K, Neiberg RH, Jakicic JM, Wadden 
+TA, Wing RR, et al. Brain and white matter hyperintensity 
+volumes after 10 years of random assignment to lifestyle in-
+tervention. Diabetes Care 2016;39:764-71.
+184. Gepner Y, Goldstein N, Shelef I, Schwarzfuchs D, Zelicha H, 
+Meir AY, et al. Dissociation between long-term weight loss 
+intervention and blood pressure: an 18-month randomized 
+controlled trial. J Gen Intern Med 2021;36:2300-6.
+185. Shariaty S, Bahonaran A, Ayremlou P , Hoseinalizdeh L, Aliza-
+deh M. Comparison of dietary patterns, food groups, nutri-
+ents intake, cardio-metabolic biomarkers, and liver enzymes 
+in successful and unsuccessful weight loss maintainers. Obes 
+Med 2019;16:100147.
+186. Poulimeneas D, Anastasiou CA, Santos I, Hill JO, Panagiota-
+kos DB, Yannakoulia M. Exploring the relationship between 
+the Mediterranean diet and weight loss maintenance: the 
+MedWeight study. Br J Nutr 2020;124:874-80.
+187. Sedin A, Olsson ML, Cloetens L. The effects of 2-year con-
+sumption of a new Nordic diet on weight loss maintenance 
+in subjects with obesity: a randomised controlled interven-
+tion study. Obes Rev 2020;21(Suppl 1):EP201.
+188. Butryn ML, Godfrey KM, Call CC, Forman EM, Zhang F, 
+Volpe SL. Promotion of physical activity during weight loss 
+maintenance: a randomized controlled trial. Health Psychol 
+2021;40:178-87.
+189. Iłowiecka K, Glibowski P , Skrzypek M, Styk W. The long-
+term dietitian and psychological support of obese patients 
+who have reduced their weight allows them to maintain the 
+effects. Nutrients 2021;13:2020.
+190. Lawlor ER, Hughes CA, Duschinsky R, Pountain GD, Hill 
+AJ, Griffin SJ, et al. Cognitive and behavioural strategies em-
+ployed to overcome “lapses” and prevent “relapse” among 
+weight-loss maintainers and regainers: a qualitative study. 
+Clin Obes 2020;10:e12395.
+191. Nguyen B, Shrewsbury VA, O’Connor J, Steinbeck KS, Hill 
+AJ, Shah S, et al. Two-year outcomes of an adjunctive tele-
+phone coaching and electronic contact intervention for ado-
+lescent weight-loss maintenance: the Loozit randomized 
+controlled trial. Int J Obes (Lond) 2013;37:468-72.
+192. Fawcett E, Van Velthoven MH, Meinert E. Long-term weight 
+management using wearable technology in overweight and 
+obese adults: systematic review. JMIR Mhealth Uhealth 2020; 
+8:e13461.
+193. Kurscheid T , Redaelli M, Heinen A, Hahmann P , Behle K, 
+Froboese I. App-controlled feedback devices can support 
+sustainability of weight loss: multicentre QUANT-study shows 
+additional weight loss and gain of QoL via multiple feedback-
+devices in OPTIFAST 52-program. Z Psychosom Med Psy-
+chother 2019;65:224-38.
+194. Wadden TA, Hollander P , Klein S, Niswender K, Woo V , 
+Hale P , et al. Liraglutide provides weight maintenance and 
+additional weight loss after low calorie diet-induced weight 
+loss in obese subjects without diabetes: the SCALE mainte-
+nance study. Diabetes 2011;60(Suppl 1):A502.
+195. El Ansari W, Elhag W. Weight regain and insufficient weight 
+loss after bariatric surgery: definitions, prevalence, mecha-
+nisms, predictors, prevention and management strategies, 
+and knowledge gaps: a scoping review. Obes Surg 2021;31: 
+1755-66.
+196. Ard JD, Beavers DP , Hale E, Miller G, McNatt S, Fernandez 
+A. Use of phentermine-topiramate extended release in com-
+bination with sleeve gastrectomy in patients with BMI 50 
+kg/m2 or more. Surg Obes Relat Dis 2019;15:1039-43.
+197. Horber FF, Steffen R. Reversal of long-term weight regain 
+after Roux-en-Y gastric bypass using liraglutide or surgical 
+revision: a prospective study. Obes Surg 2021;31:93-100.
+198. Miras AD, Pérez-Pevida B, Aldhwayan M, Kamocka A, Mc-
+Glone ER, Al-Najim W, et al. Adjunctive liraglutide treatment 
+in patients with persistent or recurrent type 2 diabetes after 
+Kim KK, et al. Clinical Practice Guidelines for Obesity by KSSO
+J Obes Metab Syndr 2023;32:1-2424 | https://www.jomes.org
+metabolic surgery (GRAVITAS): a randomised, double-blind, 
+placebo-controlled trial. Lancet Diabetes Endocrinol 2019;7: 
+549-59.
+199. Alberti KG, Eckel RH, Grundy SM, Zimmet PZ, Cleeman 
+JI, Donato KA, et al. Harmonizing the metabolic syndrome: 
+a joint interim statement of the International Diabetes Fed-
+eration T ask Force on Epidemiology and Prevention; Na-
+tional Heart, Lung, and Blood Institute; American Heart 
+Association; World Heart Federation; International Athero-
+sclerosis Society; and International Association for the Study 
+of Obesity. Circulation 2009;120:1640-5.
+200. Nam GE, Park HS. Perspective on diagnostic criteria for obe-
+sity and abdominal obesity in Korean adults. J Obes Metab 
+Syndr 2018;27:134-42.
+201. Van Gaal LF, Wauters MA, De Leeuw IH. The beneficial ef-
+fects of modest weight loss on cardiovascular risk factors. Int 
+J Obes Relat Metab Disord 1997;21 Suppl 1:S5-9.
+202. Knowler WC, Barrett-Connor E, Fowler SE, Hamman RF, 
+Lachin JM, Walker EA, et al. Reduction in the incidence of 
+type 2 diabetes with lifestyle intervention or metformin. N 
+Engl J Med 2002;346:393-403.
+203. Diabetes Prevention Program Outcomes Study Research 
+Group; Orchard TJ, T emprosa M, Barrett-Connor E, Fowler 
+SE, Goldberg RB, et al. Long-term effects of the Diabetes 
+Prevention Program interventions on cardiovascular risk fac-
+tors: a report from the DPP Outcomes Study. Diabet Med 
+2013;30:46-55.
+204. Yamaoka K, T ango T . Effects of lifestyle modification on 
+metabolic syndrome: a systematic review and meta-analysis. 
+BMC Med 2012;10:138.
+205. T ortosa A, Bes-Rastrollo M, Sanchez-Villegas A, Basterra-
+Gortari FJ, Nuñez-Cordoba JM, Martinez-Gonzalez MA. 
+Mediterranean diet inversely associated with the incidence 
+of metabolic syndrome: the SUN prospective cohort. Dia-
+betes Care 2007;30:2957-9.
+206. Jenkins DJ, Kendall CW, Augustin LS, Franceschi S, Hamidi 
+M, Marchie A, et al. Glycemic index: overview of implica -
+tions in health and disease. Am J Clin Nutr 2002;76:266S-
+73S.
+207. Lien LF, Brown AJ, Ard JD, Loria C, Erlinger TP , Feldstein 
+AC, et al. Effects of PREMIER lifestyle modifications on 
+participants with and without the metabolic syndrome. Hy-
+pertension 2007;50:609-16.
+208. Haskell WL, Lee IM, Pate RR, Powell KE, Blair SN, Frank-
+lin BA, et al. Physical activity and public health: updated 
+recommendation for adults from the American College of 
+Sports Medicine and the American Heart Association. Cir-
+culation 2007;116:1081-93.
+209. Johnson JL, Slentz CA, Houmard JA, Samsa GP , Duscha 
+BD, Aiken LB, et al. Exercise training amount and intensity 
+effects on metabolic syndrome (from Studies of a T argeted 
+Risk Reduction Intervention through Defined Exercise). 
+Am J Cardiol 2007;100:1759-66.
+210. Matikainen N, T askinen MR. Management of dyslipidemias 
+in the presence of the metabolic syndrome or type 2 diabe-
+tes. Curr Cardiol Rep 2012;14:721-31.
+211. Elliott WJ, Meyer PM. Incident diabetes in clinical trials of 
+antihypertensive drugs: a network meta-analysis. Lancet 
+2007;369:201-7.
+212. Rao G, Burke LE, Spring BJ, Ewing LJ, Turk M, Lichtenstein 
+AH, et al. New and emerging weight management strategies 
+for busy ambulatory settings: a scientific statement from the 
+American Heart Association endorsed by the Society of Be-
+havioral Medicine. Circulation 2011;124:1182-203.
+213. Raaijmakers LC, Pouwels S, Berghuis KA, Nienhuijs SW. 
+T echnology-based interventions in the treatment of overweight 
+and obesity: a systematic review. Appetite 2015;95:138-51.
+214. Afshin A, Babalola D, Mclean M, Yu Z, Ma W, Chen CY, et 
+al. Information technology and lifestyle: a systematic evalua-
+tion of internet and mobile interventions for improving diet, 
+physical activity, obesity, tobacco, and alcohol use. J Am Heart 
+Assoc 2016;5:e003058.
+215. Kim M, Kim Y, Go Y, Lee S, Na M, Lee Y, et al. Multidimen-
+sional cognitive behavioral therapy for obesity applied by 
+psychologists using a digital platform: open-label random-
+ized controlled trial. JMIR Mhealth Uhealth 2020;8:e14817.
+216. Hinchliffe N, Capehorn MS, Bewick M, Feenie J. The po -
+tential role of digital health in obesity care. Adv Ther 2022; 
+39:4397-412.

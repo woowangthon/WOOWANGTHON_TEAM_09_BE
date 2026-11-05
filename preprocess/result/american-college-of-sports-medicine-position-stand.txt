@@ -1,0 +1,2644 @@
+851
+SPECIAL COMMUNICATIONS
+American College of Sports Medicine Position 
+Stand. Resistance Training Prescription for 
+Muscle Function, Hypertrophy, and Physical 
+Performance in Healthy Adults: An Overview 
+of Reviews
+BRAD S. CURRIER1, AL YSHA C. D’SOUZA1, MARIA A. FIATARONE SINGH2,3, CAROLINE V . LOWISZ1,  
+ERIC S. RA WSON4, BRAD J. SCHOENFELD5, ABBIE E. SMITH-R YAN6, JEREMY P . STEEN7,  
+GWENDOL YN A. THOMAS8, N. TRA VIS TRIPLETT9, TYRONE A. W ASHINGTON10,  
+TIMOTHY J. WERNER11, and STUART M. PHILLIPS1
+1Department of Kinesiology, Faculty of Science, McMaster University, Hamilton, ON, CANADA; 2School of Health Scienc-
+es and Sydney Medical School, Faculty of Medicine and Health, University of Sydney, Sydney, NSW, AUSTRALIA; 3Hin-
+da and Arthus Marcus Institute for Aging Research, Hebrew SeniorLife, Roslindale, MA; 4Department of Health, Nutrition 
+and Exercise Science, Messiah University, Mechanicsburg, PA; 5Department of Exercise Science and Recreation, CUNY 
+Lehman College, Bronx, NY; 6Department of Exercise and Sport Science, University of North Carolina, Chapel Hill, NC; 
+7Institute of Health Policy, Management and Evaluation, Dalla Lana School of Public Health, University of Toronto,  
+Toronto, ON, CANADA; 8Department of Kinesiology, The Pennsylvania State University, University Park, PA; 9Department 
+of Kinesiology, Appalachian State University, Boone, NC; 10Department of Health, Human Performance and Recreation, 
+University of Arkansas, Fayetteville, AR; 11Department of Exercise Science, Salisbury University, Salisbury, MD
+SUMMARY 
+CURRIER, B. S., A. C. D’SOUZA, M. A. F . SINGH, C. V . LOWISZ, E. S. RA WSON, B. J. SCHOENFELD, A. E. SMITH-
+R YAN, J. P . STEEN, G. A. THOMAS, N. T. TRIPLETT, T. A. W ASHINGTON, T. J. WERNER, and S. M. PHILLIPS. 
+American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, 
+and Physical Performance in Healthy Adults: An Overview of Reviews. Med. Sci. Sports Exerc., Vol. 58, No. 4, pp. 851-872, 
+2026. Purpose: The aim of this overview of reviews was to determine the impact of resistance training (RT) prescription on 
+muscle function and hypertrophy, utilizing evidence synthesis methods. It updates the American College of Sports Medicine 
+2009 Position Stand, “Progression models in resistance training for healthy adults.” Data sources: Ovid MEDLINE(R) ALL, 
+Ovid Emcare, Ovid Embase, Cochrane Database of Systematic Reviews, EBSCOhost SPORTDiscus, and Web of Science Core 
+Collection current to October 2024. Eligibility criteria: Eligible systematic reviews synthesized randomized trials of healthy 
+adults (≥18 yr) who completed RT (≥6 wk; range: 6–52 wk), compared with a group that completed no exercise or an alternative 
+RT program, and reported the change in muscle function, size, or physical performance. Results: We synthesized data from 137 
+systematic reviews (>30,000 participants). Compared with no exercise (control), RT significantly improved muscle strength, 
+size (hypertrophy), power, endurance, contraction velocity, gait speed, balance, and multiple physical function outcomes. Few 
+RT prescription (RTx) variables affected primary adaptations. However, voluntary strength was enhanced by lifting heavier 
+loads (≥80% one-repetition maximum), through a complete range of motion, for 2–3 sets, at the beginning of training sessions, 
+and ≥2 sessions/wk. Muscle hypertrophy was enhanced by higher volumes (≥10 sets/wk) and eccentric overload. Power was 
+enhanced by moderate loads (30%–70% one-repetition maximum), low-to-moderate volume (≤24 repetitions⋅sets), Olympic-
+style weightlifting, and power RT (fast concentric phase). Power RT enhanced physical function. Training to momentary muscle 
+fatigue, equipment type, exercise complexity, set structure, time under tension, blood flow restriction, and periodization did not 
+consistently impact training outcomes. Conclusions: Healthy adults should perform progressive RT, with variable prescription 
+consistent with our findings, to improve muscle function, size, and physical performance. Muscle strength, hypertrophy, power, 
+and certain components of physical function can be enhanced by manipulating the RT variables highlighted. Key Words: 
+HYPERTROPHY, PHYSICAL FUNCTION, RESISTANCE TRAINING, SKELETAL MUSCLE, STRENGTH
+ 
+Address for correspondence: Stuart M. Phillips, PhD, Department of 
+Kinesiology, McMaster University, 1280 Main Street West, Hamilton, 
+ON L8S 4K1, Canada; E-mail: phillis@mcmaster.ca.
+Submitted for publication February 2025
+Accepted for publication September 2025
+Supplemental digital content is available for this article. Direct URL 
+citations appear in the printed text and are provided in the HTML 
+and PDF versions of this article on the journal's Web site (www.acsm-
+msse.org).
+0195-9131/26/584-851/872
+MEDICINE & SCIENCE IN SPORTS & EXERCISE®
+Copyright © 2025 The Author(s). Published by Wolters Kluwer Health, 
+Inc. on behalf of the American College of Sports Medicine. This is 
+an open-access article distributed under the terms of the Creative 
+Commons Attribution-Non Commercial-No Derivatives License 4.0 
+(CCBY-NC-ND), where it is permissible to download and share the 
+work provided it is properly cited. The work cannot be changed in any 
+way or used commercially without permission from the journal.
+DOI: 10.1249/MSS.0000000000003897
+852 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+E
+xercise is crucial for health throughout the human 
+lifespan, and muscle strength and function are 
+essential components of fitness. Resistance train-
+ing (RT), also known as strength or weight training, is 
+a specialized method of physical conditioning in which 
+muscles are exercised by contracting against external 
+resistance, such as free weights, machines, resistance 
+bands, water, or body weight, through isometric, iso-
+tonic, or isokinetic actions, progressively increasing force 
+output to improve muscular strength, power, endurance, 
+and overall health and sports performance. The benefits  
+of RT are being increasingly appreciated as health- 
+promoting behavior (1,2), but were perhaps first doc-
+umented to be beneficial beyond personal strength  
+development by Captain Thomas DeLorme, who recog-
+nized the benefits of RT in wounded soldiers (3). Beyond 
+the hallmark improvements in skeletal muscle mass and 
+function, the benefits of engaging in RT include reduced 
+mortality and risk for and management of cardiovascu-
+lar disease, cancer, and diabetes (4–6), reduced depres-
+sion (7,8), and improved sleep quality (9).
+Most guidelines call for healthy adults to complete 
+“muscle-strengthening activities at moderate or greater 
+intensity that involve all major muscle groups on two or 
+more days a week” (2). Exercise programs are generally 
+constructed by manipulating six factors comprising the 
+framework FITT-VP: Frequency, Intensity, Time, Type, 
+Volume, Pattern, and Progression (10). Prescription of 
+variably RT variable (RTx), however, involves several 
+variables within each category that are inherent to any 
+practice of RT. However, a barrier to engaging in RT is 
+that people and practitioners often lack understanding 
+of how to prescribe RT (5). Thus, RTx guidelines are 
+required to support healthcare practitioners and exercise 
+professionals when designing RT programs.
+The American College of Sports Medicine (ACSM) 
+2009 Position Stand, “Progression Models in Resistance 
+Training for Healthy Adults” (11), summarized, at the 
+time, the available evidence for RTx variables, provid-
+ing guidelines to enhance RT adaptations. Research on 
+the topic of RT has expanded significantly since the 
+publication of that Position Stand; in fact, a simple 
+PubMed search for “resistance training” yields over 
+30,000 new results since 2009, indicating a need for an 
+update. Evidence synthesis methods have also advanced 
+considerably, and both the current (11) and prior (12) 
+Position Stands were criticized (13,14) for lacking  
+evidence-based rigor. Hence, to provide contemporary, 
+evidence-based guidance to minimize bias, an updated 
+RTx Position Stand was required, utilizing contempo-
+rary search and evidence grading methodologies.
+Provided ample systematic reviews and meta-analyses, 
+an overview of reviews can systematically summarize an 
+abundance of information (13). An overview of reviews 
+(i.e., umbrella review: a review of systematic reviews) 
+is a systematic collection and assessment of available 
+evidence that provides a comprehensive, user-friendly 
+summary of a research topic, enabling practitioners and 
+professionals to make evidence-based decisions without 
+assimilating the results of numerous systematic reviews 
+and meta-analyses (14,15).
+The purpose of this overview of systematic reviews 
+was to provide an updated, evidence-based summary of 
+the impact of RTx variables on various outcomes rele-
+vant to RT in healthy adults. The outcomes of interest 
+included muscle hypertrophy, strength, power, endur -
+ance, contraction velocity, and physical function (e.g., 
+gait speed, balance, and stair climbing). The current doc-
+ument updates the ACSM 2009 Position Stand entitled 
+“Progression Models in Resistance Training for Healthy 
+Adults” (11).
+METHODS
+Protocol and Registration
+This review was prospectively registered on the 
+International Platform of Registered Systematic Review 
+and Meta-analysis Protocols (INPLASY202360071; 
+https://inplasy.com/inplasy-2023-6-0071/) and conducted 
+in alignment with the Preferred Reporting Items for 
+Overviews of Reviews (PRIOR) (16). The completed 
+PRIOR checklist is contained in Supplemental Appendix 
+1, Supplemental Digital Content, https://links.lww.com/
+MSS/D323.
+Eligibility Criteria
+The complete eligibility criteria for systematic reviews 
+to be included are shown in Table 1. Briefly, systematic 
+reviews of randomized trials were included when healthy 
+adults completed an RT program for at least 6 wk and 
+were compared with a group that completed no exercise 
+(control [CTRL]) or a distinctly different RT program 
+(Table 2; i.e., FITT-VP component different between 
+groups). In most cases, reviews examined people with 
+minimal or no RT experience (i.e., novice); however, some 
+reviews included more advanced trainees. Previously, we 
+showed that training experience had a minimal impact 
+on strength and hypertrophy outcomes (17); nonetheless, 
+much of the evidence synthesized here is from inexpe-
+rienced trainees. “Healthy adults” was operational-
+ized as humans (≥18-yr old) with no defined disease(s), 
+including obesity, sarcopenia, and physical frailty. Body 
+weight-supported RT was a portion of some reviews, but 
+was not studied as a stand-alone intervention except in 
+the case of the Nordic hamstring curl. Standard, or non-
+specialized, RT was defined as any RT in eligible reviews 
+that was not specifically defined and thus excluded spe-
+cific forms of RT, including power RT (explicitly stated 
+concentric phase performed as quickly as possible), 
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 853
+SPECIAL COMMUNICATIONS
+Olympic-style weightlifting (RT with Olympic-style 
+lifting movements), and velocity-based RT (movement 
+velocity thresholds used to prescribe RT). We acknowl-
+edge that this is a broad definition that encompasses 
+several variables, but we have used the definitions of the 
+RTx provided within the reviews we compared. Eligible 
+reviews needed to report the change of at least one mus-
+cle function (e.g., strength, power, and physical func-
+tion) or muscle size (hypertrophy) outcome from pre- to 
+postintervention. Unless otherwise specified, strength 
+was voluntary isotonic one-repetition maximum (1RM) 
+in the same mode as that in which the training was per -
+formed. Records were defined as a “systematic review” 
+if they were titled as an evidence synthesis (e.g., system-
+atic review, meta-analysis, and umbrella review) or used a 
+specific systematic search strategy and eligibility criteria. 
+The included reviews were not separated by participant 
+age due to the number of eligible systematic reviews that 
+included participants with participants who were both 
+younger and older than the cutoff of 55-yr old. Thus, 
+our recommendations are evidence-based across all ages.
+Information Sources and Search Strategy
+The systematic search strategy was executed in 
+October 2024 in Ovid MEDLINE(R) ALL (1946 to cur-
+rent), Ovid Emcare (1995 to current), Ovid Embase (1974 
+to current), Cochrane Database of Systematic Reviews 
+(2005 to current), EBSCOhost SPORTDiscus, and Web 
+of Science Core Collection. Trained librarians developed 
+the search strategies. Searches conducted on the Ovid 
+platform were limited to English-language records, and 
+no additional limits or filters were applied. The complete 
+search strategy is reported in Supplemental Appendix 
+2, Supplemental Digital Content, https://links.lww.com/
+MSS/D323.
+Record Selection and Data Collection
+Four reviewers (B. S. C., C. V . L., A. C. D., and J. P . S.) 
+independently screened all records (title/abstract and full 
+text) and extracted data from eligible reviews in duplicate, 
+with discrepancies resolved by group consensus. Relevant 
+data from eligible overlapping records were included and 
+extracted. Authors of reviews with missing data were con-
+tacted via email with a request for the missing data, and 
+TABLE 1. Eligibility criteria for inclusion.
+Inclusion Criteria
+Population • Healthy humans ≥18-yr old with no defined disease(s)
+• Any training status (novice or trained)
+Intervention •  Resistance training interventions spanning at least 6 wk with 
+a minimum of 12 exposures
+•  If a supplement, nutritional, or other cointervention (e.g., 
+behavioral therapy, medication, counseling) is applied, it must 
+be received by intervention and comparator groups
+Comparator •  Distinct resistance training prescription, as defined by 
+FITT-VP (Frequency, Intensity, Time, Type, Volume, Pattern, 
+Progression) principle, and/or
+•  Nonexercise control group (performing no RT) and/or  
+alternative exercise control conceived as a sham intervention 
+(e.g., stretching)
+Outcome •  Reported pre-and postintervention change in muscle 
+function (strength, power, endurance, contraction velocity, 
+physical function) or hypertrophy between intervention and 
+comparator arm(s)
+Study design •  A systematic review (including overviews of reviews) of 
+randomized trials with or without statistical synthesis  
+(e.g., meta-analysis, network meta-analysis, meta-regression)
+TABLE 2. Resistance training prescription variables.
+RTx Variable Definition
+Frequency The number of days per week RT is performed.
+Load The amount of weight lifted per repetition and often prescribed 
+as a proportion of maximal strength (e.g., %1RM) or maximal 
+number of repetitions possible with a given load (RM)
+Failure Completing repetitions until volitional failure occurs when 
+concentric movement is no longer possible.
+Time under 
+tension
+The amount of time supporting weight. Time under tension per 
+repetition is the total time required to complete one repetition.
+Time of day When RT is performed in the day (e.g., morning)
+Inter-set rest The amount of rest time between sets.
+Exercise 
+order
+The order of different training forms (e.g., aerobic and 
+resistance) or specific RT exercises are performed within a 
+training session.
+Type Blood flow restriction: Locally reducing blood flow to and from 
+exercising muscles.
+Free-weight RT: Weights that can be moved in space freely 
+(e.g., barbell).
+Machine RT: Machines permitting fixed movement (e.g., leg 
+press).
+Unstable RT: RT performed on an unstable surface (e.g., 
+pressurized ball).
+Variable load: Altering load mid-repetition.
+Contraction type Eccentric overload: Increased load or time under tension 
+during eccentric movement.
+Traditional: Proportionally completing both concentric and 
+eccentric phases of a movement.
+Technique Olympic-style weightlifting: Snatch and clean-and-jerk 
+movements.
+Partial range of motion: Performing RT through an incomplete 
+range of motion, compared with RT as typically performed 
+through the complete range of motion for the joint(s) involved 
+in a movement.
+Power RT: Intentionally performing the concentric phase of 
+each lift at maximal volitional speed.
+Volume (sets) The number of sets (a group of repetitions without resting) 
+completed per exercise.
+Set structure Drop sets: Performing sets to failure then reducing load and 
+minimal inter-set rest.
+Cluster: Traditional inter-set rest with preplanned intraset rest 
+periods.
+Complex: Sets with heavy loads followed by sets with lighter 
+loads.
+Contrast: Alternating heavy and light loads set-to-set.
+Rest redistribution: Short rest periods between each repetition.
+Traditional: Performing a set without rest until all repetitions 
+are completed.
+Periodization Periodized: Manipulating RTx during a program to maximize 
+adaptations.
+Block: Dividing program into multiweek blocks with distinct 
+training goals.
+Linear (traditional): Increasing load and reducing volume 
+during the program.
+Nonperiodized: Not manipulating RTx during the program.
+Undulating (nonlinear): Daily or weekly RTx manipulation.
+%1RM, percentage of one-repetition maximum; RM, repetition maximum; RT, resistance 
+training; RTx, resistance training prescription.
+854 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+WebPlotDigitizer (version 4; https://automeris.io/) was 
+used if data needed to be extracted from figures. Record 
+screening and data extraction were completed using 
+the systematic review software Covidence (https://www.
+covidence.org/). The complete list of data items sought 
+is reported in Supplemental Appendix 3, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323.
+Methodological Quality Assessment and Evidence 
+Synthesis
+The methodological quality of each included review 
+was assessed independently by two reviewers using the 
+AMSTAR (A Measurement Tool to Assess Systematic 
+Reviews) tool, which yields a score ranging from 1 to 
+11 that incorporates assessment of publication bias 
+(Supplemental Appendix 4, Supplemental Digital Content, 
+https://links.lww.com/MSS/D323) (18,19). Outcome data 
+were tabulated as collected, and no sensitivity analyses 
+were conducted. Heterogeneity was reported as the I2 sta-
+tistic (meta-analyses) or the fraction of reviews showing 
+a significant effect (systematic reviews). An outcome-level 
+(bottom-line) statement and standardized effectiveness 
+statement (Supplemental Appendix 5, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323) were 
+produced by considering the methodological quality 
+and extracted data (20). Outcome-level quality of evi-
+dence (QoE) was calculated using a method based on the 
+Grading of Recommendations Assessment, Development 
+and Evaluation approach for primary evidence (21). This 
+method incorporates the design (meta-analysis: yes/no) 
+and methodological quality (AMSTAR score) of each 
+included review (Supplemental Appendix 6, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323). There 
+remains no standardized method to evaluate the certainty 
+of evidence in overviews of reviews (15,22), so a summary 
+percentage scores were calculated to demonstrate the qual-
+ity of evidence contributing to each conclusion. The sum-
+mary percentage was calculated within each prescription 
+variable for all three directions of evidence (impactful, not 
+impactful, and cannot determine) by dividing the average 
+QoE by four (the maximum QoE score) to yield a percent-
+age score ranging from 0% (lowest possible QoE) to 100% 
+(highest possible QoE). This method has been used in pre-
+vious overviews of reviews (18,20,23). The effectiveness 
+(impact) of RTx variables for each outcome was assessed 
+based on standardized effectiveness statements and the 
+quantity of evidence (24). The reviews, which contributed 
+evidence for the impact of a prescription variable, were 
+independently scrutinized to comment on favorable RTx 
+parameters for improving each outcome.
+Overlap of Papers
+An issue with overviews of reviews is the possibility 
+of “double counting” (or more) papers that are included 
+in more than one review (25). Such counting may unduly 
+affect the results of the analysis, resulting in spurious 
+levels of precision and confidence in the outcomes (26). 
+We employed the corrected covered area (CCA) index to 
+quantify the degree of overlap between systematic reviews 
+to be pooled in an overview of reviews (27). To obtain an 
+estimate of the degree of publication overlap, we calcu-
+lated the CCA for strength using the ccaR package (28), 
+arguably the most relevant outcome of our analysis.
+RESULTS
+Included Reviews
+The systematic search yielded 5751 records fol-
+lowing duplicate removal, and 137 systematic reviews 
+were included in this overview of reviews (Fig. 1). The 
+AMSTAR scores for included reviews ranged from 1 
+(lowest) to 9 (highest) out of a possible 11 (Supplemental 
+Appendix 7, Supplemental Digital Content, https://links.
+lww.com/MSS/D323). The conflict-of-interest statement 
+for each included review is reported in Supplementary 
+Appendix 8, Supplemental Digital Content, https://links.
+lww.com/MSS/D323. The details, bottom-line statement, 
+standardized effectiveness statement, and QoE for each 
+review are reported in the Supplemental Appendices, 
+Supplemental Digital Content, https://links.lww.com/
+MSS/D323, according to the outcome.
+Strength
+CCA analysis of strength across all included reviews 
+showed only “moderate” overlap, defined as between 6% 
+and 10% of primary papers appearing in two or more 
+reviews (27). So the results of our analyses for this variable 
+(for which there were more reviews than for any other vari-
+able) were not unduly affected by primary data overlap.
+The effects of RT versus CTRL on strength and the 
+impact of distinct RTx variables are summarized in 
+Tables 3 and 4, respectively. The results for each review 
+are reported in Supplemental Appendix 11, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323. 
+Compared with CTRL, strength was impacted by engag-
+ing in standard RT (17,24,29–56), circuit RT (57–59), 
+elastic band RT (60–62), home-based RT (63,64), and 
+velocity-based RT (65,66). There were insufficient data to 
+determine if eccentric flywheel RT (67), Nordic hamstring 
+RT (68), Olympic-style weightlifting (69), and unsta-
+ble surface RT (70) impacted strength compared with 
+CTRL. In comparisons between distinct RTx, strength 
+was positively affected by training session frequency 
+(24,71–76), load (24,77–84), eccentric flywheel RT ver -
+sus standard RT (85), range of motion (86,87), volume 
+(24,88–93), and exercise order (24,94–96), but strength 
+was not affected in programs with lifting to fatigue/fail-
+ure (24,97–99), machines versus free-weight RT (100), 
+unstable surfaces (70), time under tension (24,101), time 
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 855
+SPECIAL COMMUNICATIONS
+of day (24,102), inter-set rest (24,103), contraction type 
+(24,104), power training (82,105,106), or set structure 
+(24,107–109). There were insufficient data to determine if 
+strength was affected by blood flow restriction (110–112), 
+Olympic-style weightlifting (69), intrasession autoregula-
+tion (113,114), varied exercise selection (115), periodiza-
+tion (24,116–118), or concurrent training (i.e., aerobic 
+and RT in the same training session) (119–124).
+The impact of unilateral RT on the untrained, con-
+tralateral limb (i.e., cross-education) was only reported 
+for the strength outcome. The impact of RT versus 
+CTRL on strength in the untrained contralateral limb is 
+summarized in Table 3, and results for each review are 
+reported in Supplemental Appendix 11, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323. 
+Unilateral RT impacted strength (125,126) such that 
+strength improved in the untrained, contralateral limb. 
+Comparing RTx, strength was enhanced by RT per -
+formed with higher frequency (≥2 d/wk, though the 
+upper limit cannot, from our analysis, be undetermined), 
+higher loads (dose-response), eccentric flywheel devices 
+compared with standard RT, full range of motion, higher 
+volume (multiple sets), and at the beginning of training 
+sessions (compared with the end of training sessions). 
+Strength was not affected by RT performed with con-
+tractions to muscle failure/fatigue, free weights versus 
+machines, unstable versus stable surfaces; fast (<2 s) 
+versus moderate-slow (>2 s) contractions, morning ver -
+sus evening training sessions, short (<1 min) versus long 
+(>1 min) between-set rest intervals, eccentric versus con-
+centric contractions, power training techniques, or differ-
+ent set structures (cluster and complex).
+Hypertrophy
+The impact of RT versus CTRL on muscle hyper -
+trophy is summarized in Table 3, and the impact of 
+distinct RTx variables is summarized in Table 4. The 
+results for each review are reported in Supplemental 
+Appendix 12, Supplemental Digital Content, https://
+links.lww.com/MSS/D323. Compared with CTRL, mus-
+cle hypertrophy was positively affected by standard RT 
+(17,24,30,32,33,37,38,40,42–47,50,127), circuit RT (57,58), 
+and elastic band RT (60,62). There were insufficient data 
+FIGURE 1—Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) flow diagram of review selection.
+856 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+to determine if eccentric flywheel RT (67) impacted mus-
+cle hypertrophy compared with CTRL. In comparisons 
+between distinct RTx, muscle hypertrophy was positively 
+affected by contraction type (24,104,128,129) and volume 
+(24,91,128,130–133), but muscle hypertrophy was not 
+affected by frequency (24,73,74,128,131,134,135), load 
+(24,78–81,83,84,128,131,136), absolute fatigue/failure 
+(24,98,99,128,137), blood flow restriction (110–112), vari-
+able loading (138), time under tension (24,131,139,140), 
+power training (105), periodization (24,117,131,141), or 
+exercise order (24,94,96,128,131). There were insufficient 
+data to determine if muscle hypertrophy was influenced 
+by eccentric flywheel versus standard RT (85), machine 
+versus free-weight RT (100), single-joint versus multi-
+joint RT (128,142), time of day (24,102,131), inter-set rest 
+(24,131,143,144), range of motion (86,87,128,145), set 
+structure (24,107,108,146), intrasession autoregulation 
+(113), varied exercise selection (115,128), or concurrent 
+training (119,120,122,124,147).
+Improving hypertrophy. Compared with CTRL, 
+hypertrophy was improved by RT, including circuit RT 
+and elastic band RT (Table 6). Between RTx, hypertrophy 
+was enhanced by RT performed with eccentric-only con-
+tractions (versus concentric-only) and higher volume (≥10 
+sets/muscle group/wk). RT did not influence hypertrophy 
+performed with low (1 d/wk) versus high (>5 d/wk) fre-
+quency when total volume was equated; low (30% 1RM) 
+to high (100% 1RM) loads; contractions to muscle fail-
+ure/fatigue; blood flow restriction; varying loads during 
+repetitions; fast (0.5 s) versus slow (8 s) repetitions; power 
+training techniques; periodization (linear, undulating, and 
+nonperiodized); or exercise order within training sessions.
+Power
+The impact of RT versus CTRL on power is summa-
+rized in Table 3, and the impact of distinct RTx variables 
+is summarized in Table 4. The results for each review are 
+TABLE 3. Resistance training forms that impact strength, hypertrophy and power when compared with CTRL.
+Strength Hypertrophy Power
+Standard RT vs CTRL ✔
+↑ 26 reviews; n = 23,204
+ QoE = 73%
+? 3 reviews; n = 138
+ QoE = 50%
+↓ 1 review; n = 488
+ QoE = 50%
+✔
+↑ 12 reviews; n = 14,924
+ QoE = 79%
+? 3 reviews; n = 437
+ QoE = 83%
+↓ 2 reviews; n = 775
+ QoE = 63%
+✔
+↑ 4 reviews; n = 1,001
+ QoE = 63%
+? 1 review; n = 152
+ QoE = 25%
+Circuit RT vs CTRL ✔
+↑ 3 reviews; n = 843
+ QoE = 92%
+✔
+↑ 1 review; n = 236
+ QoE = 100%
+? 1 review; n = 190
+ QoE = 100%
+?
+ND
+Elastic band RT vs CTRL ✔
+↑ 2 reviews; n = 1,921
+ QoE = 63%
+? 1 review; n = 51
+ QoE = 75%
+✔
+↑ 1 review; n = 236
+ QoE = 50%
+? 1 review; n = 133
+ QoE = 75%
+?
+ND
+Flywheel RT vs CTRL ?
+? 1 review; n = 140
+ QoE = 50%
+?
+? 1 review; n = 104
+ QoE = 50%
+?
+ND
+Home-based RT vs CTRL ✔
+↑ 2 reviews; n = 892
+ QoE = 50%
+?
+ND
+?
+? 1 review; n = 88
+ QoE = 75%
+Nordic hamstring RT vs CTRL ?
+↑ 1 review; n = 112
+ QoE = 100%
+?
+ND
+?
+ND
+Olympic-style weightlifting vs CTRL
+olympic-style
+?
+? 1 review; n = 44
+ QoE = 75%
+?
+ND
+?
+? 1 review; n = 112
+ QoE = 75%
+Unilateral RT, cross-education vs CRTL ✔
+↑ 2 reviews; n = 1,194
+ QoE = 88%
+?
+ND
+?
+ND
+Velocity-based RT vs CTRL ✔
+↑ 2 reviews; n = 870
+ QoE = 50%
+?
+ND
+?
+ND
+Unstable surface RT vs CTRL ?
+↑ 1 review; n = 172
+ QoE = 75%
+?
+ND
+?
+ND
+✔: positively impacts outcome; ?: cannot determine impact on outcome; ✖: does not impact outcome. Within each box, the small symbol and text represent details of reviews for each respective 
+decision, and the enlarged symbol represents the overall decision. The QoE is the quotient of the average QoE and the highest (best) possible quality of evidence, expressed as a percentage. The 
+number of participants was calculated from the most common measurement in reviews reporting outcome-specific sample sizes.
+CTRL, nonexercising control; ND, no data; QoE, quality of evidence.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 857
+SPECIAL COMMUNICATIONS
+TABLE 4. Resistance training prescription variables that impact strength, hypertrophy, and power when compared with standard (nonspecialized) RT.
+Strength Hypertrophy Power
+Frequency ✔
+↑ 4 reviews; n = 3,531
+ QoE = 69%
+↓ 3 reviews; n = 608
+ QoE = 75%
+✖
+↑ 1 review; n = 200
+ QoE = 50%
+? 2 reviews; n = 166
+ QoE = 38%
+↓ 4 reviews; n = 3,177
+ QoE = 63%
+?
+ND
+Intensity: 
+Load
+✔
+↑ 6 reviews; n = 6,574
+ QoE = 79%
+? 1 review; n = 151
+ QoE = 100%
+↓ 2 reviews; n = 734
+ QoE = 63%
+✖
+↑ 1 review; n = 231
+ QoE = 75%
+? 1 review; n = 108
+ QoE = 75%
+↓ 8 reviews; n = 5,340
+ QoE = 66%
+✔
+↑ 2 reviews; n = 1,980
+ QoE = 75%
+? 1 review; n = 151
+ QoE = 100%
+Intensity: 
+Fatigue/failure
+✖
+↑ 1 review; n = 199
+ QoE = 75%
+↓ 3 reviews; n = 1,371
+ QoE = 83%
+✖
+↑ 1 review; n = 189
+ QoE = 100%
+↓ 4 reviews; n = 800
+ QoE = 69%
+?
+? 1 review; n = 150
+ QoE = 100%
+Type: 
+Blood flow restriction
+?
+↑ 1 review; n = 460
+ QoE = 75%
+? 2 reviews; n = 364
+ QoE = 88%
+✖
+? 1 review; n = 72
+ QoE = 100%
+↓ 2 reviews; n = 587
+ QoE = 75%
+?
+ND
+Type: 
+Eccentric flywheel
+✔
+↑ 1 review; n = 332
+ QoE = 75%
+?
+↑ 1 review; n = 160
+ QoE = 75%
+✔
+↑ 1 review; n = 235
+ QoE = 75%
+Type: 
+Machine vs free-weight
+✖
+↓ 1 review; n = 683
+ QoE = 75%
+?
+? 1 review; n = 123
+ QoE = 75%
+?
+ND
+Type: 
+Single-joint vs multi-joint
+?
+ND
+?
+? 1 review; n = 65
+ QoE = 25%
+↓ 1 review; n = 193
+ QoE = 100%
+?
+ND
+Type: 
+Unstable vs stable surface
+✖
+↓ 1 review; n = 438
+ QoE = 75%
+?
+ND
+?
+? 1 review; n = 145
+ QoE = 75%
+Type: 
+Variable load
+?
+ND
+✖
+↓ 1 review; n = 408
+ QoE = 50%
+?
+ND
+Time: 
+Time-under-tension
+✖
+?1 review; n = 140
+ QoE = 75%
+↓ 1 review; n = 509
+ QoE = 75%
+✖
+? 1 review; n = 107
+ QoE = 50%
+↓ 3 reviews; n = 806
+ QoE = 58%
+?
+ND
+Time: 
+Time of day
+✖
+↓ 2 reviews; n = 430
+ QoE = 75%
+?
+? 3 reviews; n = 336
+ QoE = 75%
+?
+ND
+Inter-set rest ✖
+↓ 2 reviews; n = 982
+ QoE = 63%
+?
+? 4 reviews; n = 265
+ QoE = 44%
+?
+ND
+Technique: 
+Contraction type
+✖
+? 1 review; n = 38
+ QoE = 75%
+↓ 1 review; n = 1,051
+ QoE = 75%
+✔
+↑ 1 review; n = 868
+ QoE = 75%
+? 2 reviews; n = 92
+ QoE = 50%
+↓ 1 review; n = 356
+ QoE = 75%
+?
+ND
+Technique: 
+Range of motion
+✔
+↑ 2 reviews; n = 1,262
+ QoE = 50%
+?
+↑ 1 review; n = 90
+ QoE = 75%
+? 3 reviews; n = 276
+ QoE = 33%
+?
+ND
+Technique: 
+Power training
+✖
+? 1 review; n = 140
+ QoE = 75%
+↓ 2 reviews; n = 670
+ QoE = 75%
+✖
+↓ 1 review; n = 336
+ QoE = 75%
+✔
+↑ 2 reviews; n = 863
+ QoE = 75%
+? 1 review; n = 99
+ QoE = 75%
+(Continued)
+858 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+reported in Supplemental Appendix 13, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323. 
+Compared with CTRL, power was enhanced by stan-
+dard RT (41,48–50,148). There were insufficient data to 
+determine whether home-based RT (63) and Olympic-
+style weightlifting (69) impacted power compared with 
+CTRL. In comparisons between distinct RTx, power was 
+affected by load (77,149,150), eccentric flywheel train-
+ing versus standard RT (85), Olympic-style weightlifting 
+versus standard RT (69), power training versus standard 
+RT (82,105,148), and volume (148), but power was not 
+affected by set structure (107,108). There were insuffi-
+cient data to determine if power was affected by fatigue/
+failure (99), unstable surfaces (70), or concurrent training 
+(123,124,151).
+Improving power. RT improved power compared 
+with CTRL (Table 6). Between RTx and power training, 
+power was enhanced by RT performed with moderate 
+loads (30%–70% 1RM), an eccentric flywheel device, 
+Olympic-style weightlifting, and power training tech-
+niques, versus standard RT, and low-to-moderate vol-
+ume (repetitions⋅set < 24). Power was not affected by RT 
+performed with different set structures (cluster or rest 
+redistribution).
+Muscular Endurance
+The impact of RT versus CTRL and distinct RTx 
+variables on muscular endurance is summarized in 
+Supplemental Appendix 9, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. The results 
+for each review are reported in Supplemental Appendix 
+14, Supplemental Digital Content, https://links.lww.com/
+MSS/D323. Compared with CTRL, muscular endurance 
+was impacted by standard RT (41,54) and home-based 
+TABLE 4. Continued
+Strength Hypertrophy Power
+Volume: 
+Sets
+✔
+↑ 7 reviews; n = 5,633
+ QoE = 71%
+✔
+↑ 5 reviews; n = 2,267
+ QoE = 50%
+? 1 review; n = 181
+ QoE = 75%
+↓ 1 review; n = 555
+ QoE = 75%
+✔
+↑ 1 review; n = 454
+ QoE = 75%
+Set structure ✖
+? 1 review; n = 199
+ QoE = 75%
+↓ 3 reviews; n = 1,837
+ QoE = 83%
+?
+? 3 reviews; n = 401
+ QoE = 83%
+↓ 1 review; n = 189
+ QoE = 75%
+✖
+? 1 review; n = 142
+ QoE = 100%
+↓ 1 review; n = 445
+ QoE = 75%
+Progression: 
+Intrasession 
+autoregulation
+?
+↑ 1 review; n = 308
+ QoE = 75%
+↓ 1 review; n = 356
+ QoE = 25%
+?
+? 1 review; n = 243
+ QoE = 75%
+?
+ND
+Progression: 
+Varied 
+exercise 
+selection
+?
+? 1 review; n = 198
+ QoE = 50%
+?
+? 1 review; n = 95
+ QoE = 25%
+↓ 1 review; n = 218
+ QoE = 50%
+?
+ND
+Progression: 
+Periodization
+?
+↑ 1 review; n = 616
+ QoE = 75%
+? 1 review; n = NR
+ QoE = 50%
+↓ 2 reviews; n = 1,075
+ QoE = 75%
+✖
+↓ 4 reviews; n = 1,414
+ QoE = 63%
+?
+ND
+Exercise 
+order
+✔
+↑ 4 reviews; n = 941
+ QoE = 88%
+✖
+? 1 review; n = 71
+ QoE = 25%
+↓ 4 reviews; n = 759
+ QoE = 81%
+?
+ND
+Concurrent 
+training
+?
+↑ 2 reviews; n = 725
+ QoE = 75%
+? 1 review; n = 119
+ QoE = 25%
+↓ 3 reviews; n = 354
+ QoE = 67%
+?
+↑ 1 review; n = NR
+ QoE = 50%
+? 3 reviews; n = 351
+ QoE = 67%
+↓ 1 review; n = NR
+ QoE = 25%
+?
+↑ 2 reviews; n = NR
+ QoE = 50%
+? 1 review; n = 18
+ QoE = 75%
+✔: positively impacts outcome; ?: cannot determine impact on outcome; ✖: does not impact outcome. Within each box, the small symbol and text give the details of reviews for each respective 
+decision, and the enlarged symbol represents the overall decision. The QoE is the quotient of the average QoE and the highest (best) possible quality of evidence, expressed as a percentage. The 
+number of participants was calculated from the most common measurement in reviews reporting outcome-specific sample sizes.
+CTRL, nonexercising control; ND, no data; QoE, quality of evidence. 
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 859
+SPECIAL COMMUNICATIONS
+RT (63). There were insufficient data to determine 
+whether unstable surface RT (70) or velocity-based 
+RT (66) impacted muscular endurance compared with 
+CTRL. There were insufficient data to determine if 
+muscular endurance was affected by load (82), unstable  
+surfaces (70), power training (82), volume (82), or set 
+structure (107,108).
+Improving muscular endurance. RT improved 
+muscular endurance compared with CTRL.
+Gait Speed
+The impact of RT versus CTRL and distinct RTx vari-
+ables on gait speed is summarized in Table 5. The results 
+for each review are reported in Supplemental Appendix 
+15, Supplemental Digital Content, https://links.lww.
+com/MSS/D323. Compared with CTRL, gait speed was 
+impacted by standard RT (17,30,32,33,36–38,47,53,152–
+155). There were insufficient data to determine whether 
+elastic band RT (62) or power training (156) impacted gait 
+speed compared with CTRL. In comparisons between 
+distinct RTx, there were insufficient data to determine if 
+gait speed was influenced by load (82) or power training 
+versus standard RT (82).
+Improving gait speed. RT improved gait speed 
+compared with CTRL.
+Timed Up-and-Go
+The impacts of RT versus CTRL and distinct RTx 
+variables on timed up-and-go (TUG) performance are 
+summarized in Table 5. The results for each review are 
+reported in Supplemental Appendix 16, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323. 
+TABLE 5. Resistance training forms and prescription variables that impact physical function outcomes.
+Stair Climbing Gait Speed Balance Chair Stand Performance Timed Up-and-Go
+Standard RT vs CTRL ?
+ND
+✔
+↑ 8 reviews; n = 
+3,407
+ QoE = 81%
+? 3 reviews; n = 115
+ QoE = 50%
+↓ 2 reviews; n = 
+1,660
+ QoE = 100%
+✔
+↑ 1 review; n = 406
+ QoE = 75%
+? 2 reviews; n = 227
+ QoE = 63%
+✔
+↑ 2 reviews; n = 954
+ QoE = 88%
+? 3 reviews; n = 291
+ QoE = 75%
+↓ 1 review; n = 657
+ QoE = 100%
+✔
+↑ 5 reviews; n = 
+1,568
+ QoE = 90%
+? 5 reviews; n 
+= 479
+ QoE = 70%
+Elastic band RT vs CTRL ?
+ND
+?
+? 1 review; n = 160
+ QoE = 75%
+?
+ND
+?
+ND
+?
+↑ 1 review; n 
+= 154
+ QoE = 75%
+Home-based RT vs CTRL ?
+ND
+?
+ND
+✔
+↑ 1 review; n = 
+1,484
+ QoE = 75%
+?
+ND
+?
+ND
+Power training RT vs CTRL ?
+ND
+?
+? 1 review; n = 165
+ QoE = 75%
+?
+ND
+?
+ND
+?
+ND
+Unstable surface RT vs CTRL ?
+ND
+?
+ND
+?
+? 1 review; n = 138
+ QoE = 75%
+?
+ND
+?
+ND
+Intensity:
+Load
+?
+? 1 review; n 
+= 84
+ QoE = 75%
+?
+? 1 review; n = 38
+ QoE = 75%
+?
+ND
+?
+? 1 review; n = 23
+ QoE = 75%
+?
+? 1 review; n = 38
+ QoE = 75%
+Intensity:
+Fatigue/failure
+?
+ND
+?
+ND
+?
+ND
+?
+ND
+?
+ND
+Type:
+Unstable vs stable surface
+?
+ND
+?
+ND
+?
+? 1 review; n = 142
+ QoE = 75%
+?
+ND
+?
+ND
+Technique:
+Power training
+?
+? 2 reviews; n 
+= 142
+ QoE = 88%
+?
+? 1 review; n = 79
+ QoE = 75%
+?
+ND
+?
+? 3 reviews; n = 442
+ QoE = 83%
+?
+? 2 reviews; n 
+= 119
+ QoE = 75%
+↓ 1 review; n 
+= 227
+ QoE = 100%
+Concurrent training ?
+ND
+?
+ND
+?
+? 1 review; n = 45
+ QoE = 50%
+?
+ND
+?
+ND
+✔: positively impacts outcome; ?: cannot determine impact on outcome; ✖: does not impact outcome. Within each box, the small symbol and text represent details of reviews for each respective 
+decision, and the enlarged symbol represents the overall decision. The QoE is the quotient of the average QoE and the highest (best) possible quality of evidence, expressed as a percentage. The 
+number of participants was calculated from the most common measurement in reviews reporting outcome-specific sample sizes.
+CTRL, nonexercising control; ND, no data; QoE, quality of evidence.
+860 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+Compared with CTRL, TUG was impacted by standard 
+RT (30,32,33,36,38,47,50,152,154,156). There were insuf-
+ficient data to determine if elastic band RT (62) impacted 
+TUG compared with CTRL. In comparisons between 
+distinct RTx, there were insufficient data to determine if 
+TUG was affected by load (82) or power training versus 
+standard RT (82,106,157).
+Improving timed up-and-go. RT improved TUG 
+compared with CTRL.
+Chair Stand Test
+The impacts of RT versus CTRL and distinct RTx 
+variables on chair stand test performance are summa-
+rized in Table 5. The results for each review are reported 
+in Supplemental Appendix 17, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. Compared 
+with CTRL, chair stand performance was impacted 
+by standard RT (30,32,33,36,50,152). In comparisons 
+between distinct RTx, there were insufficient data to 
+determine if chair stand performance was affected 
+by load (82) or power training versus standard RT 
+(82,106,157).
+Improving chair stand test. RT improved chair 
+stand performance compared with CTRL.
+Balance
+The impacts of RT versus CTRL and distinct RTx vari-
+ables on balance are summarized in Table 5. The results 
+for each review are reported in Supplemental Appendix 
+18, Supplemental Digital Content, https://links.lww.
+com/MSS/D323. Compared with CTRL, balance was 
+impacted by standard RT (52,54,154) and home-based RT 
+(63). There were insufficient data to determine whether 
+unstable surfaces (70) impacted balance compared with 
+CTRL. In comparisons between distinct RTx, there were 
+insufficient data to determine if unstable surfaces (70) or 
+concurrent training (158) affected balance.
+Improving balance. RT improved balance com-
+pared with CTRL.
+Stair Climbing
+The impacts of RT versus CTRL and distinct RTx 
+variables on stair climbing are summarized in Table 5. 
+TABLE 6. Resistance training prescriptions to improve muscle function and hypertrophy.
+Outcome RT vs CTRL RTx to Enhancea Adaptation
+Strength Strength is improved by RT, including circuit RT, elas-
+tic band RT, home-based RT, and velocity-based RT.
+Frequency: ≥2 sessions/wk
+Intensity: ≥80% 1RM (dose-response)
+Type: Eccentric flywheel RT
+Technique: Full range of motion
+Volume: 2–3 sets/session
+Exercise order: Beginning of training session
+Hypertrophy Hypertrophy is improved by RT, including circuit RT 
+and elastic band RT.
+Type: Eccentric contractions/overload
+Volume: ≥10 sets/wk (dose-response)
+Power Power is improved by RT. Intensity: Loads = 30%–70% 1RM
+Type: Eccentric flywheel RT
+Technique: Olympic-style weightlifting; Power RT
+Volume: Low-moderate (repetitions ⋅ sets ≤24)
+Muscular 
+endurance
+Muscular endurance is improved by RT. ND
+Gait speed Gait speed is improved by RT. ND
+Timed 
+up-and-go
+Timed up-and-go is improved by RT. ND
+Chair stand test Chair stand test performance is improved by RT. ND
+Balance Balance is improved by RT. ND
+Stair climbing ND ND
+Multicomponent 
+function
+Multicomponent function is improved by RT, including 
+elastic band RT and home-based RT.
+Technique: Power RT
+SPPB SPPB is not improved by RT. Technique: Power RT
+Walking 
+performance
+ND Technique: Power RT
+Running 
+performance
+ND Type: Velocity-based RT
+Jumping 
+performance
+Jumping performance is improved by flywheel RT 
+and velocity-based RT.
+Type: Velocity-based RT
+Contraction 
+velocity
+Contraction velocity is improved by RT. ND
+Change of 
+direction (agility)
+ND ND
+Functional 
+reach
+ND ND
+aEnhanced compared with standard RT and based on included meta-analyses showing a significant effect.
+1RM, one-repetition maximum; CTRL, no exercise; ND, insufficient data to form conclusion; RT, resistance training; RTx, resistance training prescription; SPPB, Short Physical Performance 
+Battery.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 861
+SPECIAL COMMUNICATIONS
+The results for each review are reported in Supplemental 
+Appendix 19, Supplemental Digital Content, https://
+links.lww.com/MSS/D323. In comparisons between dis-
+tinct RTx, there were insufficient data to determine if 
+stair climbing was affected by load (82) or power training 
+versus standard RT (82,157).
+Improving stair climbing. There were insufficient 
+data to determine the impact of RT on stair climbing 
+performance.
+Multicomponent Function
+The impacts of RT versus CTRL and distinct RTx 
+variables on multicomponent function—the aggre-
+gate performance on several physical function assess-
+ments—are summarized in Supplemental Appendix 9, 
+Supplemental Digital Content, https://links.lww.com/
+MSS/D323. The results for each review are reported 
+in Supplemental Appendix 20, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. Compared 
+with CTRL, multicomponent function was impacted by 
+standard RT (17,24,42,45,159), elastic band RT (60,61), 
+and home-based RT (64). In comparisons between dis-
+tinct RTx, multicomponent function was affected by 
+elastic band RT (61) and power training (105,157,160), 
+but was not affected by time under tension (24) or vol-
+ume (91). There were insufficient data to determine if 
+the multicomponent function was positively affected by 
+load (24), range of motion (87), or concurrent training 
+(119).
+Improving multicomponent function. Compared 
+with CTRL, multicomponent function was improved 
+by RT, including elastic band RT and home-based RT 
+(Table 6). Comparing between RTx, multicomponent 
+function was enhanced by RT performed with power 
+training techniques, and standard RT enhanced multi-
+component function compared with elastic band RT.
+Short Physical Performance Battery
+The impacts of RT versus CTRL and distinct RTx 
+variables on the Short Physical Performance Battery 
+(SPPB) are summarized in Supplemental Appendix 10, 
+Supplemental Digital Content, https://links.lww.com/
+MSS/D323. The results for each review are reported 
+in Supplemental Appendix 21, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. Compared 
+with CTRL, SPPB was not affected by standard RT (30). 
+There were insufficient data to determine whether power 
+training (156) had an impact on SPPB compared with 
+CTRL. In comparing different RTx, SPPB was positively 
+affected by power training (106,157).
+Improving short physical performance bat-
+tery. RT did not improve SPPB compared with CTRL. 
+Comparing RTx, SPPB was enhanced by RT performed 
+with power training.
+Walking Performance
+The impacts of RT versus CTRL and distinct RTx 
+variables on walking test performance (e.g., 6-min walk 
+test) are summarized in Supplemental Appendix 10, 
+Supplemental Digital Content, https://links.lww.com/
+MSS/D323. The results for each review are reported 
+in Supplemental Appendix 22, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. Compared 
+with CTRL, there were insufficient data to determine if 
+standard RT (30) or elastic band RT (62) impacted walk-
+ing performance compared with CTRL. In comparisons 
+between distinct RTx, walking performance was posi-
+tively affected by power training (106,157).
+Improving walking performance. Between RTx, 
+walking performance was enhanced only by RT per -
+formed with power training techniques.
+Running Performance
+The impacts of RT versus CTRL and distinct RTx 
+variables on running performance are summarized 
+in Supplemental Appendix 9, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. The results 
+for each review are reported in Supplemental Appendix 
+23, Supplemental Digital Content, https://links.lww.com/
+MSS/D323. Compared with CTRL, there were insuffi-
+cient data to determine whether standard RT (48,69,161), 
+eccentric flywheel RT (162), and velocity-based RT (66) 
+impacted running performance compared with CTRL. 
+In comparisons between distinct RTx, running perfor -
+mance was positively affected only by velocity-based RT 
+versus standard RT (65). There were insufficient data to 
+determine if running performance was affected by eccen-
+tric flywheel RT versus standard RT (85), Olympic-style 
+weightlifting versus standard RT (69), set structure (109), 
+or concurrent training (123).
+Improving running performance. Comparing RTx, 
+running performance was enhanced only by velocity- 
+based RT.
+Jumping Performance
+The impacts of RT versus CTRL and distinct RTx 
+variables on jumping performance are summarized 
+in Supplemental Appendix 9, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. The results 
+for each review are reported in Supplemental Appendix 
+24, Supplemental Digital Content, https://links.lww.com/
+MSS/D323. Compared with CTRL, jumping perfor -
+mance was impacted by eccentric flywheel RT (162) and 
+velocity-based RT (66). In comparisons between distinct 
+RTx, jumping performance was positively affected by 
+velocity-based RT versus standard RT (65), but jumping 
+performance was not affected by set structure (108,109). 
+There were insufficient data to determine if jumping per-
+formance was affected by load (81), eccentric flywheel RT 
+versus standard RT (85), or machine versus free-weight 
+862 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+RT (100). We note that jumping performance should not 
+be considered as a proxy for muscle power.
+Improving jumping performance. Compared with 
+CTRL, jumping performance was improved by eccentric 
+flywheel RT and velocity-based RT (Table 6). Comparing 
+RTx, velocity-based RT enhanced jumping performance; 
+however, jumping performance was not affected by RT 
+performed with different set structures (complex vs 
+cluster).
+Contraction Velocity
+The impact of RT versus CTRL and distinct RTx 
+variables on contraction velocity is summarized in 
+Supplemental Appendix 10, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. The results 
+for each review are reported in Supplemental Appendix 
+25, Supplemental Digital Content, https://links.lww.
+com/MSS/D323. Compared with CTRL, contraction 
+velocity was positively impacted by standard RT (163). 
+In comparisons between distinct RTx, there were insuf-
+ficient data to determine if contraction velocity was 
+affected by cluster or rest-redistribution set structures 
+(107,108).
+Improving contraction velocity. RT improved 
+contraction velocity compared with CTRL.
+Change of Direction (Agility)
+The impacts of RT versus CTRL and distinct RTx 
+variables on the ability to change direction are summa-
+rized in Supplemental Appendix 9, Supplemental Digital 
+Content, https://links.lww.com/MSS/D323. The results 
+for each review are reported in Supplemental Appendix 
+26, Supplemental Digital Content, https://links.lww.
+com/MSS/D323. Compared with CTRL, there were 
+insufficient data to determine whether standard RT (69) 
+or eccentric flywheel RT (162) impacted the ability to 
+change direction. In comparisons between distinct RTx, 
+there were insufficient data to determine if agility was 
+affected by Olympic-style weightlifting (69).
+Improving change of direction (agility). There 
+were insufficient data to determine the impact of RT on 
+agility.
+Functional Reach Test
+The impact of RT versus CTRL on functional 
+reach test performance is summarized in Supplemental 
+Appendix 10, Supplemental Digital Content, https://
+links.lww.com/MSS/D323. The results for each review are 
+reported in Supplemental Appendix 27, Supplemental 
+Digital Content, https://links.lww.com/MSS/D323. 
+Compared with CTRL, there were insufficient data to 
+determine whether standard RT (154) impacted func-
+tional reach performance.
+Improving functional reach test. There were insuf-
+ficient data to determine the impact of RT on functional 
+reach test performance.
+DISCUSSION
+Resistance training is a central component of exercise 
+programs. It should be a core component of physical fit-
+ness programming, as it has broad-reaching benefits for 
+muscular health and physical function. This overview 
+of reviews summarized 137 systematic reviews to deter -
+mine the impact of RTx variables on muscle function and 
+hypertrophy in healthy adults. Compared with no exer -
+cise, RT improves muscle strength, hypertrophy, power, 
+endurance, contraction velocity, and performance on 
+several physical function tests (balance, gait speed, chair 
+stand, and timed up-and-go; Table 3). Additionally, other 
+forms of RT improve multiple outcomes compared with 
+CTRL, including home-based RT, elastic band RT, power 
+RT (which involves performing the concentric phase 
+quickly), velocity-based RT, and circuit RT (Table 3). 
+Based on these results, it is apparent that many forms of 
+RT work to promote the primary hallmark outcomes of 
+RT: increased strength, hypertrophy, and power. Our pri-
+mary recommendation is that healthy adults perform RT 
+with high effort (effort can be measured through various 
+scales, but can be achieved with various loads and sets 
+per the FITT-VP principle) at least twice weekly, with all 
+major muscle groups being engaged.
+Between distinct RT programs, only some RTx vari-
+ables can be altered to optimize increases in muscle 
+function and hypertrophy (Tables 4 and 6). Significant 
+and optimal improvements are two different goals; 
+however, participants and facilitators of RT must dis-
+tinguish between them. Compared with CTRL, signif-
+icant improvements in muscle function, hypertrophy, 
+and physical performance can be accomplished with 
+the adoption of many RT programs. This overview of 
+reviews enhances the quality of recommendations for 
+healthy adults to significantly increase muscle function, 
+hypertrophy, and physical performance by providing cur-
+rent, comprehensive, and evidence-based insights into 
+the impact of RTx variables.
+Progressive overload is a concept considered funda-
+mental to RT programming principles. Progressive over-
+load refers to the need to increase the stimulus (stressor) 
+placed upon the muscle throughout a training program. 
+Progressive overload is often proposed as essential for 
+continued adaptive progress with any form of exercise 
+training as physiological systems adapt to reduce the 
+stress of the exercise and build an increasing adaptive 
+response (i.e., strength). Such adaptation would require 
+increasing the stimulus, such as load, volume, training 
+frequency, exercise selection, or duration (even if only 
+slightly), as the muscle continues to adapt to produce fur-
+ther adaptations (164). Modifying an RTx (e.g., increas-
+ing relative load [percentage of one-repetition maximum, 
+%1RM]) can support progressive overload. Still, the same 
+relative load can also be sustained when regular strength 
+testing is performed or perceived exertion scales are used 
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 863
+SPECIAL COMMUNICATIONS
+to increase absolute load commensurate with strength 
+gains (113,165). Notably, as the results in Table 4 high-
+light, progression is not necessary to achieve beneficial 
+outcomes, and overload, or more accurately, increasing 
+the stimulus in some manner, is likely a requirement only 
+for those seeking continued longer term progress. We 
+note that in some populations, due to inexperience (and 
+potential safety concerns), RTx necessitates that loads 
+are necessarily low and progression is a requirement to 
+achieve a meaningful benefit. Continued progression 
+could be a personal decision and part of the individual-
+ization of RTx (see below). A similar commentary could 
+be made around the “need” for variation of RTx vari-
+ables (see below).
+The principle of specificity states that training adap-
+tations are specific to the training stimulus applied. 
+Some adaptations can be affected by modifying RTx 
+variables, although there is a considerable carryover 
+of training effects on general muscular performance 
+in various domains in nonadvanced trainees (17,24). 
+Individualization involves modifying RT programs to 
+meet the unique goals, needs, and characteristics of 
+each individual, such as their experience and perfor -
+mance level. Individualized programs can increase exer -
+cise adoption and adherence (10), but individualization 
+has been scarcely discussed in previous Position Stands 
+(11,12). With the accumulation of evidence demonstrat-
+ing that many forms of RT are effective for healthy adults 
+to improve muscle function and health, RT programs 
+would ideally be individualized to maximize adherence, 
+enjoyment, safety, and effectiveness specific to training 
+goals.
+Variation is the systematic modification of RTx vari-
+ables over time to facilitate continued adaptation. One of 
+the most common forms of variation is periodization—
+intentionally modifying prescription variables (e.g., 
+load, volume, frequency) throughout an RT program. 
+The impact of periodization on strength could not be 
+determined, although one review found that periodized 
+programs were slightly favored over nonperiodized pro-
+grams to maximize strength gains under volume-equated 
+conditions (117). With appropriate progressive overload, 
+periodization is not significantly superior to nonperi-
+odized programs; thus, periodization is less important 
+than previously hypothesized (11,12) for healthy adults 
+to improve muscle function and hypertrophy. We note, 
+however, that definitions of periodization vary (166,167), 
+but broadly involve the systematic manipulation of RTx 
+variables with the goal of optimizing performance adap-
+tations, managing fatigue, preventing overtraining/injury, 
+and peaking for specific goals. Thus, it may be that the 
+ordering of variables within a given RTx to achieve cer -
+tain goals is understudied compared with the outcomes 
+contained in the reviews we examined. We also note 
+that periodization and programming are often conflated 
+(168), which may have been the case in some reviews.
+Resistance training improves numerous measures 
+of muscle function and can result in hypertrophy com-
+pared with no exercise (Fig. 2). Provided the strikingly 
+low RT participation levels (169–173), individuals and 
+practitioners alike should acknowledge the tremendous 
+benefits of completing RT of various forms compared 
+with no exercise. Additionally, nontraditional forms of 
+RT also yield marked benefits—for example, elastic band 
+RT has been shown to increase strength, hypertrophy, 
+and certain components of physical function. Similarly, 
+home-based RT improved strength, muscular endurance, 
+and balance. Nontraditional forms of RT may provide 
+alternative, perhaps more accessible or approachable, 
+strategies for completing RT with appreciable physical 
+benefits.
+We build on several aspects of the 2009 ACSM Position 
+Stand (11), which aimed to provide evidence-based RTx 
+guidelines for healthy adults wishing to progress beyond 
+the first 3–4 months of training. Previous guidelines 
+have recommended healthy adults use free weights and 
+machines to complete two to three RT sessions per week, 
+with eight to ten exercises involving major muscle groups 
+per session, one to four sets per exercise, eight to twenty 
+repetitions per set, 2–3 min rest between sets, loads 40%–
+70% 1RM, and follow the principles of progressive over-
+load, specificity, and variation (10,11). Current estimates 
+(from self-report) are that only ~30% of American adults 
+complete some muscle-strengthening activities at least 2 d/
+wk, and nearly 60% complete no muscle-strengthening  
+exercise (169–173). Estimates for older persons vary; 
+however, data from the UK, United States, and Australia 
+put participation rates from as low as 1% to as high as 
+40% (174). We suspect that rates of participation among 
+older persons for the types of RT programs we outline 
+here are likely 10%–15% (175). Notably, others have esti-
+mated that developing general muscular fitness (strength, 
+hypertrophy, and power) according to previous ACSM 
+guidelines may, in some cases, require training for 20 h or 
+more per week (176). Thus, the recommendations of the 
+previous Position Stand (10,11) may be less relevant for 
+most adults, particularly older adults, many of whom do 
+not engage in RT. The specific program details outlined 
+in previous Position Stands may be an appropriate start-
+ing point for some individuals; however, several other RT 
+programs, as evidenced here, can also be effective.
+Deviating from previous guidelines, we propose that 
+individualizing programs to increase RT participation 
+is, from our perspective, more important than conform-
+ing to specific RTx criteria outlined in previous Position 
+Stands. Research on RTx reveals that “minimal doses” of 
+RT are able to bring about substantial strength, hyper -
+trophy, and physical functional gains (177). We propose 
+that our stance around encouraging participation in RT 
+is underscored by the expanding knowledge of health 
+benefits, some of which are unique to RT (4–6). The rec-
+ommendations presented here apply to healthy adults, 
+864 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+ranging from complete novices (with no experience with 
+RT) to experienced trainees, and support the adoption 
+of a much broader range of RT programs to improve 
+overall muscular strength, function, and hypertrophy. 
+Advances enable a more comprehensive understanding 
+of how RTx variable manipulation affects outcomes. 
+For example, the previous Position Stand recommended 
+novice lifters complete two to three full-body sessions per 
+week for muscle hypertrophy, and this recommendation 
+was graded as the highest possible quality of evidence 
+(11). However, this recommendation was informed by 
+only three studies (178–180) (n = 59 total participants), 
+and two of the studies did not investigate frequency 
+(178,179). In contrast, we present guidelines suitable for 
+many healthy adults, supported by ample primary evi-
+dence, that were formulated with leading evidence syn-
+thesis methodologies.
+Resistance training is safe for healthy adults of all ages 
+(5), but many adults, particularly older adults, avoid RT 
+due to misperceptions about safety and injury risks (181). 
+In an analysis of >38,000 participants (>6700 RT partic-
+ipants), of which >11,000 were older adults, exercise did 
+not increase the risk of serious adverse events. The risk 
+of nonserious adverse events (e.g., pain, fatigue, bursi-
+tis, and edema) was not different than aerobic exercise in 
+terms of injury rate or risk (182). Nonfatal cardiovascu-
+lar complications also occur much less frequently during 
+RT than aerobic training (5,183). In 23 studies (n = 1174) 
+of adults with coronary heart disease, all 63 nonfatal 
+cardiovascular complications occurred during aerobic 
+training, and the 20 musculoskeletal complications that 
+occurred during RT were caused by preexisting condi-
+tions (knee arthritis) and were resolved by changing RT 
+intensity or body position (183). Clearly, RT can be safe 
+and effective for healthy adults of all ages.
+This overview of reviews summarized RTx variable- 
+level evidence, an approach that prevents statistical 
+insights into the comparative effectiveness (e.g., dose- 
+response) of individual RT variables. Nuanced details 
+of RT protocols and dose-response data require discus-
+sion for practitioners designing RT programs to enhance 
+adaptations, since some features of RTx are not reflected 
+in variable-level summaries. For example, RT frequency 
+was found to impact strength; however, there was insuffi-
+cient evidence to conclude a dose-response relationship, 
+and the impact is diminished when volume is equated 
+(73,76,90).
+Load (often used synonymously with intensity) has 
+repeatedly been shown to impact strength more than 
+other RT adaptations (17,83,184). Load has typically 
+been quantified as a %1RM or repetition maximum. 
+Several methods have been used to convert loads between 
+%1RM and repetition maximum (17,184,185), including 
+a recent analysis that considered exercise-specific conver-
+sions and between-subject variability (186). The number 
+of repetitions performed within a given set is inherently 
+and inversely related to load, provided a given load 
+and near-fatiguing effort are applied; however, not all 
+FIGURE 2—Schematic representation of the modes of RT and the outcomes that are positively influenced by engaging in regular RT.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 865
+SPECIAL COMMUNICATIONS
+adaptations are enhanced by fatiguing efforts (e.g., power 
+and strength). Practitioners should consider the princi-
+ple of specificity when designing RT programs to achieve 
+specific outcomes.
+Increasing the number of sets (volume) per exercise 
+positively impacted strength (88–93) and hypertrophy 
+(24,128,131–133), which aligns with a recent analysis 
+by Swinton et al. (184). Clearly, one set is superior to 
+zero sets (CTRL), and two sets are superior to one set 
+(17,24,88–93,128,131–133), but the exact number of sets 
+required to optimize adaptations cannot be ascertained. 
+A meta-regression (187) of the effect of volume (weekly) 
+sets showed progression, but as expected, a dose-response 
+that plateaued and showed diminishing returns beyond 
+~2–3 sets/exercise for strength and ~18–20 weekly sets 
+for hypertrophy with varying loads; thus, healthy adults 
+are advised to complete at least two sets per exercise. 
+Completing more than two sets per exercise may provide 
+additional benefits, but we hypothesize that these bene-
+fits diminish with each subsequent set. Weekly volume 
+load—the total amount of load lifted in each week of 
+training, defined by load/rep • reps/set • sets/exercise • 
+exercises/session • sessions/week—which would presum-
+ably represent the complete representation of “dose” of 
+RT—was rarely considered in included reviews.
+Completing sets to fatigue (momentary muscular fail-
+ure) does not enhance gains in strength, hypertrophy, and 
+power, and so is not necessary for benefits to occur. It 
+may also be that lifting to fatigue is inadvisable for cer -
+tain populations (e.g., older individuals) due to risks to 
+vascular health and an increased risk of injury resulting 
+from poor form (24,97–99). We propose that an adequate 
+stimulus (the effort to meet the minimum stressor) is 
+required to induce adaptations. Sufficient effort (assessed 
+using various scales) can be accomplished by complet-
+ing sets with various RTx and completion of “near- 
+failure” or a target of 2–3 repetitions in reserve (RIR) 
+(24,97–99,128,137,188–190).
+Blood flow restriction protocols often compare differ-
+ent loads (e.g., higher load RT versus BFR with lower 
+load), so the individual effect of BFR cannot be distin-
+guished from the load in many cases. Similarly, flywheel 
+RT typically involves eccentric overload, so the individ-
+ual effect of flywheel RT and contraction type cannot 
+be distinguished. Evidence-based conclusions on these 
+matters cannot be determined with the available data, 
+but consideration is warranted when designing RT pro-
+grams and conducting future research. Notably, these 
+considerations can be largely overlooked when designing 
+RT programs for most adults who are inexperienced with 
+RT. Untrained individuals will benefit from various RT 
+programs, provided that progression, the variables out-
+lined here as affecting outcomes, and adherence are core 
+principles.
+Limitations should be considered when interpreting 
+the results presented in this analysis. Overviews of reviews 
+provide strong (larger or consistent effects) pooled, 
+group-level evidence, so that appropriate deviations from 
+the reported recommendations will be required on vari-
+ous occasions, in accordance with the principle of indi-
+vidualization. We acknowledge that any RT program 
+would need to be tailored to an individual’s needs and 
+goals. Not discussed here, but of paramount importance, 
+is the understanding and acknowledgment of the critical 
+role adherence plays in any RT program. Such consider-
+ations are beyond the scope of this review, but work has 
+been done to examine this important area (191,192).
+The totality of evidence in overviews of reviews is 
+limited to interventions and outcomes summarized by 
+systematic reviews. For example, the Short Physical 
+Performance Battery (SPPB) is a common assessment 
+used in randomized trials; however, only two eligible 
+reviews have synthesized the results of the SPPB. When 
+evaluating the results of this review, it would lead one to 
+conclude that RT does not improve SPPB performance; 
+however, this conclusion likely reflects the sparseness of 
+evidence, rather than a true null effect. We note that there 
+was ample evidence for individual components of the 
+SPPB—gait speed, balance, and chair stand tests—and 
+RT improved all these components. Overviews of reviews 
+are also limited by overlapping evidence. While we esti-
+mated this overlap using the CCA method for strength, 
+we did not do so for other variables. We acknowledge 
+that caution is needed when examining other outcomes 
+for which we provide no CCA analysis. Individual stud-
+ies included in multiple eligible reviews could inflate the 
+evidence supporting or refuting conclusions; for example, 
+three reviews were included on the impact of RT time of 
+day on hypertrophy (24,102,131), but two reviews (24,131) 
+synthesized one original review (102). Overlapping data 
+are an issue in overviews of reviews, and methods are 
+being developed to improve exercise-related overviews of 
+reviews (193,194). Overviews of reviews do not permit 
+inferences about the comparative effectiveness of differ -
+ent interventions (14). This review summarizes the indi-
+vidual impact of RTx variables; however, alternative data 
+synthesis methods are required to formulate evidence-  
+based conclusions on the relative effects of multiple RTx. 
+For example, network meta-analysis can be leveraged 
+to statistically compare and rank the efficacy of unique 
+RT programs (17). Reviews included in this overview 
+of reviews were limited to healthy adults. Provided suf-
+ficient evidence, future guidelines can be developed for 
+additional subpopulations (e.g., older adults and clini-
+cal populations). There was insufficient evidence to form 
+recommendations on emerging RTx strategies; for exam-
+ple, various minimal-dose RT programs warrant further 
+investigation and consideration when individualizing RT 
+programs (195). The method of testing muscular endur -
+ance (e.g., absolute vs relative, pre- vs postintervention 
+strength) was not accounted for in the data synthesis and 
+should be considered when designing future studies (196).
+866 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+Methods to quantify load based on proximity to mus-
+cular failure (e.g., RIR, perceived exertion) are appealing 
+because they could translate to various RT forms (e.g., 
+elastic band or body weight RT). While training to failure 
+is not obligatory for optimizing results, there is insuffi-
+cient evidence to quantify exact RIR and perceived exer-
+tion targets (189,190,197,198). The available evidence 
+did not compare distinct body regions or muscle groups. 
+In the view of the authors, applying the recommenda-
+tions herein to the body regions “upper” and “lower” for 
+“push” and “pull” exercises (i.e., four body regions) is 
+sufficient to target major muscle groups. The movement 
+directions “horizontal” and “vertical” may also be con-
+sidered for upper body exercises (i.e., six body regions). 
+The regions and movements we recommend should align 
+with the FITT-VP principle in terms of RTx, which 
+could be a per-training-session requirement or a per-
+week requirement, depending on individual goals, train-
+ing status, age, and other relevant variables.
+We also need to acknowledge that randomized trials 
+in sports and exercise medicine-related fields are often 
+poor quality with small sample sizes, poor randomiza-
+tion methodology, lack of preregistration, poor report-
+ing of adverse events, and other shortcomings (199), 
+and much remains to be done in terms of the conduct 
+of evidence syntheses (200,201). Guidelines have been 
+developed to improve the reporting of exercise trials, and 
+we would encourage their adoption (202). Consequently, 
+cohesive QoE evaluations, such as pooling Grading 
+of Recommendations Assessment, Development and 
+Evaluation assessments (14), were not possible. Field-
+specific guidelines for evidence syntheses have emerged 
+and will continue to be developed (203). Nonetheless, to 
+improve the quality of evidence that informs guidelines 
+and best practices as a field, a higher, more rigorous stan-
+dard of trial conduct and evidence syntheses are required 
+in the field of RT.
+This overview of reviews represents, to date, the most 
+comprehensive summary of the impact of RTx variables 
+on muscle function and hypertrophy in healthy adults. RT 
+greatly enhances overall muscular health compared with 
+no exercise, and only a few RTx variables can be manip-
+ulated to enhance adaptations in experienced trainees. 
+Therefore, individuals should prioritize completing any 
+form of RT to improve muscle function and hypertro-
+phy. Exercise and healthcare practitioners can provide 
+invaluable guidance by leveraging these conclusions to 
+promote RT participation and adherence, helping adults 
+of all ages improve their health and fitness.
+This article is being published as an official pronouncement of 
+the American College of Sports Medicine. This pronouncement was 
+reviewed for the American College of Sports Medicine by members- 
+at-large and the Pronouncements Committee. Care has been taken 
+to confirm the accuracy of the information presented and to de-
+scribe generally accepted practices. However, the authors, editors, 
+and publisher are not responsible for errors or omissions or for 
+any consequences from the application of the information in this 
+publication and make no warranty, expressed or implied, with re-
+spect to the currency, completeness, or accuracy of the contents 
+of the publication. The application of this information in a partic-
+ular situation remains the professional responsibility of the prac-
+titioner; the clinical treatments described and recommended may 
+not be considered absolute and universal recommendations. B. S. 
+C. was supported by an Alexander Graham Bell Canada Graduate  
+Scholarship-Doctoral. S. M. P . thanks the Canada Research Chairs 
+program for its support and acknowledges grant support from 
+NSERC and CIHR. No specific source of funding was used for this 
+work. B. J. S. formerly served on the scientific advisory board for 
+Tonal Corporation, a manufacturer of fitness equipment. No other 
+authors reported conflicts relevant to this work. M. A. F . S., E. S. R., 
+B. J. S., A. E. S. R., G. A. T., N. T. T., T. A. W., T. J. W., and S. M. P . 
+designed and conceived the review; B. S. C. undertook the search 
+of articles; B. S. C., A. C. D., C. V. L., and J. S. extracted data; B. S. 
+C. synthesized data; B. S. C., M. A. F . S., E. S. R., B. J. S., A. E. S. 
+R., G. T., N. T. T., T. A. W., T. J. W., and S. M. P . reviewed evidence 
+recommendations; B. S. C. and S. M. P . wrote manuscript; B. S. C., 
+A. C. D., M. A. F . S., C. V. L., E. S. R., B. J. S., A. E. S. R., J. S., G. 
+A. T., N. T. T., T. A. W., T. J. W., and S. M. P . reviewed manuscript. 
+The results of the study are presented clearly, honestly, and with-
+out fabrication, falsification, or inappropriate data manipulation. The 
+results of the present study do not constitute endorsement by the 
+American College of Sports Medicine.
+REFERENCES
+ 1. Phillips SM, Ma JK, Rawson ES. The coming of age of re-
+sistance exercise as a primary form of exercise for health. 
+ACSM'S Health Fit J. 2023;27(6):19–25.
+ 2. World Health Organization. WHO Guidelines on Physical Ac-
+tivity and Sedentary Behaviour. World Health Organization; 
+2020.
+ 3. Delorme TL. Restoration of muscle power by heavy-resistance 
+exercises. J Bone Joint Surg. 1945;27(4):645–67.
+ 4. Shailendra P, Baldock KL, Li LSK, et al. Weight training and 
+risk of all-cause, cardiovascular disease and cancer mortality 
+among older adults. Int J Epidemiol. 2024;53(3):dyae074.
+ 5. Paluch AE, Boyer WR, Franklin BA, et al; on behalf the 
+American Heart Association Council on Lifestyle and Car -
+diometabolic Health; Council on Arteriosclerosis, Throm-
+bosis and Vascular Biology; Council on Clinical Cardiology; 
+Council on Cardiovascular and Stroke Nursing; Council on 
+Epidemiology and Prevention; and Council on Peripheral Vas-
+cular Disease. Resistance exercise training in individuals with 
+and without cardiovascular disease: 2023 update: a scientific 
+statement from the American Heart Association. Circulation. 
+2024;149(3):e217–31.
+ 6. Momma H, Kawakami R, Honda T, Sawada SS. Muscle- 
+strengthening activities are associated with lower risk and 
+mortality in major non-communicable diseases: a systematic 
+review and meta-analysis of cohort studies. Br J Sports Med. 
+2022;56(13):755–63.
+ 7. Carneiro L, Afonso J, Ramirez-Campillo R, Murawska-Ciałowciz  
+E, Marques A, Clemente FM. The effects of exclusively re-
+sistance training-based supervised programs in people with 
+depression: a systematic review and meta-analysis of ran-
+domized controlled trials. Int J Environ Res Public Health. 
+2020;17(18):6715.
+ 8. Gordon BR, McDowell CP, Hallgren M, Meyer JD, Lyons 
+M, Herring MP . Association of efficacy of resistance exercise 
+training with depressive symptoms: meta-analysis and meta- 
+regression analysis of randomized clinical trials. JAMA Psychi-
+atry. 2018;75(6):566–76.
+ 9. Kovacevic A, Mavros Y , Heisz JJ, Fiatarone Singh MA. The 
+effect of resistance exercise on sleep: a systematic review of 
+randomized controlled trials. Sleep Med Rev. 2018;39:52–68.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 867
+SPECIAL COMMUNICATIONS
+ 10. Garber CE, Blissmer B, Deschenes MR, et al; American Col-
+lege of Sports Medicine. Quantity and quality of exercise for 
+developing and maintaining cardiorespiratory, musculoskel-
+etal, and neuromotor fitness in apparently healthy adults: 
+guidance for prescribing exercise. Med Sci Sports Exerc. 
+2011;43(7):1334–59.
+ 11. American College of Sports Medicine. American College of 
+Sports Medicine position stand. Progression models in re-
+sistance training for healthy adults. Med Sci Sports Exerc. 
+2009;41(3):687–708.
+ 12. Kraemer WJ, Adams K, Cafarelli E, et al; American College 
+of Sports Medicine. American College of Sports Medicine 
+position stand. Progression models in resistance training for 
+healthy adults. Med Sci Sports Exerc. 2002;34(2):364–80.
+ 13. Belbasis L, Bellou V , Ioannidis JPA. Conducting umbrella re-
+views. BMJ Med. 2022;1(1):e000071.
+ 14. Pollock M, Fernandes RM, Becker LA, Pieper, D, Hartling 
+L. Chapter V: overviews of reviews. In: Higgins J, Chandler 
+J, Cumpston M, Li T, Page MJ, Welch V A, editors. Cochrane 
+Handbook for Systematic Reviews of Interventions Version 6.4 
+(Updated August 2023): Cochrane Publishing; 2023.
+ 15. Hartling L, Chisholm A, Thomson D, Dryden DM. A descrip-
+tive analysis of overviews of reviews published between 2000 
+and 2011. PLoS One. 2012;7(11):e49667.
+ 16. Gates M, Gates A, Pieper D, et al. Reporting guideline for 
+overviews of reviews of healthcare interventions: development 
+of the PRIOR statement. BMJ. 2022;378:e070849.
+ 17. Currier BS, McLeod JC, Banfield L, et al. Resistance training 
+prescription for muscle strength and hypertrophy in healthy 
+adults: a systematic review and Bayesian network meta- 
+analysis. Br J Sports Med. 2023;57(18):1211–20.
+ 18. Gielen E, Beckwee D, Delaere A, De Breucker S, Vandewoude 
+M, Bautmans I; Sarcopenia Guidelines Development Group 
+of the Belgian Society of Gerontology and Geriatrics (BSGG). 
+Nutritional interventions to improve muscle mass, muscle 
+strength, and physical performance in older people: an umbrel-
+la review of systematic reviews and meta-analyses. Nutr Rev. 
+2021;79(2):121–47.
+ 19. Shea BJ, Grimshaw JM, Wells GA, et al. Development of AM-
+STAR: a measurement tool to assess the methodological qual-
+ity of systematic reviews. BMC Med Res Methodol. 2007;7:10.
+ 20. Phillips SM, Lau KJ, D’Souza AC, Nunes EA. An umbrella re-
+view of systematic reviews of beta-hydroxy-beta-methyl butyr-
+ate supplementation in ageing and clinical practice. J Cachexia 
+Sarcopenia Muscle. 2022;13(5):2265–75.
+ 21. Austin TM, Richter RR, Sebelski CA. Introduction to the 
+GRADE approach for guideline development: considerations 
+for physical therapist practice. Phys Ther. 2014;94(11):1652–9.
+ 22. Sadoyu S, Tanni KA, Punrum N, et al. Methodological ap-
+proaches for assessing certainty of the evidence in umbrella 
+reviews: a scoping review. PLoS One. 2022;17(6):e0269009.
+ 23. Nunes EA, D’Souza AC, Steen JP, Phillips SM. Lack of ev-
+idence for Omega-3 fatty acid supplementation in enhancing 
+lean mass, muscle strength, and physical function in healthy 
+adults and clinical populations: an overview of reviews. Clin 
+Nutr ESPEN. 2025;67:155–65.
+ 24. McLeod JC, Currier BS, Lowisz CV , Phillips SM. The influ-
+ence of resistance exercise training prescription variables on 
+skeletal muscle mass, strength, and physical function in healthy 
+adults: an umbrella review. J Sport Health Sci. 2024;13(1):47–
+60.
+ 25. Lunny C, Pieper D, Thabet P, Kanji S. Managing overlap of 
+primary study results across systematic reviews: practical con-
+siderations for authors of overviews of reviews. BMC Med Res 
+Methodol. 2021;21(1):140.
+ 26. Pieper D, Antoine SL, Mathes T, Neugebauer EA, Eiker -
+mann M. Systematic review finds overlapping reviews were 
+not mentioned in every other overview. J Clin Epidemiol. 
+2014;67(4):368–75.
+ 27. Kirvalidze M, Abbadi A, Dahlberg L, Sacco LB, 
+Calderón-Larrañaga A, Morin L. Estimating pairwise over -
+lap in umbrella reviews: considerations for using the corrected 
+covered area (CCA) index methodology. Res Synth Methods. 
+2023;14(5):764–7.
+ 28. Bougioukas KI, Diakonidis T, Mavromanoli AC, Haidich 
+AB. ccaR: a package for assessing primary study overlap 
+across systematic reviews in overviews. Res Synth Methods. 
+2023;14(3):443–54.
+ 29. Amiri N, Fathei M, Mosaferi Ziaaldini M. Effects of resis-
+tance training on muscle strength, insulin-like growth factor-1,  
+and insulin-like growth factor-binding protein-3 in healthy 
+elderly subjects: a systematic review and meta-analysis  
+of randomized controlled trials. Hormones (Athens). 
+2021;20(2):247–57.
+ 30. Chen YC, Chen W-C, Liu C-W , et al. Is moderate resistance 
+training adequate for older adults with sarcopenia? A system-
+atic review and network meta-analysis of RCTs. Eur Rev Aging 
+Phys Act. 2023;20(1):1–22.
+ 31. Cordeiro LD, Linhares DG, dos Santos AOB, dos Santos LL, 
+de Castro JBP, Vale RGD. Influence of resistance training on 
+muscle architecture in older adults: a systematic review and 
+meta-analysis of randomized controlled trials. Arch Gerontol 
+Geriatr. 2023;112:105020.
+ 32. Geng Q, Zhai H, Wang L, Wei H, Hou S. The efficacy of differ-
+ent interventions in the treatment of sarcopenia in middle-aged 
+and elderly people: a network meta-analysis. Medicine (Balti-
+more). 2023;102(27):e34254.
+ 33. González-Rocha A, Mendez-Sanchez L, Ortíz-Rodríguez MA, 
+Denova-Gutiérrez E. Effect of exercise on muscle mass, fat mass, 
+bone mass, muscular strength and physical performance in 
+community dwelling older adults: systematic review and meta- 
+analysis. Aging Dis. 2022;13(5):1421–35.
+ 34. Kamiya M, Ihira H, Taniguchi Y , et al. Low-intensity  
+resistance training to improve knee extension strength in  
+community-dwelling older adults: systematic review and meta- 
+analysis of randomized controlled studies. Exp Gerontol. 
+2023;172:112041.
+ 35. Wang H, Huang WY , Zhao Y . Efficacy of exercise on muscle 
+function and physical performance in older adults with sarco-
+penia: an updated systematic review and meta-analysis. Int J 
+Environ Res Public Health. 2022;19(13):8212.
+ 36. Zeng D, Ling X-Y , Fang Z-L, Lu Y-F . Optimal exercise to 
+improve physical ability and performance in older adults with 
+sarcopenia: a systematic review and network meta-analysis. 
+Geriatr Nurs. 2023;52:199–207.
+ 37. Zhao H, Cheng R, Song G, et al. The effect of resistance 
+training on the rehabilitation of elderly patients with sar -
+copenia: a meta-analysis. Int J Environ Res Public Health. 
+2022;19(23):15491.
+ 38. Chen N, He X, Feng Y , Ainsworth BE, Liu Y . Effects of re-
+sistance training in healthy older people with sarcopenia: a 
+systematic review and meta-analysis of randomized controlled 
+trials. Eur Rev Aging Phys Act. 2021;18(1):23.
+ 39. Polito MD, Dias JR Jr, Papst RR. Resistance training to re-
+duce resting blood pressure and increase muscle strength in 
+users and non-users of anti-hypertensive medication: a meta- 
+analysis. Clin Exp Hypertens. 2021;43(5):474–85.
+ 40. Polito MD, Papst RR, Farinatti P . Moderators of strength 
+gains and hypertrophy in resistance training: a systematic 
+review and meta-analysis. J Sports Sci 2021;39(19):2189–
+98.
+ 41. Andrews KL, Gallagher S, Herring MP . The effects of exercise 
+interventions on health and fitness of firefighters: a meta‐anal-
+ysis. Scand J Med Sci Sports 2019;29(6):780–90.
+868 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+ 42. Beckwee D, Delaere A, Aelbrecht S, et al. Exercise inter -
+ventions for the prevention and treatment of sarcopenia. A  
+systematic umbrella review. J Nutr Health Aging. 
+2019;23(6):494–502.
+ 43. Grgic J, Garofolini A, Orazem J, Sabol F , Schoenfeld BJ, Pedis-
+ic Z. Effects of resistance training on muscle size and strength 
+in very elderly adults: a systematic review and meta-analysis of 
+randomized controlled trials. Sports Med. 2020;50(11):1983–
+99.
+ 44. Hagstrom AD, Marshall PW , Halaki M, Hackett DA. The ef-
+fect of resistance training in women on dynamic strength and 
+muscular hypertrophy: a systematic review with meta-analysis. 
+Sports Med. 2020;50(6):1075–93.
+ 45. Beaudart C, Dawson A, Shaw SC, et al; IOF-ESCEO Sarco-
+penia Working Group. Nutrition and physical activity in the 
+prevention and treatment of sarcopenia: systematic review. Os-
+teoporos Int. 2017;28(6):1817–33.
+ 46. Borde R, Hortobagyi T, Granacher U. Dose-response  
+relationships of resistance training in healthy old adults: 
+a systematic review and meta-analysis. Sports Med. 
+2015;45(12):1693–720.
+ 47. De Mello RGB, Dalla Corte RR, Gioscia J, Moriguchi EH. 
+Effects of physical exercise programs on sarcopenia manage-
+ment, dynapenia, and physical performance in the elderly: a 
+systematic review of randomized clinical trials. J Aging Res. 
+2019;2019:1959486.
+ 48. Miranda JM, Polito LFT, Rica RL, et al. Muscle strength 
+training and prescribing in competitive tennis players: a sys-
+tematic review. Rev Bras Med Esporte. 2020;26(1):87–92.
+ 49. Guizelini PC, de Aguiar RA, Denadai BS, Caputo F , Greco 
+CC. Effect of resistance training on muscle strength and rate of 
+force development in healthy older adults: a systematic review 
+and meta-analysis. Exp Gerontol. 2018;102:51–8.
+ 50. Moreira OC, Oliveira CEP, Maroto-Izquierdo S, Cuevas 
+MJ, De Paz JA. Effects of short-term strength training on 
+body composition, muscle strength and functional capacity 
+of elderly: a systematic review and meta-analysis. Biosci J. 
+2019;35(6):1941–57.
+ 51. Arnold P, Bautmans I. The influence of strength training on 
+muscle activation in elderly persons: a systematic review and 
+meta-analysis. Exp Gerontol. 2014;58:58–68.
+ 52. Asikainen TM, Kukkonen-Harjula K, Miilunpalo S. Exercise 
+for health for early postmenopausal women: a systematic review 
+of randomised controlled trials. Sports Med. 2004;34(11):753–
+78.
+ 53. Beijersbergen CMI, Granacher U, Vandervoort AA, DeVita P, 
+Hortobagyi T. The biomechanical mechanism of how strength 
+and power training improves walking speed in old adults re-
+mains unknown. Ageing Res Rev. 2013;12(2):618–27.
+ 54. Ferreira ML, Sherrington C, Smith K, et al. Physical activity 
+improves strength, balance and endurance in adults aged 40-65 
+years: a systematic review. J Physiother. 2012;58(3):145–56.
+ 55. Munn J, Herbert RD, Evia SC. Contralateral effects of unilat-
+eral resistance training: a meta-analysis. J Appl Physiol (1985). 
+2004;96(5):1861–6.
+ 56. Silva NL, Oliveira RB, Fleck SJ, Leon ACMP, Farinatti P . 
+Influence of strength training variables on strength gains in 
+adults over 55 years-old: a meta-analysis of dose-response re-
+lationships. J Sci Med Sport. 2014;17(3):337–44.
+ 57. Ramos-Campo DJ, Andreu Caravaca L, Martinez-Rodriguez 
+A, Rubio-Arias JA. Effects of resistance circuit-based train-
+ing on body composition, strength and cardiorespiratory fit-
+ness: a systematic review and meta-analysis. Biology (Basel). 
+2021;10(5):377.
+ 58. Ramos-Campo DJ, Andreu-Caravaca L, Carrasco-Poyatos M, 
+Benito PJ, Rubio-Arias JA. Effects of circuit resistance train-
+ing on body composition, strength, and cardiorespiratory fit-
+ness in middle-aged and older women: a systematic review and 
+meta-analysis. J Aging Phys Act. 2021;30(4):725–38.
+ 59. Munoz-Martinez FA, Rubio-Arias JA, Ramos-Campo DJ, Al-
+caraz PE. Effectiveness of resistance circuit-based training for 
+maximum oxygen uptake and upper-body one-repetition max-
+imum improvements: a systematic review and meta-analysis. 
+Sports Med. 2017;47(12):2553–68.
+ 60. Colado JC, Mena R, Calatayud J, et al. Effects of strength 
+training with variable elastic resistance across the lifespan: a 
+systematic review. Cult Cienc Deporte 2020;15(44):147–64.
+ 61. de Oliveira PA, Blasczyk JC, Souza Junior G, et al. Effects of 
+elastic resistance exercise on muscle strength and functional 
+performance in healthy adults: a systematic review and meta- 
+analysis. J Phys Act Health. 2017;14(4):317–27.
+ 62. Tsai YT, Su HH, Chou CH, et al. Impact of elastic band train-
+ing on functional outcomes and muscle mass in the elderly with 
+sarcopenia: a meta-analysis. Int J Gerontol. 2022;16(3):224–30.
+ 63. Chaabene H, Prieske O, Herz M, et al. Home-based exercise 
+programmes improve physical fitness of healthy older adults: a 
+PRISMA-compliant systematic review and meta-analysis with 
+relevance for COVID-19. Ageing Res Rev. 2021;67:101265.
+ 64. Thiebaud RS, Funk MD, Abe T. Home-based resistance train-
+ing for older adults: a systematic review. Geriatr Gerontol Int. 
+2014;14(4):750–7.
+ 65. Baena-Marin M, Rojas-Jaramillo A, Gonzalez-Santamaria 
+J, et al. Velocity-based resistance training on 1-rm, jump and 
+sprint performance: a systematic review of clinical trials. Sports 
+(Basel). 2022;10(1):8.
+ 66. Zhang X, Feng S, Peng R, Li H. The role of velocity-based 
+training (VBT) in enhancing athletic performance in trained 
+individuals: a meta-analysis of controlled trials. Int J Environ 
+Res Public Health. 2022;19(15):9252.
+ 67. Nunez Sanchez FJ, Saez de Villarreal E. Does flywheel par -
+adigm training improve muscle volume and force? A meta- 
+analysis. J Strength Cond Res. 2017;31(11):3177–86.
+ 68. Medeiros DM, Marchiori C, Baroni BM. Effect of Nordic 
+hamstring exercise training on knee flexors eccentric strength 
+and fascicle length: a systematic review and meta-analysis. J 
+Sport Rehabil. 2020;30(3):482–91.
+ 69. Morris SJ, Oliver JL, Pedley JS, Haff GG, Lloyd RS. Compar-
+ison of weightlifting, traditional resistance training and plyo-
+metrics on strength, power and speed: a systematic review with 
+meta-analysis. Sports Med. 2022;52(7):1533–54.
+ 70. Behm DG, Muehlbauer T, Kibele A, Granacher U. Effects of 
+strength training using unstable surfaces on strength, power 
+and balance performance across the lifespan: a systematic re-
+view and meta-analysis. Sports Med. 2015;45(12):1645–69.
+ 71. Androulakis-Korakakis P, Fisher JP, Steele J. The minimum 
+effective training dose required to increase 1RM strength in 
+resistance-trained men: a systematic review and meta-analysis. 
+Sports Med. 2020;50(4):751–65.
+ 72. Cuthbert M, Haff GG, Arent SM, et al. Effects of variations 
+in resistance training frequency on strength development in 
+well-trained populations and implications for in-season athlete 
+training: a systematic review and meta-analysis. Sports Med. 
+2021;51(9):1967–82.
+ 73. Kessinger TK, Melton B, Miyashita T, Ryan G. The effectiveness  
+of frequency-based resistance training protocols on muscular 
+performance and hypertrophy in trained males: a critically ap-
+praised topic. J Sport Rehabil. 2020;29(7):1024–31.
+ 74. Kneffel Z, Murlasits Z, Reed J, Krieger J. A meta-regression 
+of the effects of resistance training frequency on muscular 
+strength and hypertrophy in adults over 60 years of age. J 
+Sports Sci. 2021;39(3):351–8.
+ 75. Ralston GW , Kilgore L, Wyatt FB, Buchan D, Baker JS. Week-
+ly training frequency effects on strength gain: a meta-analysis. 
+Sports Med Open. 2018;4(1):36.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 869
+SPECIAL COMMUNICATIONS
+ 76. Grgic J, Schoenfeld BJ, Davies TB, Lazinica B, Krieger JW , 
+Pedisic Z. Effect of resistance training frequency on gains 
+in muscular strength: a systematic review and meta-analysis. 
+Sports Med. 2018;48(5):1207–20.
+ 77. Bandeira-Guimaraes M, Blanco-Rambo E, Vieira AF , et al. 
+Chronic effects of different intensities of power training on 
+neuromuscular parameters in older people: a systematic re-
+view with meta-analysis. Sports Med Open. 2023;9(1):98.
+ 78. Carvalho L, Junior RM, Barreira J, Schoenfeld BJ, Orazem 
+J, Barroso R. Muscle hypertrophy and strength gains after re-
+sistance training with different volume-matched loads: a sys-
+tematic review and meta-analysis. Appl Physiol Nutr Metab. 
+2022;47(4):357–68.
+ 79. Csapo R, Alegre LM. Effects of resistance training with 
+moderate vs heavy loads on muscle mass and strength in the  
+elderly: a meta-analysis. Scand J Med Sci Sports. 
+2016;26(9):995–1006.
+ 80. Lopez P, Radaelli R, Taaffe DR, et al. Resistance training 
+load effects on muscle hypertrophy and strength gain: sys-
+tematic review and network meta-analysis. Med Sci Sports 
+Exerc. 2021;53(6):1206–16.
+ 81. Refalo MC, Hamilton DL, Paval DR, Gallagher IJ, Feros SA, 
+Fyfe JJ. Influence of resistance training load on measures of 
+skeletal muscle hypertrophy and improvements in maximal 
+strength and neuromuscular task performance: a systematic 
+review and meta-analysis. J Sports Sci. 2021;39(15):1723–45.
+ 82. Steib S, Schoene D, Pfeifer K. Dose-response relationship of 
+resistance training in older adults: a meta-analysis. Med Sci 
+Sports Exerc. 2010;42(5):902–14.
+ 83. Schoenfeld BJ, Grgic J, Ogborn D, Krieger JW . Strength 
+and hypertrophy adaptations between low- vs. high-load re-
+sistance training: a systematic review and meta-analysis. J 
+Strength Cond Res. 2017;31(12):3508–23.
+ 84. Schoenfeld BJ, Wilson JM, Lowery RP, Krieger JW . Muscu-
+lar adaptations in low- versus high-load resistance training: a 
+meta-analysis. Eur J Sport Sci. 2016;16(1):1–10.
+ 85. Maroto-Izquierdo S, Garcia-Lopez D, Fernandez-Gonzalo  
+R, Moreira OC, González-Gallego J, de Paz JA. Skeletal 
+muscle functional and structural adaptations after eccentric 
+overload flywheel resistance training: a systematic review and 
+meta-analysis. J Sci Med Sport. 2017;20(10):943–51.
+ 86. Oranchuk DJ, Storey AG, Nelson AR, Cronin JB. Isometric 
+training and long-term adaptations: effects of muscle length, 
+intensity, and intent: a systematic review. Scand J Med Sci 
+Sports. 2019;29(4):484–503.
+ 87. Pallares JG, Hernández-Belmonte A, Martínez-Cava A, 
+Vetrovsky T, Steffl M, Courel-Ibáñez J. Effects of range 
+of motion on resistance training adaptations: a system-
+atic review and meta-analysis. Scand J Med Sci Sports. 
+2021;31(10):1866–81.
+ 88. Bagenhammar S, Hansson EE. Repeated sets or single set 
+of resistance training—a systematic review. Adv Physiother. 
+2007;9(4):154–60.
+ 89. Ralston G, Kilgore L, Wyatt F , Baker J. The effect of week-
+ly set volume on strength gain: a meta-analysis. Sports Med. 
+2017;47(12):2585–601.
+ 90. Ralston GW , Kilgore L, Wyatt FB, et al. Re-examination of 
+1- vs. 3-sets of resistance exercise for pre-spaceflight muscle 
+conditioning: a systematic review and meta-analysis. Front 
+Physiol. 2019;10:864.
+  91. Rocha JNS, Pereira-Monteiro MR, Vasconcelos ABS,  
+Pantoja-Cardoso A, Aragao-Santos JC, Da Silva-Grigoletto  
+ME. Different resistance training volumes on strength, func-
+tional fitness, and body composition of older people: a sys-
+tematic review with meta-analysis. Arch Gerontol Geriatr. 
+2023;119:105303.
+  92. Wolfe BL, LeMura LM, Cole PJ. Quantitative analysis of 
+single- vs. multiple-set programs in resistance training. J 
+Strength Cond Res. 2004;18(1):35–47.
+  93. Krieger JW . Single versus multiple sets of resistance exercise: 
+a meta-regression. J Strength Cond Res. 2009;23(6):1890–
+901.
+  94. Eddens L, van Someren K, Howatson G. The role of intra-session  
+exercise sequence in the interference effect: a systematic re-
+view with meta-analysis. Sports Med. 2018;48(1):177–88.
+  95. Murlasits Z, Kneffel Z, Thalib L. The physiological ef-
+fects of concurrent strength and endurance training se-
+quence: a systematic review and meta-analysis. J Sports Sci. 
+2018;36(11):1212–9.
+  96. Nunes JP, Grgic J, Cunha PM, et al. What influence does re-
+sistance exercise order have on muscular strength gains and 
+muscle hypertrophy? A systematic review and meta-analysis. 
+Eur J Sport Sci. 2021;21(2):149–57.
+  97. Davies T, Orr R, Halaki M, Hackett D. Effect of training 
+leading to repetition failure on muscular strength: a system-
+atic review and meta-analysis. Sports Med. 2016;46(4):487–
+502.
+  98. Grgic J, Schoenfeld BJ, Orazem J, Sabol F . Effects of resis-
+tance training performed to repetition failure or non-failure 
+on muscular strength and hypertrophy: a systematic review 
+and meta-analysis. J Sport Health Sci. 2022;11(2):202–11.
+  99. Vieira AF , Umpierre D, Teodoro JL, et al. Effects of resis-
+tance training performed to failure or not to failure on muscle 
+strength, hypertrophy, and power output: a systematic review 
+with meta-analysis. J Strength Cond Res. 2021;35(4):1165–75.
+ 100. Haugen ME, Vårvik FT, Larsen S, Haugen AS, van den Til-
+laar R, Bjørnsen T. Effect of free-weight vs. machine-based 
+strength training on maximal strength, hypertrophy and 
+jump performance—a systematic review and meta-analysis. 
+BMC Sports Sci Med Rehabil. 2023;15(1):1–20.
+ 101. Davies TB, Kuang K, Orr R, Halaki M, Hackett D. Effect 
+of movement velocity during resistance training on dynam-
+ic muscular strength: a systematic review and meta-analysis. 
+Sports Med. 2017;47(8):1603–17.
+ 102. Grgic J, Lazinica B, Garofolini A, Schoenfeld BJ, Saner NJ, 
+Mikulic P . The effects of time of day-specific resistance train-
+ing on adaptations in skeletal muscle hypertrophy and muscle 
+strength: a systematic review and meta-analysis. Chronobiol 
+Int. 2019;36(4):449–60.
+ 103. Grgic J, Schoenfeld BJ, Skrepnik M, Davies TB, Mikulic P . 
+Effects of rest interval duration in resistance training on mea-
+sures of muscular strength: a systematic review. Sports Med. 
+2018;48(1):137–51.
+ 104. Roig M, O’Brien K, Kirk G, et al. The effects of eccentric 
+versus concentric resistance training on muscle strength and 
+mass in healthy adults: a systematic review with meta-analysis.  
+Br J Sports Med. 2009;43(8):556–68.
+ 105. Balachandran AT, Steele J, Angielczyk D, et al. Comparison 
+of power training vs traditional strength training on phys-
+ical function in older adults a systematic review and meta- 
+analysis. JAMA Netw Open. 2022;5(5):e2211623.
+ 106. Pearson LT, Behm DG, Goodall S, Mason R, Stuart S, Barry 
+G. Effects of maximal-versus submaximal-intent resistance 
+training on functional capacity and strength in community- 
+dwelling older adults: a systematic review and meta- 
+analysis. BMC Sports Sci Med Rehabil. 2022;14(1):129.
+ 107. Davies TB, Tran DL, Hogan CM, Haff GG, Latella C. 
+Chronic effects of altering resistance training set config-
+urations using cluster sets: a systematic review and meta- 
+analysis. Sports Med. 2021;51(4):707–36.
+ 108. Jukic I, Van Hooren B, Ramos AG, Helms ER, McGuigan 
+MR, Tufano JJ. The effects of set structure manipulation on 
+870 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+chronic adaptations to resistance training: a systematic re-
+view and meta-analysis. Sports Med. 2021;51(5):1061–86.
+ 109. Marshall J, Bishop C, Turner A, Haff GG. Optimal training 
+sequences to develop lower body force, velocity, power, and 
+jump height: a systematic review with meta-analysis. Sports 
+Med. 2021;51(6):1245–71.
+ 110. Centner C, Wiegel P, Gollhofer A, Konig D. Effects of blood 
+flow restriction training on muscular strength and hyper -
+trophy in older individuals: a systematic review and meta- 
+analysis. Sports Med. 2018;49(1):95–108.
+ 111. Lixandrão ME, Ugrinowitsch C, Berton R, et al. Magnitude 
+of muscle strength and mass adaptations between high-load 
+resistance training versus low-load resistance training asso-
+ciated with blood-flow restriction: a systematic review and 
+meta-analysis. Sports Med. 2018;48(2):361–78.
+ 112. Rodrigo-Mallorca D, Loaiza-Betancur AF , Monteagudo P, 
+Blasco-Lafarga C, Chulvi-Medrano I. Resistance training 
+with blood flow restriction compared to traditional resistance 
+training on strength and muscle mass in non-active older 
+adults: a systematic review and meta-analysis. Int J Environ 
+Res Public Health. 2021;18(21):11441.
+ 113. Hickmott LM, Chilibeck PD, Shaw KA, Butcher SJ. The ef-
+fect of load and volume autoregulation on muscular strength 
+and hypertrophy: a systematic review and meta-analysis. 
+Sports Med Open. 2022;8(1):9.
+ 114. Larsen S, Kristiansen E, van den Tillaar R. Effects of subjec-
+tive and objective autoregulation methods for intensity and 
+volume on enhancing maximal strength during resistance- 
+training interventions: a systematic review. PeerJ. 
+2021;9:e10663.
+ 115. Kassiano W , Nunes JP, Costa B, Ribeiro AS, Schoenfeld BJ, 
+Cyrino ES. Does varying resistance exercises promote supe-
+rior muscle hypertrophy and strength gains? A systematic re-
+view. J Strength Cond Res. 2022;36(6):1753–62.
+ 116. Harries SK, Lubans DR, Callister R. Systematic review and 
+meta-analysis of linear and undulating periodized resistance 
+training programs on muscular strength. J Strength Cond 
+Res. 2015;29(4):1113–25.
+ 117. Moesgaard L, Beck MM, Christiansen L, Aagaard P, Lundbye- 
+Jensen J. Effects of periodization on strength and muscle 
+hypertrophy in volume-equated resistance training pro-
+grams: a systematic review and meta-analysis. Sports Med. 
+2022;52(7):1647–66.
+ 118. Rhea MR, Alderman BL. A meta-analysis of periodized ver-
+sus nonperiodized strength and power training programs. Res 
+Q Exerc Sport. 2004;75(4):413–22.
+ 119. Cadore EL, Izquierdo M. How to simultaneously opti-
+mize muscle strength, power, functional capacity, and car -
+diovascular gains in the elderly: an update. Age (Dordr). 
+2013;35(6):2329–44.
+ 120. Huiberts RO, Wüst RCI, van der Zwaard S. Concurrent 
+strength and endurance training: a systematic review and meta- 
+analysis on the impact of sex and training status. Sports Med. 
+2024;54(2):485–503.
+ 121. Petré H, Hemmingsson E, Rosdahl H, Psilander N. Devel-
+opment of maximal dynamic strength during concurrent 
+resistance and endurance training in untrained, moderately 
+trained, and trained individuals: a systematic review and meta- 
+analysis. Sports Med. 2021;51(5):991–1010.
+ 122. Sabag A, Najafi A, Michael S, Esgin T, Halaki M, Hackett 
+D. The compatibility of concurrent high intensity interval 
+training and resistance training for muscular strength and 
+hypertrophy: a systematic review and meta-analysis. J Sports 
+Sci. 2018;36(21):2472–83.
+ 123. Trowell D, Vicenzino B, Saunders N, Fox A, Bonacci J. Effect 
+of strength training on biomechanical and neuromuscular 
+variables in distance runners: a systematic review and meta- 
+analysis. Sports Med. 2020;50(1):133–50.
+ 124. Wilson JM, Marin PJ, Rhea MR, Wilson SMC, Loenneke JP, 
+Anderson JC. Concurrent training: a meta-analysis examin-
+ing interference of aerobic and resistance exercises. J Strength 
+Cond Res. 2012;26(8):2293–307.
+ 125. Cirer-Sastre R, Beltrán-Garrido JV , Corbi F . Contralateral 
+effects after unilateral strength training: a meta-analysis com-
+paring training loads. J Sports Sci Med. 2017;16(2):180–6.
+ 126. Manca A, Dragone D, Dvir Z, Deriu F . Cross-education of 
+muscular strength following unilateral resistance training: a 
+meta-analysis. Eur J Appl Physiol. 2017;117(11):2335–54.
+ 127. Yagiz G, Akaras E, Kubis HP, Owen JA. The effects of re-
+sistance training on architecture and volume of the upper 
+extremity muscles: a systematic review of randomised con-
+trolled trials and meta-analyses. Appl Sci. 2022;12(3):1593.
+ 128. Raya-Gonzalez J, Martinez Sanchez MA. Training methods 
+and nutritional aspects to increase muscle mass: a systematic 
+review. Arch Med Deporte. 2019;36(6):376–85.
+ 129. Schoenfeld BJ, Ogborn DI, Vigotsky AD, Franchi MV , 
+Krieger JW . Hypertrophic effects of concentric vs. eccen-
+tric muscle actions: a systematic review and meta-analysis. J 
+Strength Cond Res. 2017;31(9):2599–608.
+ 130. Baz-Valle E, Balsalobre-Fernández C, Alix-Fages C, Santos- 
+Concejero J. A systematic review of the effects of different 
+resistance training volumes on muscle hypertrophy. J Hum 
+Kinet. 2022;81(1):199–210.
+ 131. Bernardez-Vazquez R, Raya-Gonzalez J, Castillo D, Beato 
+M. Resistance training variables for optimization of muscle 
+hypertrophy: an umbrella review. Front Sports Act Living. 
+2022;4:949021.
+ 132. Krieger JW . Single vs. multiple sets of resistance exercise for 
+muscle hypertrophy: a meta-analysis. J Strength Cond Res. 
+2010;24(4):1150–9.
+ 133. Schoenfeld BJ, Ogborn D, Krieger JW . Dose-response re-
+lationship between weekly resistance training volume and  
+increases in muscle mass: a systematic review and meta- 
+analysis. J Sports Sci. 2017;35(11):1073–82.
+ 134. Schoenfeld BJ, Grgic J, Krieger J. How many times per week 
+should a muscle be trained to maximize muscle hypertrophy? 
+A systematic review and meta-analysis of studies examin-
+ing the effects of resistance training frequency. J Sports Sci. 
+2019;37(11):1286–95.
+ 135. Schoenfeld BJ, Ogborn D, Krieger JW . Effects of resis-
+tance training frequency on measures of muscle hypertro-
+phy: a systematic review and meta-analysis. Sports Med. 
+2016;46(11):1689–97.
+ 136. Grgic J. The effects of low-load vs. high-load resistance train-
+ing on muscle fiber hypertrophy: a meta-analysis. J Hum Ki-
+net. 2020;74(1):51–8.
+ 137. Refalo MC, Helms ER, Trexler ET, Hamilton DL, Fyfe 
+JJ. Influence of resistance training proximity-to-failure on 
+skeletal muscle hypertrophy: a systematic review with meta- 
+analysis. Sports Med. 2023;53(3):649–65.
+ 138. Fuentes-García MA, Malchrowicz-Mosko E, Castañeda- 
+Babarro A. Effects of variable resistance training versus 
+conventional resistance training on muscle hypertrophy: a  
+systematic review. Sport Sci Health. 2023;20(1):37–45.
+ 139. Hackett DA, Davies TB, Orr R, Kuang K, Halaki M. Effect 
+of movement velocity during resistance training on muscle- 
+specific hypertrophy: a systematic review. Eur J Sport Sci. 
+2018;18(4):473–82.
+ 140. Schoenfeld BJ, Ogborn DI, Krieger JW . Effect of repeti-
+tion duration during resistance training on muscle hyper -
+trophy: a systematic review and meta-analysis. Sports Med. 
+2015;45(4):577–85.
+RESISTANCE TRAINING PRESCRIPTION Medicine & Science in Sports & Exercise® 871
+SPECIAL COMMUNICATIONS
+ 141. Grgic J, Lazinica B, Mikulic P, Schoenfeld BJ. Should resis-
+tance training programs aimed at muscular hypertrophy be 
+periodized? A systematic review of periodized versus non- 
+periodized approaches. Sci Sports. 2018;33(3):e97–e104.
+ 142. Rosa A, Vazquez G, Grgic J, Balachandran AT, Orazem J, 
+Schoenfeld BJ. Hypertrophic effects of single- versus multi-
+joint exercise of the limb muscles: a systematic review and 
+meta-analysis. Strength Cond J. 2023;45(1):49–57.
+ 143. Grgic J, Lazinica B, Mikulic P, Krieger JW , Schoenfeld BJ. 
+The effects of short versus long inter-set rest intervals in re-
+sistance training on measures of muscle hypertrophy: a sys-
+tematic review. Eur J Sport Sci. 2017;17(8):983–93.
+ 144. Henselmans M, Schoenfeld B. The effect of inter-set rest 
+intervals on resistance exercise-induced muscle hypertrophy. 
+Sports Med. 2014;44(12):1635–43.
+ 145. Schoenfeld BJ, Grgic J. Effects of range of motion on muscle 
+development during resistance training interventions: a sys-
+tematic review. SAGE Open Med. 2020;8:2050312120901559.
+ 146. Sodal LK, Kristiansen E, Larsen S, van den Tillaar R. Effects 
+of drop sets on skeletal muscle hypertrophy: a systematic re-
+view and meta-analysis. Sports Med Open. 2023;9(1):66.
+ 147. Alcaraz-Ibanez M, Rodriguez-Perez M. Effects of resistance 
+training on performance in previously trained endurance 
+runners: a systematic review. J Sports Sci. 2018;36(6):613–29.
+ 148. Straight CR, Lindheimer JB, Brady AO, Dishman RK, Ev-
+ans EM. Effects of resistance training on lower-extremity 
+muscle power in middle-aged and older adults: a systemat-
+ic review and meta-analysis of randomized controlled trials. 
+Sports Med. 2016;46(3):353–64.
+ 149. Soriano MA, Jimenez-Reyes P, Rhea MR, Marin PJ. The 
+optimal load for maximal power production during lower- 
+body resistance exercises: a meta-analysis. Sports Med. 
+2015;45(8):1191–205.
+ 150. Soriano MA, Suchomel TJ, Marin PJ. The optimal load for 
+maximal power production during upper-body resistance ex-
+ercises: a meta-analysis. Sports Med. 2017;47(4):757–68.
+ 151. Berryman N, Mujika I, Arvisais D, Roubeix M, Binet C, 
+Bosquet L. Strength training for middle- and long-distance 
+performance: a meta-analysis. Int J Sports Physiol Perform. 
+2018;13(1):57–63.
+ 152. Almeida FJ, Melo MH, Nogueira R, Prazeres J, Costa C, 
+Gambassi BB. Do all resistance exercise protocols improve 
+the functional parameters of the elderly? A review study. 
+Asian J Sports Med. 2020;11(4):1–7.
+ 153. Hortobagyi T, Lesinski M, Gabler M, VanSwearingen JM, 
+Malatesta D, Granacher U. Effects of three types of exercise 
+interventions on healthy old adults’ gait speed: a systematic 
+review and meta-analysis. Sports Med. 2015;45(12):1627–43.
+ 154. Howe TE, Rochester L, Neil F , Skelton DA, Ballinger C. Ex-
+ercise for improving balance in older people. Cochrane Data-
+base Syst Rev. 2011;2011(11):CD004963.
+ 155. Van Abbema R, De Greef M, Craje C, Krijnen W , Hobbelen 
+H, Van Der Schans C. What type, or combination of exercise 
+can improve preferred gait speed in older adults? A meta- 
+analysis. BMC Geriatr. 2015;15:72.
+ 156. Martins AD, Fernandes O, Pereira A, et al. The effects of 
+high-speed resistance training on health outcomes in inde-
+pendent older adults: a systematic review and meta-analysis. 
+Int J Environ Res Public Health. 2022;19(9):5390.
+ 157. da Rosa Orssatto LB, de la Rocha Freitas C, Shield AJ, Silvei-
+ra Pinto R, Trajano GS. Effects of resistance training concen-
+tric velocity on older adults’ functional capacity: a systematic 
+review and meta-analysis of randomised trials. Exp Gerontol. 
+2019;127:110731.
+ 158. Thomas E, Battaglia G, Patti A, et al. Physical activity pro-
+grams for balance and fall prevention in elderly: a systematic 
+review. Medicine (Baltimore). 2019;98(27):e16218.
+ 159. Dipietro L, Campbell WW , Buchner DM, et al; 2018  
+Physical Activity Guidelines Advisory Committee. Phys-
+ical activity, injurious falls, and physical function in  
+aging: an umbrella review. Med Sci Sports Exerc. 2019;51(6): 
+1303–13.
+ 160. Tschopp M, Sattelmayer MK, Hilfiker R. Is power training 
+or conventional resistance training better for function in el-
+derly persons? A meta-analysis. Age Ageing. 2011;40(5):549–
+56.
+ 161. Seitz LB, Reyes A, Tran TT, Saez de Villarreal E, Haff GG. 
+Increases in lower-body strength transfer positively to sprint 
+performance: a systematic review with meta-analysis. Sports 
+Med. 2014;44(12):1693–702.
+ 162. Raya-Gonzalez J, Prat-Luri A, Lopez-Valenciano A, Sabido 
+R, Hernández-Davó JL. Effects of flywheel resistance train-
+ing on sport actions. A systematic review and meta-analysis. 
+J Hum Kinet. 2021;77(1):191–204.
+ 163. Blazevich AJ, Wilson CJ, Alcaraz PE, Rubio-Arias JA. Ef-
+fects of resistance training movement pattern and velocity on 
+isometric muscular rate of force development: a systematic 
+review with meta-analysis and meta-regression. Sports Med. 
+2020;50(5):943–63.
+ 164. Morton RW , Colenso-Semple L, Phillips SM. Training for 
+strength and hypertrophy: an evidence-based approach. Cur 
+Opin Physiol. 2019;10:90–5.
+ 165. Helms ER, Byrnes RK, Cooke DM, et al. RPE vs. percentage 
+1RM loading in periodized programs matched for sets and 
+repetitions. Front Physiol. 2018;9:247.
+ 166. Lorenz D, Morrison S. Current concepts in periodization of 
+strength and conditioning for the sports physical therapist. 
+Int J Sports Phys Ther. 2015;10(6):734–47.
+ 167. Stone MH, Hornsby WG, Haff GG, et al. Periodization and 
+block periodization in sports: emphasis on strength-power 
+training-a provocative and challenging narrative. J Strength 
+Cond Res. 2021;35(8):2351–71.
+ 168. Cunanan AJ, DeWeese BH, Wagle JP, et al. The general ad-
+aptation syndrome: a foundation for the concept of period-
+ization. Sports Med. 2018;48(4):787–97.
+ 169. Hyde ET, Whitfield GP, Omura JD, Fulton JE, Carlson 
+SA. Trends in meeting the physical activity guidelines: 
+muscle-strengthening alone and combined with aero-
+bic activity, United States, 1998-2018. J Phys Act Health. 
+2021;18(S1):S37–44.
+ 170. Calatayud J, Lopez-Bueno R, Nunez-Cortes R, Yang L, Del 
+Pozo Cruz B, Andersen LL. Trends in adherence to the muscle- 
+strengthening activity guidelines in the US over a 20-year 
+span. Gen Hosp Psychiatry. 2023;84:89–95.
+ 171. Abildso CG, Daily SM, Renee Umstattd Meyer MR, Per -
+ry CK, Eyler A. Prevalence of meeting aerobic, muscle- 
+strengthening, and combined physical activity guidelines 
+during leisure time among adults, by rural-urban classifica-
+tion and region—United States. MMWR Morb Mortal Wkly 
+Rep. 2023;72(4):85–9.
+ 172. Bennie JA, Lee DC, Khan A, et al. Muscle-strengthening 
+exercise among 397,423 U.S. adults: prevalence, correlates, 
+and associations with health conditions. Am J Prev Med. 
+2018;55(6):864–74.
+ 173. Centers for Disease Control and Prevention. QuickStats: 
+percentage of adults aged ≥18 years who met the feder -
+al guidelines for muscle-strengthening physical activity,† 
+by age group and sex—National Health Interview Survey, 
+United States, 2020. MMWR Morb Mortal Wkly Rep. 
+2022;71(18):642.
+ 174. Gluchowski A, Bilsborough H, McDermott J, Hawley-Hague 
+H, Todd C. “A lot of people just go for walks, and don’t do 
+anything else”: older adults in the UK are not aware of the 
+strength component embedded in the chief medical officers’ 
+872 Official Journal of the American College of Sports Medicine http://www.acsm-msse.org
+SPECIAL COMMUNICATIONS
+physical activity guidelines—a qualitative study. Int J Environ 
+Res Public Health. 2022;19(16):10002.
+ 175. Hyde ET, Brown DR, Webber BJ, et al. Meeting the aerobic 
+and muscle-strengthening physical activity guidelines among 
+older US adults, National Health Interview Survey 1998-
+2018. J Appl Gerontol. 2024;43(8):1003–14.
+ 176. Carpinelli RN. Challenging the American College of Sports 
+Medicine 2009 position stand on resistance training. Med 
+Sport. 2009;13(2):131–7.
+ 177. Fyfe JJ, Hamilton DL, Daly RM. Minimal-dose resistance 
+training for improving muscle mass, strength, and function: a 
+narrative review of current evidence and practical consider -
+ations. Sports Med. 2022;52(3):463–79.
+ 178. Cureton KJ, Collins MA, Hill DW , McElhannon FM Jr. 
+Muscle hypertrophy in men and women. Med Sci Sports Ex-
+erc. 1988;20(4):338–44.
+ 179. Hickson RC, Hidaka K, Foster C. Skeletal muscle fiber type, 
+resistance training, and strength-related performance. Med 
+Sci Sports Exerc. 1994;26(5):593–8.
+ 180. Candow DG, Burke DG. Effect of short-term equal- 
+volume resistance training with different workout frequency 
+on muscle mass and strength in untrained men and women. J 
+Strength Cond Res. 2007;21(1):204–7.
+ 181. Faigenbaum AD, Kamis D, Rial Rebullido T. A strong ap-
+proach for overcoming the FoRE: fear of resistance exercise. 
+ACSM'S Health Fit J. 2024;28(3):14–20.
+ 182. Niemeijer A, Lund H, Stafne SN, et al. Adverse events of exer-
+cise therapy in randomised controlled trials: a systematic review 
+and meta-analysis. Br J Sports Med. 2020;54(18):1073–80.
+ 183. Hollings M, Mavros Y , Freeston J, Fiatarone Singh M. The 
+effect of progressive resistance training on aerobic fitness and 
+strength in adults with coronary heart disease: a systemat-
+ic review and meta-analysis of randomised controlled trials. 
+Eur J Prev Cardiol. 2017;24(12):1242–59.
+ 184. Swinton PA, Schoenfeld BJ, Murphy A. Dose-response 
+modelling of resistance exercise across outcome domains 
+in strength and conditioning: a meta-analysis. Sports Med. 
+2024;54(6):1579–94.
+ 185. Landers J. Maximum based on reps. J Strength Cond Res. 
+1984;6(6):60–1.
+ 186. Nuzzo JL, Pinto MD, Nosaka K, Steele J. Maximal number 
+of repetitions at percentages of the one repetition maximum: 
+a meta-regression and moderator analysis of sex, age, train-
+ing status, and exercise. Sports Med. 2024;54(2):303–21.
+ 187. Pelland JC, Remmert JF , Robinson ZP, Hinson S,  
+and Zourdous MC. The resistance training dose-response: 
+meta-regressions exploring the effects of weekly volume and 
+frequency on muslce hypertrophy and strength gains. Sports 
+Med. 2025. doi: 10.1007/s40279-025-02344-w. Online ahead 
+of print.
+ 188. Refalo MC, Helms ER, Robinson ZP, Hamilton DL, Fyfe 
+JJ. Similar muscle hypertrophy following eight weeks of re-
+sistance training to momentary muscular failure or with  
+repetitions-in-reserve in resistance-trained individuals. J 
+Sports Sci. 2024;42(1):85–101.
+ 189. Helms ER, Cronin J, Storey A, Zourdos MC. Application of 
+the repetitions in reserve-based rating of perceived exertion 
+scale for resistance training. Strength Cond J. 2016;38(4):42–9.
+ 190. Robinson ZP, Pelland JC, Remmert JF , et al. Exploring 
+the dose–response relationship between estimated resis-
+tance training proximity to failure, strength gain, and mus-
+cle hypertrophy: a series of meta-regressions. Sports Med. 
+2024;54(9):2209–31.
+ 191. Rhodes RE, Lubans DR, Karunamuni N, Kennedy S, 
+Plotnikoff R. Factors associated with participation in re-
+sistance training: a systematic review. Br J Sports Med. 
+2017;51(20):1466–72.
+ 192. Room J, Hannink E, Dawes H, Barker K. What interventions 
+are used to improve exercise adherence in older people and 
+what behavioural techniques are they based on? A systematic 
+review. BMJ Open. 2017;7(12):e019221.
+ 193. Gutierrez-Arias R, Pieper D, Lunny C, Torres-Castro R, 
+Aguilera-Eguia R, Seron P . Strategies used to manage over-
+lap of primary study data by exercise-related overviews: pro-
+tocol for a systematic methodological review. BMJ Open. 
+2023;13(4):e069906.
+ 194. Martínez-Calderon J. Overviews of systematic reviews in 
+sports and exercise medicine: what are they and why are they 
+important? Br J Sports Med. 2023;57(16):1005–6.
+ 195. Nuzzo JL, Pinto MD, Kirk BJC, Nosaka K. Resistance 
+exercise minimal dose strategies for increasing muscle 
+strength in the general population: an overview. Sports Med. 
+2024;54(5):1139–62.
+ 196. Schoenfeld BJ, Grgic J, Van Every DW , Plotkin DL. Loading 
+recommendations for muscle strength, hypertrophy, and lo-
+cal endurance: a re-examination of the repetition continuum. 
+Sports (Basel). 2021;9(2):32.
+ 197. Halperin I, Malleron T, Har-Nir I, et al. Accuracy in pre-
+dicting repetitions to task failure in resistance exercise: a 
+scoping review and exploratory meta-analysis. Sports Med. 
+2022;52(2):377–90.
+ 198. Lopez P, Izquierdo M, Radaelli R, et al. Effectiveness of mul-
+timodal training on functional capacity in frail older people: 
+a meta-analysis of randomized controlled trials. J Aging Phys 
+Act. 2018;26(3):407–18.
+ 199. Makaruk H, Starzak M, Plaszewski M, Winchester JB. In-
+ternal validity in resistance training research: a systematic 
+review. J Sports Sci Med. 2022;21(2):308–31.
+ 200. Memon AR, Owen PJ, Anderson N, Verhagen E, Mundell 
+NL, Belavy DL. Common issues of systematic reviews in the 
+sports and exercise medicine field. BMJ Open Sport Exerc 
+Med. 2024;10(1):e001784.
+ 201. Paras T, Sabzevari S, Solomon D, Smith C, McDonough C, Lin 
+A. Trends in level of evidence of systematic reviews in sports 
+medicine, 2010-2020: a systematic review and meta-analysis. 
+Orthop J Sports Med. 2022;10(9):23259671221121330.
+ 202. Slade SC, Dionne CE, Underwood M, Buchbinder R. 
+Consensus on exercise reporting template (CERT): ex-
+planation and elaboration statement. Br J Sports Med. 
+2016;50(23):1428–37.
+ 203. Ardern CL, Buttner F , Andrade R, et al. Implementing the 27 
+PRISMA 2020 Statement items for systematic reviews in the 
+sport and exercise medicine, musculoskeletal rehabilitation 
+and sports science fields: the PERSiST (implementing Pris-
+ma in Exercise, Rehabilitation, Sport medicine and SporTs 
+science) guidance. Br J Sports Med. 2022;56(4):175–95.

@@ -40,7 +40,7 @@ def classify_heading(heading: str) -> tuple[str, ...]:
     h = heading.upper()
     if "장애" in h or "DISABILITY" in h:
         return ("장애인",)
-    if "환자" in h or "질환" in h or "CHRONIC" in h:
+    if any(w in h for w in ("환자", "질환", "고혈압", "당뇨", "이상지질혈증", "CHRONIC")):
         return ("만성질환자",)
     if "임산부" in h or "PREGNANT" in h:
         return ("임산부",)
@@ -143,10 +143,96 @@ def split_who(text: str) -> list[Section]:
     return sections
 
 
+# ---------- 표시 줄(marker) 기반 분리 ----------
+# 문서마다 (시작 줄, 끝 줄, 대상이 바뀌는 줄) 패턴만 정해 두고 같은 함수로 나눈다.
+
+Marker = tuple[re.Pattern, tuple[str, ...]]
+
+
+def split_by_markers(
+    text: str,
+    markers: list[Marker],
+    default: tuple[str, ...] = (COMMON,),
+    start: re.Pattern | None = None,
+    stop: re.Pattern | None = None,
+) -> list[Section]:
+    """start 줄부터 stop 줄 전까지 읽고, markers 패턴과 맞는 줄에서 대상을 바꾼다 (먼저 맞는 패턴 우선)."""
+    sections = [Section(default, [])]
+    started = start is None
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not started:
+            started = bool(start.search(stripped))
+            if not started:
+                continue
+        if stop and stop.search(stripped):
+            break
+        for pattern, targets in markers:
+            if pattern.search(stripped):
+                sections.append(Section(targets, []))
+                break
+        sections[-1].lines.append(line)
+    return sections
+
+
+# WHO 신체활동 및 좌식행동 가이드라인 (한글판): 대상 이름 줄(페이지 머리말)에서 대상을 바꾼다.
+# 개요의 아동·청소년, 배경 부분은 제목이 페이지 끝에 있어 첫 문장으로 시작을 잡는다.
+WHO_KO_MARKERS: list[Marker] = [
+    (re.compile(r"^장애(가 있는)? (어린이|성인)"), ("장애인",)),
+    (re.compile(r"^만성 질환이 있는 성인 및 노인"), ("만성질환자",)),
+    (re.compile(r"^임신부와 산후여성\s*$"), ("임산부",)),
+    (re.compile(r"^노인 \(65세"), ("노인",)),
+    (re.compile(r"^(개요 )?어린이(와| 및) 청소년 \(5세|^어린이와 청소년기의 신체활동은"), ("아동·청소년",)),
+    (re.compile(r"^성인 \(18세"), ("성인",)),
+    (re.compile(r"^규칙적인 신체활동은 심혈관 질환"), (COMMON,)),  # 배경 첫 문장
+    (re.compile(r"^(배경|방법|근거의 확실성 평가|근거에서 권고 지침까지|연구의 필요성|채택, 전파, 실행 및 평가)\s*$"), (COMMON,)),
+]
+WHO_KO_START = re.compile(r"^용어 설명\s*$")   # 앞부분(표지, 저작권, 목차, 감사의 글)은 제외
+WHO_KO_STOP = re.compile(r"^REFERENCES\s*$")  # 이후는 참고문헌과 부록(개발 참여자 명단)
+
+# 한국인을 위한 달리기 가이드라인: "건강한 일반 성인을 대상으로 작성"된 문서라 전체가 성인 대상.
+RUNNING_START = re.compile(r"^한눈에 보는")       # 앞부분(발행 정보, 목차)은 제외
+RUNNING_STOP = re.compile(r"^\d+ 참고문헌")
+
+# ACSM Position Stand: "Resistance Training ... in Healthy Adults"(18세 이상 성인 대상 리뷰).
+ACSM_STAND_START = re.compile(r"^SUMMARY")       # 앞부분(저자, 소속)은 제외
+ACSM_STAND_STOP = re.compile(r"^REFERENCES\s*$")
+
+# ACSM's Complete Guide (발췌본): 생활습관 전반을 다루는 장이라 공통. 앞부분 홍보 문구만 제외.
+ACSM_GUIDE_START = re.compile(r"^ONE\s*$")
+
+# 대한비만학회 비만 진료지침 2022 (JOMES 32(1), 영문): 권고안 8~11번이 다른 대상을 다룬다.
+# 본문의 "새 주제" 부분도 대상이 섞여 있어 각 문단 첫 문장으로 나눈다.
+KSSO_MARKERS: list[Marker] = [
+    # 권고안 주제마다 조각을 새로 시작해 한 주제의 권고(예: R4-1~R4-4)가 조각 경계에서 잘리지 않게 한다.
+    (re.compile(r"^[1-7]\. (Diagnosis of obesity|Pre-treatment evaluation|Diet therapy|Exercise therapy"
+                r"|Behavioral therapy|Pharmacotherapy|Bariatric surgery)"), (COMMON,)),
+    (re.compile(r"^8\. Obesity in the elderly"), ("노인",)),
+    (re.compile(r"^9\. Obesity in children and adolescents"), ("아동·청소년",)),
+    (re.compile(r"^10\. Obesity in women|^Women should maintain a normal weight before pregnancy"), ("임산부",)),
+    (re.compile(r"^11\. Obesity in patients with mental illness|^Severe mental illness has been linked"), ("만성질환자",)),
+    (re.compile(r"^1[2-4]\. [A-Z]|^Literature review|^Long-term maintenance after weight loss"), (COMMON,)),
+]
+KSSO_START = re.compile(r"^INTRODUCTION\s*$")         # 앞부분(제목, 저자, 소속)은 제외
+KSSO_STOP = re.compile(r"^CONFLICTS OF INTEREST")     # 이후는 이해관계, 감사의 글, 참고문헌
+
+
 SPLITTERS = {
     "신체활동 지침서": split_guideline,
     "운동": split_exercise,
     "WHO 가이드라인": split_who,
+    "WHO 신체활동 및 좌식행동 가이드라인": lambda text: split_by_markers(
+        text, WHO_KO_MARKERS, start=WHO_KO_START, stop=WHO_KO_STOP),
+    "한국인을 위한 달리기 가이드라인": lambda text: split_by_markers(
+        text, [], default=("성인",), start=RUNNING_START, stop=RUNNING_STOP),
+    "american-college-of-sports-medicine-position-stand": lambda text: split_by_markers(
+        text, [], default=("성인", "노인"), start=ACSM_STAND_START, stop=ACSM_STAND_STOP),
+    "acsms-complete-guide-fitness-health-sample-download": lambda text: split_by_markers(
+        text, [], start=ACSM_GUIDE_START),
+    # 국가건강정보포털 페이지라 "운동"과 형식이 같다 (번호 제목, 포털 꼬리말, 끝의 참고문헌).
+    "비만 _ 국가건강정보포털 _ 질병관리청": split_exercise,
+    "jomes-32-1-1": lambda text: split_by_markers(
+        text, KSSO_MARKERS, start=KSSO_START, stop=KSSO_STOP),
 }
 
 
@@ -242,3 +328,17 @@ class BM25Retriever:
                 scored.append((chunk, score))
         scored.sort(key=lambda x: x[1], reverse=True)
         return scored[:top_k]
+
+    def search_many(
+        self, queries: list[str], top_k: int = 4, targets: set[str] | None = None, exclude: list[Chunk] | None = None,
+    ) -> list[tuple[Chunk, float]]:
+        """여러 검색어(한국어/영어)로 검색해 순위를 합친다 (Reciprocal Rank Fusion).
+        검색어마다 BM25 점수 크기가 달라 점수 대신 순위로 합치고, 반환 점수는 가장 높았던 BM25 점수다."""
+        fused: dict[int, list] = {}  # id(chunk) -> [chunk, rrf 점수, 최고 BM25 점수]
+        for query in queries:
+            for rank, (chunk, score) in enumerate(self.search(query, top_k, targets, exclude), 1):
+                entry = fused.setdefault(id(chunk), [chunk, 0.0, 0.0])
+                entry[1] += 1 / (60 + rank)
+                entry[2] = max(entry[2], score)
+        ranked = sorted(fused.values(), key=lambda e: e[1], reverse=True)[:top_k]
+        return [(chunk, score) for chunk, _, score in ranked]

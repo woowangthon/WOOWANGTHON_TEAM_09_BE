@@ -1,4 +1,5 @@
 import csv
+import logging
 import os
 from datetime import date, timedelta
 from pathlib import Path
@@ -12,6 +13,8 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from rag import BM25Retriever
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -85,7 +88,9 @@ class Exercise(BaseModel):
     name: ExerciseName = Field(description="운동 이름 ([운동 목록]에 있는 이름만 가능)")
     sets: int | None = Field(description="세트 수. 세트 개념이 없으면 null")
     reps: int | None = Field(description="세트당 반복 횟수. 플랭크처럼 시간 기반이면 null")
-    duration_minutes: int | None = Field(description="운동 시간(분). 횟수 기반 운동이면 null")
+    duration_seconds: int | None = Field(
+        description="시간(초). 플랭크처럼 세트가 있으면 세트당 시간, 유산소처럼 세트가 없으면 전체 시간. 횟수 기반 운동이면 null"
+    )
 
 
 class DailySession(BaseModel):
@@ -93,7 +98,6 @@ class DailySession(BaseModel):
 
     date: str = Field(description="운동 날짜 (YYYY-MM-DD)")
     focus: str = Field(description="그날의 운동 초점 (예: 가슴·삼두, 하체, 휴식)")
-    is_rest_day: bool = Field(description="휴식일 여부. true이면 exercises는 빈 배열")
     exercises: list[Exercise] = Field(description="그날 수행할 운동 목록")
 
 
@@ -103,7 +107,6 @@ class WorkoutPlan(BaseModel):
     found: bool = Field(description="참고 문서에서 계획의 근거를 찾았는지 여부")
     start_date: str = Field(description="계획 시작일 (YYYY-MM-DD)")
     end_date: str = Field(description="계획 종료일 (YYYY-MM-DD)")
-    summary: str = Field(description="계획 전체 개요 한두 문장")
     sessions: list[DailySession] = Field(description="시작일부터 종료일까지 날짜순 일별 일정")
     precautions: list[str] = Field(description="참고 문서에 근거한 주의사항 목록")
 
@@ -165,6 +168,56 @@ def targets_from_notes(health_notes: str | None) -> set[str]:
     return {t for t, words in HEALTH_NOTE_TARGETS.items() if any(w in health_notes for w in words)}
 
 
+# ---------- 검색어 생성 (한국어 + 영어) ----------
+# 참고 문서에 영문 자료가 섞여 있어 한국어 검색어만으로는 영문 조각이 검색되지 않는다.
+
+class SearchQueries(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    ko: list[str] = Field(description="한국어 검색어 2~3개")
+    en: list[str] = Field(description="같은 의미의 영어 검색어 2~3개")
+
+
+QUERY_PROMPT = (
+    "당신은 운동 지침 문서 검색을 돕는다. 사용자 정보를 보고, 이 사용자의 운동 계획을 세우는 데 필요한 "
+    "운동 권장량, 운동 방법, 주의사항을 찾기 위한 검색어를 만들어라. "
+    "대상(성인, 노인 등), 목표, 체형(BMI), 운동 경력, 건강 상태를 반영하라. "
+    "검색어는 문장이 아니라 핵심 단어 위주의 짧은 구로 쓰고, 한국어 검색어와 같은 의미의 영어 검색어를 함께 만들어라."
+)
+
+
+def generate_search_queries(user_info: str) -> tuple[list[str], list[str]]:
+    """AI로 (한국어 검색어, 영어 검색어)를 만든다. 실패하면 빈 목록을 돌려준다(기본 검색어만 사용)."""
+    try:
+        response = client.chat.completions.create(
+            model="claude-sonnet-5",
+            messages=[
+                {"role": "system", "content": QUERY_PROMPT},
+                {"role": "user", "content": f"[사용자 정보]\n{user_info}"},
+            ],
+            response_format={
+                "type": "json_schema",
+                "json_schema": {"name": "search_queries", "strict": True, "schema": SearchQueries.model_json_schema()},
+            },
+        )
+        queries = SearchQueries.model_validate_json(response.choices[0].message.content)
+    except Exception as e:  # API 오류나 형식 오류가 나도 계획 생성은 계속한다
+        logger.warning("검색어 생성 실패, 기본 검색어만 사용: %s", e)
+        return [], []
+    return [q.strip() for q in queries.ko if q.strip()], [q.strip() for q in queries.en if q.strip()]
+
+
+def interleave(*result_lists: list[tuple]) -> list[tuple]:
+    """여러 검색 결과를 번갈아 하나씩 꺼내 합친다 (같은 조각은 한 번만)."""
+    merged, seen = [], set()
+    for group in zip(*(lst + [None] * (max(map(len, result_lists)) - len(lst)) for lst in result_lists)):
+        for item in group:
+            if item is not None and id(item[0]) not in seen:
+                seen.add(id(item[0]))
+                merged.append(item)
+    return merged
+
+
 # ---------- API ----------
 
 @app.get("/output")
@@ -187,11 +240,20 @@ def output(req: Annotated[PlanRequest, Query()]):
         "health_notes": req.health_notes,
     }
 
+    user_info = "\n".join([
+        f"- 나이: {req.age}세 (대상: {profile['target_group']})",
+        f"- 키/몸무게: {req.height_cm}cm / {req.weight_kg}kg",
+        f"- BMI: {bmi}" + (f" ({profile['bmi_category']})" if profile["bmi_category"] else ""),
+        f"- 헬스 경력: {req.experience}",
+        f"- 목표: {req.goal}",
+        f"- 건강 상태: {req.health_notes or '특이사항 없음'}",
+    ])
+
     # 검색 대상: 나이 기준 대상 + 건강 상태로 알 수 있는 대상(임산부, 만성질환자, 장애인)
     targets = {profile["target_group"]} | targets_from_notes(req.health_notes)
     is_obese = bool(profile["bmi_category"] and "비만" in profile["bmi_category"])
 
-    # 검색어: 사용자 문장 대신 대상·목표·체형·건강 상태로 구성
+    # 기본 검색어: 사용자 문장 대신 대상·목표·체형·건강 상태로 구성
     search_query = " ".join(filter(None, [
         profile["target_group"], "운동 권장", req.goal,
         "비만 운동 시작 전 상담" if is_obese else None,
@@ -200,7 +262,13 @@ def output(req: Annotated[PlanRequest, Query()]):
 
     # 대상의 핵심 지침(권장량)은 항상 넣고, 나머지는 대상이 맞는 청크에서 검색해 채운다
     pinned = [chunk for t in sorted(targets) for chunk in retriever.core_chunks(t)]
-    found = retriever.search(search_query, top_k=max(req.top_k - len(pinned), 0), targets=targets, exclude=pinned)
+    # 한국어(기본 검색어 + AI 검색어)와 영어(AI 검색어)로 따로 검색해 순위를 합친 뒤 번갈아 채운다.
+    # 한 번에 합치면 서로 겹치는 한국어 결과가 점수를 독차지해 영문 자료가 밀려난다.
+    ko_queries, en_queries = generate_search_queries(user_info)
+    slots = max(req.top_k - len(pinned), 0)
+    ko_found = retriever.search_many([search_query] + ko_queries, top_k=slots, targets=targets, exclude=pinned)
+    en_found = retriever.search_many(en_queries, top_k=slots, targets=targets, exclude=pinned) if en_queries else []
+    found = interleave(ko_found, en_found)[:slots]
     results = [(chunk, None) for chunk in pinned] + found
     sources = [
         {
@@ -212,7 +280,6 @@ def output(req: Annotated[PlanRequest, Query()]):
     if not results:
         plan = WorkoutPlan(
             found=False, start_date=start.isoformat(), end_date=end.isoformat(),
-            summary="제공된 자료에서 계획의 근거를 찾을 수 없습니다.",
             sessions=[], precautions=[],
         )
         return {"profile": profile, "plan": plan.model_dump(), "sources": []}
@@ -220,14 +287,6 @@ def output(req: Annotated[PlanRequest, Query()]):
     context = "\n\n".join(
         f"[문서 {s['id']}] (출처: {s['source']} / 대상: {', '.join(s['targets'])})\n{s['text']}" for s in sources
     )
-    user_info = "\n".join([
-        f"- 나이: {req.age}세 (대상: {profile['target_group']})",
-        f"- 키/몸무게: {req.height_cm}cm / {req.weight_kg}kg",
-        f"- BMI: {bmi}" + (f" ({profile['bmi_category']})" if profile["bmi_category"] else ""),
-        f"- 헬스 경력: {req.experience}",
-        f"- 목표: {req.goal}",
-        f"- 건강 상태: {req.health_notes or '특이사항 없음'}",
-    ])
     user_message = (
         f"[참고 문서]\n{context}\n\n"
         f"[운동 목록]\n{EXERCISE_LIST_TEXT}\n\n"
