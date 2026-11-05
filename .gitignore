@@ -1,0 +1,21 @@
+# 1. 가상환경 (가장 중요)
+myenv/
+venv/
+.venv/
+env/
+
+# 2. 파이썬 컴파일 및 캐시 파일
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 3. 환경 변수 및 비밀키 (보안 데이터)
+.env
+.env.local
+.env.*.local
+
+# 4. 개발 툴 및 OS 설정 파일
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
