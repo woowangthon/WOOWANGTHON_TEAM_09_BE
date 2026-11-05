@@ -1,3 +1,4 @@
+import copy
 import csv
 import logging
 import os
@@ -44,7 +45,10 @@ SYSTEM_PROMPT = (
     "대상(성인, 노인, 아동·청소년 등)이 다른 내용을 섞지 말고 질문 대상에 맞는 내용만 써라. "
     "마크다운 문법을 쓰지 말고 평문으로 작성하라. "
     "일정(Datetime)과 관련한 포맷은 YYYY-MM-DD 혹은 YYYY-MM-DD HH:mm로 한다. "
-    "운동은 반드시 [운동 목록]에 있는 운동 이름만 그대로 사용하라."
+    "운동은 반드시 [운동 목록]에 있는 운동 이름만 그대로 사용하라. "
+    "근력 운동은 [운동 목록]의 부위를 기준으로, 어떤 부위를 운동한 다음 날에는 같은 부위의 운동을 넣지 마라. " # 신체활동 지침서 曰 "근력 운동을 한 신체 부위는 하루 이상 휴식을 취한 후 다시 하는 것이 좋습니다"
+    "한 운동이 여러 부위에 속하면(예: 페이스 풀은 등과 어깨) 모든 부위에 이 규칙을 적용하라. "
+    "휴식하는 날은 운동이 없어야 한다. "
 )
 
 
@@ -70,11 +74,23 @@ def load_exercise_catalog(path: Path = EXERCISES_CSV) -> dict[str, dict[str, lis
 
 
 EXERCISE_CATALOG = load_exercise_catalog()
-# AI에게 넘길 운동 목록 텍스트: "- 스쿼트 (부위: 하체 / 근육: 대퇴사두근(허벅지 앞), 둔근(엉덩이))"
-EXERCISE_LIST_TEXT = "\n".join(
-    f"- {name} (부위: {', '.join(info['body_parts'])} / 근육: {', '.join(info['muscles'])})"
-    for name, info in EXERCISE_CATALOG.items()
-)
+
+
+def exercise_list_text(names: list[str]) -> str:
+    """AI에게 넘길 운동 목록 텍스트. 한 줄 예: - 스쿼트 (부위: 하체 / 근육: 대퇴사두근(허벅지 앞), 둔근(엉덩이))"""
+    return "\n".join(
+        f"- {name} (부위: {', '.join(EXERCISE_CATALOG[name]['body_parts'])}"
+        f" / 근육: {', '.join(EXERCISE_CATALOG[name]['muscles'])})"
+        for name in names
+    )
+
+
+# 비만(BMI 25 이상)인 사용자에게서 뺄 고강도 운동.
+# 대한비만학회 R4-1: 비만 성인이 의사 허가 없이 해도 되는 범위는 저~중강도 운동이다.
+# 조깅은 달리기 가이드라인의 "천천히 달리기(약 8km/h)"라 중강도로 본다.
+HIGH_INTENSITY_EXERCISES = frozenset({
+    "인터벌 사이클", "인터벌 일립티컬", "인터벌 스텝밀", "인터벌 로잉", "고강도 사이클", "줄넘기", "달리기",
+})
 # 스키마 enum으로 쓰여서 AI가 목록 밖의 운동 이름을 낼 수 없다
 ExerciseName = Literal[tuple(EXERCISE_CATALOG)]
 
@@ -112,6 +128,13 @@ class WorkoutPlan(BaseModel):
 
 
 PLAN_SCHEMA = WorkoutPlan.model_json_schema()
+
+
+def plan_schema_for(names: list[str]) -> dict:
+    """운동 이름 enum을 names로 좁힌 계획 스키마. 사용자에 따라 고를 수 있는 운동을 제한할 때 쓴다."""
+    schema = copy.deepcopy(PLAN_SCHEMA)
+    schema["$defs"]["Exercise"]["properties"]["name"]["enum"] = names
+    return schema
 
 
 # ---------- 사용자 입력 ----------
@@ -240,6 +263,10 @@ def output(req: Annotated[PlanRequest, Query()]):
         "health_notes": req.health_notes,
     }
 
+    # 비만(성인 BMI 25 이상)이면 경력과 관계없이 고강도 운동을 빼고 저~중강도만 쓴다
+    limit_intensity = profile["bmi_category"] is not None and bmi >= 25
+    allowed_names = [n for n in EXERCISE_CATALOG if not (limit_intensity and n in HIGH_INTENSITY_EXERCISES)]
+
     user_info = "\n".join([
         f"- 나이: {req.age}세 (대상: {profile['target_group']})",
         f"- 키/몸무게: {req.height_cm}cm / {req.weight_kg}kg",
@@ -247,7 +274,7 @@ def output(req: Annotated[PlanRequest, Query()]):
         f"- 헬스 경력: {req.experience}",
         f"- 목표: {req.goal}",
         f"- 건강 상태: {req.health_notes or '특이사항 없음'}",
-    ])
+    ] + (["- 운동 강도 제한: 비만(BMI 25 이상)이므로 저~중강도 운동만 사용"] if limit_intensity else []))
 
     # 검색 대상: 나이 기준 대상 + 건강 상태로 알 수 있는 대상(임산부, 만성질환자, 장애인)
     targets = {profile["target_group"]} | targets_from_notes(req.health_notes)
@@ -289,7 +316,7 @@ def output(req: Annotated[PlanRequest, Query()]):
     )
     user_message = (
         f"[참고 문서]\n{context}\n\n"
-        f"[운동 목록]\n{EXERCISE_LIST_TEXT}\n\n"
+        f"[운동 목록]\n{exercise_list_text(allowed_names)}\n\n"
         f"[계획 기간]\n{start.isoformat()} ~ {end.isoformat()} ({(end - start).days + 1}일)\n\n"
         f"[사용자 정보]\n{user_info}"
     )
@@ -302,7 +329,7 @@ def output(req: Annotated[PlanRequest, Query()]):
         ],
         response_format={
             "type": "json_schema",
-            "json_schema": {"name": "workout_plan", "strict": True, "schema": PLAN_SCHEMA},
+            "json_schema": {"name": "workout_plan", "strict": True, "schema": plan_schema_for(allowed_names)},
         },
     )
 
@@ -310,6 +337,11 @@ def output(req: Annotated[PlanRequest, Query()]):
         plan = WorkoutPlan.model_validate_json(response.choices[0].message.content)
     except ValidationError as e:
         raise HTTPException(status_code=502, detail=f"AI 응답 형식 오류: {e}")
+
+    # 스키마로 막았지만, 허용되지 않은 운동이 들어왔으면 그대로 내보내지 않는다
+    disallowed = {e.name for s in plan.sessions for e in s.exercises} - set(allowed_names)
+    if disallowed:
+        raise HTTPException(status_code=502, detail=f"AI 응답에 허용되지 않은 운동 포함: {sorted(disallowed)}")
 
     return {"profile": profile, "plan": with_exercise_info(plan), "sources": sources}
 

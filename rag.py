@@ -217,6 +217,25 @@ KSSO_START = re.compile(r"^INTRODUCTION\s*$")         # 앞부분(제목, 저자
 KSSO_STOP = re.compile(r"^CONFLICTS OF INTEREST")     # 이후는 이해관계, 감사의 글, 참고문헌
 
 
+# 비만 (국가건강정보포털): "운동"과 형식이 같다 (번호 제목, 포털 꼬리말, 끝의 참고문헌).
+# 운동 계획과 무관한 약물치료·수술치료 부분은 제외한다.
+OBESITY_DROP_START = re.compile(r"^5\) 약물치료")
+OBESITY_DROP_END = re.compile(r"^실천 방법-맞춤형 실천 방법")  # 수술치료 다음 부분
+
+
+def split_obesity_portal(text: str) -> list[Section]:
+    kept, dropping = [], False
+    for line in text.splitlines():
+        stripped = line.strip()
+        if OBESITY_DROP_START.match(stripped):
+            dropping = True
+        elif dropping and OBESITY_DROP_END.match(stripped):
+            dropping = False
+        if not dropping:
+            kept.append(line)
+    return split_exercise("\n".join(kept))
+
+
 SPLITTERS = {
     "신체활동 지침서": split_guideline,
     "운동": split_exercise,
@@ -229,8 +248,7 @@ SPLITTERS = {
         text, [], default=("성인", "노인"), start=ACSM_STAND_START, stop=ACSM_STAND_STOP),
     "acsms-complete-guide-fitness-health-sample-download": lambda text: split_by_markers(
         text, [], start=ACSM_GUIDE_START),
-    # 국가건강정보포털 페이지라 "운동"과 형식이 같다 (번호 제목, 포털 꼬리말, 끝의 참고문헌).
-    "비만 _ 국가건강정보포털 _ 질병관리청": split_exercise,
+    "비만 _ 국가건강정보포털 _ 질병관리청": split_obesity_portal,
     "jomes-32-1-1": lambda text: split_by_markers(
         text, KSSO_MARKERS, start=KSSO_START, stop=KSSO_STOP),
 }
