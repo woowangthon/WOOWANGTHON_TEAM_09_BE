@@ -1,5 +1,7 @@
 import copy
 import csv
+import hashlib
+import json
 import logging
 import os
 from datetime import date, timedelta
@@ -15,6 +17,7 @@ from rag import BM25Retriever
 
 load_dotenv()
 
+logging.basicConfig(level=logging.INFO, format="%(levelname)s:     %(name)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
@@ -28,13 +31,41 @@ client = OpenAI(
 @app.get("/")
 def read_root():
 
-    response = client.chat.completions.create(
-        model="claude-sonnet-5",
-        messages=[{"role": "user", "content": "Hello!"}],
-    )
-    print(response.choices[0].message.content)
+    # response = client.chat.completions.create(
+    #     model="claude-sonnet-5",
+    #     messages=[{"role": "user", "content": "Hello!"}],
+    # )
+    # print(response.choices[0].message.content)
 
     return {"Hello": "World"}
+
+
+# ---------- AI 호출 (캐시 + 토큰 사용량 기록) ----------
+# 같은 요청(모델, 메시지, 응답 형식이 모두 같음)은 저장해 둔 응답을 돌려줘 토큰을 쓰지 않는다.
+# LLM_CACHE=0 이면 캐시를 쓰지 않는다.
+LLM_CACHE_DIR = Path(__file__).parent / ".llm_cache"
+LLM_CACHE_ENABLED = os.getenv("LLM_CACHE", "1") != "0"
+
+
+def chat_completion(**kwargs) -> str:
+    """client.chat.completions.create 결과의 본문 문자열. 캐시가 있으면 API를 부르지 않는다."""
+    key = hashlib.sha256(json.dumps(kwargs, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    cache_file = LLM_CACHE_DIR / f"{key}.json"
+    if LLM_CACHE_ENABLED and cache_file.exists():
+        logger.info("AI 응답 캐시 사용 (토큰 0)")
+        return json.loads(cache_file.read_text(encoding="utf-8"))["content"]
+
+    response = client.chat.completions.create(**kwargs)
+    content = response.choices[0].message.content
+    usage = response.usage
+    if usage:
+        logger.info("AI 토큰 사용량: 입력 %s / 출력 %s / 합계 %s",
+                    usage.prompt_tokens, usage.completion_tokens, usage.total_tokens)
+    if LLM_CACHE_ENABLED:
+        LLM_CACHE_DIR.mkdir(exist_ok=True)
+        cache_file.write_text(json.dumps({"content": content}, ensure_ascii=False), encoding="utf-8")
+    return content
+
 
 retriever = BM25Retriever()
 
@@ -101,33 +132,39 @@ ExerciseName = Literal[tuple(EXERCISE_CATALOG)]
 class Exercise(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    name: ExerciseName = Field(description="운동 이름 ([운동 목록]에 있는 이름만 가능)")
-    sets: int | None = Field(description="세트 수. 세트 개념이 없으면 null")
-    reps: int | None = Field(description="세트당 반복 횟수. 플랭크처럼 시간 기반이면 null")
-    duration_seconds: int | None = Field(
-        description="시간(초). 플랭크처럼 세트가 있으면 세트당 시간, 유산소처럼 세트가 없으면 전체 시간. 횟수 기반 운동이면 null"
-    )
+    name: ExerciseName = Field(description="운동 이름")
+    sets: int | None = Field(description="세트 수, 없으면 null")
+    reps: int | None = Field(description="세트당 반복 횟수, 시간 기반이면 null")
+    duration_seconds: int | None = Field(description="시간(초): 세트가 있으면 세트당, 없으면 전체. 횟수 기반이면 null")
 
 
 class DailySession(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    date: str = Field(description="운동 날짜 (YYYY-MM-DD)")
-    focus: str = Field(description="그날의 운동 초점 (예: 가슴·삼두, 하체, 휴식)")
-    exercises: list[Exercise] = Field(description="그날 수행할 운동 목록")
+    date: str = Field(description="YYYY-MM-DD")
+    focus: str = Field(description="운동 초점 (예: 가슴·삼두, 휴식)")
+    exercises: list[Exercise]
 
 
 class WorkoutPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    found: bool = Field(description="참고 문서에서 계획의 근거를 찾았는지 여부")
-    start_date: str = Field(description="계획 시작일 (YYYY-MM-DD)")
-    end_date: str = Field(description="계획 종료일 (YYYY-MM-DD)")
-    sessions: list[DailySession] = Field(description="시작일부터 종료일까지 날짜순 일별 일정")
-    precautions: list[str] = Field(description="참고 문서에 근거한 주의사항 목록")
+    found: bool = Field(description="참고 문서에 근거가 있는지")
+    start_date: str = Field(description="YYYY-MM-DD")
+    end_date: str = Field(description="YYYY-MM-DD")
+    sessions: list[DailySession] = Field(description="시작일부터 종료일까지 날짜순")
 
 
-PLAN_SCHEMA = WorkoutPlan.model_json_schema()
+def strip_titles(schema):
+    """Pydantic이 자동으로 넣는 "title" 항목을 지운다 (AI에게 보내는 스키마 크기를 줄이려고)."""
+    if isinstance(schema, dict):
+        return {k: strip_titles(v) for k, v in schema.items() if not (k == "title" and isinstance(v, str))}
+    if isinstance(schema, list):
+        return [strip_titles(v) for v in schema]
+    return schema
+
+
+PLAN_SCHEMA = strip_titles(WorkoutPlan.model_json_schema())
 
 
 def plan_schema_for(names: list[str]) -> dict:
@@ -191,43 +228,54 @@ def targets_from_notes(health_notes: str | None) -> set[str]:
     return {t for t, words in HEALTH_NOTE_TARGETS.items() if any(w in health_notes for w in words)}
 
 
-# ---------- 검색어 생성 (한국어 + 영어) ----------
+# ---------- 검색어 생성 (한국어 + 영어, AI 호출 없이 고정 사전으로) ----------
 # 참고 문서에 영문 자료가 섞여 있어 한국어 검색어만으로는 영문 조각이 검색되지 않는다.
 
-class SearchQueries(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+TARGET_EN = {
+    "유아": "preschool children", "아동·청소년": "children adolescents", "성인": "adults", "노인": "older adults",
+    "임산부": "pregnant postpartum women", "만성질환자": "chronic conditions", "장애인": "disability",
+}
 
-    ko: list[str] = Field(description="한국어 검색어 2~3개")
-    en: list[str] = Field(description="같은 의미의 영어 검색어 2~3개")
+# (목표에 들어 있으면 해당하는 단어들, 한국어 검색어, 영어 검색어)
+GOAL_QUERIES = [
+    (("다이어트", "감량", "살", "체지방", "비만"),
+     "체중 감량 운동 유산소 근력 병행", "weight loss exercise aerobic resistance"),
+    (("근력", "근육", "벌크", "근비대", "증량", "몸만들기"),
+     "근력 운동 근비대 세트 반복", "resistance training muscle strength hypertrophy sets repetitions"),
+    (("체력", "지구력", "달리기", "마라톤", "러닝", "심폐"),
+     "유산소 심폐 지구력 달리기", "aerobic endurance cardiorespiratory fitness running"),
+    (("건강", "유지", "자세", "스트레스"),
+     "건강 신체활동 권장", "physical activity health recommendations"),
+]
+GOAL_DEFAULT = ("운동 권장량", "physical activity recommendations")
 
 
-QUERY_PROMPT = (
-    "당신은 운동 지침 문서 검색을 돕는다. 사용자 정보를 보고, 이 사용자의 운동 계획을 세우는 데 필요한 "
-    "운동 권장량, 운동 방법, 주의사항을 찾기 위한 검색어를 만들어라. "
-    "대상(성인, 노인 등), 목표, 체형(BMI), 운동 경력, 건강 상태를 반영하라. "
-    "검색어는 문장이 아니라 핵심 단어 위주의 짧은 구로 쓰고, 한국어 검색어와 같은 의미의 영어 검색어를 함께 만들어라."
-)
+def build_search_queries(target_group: str, goal: str, experience: str, obese: bool,
+                         extra_targets: set[str]) -> tuple[list[str], list[str]]:
+    """사용자 정보로 (한국어 검색어, 영어 검색어)를 만든다."""
+    ko = [f"{target_group} 신체활동 권장량"]
+    en = [f"{TARGET_EN[target_group]} physical activity recommendations"]
 
+    matched = [(k, e) for words, k, e in GOAL_QUERIES if any(w in goal for w in words)] or [GOAL_DEFAULT]
+    for k, e in matched:
+        ko.append(k)
+        en.append(e)
 
-def generate_search_queries(user_info: str) -> tuple[list[str], list[str]]:
-    """AI로 (한국어 검색어, 영어 검색어)를 만든다. 실패하면 빈 목록을 돌려준다(기본 검색어만 사용)."""
-    try:
-        response = client.chat.completions.create(
-            model="claude-sonnet-5",
-            messages=[
-                {"role": "system", "content": QUERY_PROMPT},
-                {"role": "user", "content": f"[사용자 정보]\n{user_info}"},
-            ],
-            response_format={
-                "type": "json_schema",
-                "json_schema": {"name": "search_queries", "strict": True, "schema": SearchQueries.model_json_schema()},
-            },
-        )
-        queries = SearchQueries.model_validate_json(response.choices[0].message.content)
-    except Exception as e:  # API 오류나 형식 오류가 나도 계획 생성은 계속한다
-        logger.warning("검색어 생성 실패, 기본 검색어만 사용: %s", e)
-        return [], []
-    return [q.strip() for q in queries.ko if q.strip()], [q.strip() for q in queries.en if q.strip()]
+    if experience in ("처음", "6개월 미만"):
+        ko.append("운동 초보 시작 점진적")
+        en.append("beginners start exercise progression")
+    else:
+        ko.append("근력 운동 진행 증량")
+        en.append("resistance training progression trained")
+
+    if obese:
+        ko.append("비만 운동치료 주의사항")
+        en.append("obesity exercise therapy adults")
+
+    for t in sorted(extra_targets):
+        ko.append(f"{t} 운동")
+        en.append(f"{TARGET_EN[t]} exercise")
+    return ko, en
 
 
 def interleave(*result_lists: list[tuple]) -> list[tuple]:
@@ -289,9 +337,12 @@ def output(req: Annotated[PlanRequest, Query()]):
 
     # 대상의 핵심 지침(권장량)은 항상 넣고, 나머지는 대상이 맞는 청크에서 검색해 채운다
     pinned = [chunk for t in sorted(targets) for chunk in retriever.core_chunks(t)]
-    # 한국어(기본 검색어 + AI 검색어)와 영어(AI 검색어)로 따로 검색해 순위를 합친 뒤 번갈아 채운다.
+    # 한국어(기본 검색어 + 사전 검색어)와 영어(사전 검색어)로 따로 검색해 순위를 합친 뒤 번갈아 채운다.
     # 한 번에 합치면 서로 겹치는 한국어 결과가 점수를 독차지해 영문 자료가 밀려난다.
-    ko_queries, en_queries = generate_search_queries(user_info)
+    ko_queries, en_queries = build_search_queries(
+        profile["target_group"], req.goal, req.experience, limit_intensity,
+        targets - {profile["target_group"]},
+    )
     slots = max(req.top_k - len(pinned), 0)
     ko_found = retriever.search_many([search_query] + ko_queries, top_k=slots, targets=targets, exclude=pinned)
     en_found = retriever.search_many(en_queries, top_k=slots, targets=targets, exclude=pinned) if en_queries else []
@@ -306,8 +357,7 @@ def output(req: Annotated[PlanRequest, Query()]):
     ]
     if not results:
         plan = WorkoutPlan(
-            found=False, start_date=start.isoformat(), end_date=end.isoformat(),
-            sessions=[], precautions=[],
+            found=False, start_date=start.isoformat(), end_date=end.isoformat(), sessions=[],
         )
         return {"profile": profile, "plan": plan.model_dump(), "sources": []}
 
@@ -321,7 +371,7 @@ def output(req: Annotated[PlanRequest, Query()]):
         f"[사용자 정보]\n{user_info}"
     )
 
-    response = client.chat.completions.create(
+    content = chat_completion(
         model="claude-sonnet-5",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -334,7 +384,7 @@ def output(req: Annotated[PlanRequest, Query()]):
     )
 
     try:
-        plan = WorkoutPlan.model_validate_json(response.choices[0].message.content)
+        plan = WorkoutPlan.model_validate_json(content)
     except ValidationError as e:
         raise HTTPException(status_code=502, detail=f"AI 응답 형식 오류: {e}")
 

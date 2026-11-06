@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent / "preprocess" / "result"
-CHUNK_SIZE = 1200    # 청크 최대 글자 수 (지침 한 페이지가 한 청크에 들어가도록)
+CHUNK_SIZE = 800     # 청크 최대 글자 수 (AI에게 보내는 토큰을 줄이려고 작게. 성인 핵심 지침 676자는 한 청크에 들어감)
 CHUNK_OVERLAP = 150  # 섹션이 길어 여러 청크로 나눌 때 겹치는 글자 수
 
 COMMON = "공통"

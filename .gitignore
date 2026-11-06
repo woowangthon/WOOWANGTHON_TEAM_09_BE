@@ -19,3 +19,6 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# 5. AI 응답 캐시
+.llm_cache/
