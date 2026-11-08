@@ -23,7 +23,7 @@ class PlanRequest(BaseModel):
     experience: Literal["처음", "6개월 미만", "6개월~2년", "2년 이상"] = Field(description="헬스 운동 경력")
     health_notes: str | None = Field(None, max_length=300, description="질환, 부상, 임신 등 참고할 건강 상태")
     start_date: date | None = Field(None, description="계획 시작일 (YYYY-MM-DD). 없으면 오늘")
-    end_date: date | None = Field(None, description="계획 종료일 (YYYY-MM-DD). 없으면 시작일로부터 7일")
+    end_date: date | None = Field(None, description="계획 종료일 (YYYY-MM-DD). 없으면 시작일로부터 7일. 기간은 최대 14일")
     top_k: int = Field(4, ge=1, le=10, description="참고할 문서 조각 수")
 
 

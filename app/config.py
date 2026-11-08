@@ -13,6 +13,9 @@ DOCUMENTS_DIR = BASE_DIR / "preprocess" / "result"          # 전처리된 참�
 EXERCISES_CSV = BASE_DIR / "exercises.csv"                  # 계획에 쓸 수 있는 운동 목록
 LLM_CACHE_DIR = BASE_DIR / ".llm_cache"                     # AI 응답 캐시
 
+# ---------- 계획 ----------
+MAX_PLAN_DAYS = 14   # 한 번에 만들 수 있는 계획의 최대 일수 (기간이 길수록 AI 출력 토큰이 늘어난다)
+
 # ---------- AI ----------
 NOVA_AI_KEY = os.getenv("NOVA_AI_KEY")
 AI_BASE_URL = "https://factchat-cloud.mindlogic.ai/v1/gateway"

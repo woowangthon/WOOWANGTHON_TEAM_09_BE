@@ -1,6 +1,6 @@
 """운동 계획 생성의 전체 흐름. 이 파일만 읽으면 요청 하나가 어떻게 처리되는지 알 수 있다.
 
-1. 기간 확인
+1. 기간 확인 (최대 MAX_PLAN_DAYS일)
 2. 프로필 계산 (대상, BMI)            -> profile.py
 3. 고를 수 있는 운동 정하기            -> exercises.py
 4. 참고 문서 조각 고르기 (RAG)         -> search.py, rag/
@@ -13,7 +13,7 @@ from datetime import date, timedelta
 
 from pydantic import ValidationError
 
-from app.config import AI_MODEL
+from app.config import AI_MODEL, MAX_PLAN_DAYS
 from app.exercises import add_exercise_info, allowed_exercise_names, exercise_list_text
 from app.llm import chat_completion
 from app.profile import build_profile, limits_intensity
@@ -38,6 +38,8 @@ def create_plan(req: PlanRequest) -> dict:
     end = req.end_date or start + timedelta(days=6)
     if end < start:
         raise PlanError(400, "end_date는 start_date보다 빠를 수 없습니다.")
+    if (end - start).days + 1 > MAX_PLAN_DAYS:
+        raise PlanError(400, f"계획 기간은 최대 {MAX_PLAN_DAYS}일입니다.")
 
     # 2. 프로필
     profile = build_profile(req)
