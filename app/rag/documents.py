@@ -1,30 +1,14 @@
-"""전처리된 텍스트 파일(preprocess/result/*.txt) 기반의 간단한 RAG 검색기.
+"""참고 문서를 섹션으로 나누고, 섹션마다 대상(성인, 노인, 임산부 등)을 붙이는 규칙.
 
-- 문서를 섹션 단위로 나누고 각 섹션에 대상(성인, 노인, 임산부 등)을 붙인다.
-- 검색 시 사용자 대상 + 공통 섹션만 후보로 삼아 다른 대상의 지침이 섞이지 않게 한다.
-- 외부 의존성 없이 BM25 + 문자 bigram 토크나이저로 한국어 문서를 검색한다.
+문서마다 제목 형식이 달라 문서별 규칙(SPLITTERS)을 둔다.
+새 문서를 preprocess/result/에 추가했다면 여기에 규칙을 추가한다. 규칙이 없으면 문서 전체가 "공통"이 된다.
 """
 
-import math
 import re
-from collections import Counter
 from dataclasses import dataclass
-from pathlib import Path
-
-DATA_DIR = Path(__file__).parent / "preprocess" / "result"
-CHUNK_SIZE = 800     # 청크 최대 글자 수 (AI에게 보내는 토큰을 줄이려고 작게. 성인 핵심 지침 676자는 한 청크에 들어감)
-CHUNK_OVERLAP = 150  # 섹션이 길어 여러 청크로 나눌 때 겹치는 글자 수
 
 COMMON = "공통"
 TARGETS = ("유아", "아동·청소년", "성인", "노인", "임산부", "만성질환자", "장애인")
-
-
-@dataclass
-class Chunk:
-    source: str
-    targets: tuple[str, ...]  # 이 청크가 해당하는 대상. 일반 내용은 ("공통",)
-    text: str
-    core: bool = False        # 해당 대상의 핵심 신체활동 지침(권장량)이 담긴 청크
 
 
 @dataclass
@@ -256,107 +240,3 @@ SPLITTERS = {
 
 def split_default(text: str) -> list[Section]:
     return [Section((COMMON,), text.splitlines())]
-
-
-# ---------- 청크 ----------
-
-def _split_chunks(lines: list[str]) -> list[str]:
-    """줄 단위로 이어붙여 CHUNK_SIZE 정도의 청크를 만들고, 앞 청크 끝부분을 겹치게 한다."""
-    lines = [line.strip() for line in lines if line.strip()]
-    chunks, current = [], ""
-    for line in lines:
-        if current and len(current) + len(line) + 1 > CHUNK_SIZE:
-            chunks.append(current)
-            current = current[-CHUNK_OVERLAP:]
-        current = f"{current}\n{line}" if current else line
-    if current:
-        chunks.append(current)
-    return chunks
-
-
-def _is_core(source: str, targets: tuple[str, ...], text: str) -> bool:
-    """신체활동 지침서에서 대상별 권장량("신체활동 지침" 소제목)이 담긴 청크."""
-    return source == "신체활동 지침서" and COMMON not in targets and "신체활동 지침\n" in text
-
-
-def load_chunks(data_dir: Path = DATA_DIR) -> list[Chunk]:
-    chunks = []
-    for path in sorted(data_dir.glob("*.txt")):
-        splitter = SPLITTERS.get(path.stem, split_default)
-        for section in splitter(path.read_text(encoding="utf-8")):
-            for text in _split_chunks(section.lines):
-                chunks.append(Chunk(path.stem, section.targets, text, _is_core(path.stem, section.targets, text)))
-    return chunks
-
-
-# ---------- 검색 ----------
-
-def _tokenize(text: str) -> list[str]:
-    """공백/특수문자로 단어를 나눈 뒤 문자 bigram으로 쪼갠다 (한국어 조사 변형에 강함)."""
-    tokens = []
-    for word in re.findall(r"[0-9A-Za-z가-힣]+", text.lower()):
-        if len(word) == 1:
-            tokens.append(word)
-        else:
-            tokens.extend(word[i:i + 2] for i in range(len(word) - 1))
-    return tokens
-
-
-class BM25Retriever:
-    def __init__(self, data_dir: Path = DATA_DIR, k1: float = 1.5, b: float = 0.75):
-        self.k1, self.b = k1, b
-        self.chunks = load_chunks(data_dir)
-
-        self.doc_tfs = [Counter(_tokenize(c.text)) for c in self.chunks]
-        self.doc_lens = [sum(tf.values()) for tf in self.doc_tfs]
-        self.avgdl = (sum(self.doc_lens) / len(self.doc_lens)) if self.doc_lens else 0.0
-
-        df = Counter()
-        for tf in self.doc_tfs:
-            df.update(tf.keys())
-        n = len(self.chunks)
-        self.idf = {t: math.log(1 + (n - f + 0.5) / (f + 0.5)) for t, f in df.items()}
-
-    def core_chunks(self, target: str) -> list[Chunk]:
-        """대상의 핵심 지침(권장량) 청크. 검색 점수와 상관없이 항상 참고 문서에 넣는다."""
-        return [c for c in self.chunks if c.core and target in c.targets]
-
-    def search(
-        self, query: str, top_k: int = 4, targets: set[str] | None = None, exclude: list[Chunk] | None = None,
-    ) -> list[tuple[Chunk, float]]:
-        """targets가 있으면 그 대상이나 "공통"인 청크만 검색한다."""
-        allowed = (targets | {COMMON}) if targets else None
-        excluded = {id(c) for c in exclude or []}
-        q_tokens = set(_tokenize(query))
-        scored = []
-        for chunk, tf, dl in zip(self.chunks, self.doc_tfs, self.doc_lens):
-            if id(chunk) in excluded:
-                continue
-            if allowed is not None and not allowed.intersection(chunk.targets):
-                continue
-            score = 0.0
-            for t in q_tokens:
-                f = tf.get(t)
-                if not f:
-                    continue
-                score += self.idf[t] * f * (self.k1 + 1) / (
-                    f + self.k1 * (1 - self.b + self.b * dl / self.avgdl)
-                )
-            if score > 0:
-                scored.append((chunk, score))
-        scored.sort(key=lambda x: x[1], reverse=True)
-        return scored[:top_k]
-
-    def search_many(
-        self, queries: list[str], top_k: int = 4, targets: set[str] | None = None, exclude: list[Chunk] | None = None,
-    ) -> list[tuple[Chunk, float]]:
-        """여러 검색어(한국어/영어)로 검색해 순위를 합친다 (Reciprocal Rank Fusion).
-        검색어마다 BM25 점수 크기가 달라 점수 대신 순위로 합치고, 반환 점수는 가장 높았던 BM25 점수다."""
-        fused: dict[int, list] = {}  # id(chunk) -> [chunk, rrf 점수, 최고 BM25 점수]
-        for query in queries:
-            for rank, (chunk, score) in enumerate(self.search(query, top_k, targets, exclude), 1):
-                entry = fused.setdefault(id(chunk), [chunk, 0.0, 0.0])
-                entry[1] += 1 / (60 + rank)
-                entry[2] = max(entry[2], score)
-        ranked = sorted(fused.values(), key=lambda e: e[1], reverse=True)[:top_k]
-        return [(chunk, score) for chunk, _, score in ranked]

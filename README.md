@@ -1,0 +1,71 @@
+# 대학생 맞춤형 헬스 AI 서버
+
+사용자 정보(나이, 키·몸무게, 목표, 운동 경력)와 기간을 받아, 운동 지침 문서를 근거로(RAG) 날짜별 헬스 계획을 만들어 주는 FastAPI 서버입니다.
+
+## 실행
+
+```bash
+source myenv/bin/activate
+uvicorn main:app --reload
+```
+
+- `.env`에 `NOVA_AI_KEY`가 있어야 합니다.
+- 예시 요청: `GET /output?age=20&height_cm=175&weight_kg=70&goal=다이어트&experience=처음&start_date=2026-11-09&end_date=2026-11-15`
+- API 문서: 서버 실행 후 `/docs`
+
+## 폴더 구조
+
+```
+main.py                 진입점. FastAPI 앱을 만들고 app/api.py의 라우터를 붙인다
+app/
+  api.py                엔드포인트 (/, /output). 요청을 planner에 넘기고 오류를 HTTP 응답으로 바꾼다
+  planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작
+  profile.py            BMI·대상(성인/노인 등) 계산, 건강 상태로 추가 대상 찾기
+  exercises.py          운동 목록(exercises.csv) 읽기, 고강도 운동 목록
+  schemas.py            요청(PlanRequest)과 AI 출력(WorkoutPlan) 형식
+  prompts.py            시스템 프롬프트, AI에게 보낼 메시지 조립
+  search.py             검색어 만들기, 참고 문서 조각 고르기
+  llm.py                AI 호출 (캐시, 토큰 사용량 로그)
+  config.py             경로, 환경변수, 모델 이름
+  rag/
+    documents.py        문서별 섹션 규칙 (섹션마다 대상을 붙임)
+    chunks.py           섹션을 조각으로 나누기
+    retriever.py        BM25 검색
+preprocess/
+  main.py               src/의 PDF -> result/의 텍스트 변환
+  src/                  원본 PDF
+  result/               전처리된 텍스트 (검색 대상)
+exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 이름)
+```
+
+## 요청 하나가 처리되는 순서 (`app/planner.py`)
+
+1. **기간 확인**: 시작일이 없으면 오늘, 종료일이 없으면 7일
+2. **프로필 계산**: 나이로 대상(성인 등), 키·몸무게로 BMI와 비만 단계를 서버가 계산
+3. **고를 수 있는 운동**: `exercises.csv`의 운동. 비만(BMI 25 이상)이면 고강도 운동은 뺀다
+4. **참고 문서 고르기**:
+   - 대상의 핵심 지침(신체활동 지침서의 권장량)은 항상 넣는다
+   - 나머지는 대상이 맞거나 "공통"인 조각 중에서 한국어·영어 검색어로 검색
+5. **프롬프트 조립**: `[참고 문서]`, `[운동 목록]`, `[계획 기간]`, `[사용자 정보]`
+6. **AI 호출**: 구조화된 출력(JSON Schema)으로 계획을 받는다. 운동 이름은 스키마로 목록 안에서만 고르게 한다
+7. **검증 후 응답**: 형식을 확인하고, 각 운동에 부위·근육 정보를 CSV에서 붙인다
+
+## 자주 하는 작업
+
+| 하고 싶은 일 | 고칠 곳 |
+|---|---|
+| AI 규칙(말투, 계획 원칙) 바꾸기 | `app/prompts.py`의 `SYSTEM_PROMPT` |
+| 운동 추가·수정 | `exercises.csv` |
+| 고강도로 볼 운동 바꾸기 | `app/exercises.py`의 `HIGH_INTENSITY_EXERCISES` |
+| 참고 문서 추가 | PDF를 `preprocess/src/`에 넣고 `python preprocess/main.py` 실행 → `app/rag/documents.py`의 `SPLITTERS`에 섹션 규칙 추가 (없으면 문서 전체가 "공통") |
+| 검색어 사전 바꾸기 | `app/search.py`의 `GOAL_QUERIES`, `TARGET_EN` |
+| 응답·AI 출력 필드 바꾸기 | `app/schemas.py` |
+| 모델·API 주소 바꾸기 | `app/config.py` |
+
+문서와 운동 목록은 서버 시작 시 한 번 읽으므로, 바꾼 뒤에는 서버를 재시작해야 합니다.
+
+## AI 응답 캐시
+
+- 같은 요청(프롬프트·스키마가 완전히 같음)은 `.llm_cache/`에 저장된 응답을 돌려주어 토큰을 쓰지 않습니다.
+- 끄려면 `LLM_CACHE=0 uvicorn main:app`
+- 실제로 호출하면 토큰 사용량이 로그에 남습니다: `AI 토큰 사용량: 입력 … / 출력 … / 합계 …`
