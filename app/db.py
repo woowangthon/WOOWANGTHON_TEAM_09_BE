@@ -1,6 +1,9 @@
-"""Supabase DB 읽기. 서버는 읽기만 한다 (user.password는 절대 조회하지 않는다).
+"""Supabase DB 접근.
+
+user.password(해시)는 로그인 확인(fetch_login)에서만 읽고, 다른 곳에서는 조회하지 않는다.
 
 테이블
+- user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
 - info:     id(-> user.id), age, height, weight
 - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name
 
@@ -12,6 +15,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta
 from functools import lru_cache
 
+from postgrest.exceptions import APIError
 from supabase import Client, create_client
 
 from app.config import SUPABASE_KEY, SUPABASE_URL, TIMEZONE
@@ -30,6 +34,37 @@ def get_client() -> Client:
     if not SUPABASE_URL or not SUPABASE_KEY:
         raise RuntimeError(".env에 SUPABASE_URL, SUPABASE_KEY가 없습니다.")
     return create_client(SUPABASE_URL, SUPABASE_KEY)
+
+
+class NameTakenError(Exception):
+    """같은 name(로그인 아이디)의 사용자가 이미 있음."""
+
+
+UNIQUE_VIOLATION = "23505"   # PostgreSQL 오류 코드
+
+
+def name_exists(name: str) -> bool:
+    rows = get_client().table("user").select("id").eq("name", name).limit(1).execute().data
+    return bool(rows)
+
+
+def insert_user(name: str, password_hash: str) -> dict:
+    """user 행을 만들고 {"name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError."""
+    if name_exists(name):
+        raise NameTakenError(name)
+    try:
+        row = get_client().table("user").insert({"name": name, "password": password_hash}).execute().data[0]
+    except APIError as e:
+        if e.code == UNIQUE_VIOLATION:   # 동시에 같은 아이디로 가입한 경우 (name에 UNIQUE 제약이 있을 때)
+            raise NameTakenError(name) from e
+        raise
+    return {"name": row["name"], "created_at": row["created_at"]}
+
+
+def fetch_login(name: str) -> dict | None:
+    """로그인 확인용 {"id", "password"}. 없으면 None."""
+    rows = get_client().table("user").select("id, password").eq("name", name).limit(1).execute().data
+    return rows[0] if rows else None
 
 
 def fetch_user_info(user_id: int) -> dict | None:

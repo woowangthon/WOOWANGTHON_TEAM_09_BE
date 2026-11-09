@@ -1,11 +1,13 @@
-"""HTTP 엔드포인트. 요청을 받아 planner에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다."""
+"""HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다."""
 
 from typing import Annotated
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, status
 
+from app.auth import create_access_token, hash_password, verify_password
+from app.db import NameTakenError, fetch_login, insert_user
 from app.planner import PlanError, create_plan
-from app.schemas import PlanRequest
+from app.schemas import LoginRequest, PlanRequest, UserCreate
 
 router = APIRouter()
 
@@ -29,3 +31,25 @@ def output(req: Annotated[PlanRequest, Query()]):
         return create_plan(req)
     except PlanError as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
+
+
+@router.post("/user", status_code=status.HTTP_201_CREATED)
+def create_user(body: UserCreate):
+    """회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다."""
+    try:
+        return insert_user(body.name, hash_password(body.password))
+    except NameTakenError:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="이미 사용 중인 아이디입니다.")
+
+
+@router.post("/login")
+def login(body: LoginRequest):
+    """아이디·비밀번호가 맞으면 JWT 액세스 토큰을 준다. 아이디와 비밀번호 중 무엇이 틀렸는지는 알려주지 않는다."""
+    user = fetch_login(body.name)
+    if not verify_password(user["password"] if user else None, body.password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="아이디 또는 비밀번호가 올바르지 않습니다.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"access_token": create_access_token(user["id"]), "token_type": "bearer"}

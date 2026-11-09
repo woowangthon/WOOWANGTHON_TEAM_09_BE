@@ -9,7 +9,7 @@ source myenv/bin/activate
 uvicorn main:app --reload
 ```
 
-- `.env`에 `NOVA_AI_KEY`가 있어야 합니다.
+- `.env`에 `NOVA_AI_KEY`, `SUPABASE_URL`, `SUPABASE_KEY`, `JWT_SECRET`이 있어야 합니다.
 - 예시 요청: `GET /output?age=20&height_cm=175&weight_kg=70&goal=다이어트&experience=처음&start_date=2026-11-09&end_date=2026-11-15`
 - API 문서: 서버 실행 후 `/docs`
 
@@ -18,7 +18,9 @@ uvicorn main:app --reload
 ```
 main.py                 진입점. FastAPI 앱을 만들고 app/api.py의 라우터를 붙인다
 app/
-  api.py                엔드포인트 (/, /output). 요청을 planner에 넘기고 오류를 HTTP 응답으로 바꾼다
+  api.py                엔드포인트 (/, /output, POST /user, POST /login). 오류를 HTTP 응답으로 바꾼다
+  auth.py               비밀번호 해시(Argon2id), JWT 발급·검증
+  db.py                 Supabase 읽기·쓰기 (user, info, schedule)
   planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작
   profile.py            BMI·대상(성인/노인 등) 계산, 건강 상태로 추가 대상 찾기
   exercises.py          운동 목록(exercises.csv) 읽기, 고강도 운동 목록

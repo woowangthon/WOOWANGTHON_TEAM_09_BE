@@ -31,3 +31,7 @@ LLM_CACHE_ENABLED = os.getenv("LLM_CACHE", "1") != "0"
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 TIMEZONE = ZoneInfo("Asia/Seoul")   # DB의 timestamptz(UTC 저장)를 이 시간대로 바꿔 쓴다
+
+# ---------- 로그인 (JWT) ----------
+JWT_SECRET = os.getenv("JWT_SECRET")              # 길고 무작위한 값. 예: python -c "import secrets; print(secrets.token_urlsafe(64))"
+JWT_EXPIRE_MINUTES = int(os.getenv("JWT_EXPIRE_MINUTES", "60"))

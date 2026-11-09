@@ -1,6 +1,7 @@
 """요청과 AI 출력의 형식 (Pydantic 모델).
 
 - PlanRequest: /output 이 받는 쿼리 파라미터
+- UserCreate, LoginRequest: POST /user, POST /login 의 요청 본문
 - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
 """
 
@@ -25,6 +26,22 @@ class PlanRequest(BaseModel):
     start_date: date | None = Field(None, description="계획 시작일 (YYYY-MM-DD). 없으면 오늘")
     end_date: date | None = Field(None, description="계획 종료일 (YYYY-MM-DD). 없으면 시작일로부터 7일. 기간은 최대 14일")
     top_k: int = Field(4, ge=1, le=10, description="참고할 문서 조각 수")
+
+
+
+# ---------- 회원가입 / 로그인 ----------
+
+class UserCreate(BaseModel):
+    name: str = Field(
+        pattern=r"^[a-z][a-z0-9]{3,19}$",
+        description="로그인 아이디. 영문 소문자로 시작, 영문 소문자·숫자 4~20자, 중복 불가 (예: cbnu2026)",
+    )
+    password: str = Field(min_length=8, max_length=128, description="비밀번호 (8자 이상)")
+
+
+class LoginRequest(BaseModel):
+    name: str = Field(max_length=20, description="로그인 아이디")
+    password: str = Field(max_length=128)
 
 
 # ---------- AI 출력 (구조화된 출력 스키마) ----------
