@@ -52,7 +52,7 @@ def create_plan(req: PlanRequest) -> dict:
     sources = select_sources(profile, limit_intensity, req.top_k)
     if not sources:
         plan = WorkoutPlan(
-            found=False, start_date=start.isoformat(), end_date=end.isoformat(), sessions=[],
+            found=False, start_date=start.isoformat(), end_date=end.isoformat(), sessions=[], precaution="",
         )
         return {"profile": profile, "plan": plan.model_dump(), "sources": []}
 

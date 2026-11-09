@@ -58,6 +58,7 @@ class WorkoutPlan(BaseModel):
     start_date: str = Field(description="YYYY-MM-DD")
     end_date: str = Field(description="YYYY-MM-DD")
     sessions: list[DailySession] = Field(description="시작일부터 종료일까지 날짜순")
+    precaution: str = Field(description="참고 문서에 근거한 주의사항. 한두 문장, 한 줄")
 
 
 def strip_titles(schema):
