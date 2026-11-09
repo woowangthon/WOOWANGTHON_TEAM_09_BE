@@ -171,7 +171,32 @@ def get_schedule(user_id: int, schedule_id: int) -> dict | None:
     return _schedule_out(rows[0]) if rows else None
 
 
+class ScheduleConflictError(Exception):
+    """다른 일정과 시간이 겹침. conflicts: 겹치는 일정 목록(응답 형식)."""
+
+    def __init__(self, conflicts: list[dict]):
+        super().__init__("일정 시간이 겹침")
+        self.conflicts = conflicts
+
+
+def overlapping_schedules(user_id: int, start_term: datetime, end_term: datetime,
+                          exclude_id: int | None = None) -> list[dict]:
+    """[start_term, end_term)과 겹치는 본인 일정. 끝과 시작이 맞닿는 것(10:00 끝, 10:00 시작)은 겹침이 아니다."""
+    query = (
+        get_client().table("schedule").select(SCHEDULE_COLUMNS)
+        .eq("author", user_id)
+        .lt("start_term", end_term.isoformat())    # 새 일정이 끝나기 전에 시작하고
+        .gt("end_term", start_term.isoformat())    # 새 일정이 시작한 뒤에 끝나는 일정
+    )
+    if exclude_id is not None:                     # 수정할 때는 자기 자신 제외
+        query = query.neq("id", exclude_id)
+    return [_schedule_out(r) for r in query.order("start_term").execute().data]
+
+
 def insert_schedule(user_id: int, name: str | None, start_term: datetime, end_term: datetime) -> dict:
+    """겹치는 일정이 있으면 ScheduleConflictError."""
+    if conflicts := overlapping_schedules(user_id, start_term, end_term):
+        raise ScheduleConflictError(conflicts)
     row = (
         get_client().table("schedule")
         .insert({"author": user_id, "name": name,
@@ -183,7 +208,11 @@ def insert_schedule(user_id: int, name: str | None, start_term: datetime, end_te
 
 def update_schedule(user_id: int, schedule_id: int, name: str | None,
                     start_term: datetime, end_term: datetime) -> dict | None:
-    """본인 일정이 아니거나 없으면 None."""
+    """본인 일정이 아니거나 없으면 None. 다른 일정과 겹치면 ScheduleConflictError."""
+    if get_schedule(user_id, schedule_id) is None:
+        return None
+    if conflicts := overlapping_schedules(user_id, start_term, end_term, exclude_id=schedule_id):
+        raise ScheduleConflictError(conflicts)
     rows = (
         get_client().table("schedule")
         .update({"name": name, "start_term": start_term.isoformat(), "end_term": end_term.isoformat()})

@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 
 from app.auth import create_access_token, current_user_id, hash_password, verify_password
 from app.db import (
-    IdentityColumnError, NameTakenError,
+    IdentityColumnError, NameTakenError, ScheduleConflictError,
     delete_schedule, fetch_login, fetch_user, fetch_user_info, get_schedule, insert_schedule, insert_user,
     list_schedules, update_schedule, upsert_user_info,
 )
@@ -88,6 +88,14 @@ def save_info(body: InfoCreate, user_id: int = Depends(current_user_id)):
 SCHEDULE_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="일정을 찾을 수 없습니다.")
 
 
+def schedule_conflict(e: ScheduleConflictError) -> HTTPException:
+    """409. detail에 겹치는 일정 목록을 담아, 앱에서 어떤 일정과 겹치는지 보여줄 수 있게 한다."""
+    return HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
+        detail={"message": "다른 일정과 시간이 겹칩니다.", "conflicts": e.conflicts},
+    )
+
+
 @router.get("/schedule")
 def read_schedules(
     user_id: int = Depends(current_user_id),
@@ -110,13 +118,20 @@ def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
 
 @router.post("/schedule", status_code=status.HTTP_201_CREATED)
 def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
-    return insert_schedule(user_id, body.name, body.start_term, body.end_term)
+    """다른 일정과 시간이 겹치면 409."""
+    try:
+        return insert_schedule(user_id, body.name, body.start_term, body.end_term)
+    except ScheduleConflictError as e:
+        raise schedule_conflict(e)
 
 
 @router.put("/schedule/{schedule_id}")
 def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(current_user_id)):
-    """일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄)."""
-    schedule = update_schedule(user_id, schedule_id, body.name, body.start_term, body.end_term)
+    """일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄). 다른 일정과 시간이 겹치면 409."""
+    try:
+        schedule = update_schedule(user_id, schedule_id, body.name, body.start_term, body.end_term)
+    except ScheduleConflictError as e:
+        raise schedule_conflict(e)
     if schedule is None:
         raise SCHEDULE_NOT_FOUND
     return schedule
