@@ -67,6 +67,35 @@ def fetch_login(name: str) -> dict | None:
     return rows[0] if rows else None
 
 
+def fetch_user(user_id: int) -> dict | None:
+    """user 테이블의 {"name", "created_at"} (id·password는 내보내지 않는다). 없으면 None."""
+    rows = get_client().table("user").select("name, created_at").eq("id", user_id).limit(1).execute().data
+    return rows[0] if rows else None
+
+
+class IdentityColumnError(Exception):
+    """info.id가 identity(자동 증가) 열이라 user.id를 넣을 수 없음. DB 설정 문제."""
+
+
+CANNOT_INSERT_IDENTITY = "428C9"   # GENERATED ALWAYS AS IDENTITY 열에 값을 넣으려 함
+
+
+def upsert_user_info(user_id: int, age: int, height: int, weight: int) -> dict:
+    """info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id)."""
+    try:
+        row = (
+            get_client().table("info")
+            .upsert({"id": user_id, "age": age, "height": height, "weight": weight}, on_conflict="id")
+            .execute()
+            .data[0]
+        )
+    except APIError as e:
+        if e.code == CANNOT_INSERT_IDENTITY:
+            raise IdentityColumnError(e.message) from e
+        raise
+    return {"age": row["age"], "height": row["height"], "weight": row["weight"]}
+
+
 def fetch_user_info(user_id: int) -> dict | None:
     """info 테이블의 {"age", "height", "weight"}. 없으면 None."""
     rows = (

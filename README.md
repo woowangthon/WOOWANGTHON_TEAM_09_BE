@@ -18,7 +18,7 @@ uvicorn main:app --reload
 ```
 main.py                 진입점. FastAPI 앱을 만들고 app/api.py의 라우터를 붙인다
 app/
-  api.py                엔드포인트 (/, /output, POST /user, POST /login). 오류를 HTTP 응답으로 바꾼다
+  api.py                엔드포인트 (/, /output, POST·GET /user, POST /login, POST /info). 오류를 HTTP 응답으로 바꾼다
   auth.py               비밀번호 해시(Argon2id), JWT 발급·검증
   db.py                 Supabase 읽기·쓰기 (user, info, schedule)
   planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작

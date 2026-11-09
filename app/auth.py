@@ -3,11 +3,14 @@
 - 비밀번호: Argon2id. 해시할 때마다 무작위 salt를 만들어 해시 문자열 안에 함께 저장한다
   ("$argon2id$v=19$m=...,t=...,p=...$<salt>$<hash>"). 원문 비밀번호는 저장하지 않는다.
 - JWT: HS256, sub = user.id (서비스 내부 식별자), 만료 JWT_EXPIRE_MINUTES분.
+- current_user_id: 로그인이 필요한 엔드포인트에 Depends로 붙인다.
 """
 
 from datetime import datetime, timedelta, timezone
 
 import jwt
+from fastapi import Depends, HTTPException, status
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from argon2 import PasswordHasher
 from argon2.exceptions import InvalidHashError, VerificationError
 
@@ -45,3 +48,19 @@ def decode_access_token(token: str) -> int:
     """토큰을 검증하고 user.id를 돌려준다. 만료·위조면 jwt.InvalidTokenError."""
     payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM], options={"require": ["sub", "exp"]})
     return int(payload["sub"])
+
+
+_bearer = HTTPBearer(auto_error=False)
+
+
+def current_user_id(credentials: HTTPAuthorizationCredentials | None = Depends(_bearer)) -> int:
+    """엔드포인트 의존성: "Authorization: Bearer <토큰>" 헤더를 검증하고 user.id를 돌려준다. 실패하면 401."""
+    if credentials is None:
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "로그인이 필요합니다.", headers={"WWW-Authenticate": "Bearer"})
+    try:
+        return decode_access_token(credentials.credentials)
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "토큰이 만료되었습니다. 다시 로그인하세요.",
+                            headers={"WWW-Authenticate": "Bearer"})
+    except (jwt.InvalidTokenError, ValueError):
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "유효하지 않은 토큰입니다.", headers={"WWW-Authenticate": "Bearer"})

@@ -1,7 +1,7 @@
 """요청과 AI 출력의 형식 (Pydantic 모델).
 
 - PlanRequest: /output 이 받는 쿼리 파라미터
-- UserCreate, LoginRequest: POST /user, POST /login 의 요청 본문
+- UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
 - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
 """
 
@@ -42,6 +42,13 @@ class UserCreate(BaseModel):
 class LoginRequest(BaseModel):
     name: str = Field(max_length=20, description="로그인 아이디")
     password: str = Field(max_length=128)
+
+
+class InfoCreate(BaseModel):
+    """info 테이블 (모두 int2). 범위는 PlanRequest와 같다."""
+    age: int = Field(ge=6, le=100, description="나이 (만 나이)")
+    height: int = Field(ge=51, le=249, description="키 (cm)")
+    weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
 
 
 # ---------- AI 출력 (구조화된 출력 스키마) ----------
