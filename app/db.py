@@ -138,13 +138,18 @@ def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]
 SCHEDULE_COLUMNS = "id, name, start_term, end_term"
 
 
+def _local_time(value: str) -> str:
+    """DB의 timestamptz -> 한국 시간의 "YYYY-MM-DDTHH:MM:SS" (시간대 표기 없음)."""
+    return datetime.fromisoformat(value).astimezone(TIMEZONE).replace(tzinfo=None).isoformat(timespec="seconds")
+
+
 def _schedule_out(row: dict) -> dict:
-    """DB 행 -> 응답. 시각은 한국 시간(+09:00)으로 바꾼다."""
+    """DB 행 -> 응답. 시각은 한국 시간으로 바꾸고 시간대 표기(+09:00)는 뺀다."""
     return {
         "id": row["id"],
         "name": row["name"],
-        "start_term": datetime.fromisoformat(row["start_term"]).astimezone(TIMEZONE).isoformat(),
-        "end_term": datetime.fromisoformat(row["end_term"]).astimezone(TIMEZONE).isoformat(),
+        "start_term": _local_time(row["start_term"]),
+        "end_term": _local_time(row["end_term"]),
     }
 
 
