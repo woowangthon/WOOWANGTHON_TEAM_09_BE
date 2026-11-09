@@ -34,4 +34,4 @@ TIMEZONE = ZoneInfo("Asia/Seoul")   # DB의 timestamptz(UTC 저장)를 이 시�
 
 # ---------- 로그인 (JWT) ----------
 JWT_SECRET = os.getenv("JWT_SECRET")              # 길고 무작위한 값. 예: python -c "import secrets; print(secrets.token_urlsafe(64))"
-JWT_EXPIRE_MINUTES = int(os.getenv("JWT_EXPIRE_MINUTES", "60"))
+JWT_EXPIRE_MINUTES = int(os.getenv("JWT_EXPIRE_MINUTES", str(60 * 24 * 7)))   # 토큰 유효 기간: 1주일
