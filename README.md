@@ -32,9 +32,11 @@ app/
     chunks.py           섹션을 조각으로 나누기
     retriever.py        BM25 검색
 preprocess/
-  main.py               src/의 PDF -> result/의 텍스트 변환
+  main.py               src/의 PDF -> original-result/의 텍스트 추출
+  clean.py              original-result/ -> result/ 정제 (성인·공통만, 잡음 줄 삭제. 줄 삭제만 함)
   src/                  원본 PDF
-  result/               전처리된 텍스트 (검색 대상)
+  original-result/      추출한 원문 텍스트 (그대로 보관)
+  result/               정제된 텍스트 (검색 대상)
 exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 이름)
 ```
 
@@ -57,7 +59,7 @@ exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 
 | AI 규칙(말투, 계획 원칙) 바꾸기 | `app/prompts.py`의 `SYSTEM_PROMPT` |
 | 운동 추가·수정 | `exercises.csv` |
 | 고강도로 볼 운동 바꾸기 | `app/exercises.py`의 `HIGH_INTENSITY_EXERCISES` |
-| 참고 문서 추가 | PDF를 `preprocess/src/`에 넣고 `python preprocess/main.py` 실행 → `app/rag/documents.py`의 `SPLITTERS`에 섹션 규칙 추가 (없으면 문서 전체가 "공통") |
+| 참고 문서 추가 | PDF를 `preprocess/src/`에 넣고 `python preprocess/main.py` 실행 → `app/rag/documents.py`의 `SPLITTERS`에 섹션 규칙 추가 (없으면 문서 전체가 "공통") → 필요하면 `preprocess/clean.py`의 `DOCS`에 삭제 규칙 추가 → `python preprocess/clean.py` 실행 |
 | 검색어 사전 바꾸기 | `app/search.py`의 `GOAL_QUERIES`, `TARGET_EN` |
 | 응답·AI 출력 필드 바꾸기 | `app/schemas.py` |
 | 모델·API 주소 바꾸기 | `app/config.py` |

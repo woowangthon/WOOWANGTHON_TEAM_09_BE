@@ -1,0 +1,670 @@
+❚ Review
+운동과학 년 제 권 제 호, 2015 , 24 2 .
+Exercise Science, 2015, Vol.24, No.2.
+http://dx.doi.org/10.15857/ksep.2015.24.2.99
+pISSN 1226-1726 eISSN 2384-0544
+성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰
+박동호1) 김창선, 2) 김광준, 3)*
+1)인하대학교 예술체육학부 스포츠과학과 2)동덕여자대학교 체육학과 3)한국스포츠개발원 스포츠과학실
+Dong-Ho Park, Chang-Sun Kim, Kwang-Jun Kim (2015). Consideration about Physical Activity Guideline and Exercise Intensity for Adult. 
+Exercise Science, 24(2): 99-107
+PURPOSE: The purpose of this review was to (i) suggest the need of physical activity (PA) guidelines for Korean via introduction of PA guideline 
+for adult in the West; and (ii) propose new categories of PA and exercise intensity in human.
+METHODS: The terminology used for monitoring and promoting PA and exercise among researchers, health and fitness professionals varies 
+considerably. The variation of terminology or category related to PA and exercise intensity can be confusing for researchers, health and fitness 
+professionals. The inconsistency in terms also makes it difficult to track changes in PA/exercise pattern over time and across studies. We 
+reviewed previous literatures focused on terminology and category of PA and aerobic exercise intensity with MEDLINE, Pubmed, and website 
+of government organization.
+RESULTS: We introduced well-known PA guidelines such as the PA guideline of United States, Canada, United Kingdom, Australia, World 
+Health Orgarnization (WHO) as well as Korea, We also proposed five categories of PA and aerobic exercise intensity (inactive, low, moderate, 
+high, and maximal intensity) in human. 
+CONCLUSIONS: This proposal address the doubt of standardization of PA and aerobic exercise intensity and make suggestions that may assist 
+those undertaking research and prescribing PA and exercise.
+Key words: physical activity, guideline, exercise, intensity, adult
+주요어: 신체활동 가이드라인 운동 강도 성인, , , , 
+서론. Ⅰ
+남녀노소를 불문하고 건강을 유지 또는 향상시키기 위하여 
+가장 중요한 요인으로 간주되는 것은 신체활동(physical activity; 
+이다 과거의 신체활동은 골격근의 수축에 의해 유발되는 PA) . “
+에너지 소비의 증가와 함께 이루어지는 신체의 움직임 으로 정”
+의된다 하지만 최근의 신체활동은 건강 증진. “ (health-enhanc-
+이라는 부분이 포함된다ing)”  [32] 즉 단순한 골격근의 수축으로 . , 
+유발되는 신체의 움직임 또는 안정시 수준보다 에너지 소비를 
+증가시키는 움직임이 아니라 건강 증진을 위한 신체의 움직임“”
+으로 간주된다.
+약 년 전에 히포크라테스 는 신체활동과 적2000 (460-337 B.C.)
+절한 영양섭취는 건강에 필수적이라고 강력히 권고한 바 있다. 
+하지만 의사와 같은 의료 전문직에서 신체활동이 인체의 건강에 
+매우 중요하다는 것에 대하여 공식적으로 인정한 것은 서양의 
+경우 년대 중후반이며 신체 비활동 이 1990 , (Physical inactivity)
+년대에 들어서면서 비활동 사망증후군2000 “ (Sedentary death syn-
+이라는 질병으로 명명되면서 이러한 인식의 변화는 아주 drome)”
+빠르게 바뀐게 사실이다 [24]. 
+그동안 많은 연구에서도 일상적인 신체활동을 조금 더 증가
+시킴으로써 개인의 건강 수명뿐만 아니라 삶의 질을 향상시킬 , 
+수 있다고 제안 [9,10,15,34] 되어 왔으며 이제는 이것이 당연한 , 
+사실로 받아들어지고 있다 하지만 개인의 건강을 향상시킨다. , 
+는 측면에서는 개인의 체력 연령 성 병력 등을 고려한 최소한, , , 
+의 운동강도 운동량 및 빈도가 전제되어야 한다 특히 다양한 , . , 
+사람 또는 집단의 신체활동이나 운동을 처치하고 관찰하는 그리
+고 이를 증진시키고자 하는 건강 및 체력 전문가 또는 연구자에
+게는 더욱 중요하다. 
+국내의 경우 보건복지부의 주도하에 한국인을 위한 신체활“
+동 가이드라인 2010 [23]이 발표되었으나 이에 대해 알고 있는 ”
+사람은 매우 드물다 또한 신체활동이나 운동의 강도 예 저 중.  ,  ( :  ,  ,  
+고강도 등 에 대한 표준화 가 이루어져 있지 않) (Standardization)
+교신저자 김광준: , norman7@sports.re.kr
+Tel: +82-2-970-9539, Fax: +82-2-970-9593
+Received 28 April. 2015, Revised 11 May. 2015, Accepted 17 May. 2015
+
+운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
+100 /g48801 박동호 김창선 김광준 ,  ,  
+아 많은 혼란을 유발한다 특히 건강 및 체력관련 전문가들과 . , 
+연구자들 사이에서의 신체활동이나 운동의 강도에 대한 표준화
+는 신뢰성 있는 자료의 수집뿐만 아니라 일관적인 신체활동이나 
+운동의 처치를 위해서도 매우 중요하다. 
+따라서 본 연구의 목적은 첫째 국내외 신체활동 가이드라인, 
+을 소개하고 둘째 서양의 다양한 기관에서 정의한 신체활동과 , 
+운동의 강도에 대한 고찰을 통해 표준화된 신체활동 및 운동의 
+강도를 제안하고자 한다.
+성인을 위한 신체활동 가이드라인. Ⅱ
+규칙적인 신체활동 또는 운동의 참여는 비만 유발을 낮추고, 
+이로 인해 유발될 수 있는 고혈압을 포함한 심혈관 질환 제 형 , 2
+당뇨 고지혈증과 같은 만성질환뿐만 아니라 골다공증 근감소, , 
+증 다양한 암 발병 및 사망률의 감소 등 많은 건강 혜택을 제공, 
+한다 [1,9,13,18,31,34,35]더욱이 국민들의 규칙적인 신체활동의 . , 
+참여로 인한 국가적 차원에서의 의료비를 포함한 사회간접 비용
+의 절감 효과는 매우 지대하다 [4].
+지난 수십 년 동안 서구의 많은 국가와 공신력 있는 기관에서
+는 신체활동이 미치는 건강 혜택 및 경제적 효과 등의 이유로 
+신체활동 가이드라인을 개발하여 국민들에게 제공하고 있다. 
+서구의 경우 년대에는 운동수행력과 근력 향상을 위한 체, 1970
+력 향상을 위하여 운동이 제안되었으나 년에는 미국스포츠, 1995
+의학회 와 미국질병관(American College of Sports Medicine; ACSM)
+리본부 에서 가(Centers for Disease Control and Prevention; CDC)
+이드라인을 개발하여 거의 매일 분이상의 중강도 신체활동을 30
+추천하였다 [29] 그리고 년 신체활동과 건강에 대한 의무총. 1996
+감보고서(Surgeon General’s Report on Physical Activity and 
+의 발행이후에 년에는 미국에서는 처음으로 신체활Health) 2007
+동과 건강에 대한 연구의 종합적인 검토가 이루어질 수 있도록 
+전문가 위원회가 만들어졌다 [32] 이것이 년 월에 연방정. 2008 10
+부 차원에서의 미국인을 위한 신체활동 가이드라인 을 처음으“”
+로 발간하는 계기가 되었다 그동안 추천되었던 권고 사항인 중. “
+강도 유산소 운동을 주당 일 일회 분 또는 그 이상 실시 할 5,  3 0 ”
+것을 권고하였으나 성인을 위한 신체활동 가이드라인 에, “2008 ”
+서의 주요 변화는 적어도 주당 중강도 유산소 신체활동 분150 (1
+회 분 이상 가능하면 일주간 고르게 분포 주당 격렬한 강도10 , ), 
+의 유산소 신체활동 분 회 분 이상 가능하면 일주간 고르75 (1 10 , 
+게 분포 또는 이에 상응하는 양의 중강도와 고강도가 혼합된 ) 
+유산소 신체활동에 참가할 것을 권고한다 또한 이 가이드라인. 
+에 새롭게 추가된 부분은 주당 회 또는 그 이상의 근력운동에 2
+참여하는 것을 권고하고 있다 [32].
+불행히도 미국의 경우 년대 중반부터 이러한 다양한 가, 1990
+이드라인이 국민들에게 제공되었음에도 불구하고 대부분의 성, 
+인들은 건강 향상을 위한 신체활동의 양을 충족시키지 못하고 
+있다 [22,27]. Carlson et al [12]의 연구를 살펴보면 주당 분 이상 , 10
+중강도나 격렬한 신체활동에 참여하지 않는 성인이 이며36.6% , 
+단지 만이 추천되는 신체활동량을 충족하는 것으로 나타43.5% 
+났다 년에 연방정부 차원에서 만들어진 신체활동 가이드라. 2008
+인이 다양한 매체를 통해 홍보되어 년이 지난 시점인 년의 1 2009
+연구 자료에 따르면 이 가이드라인을 정확하게 알고 있는 미국
+인은 에도 미치지 않 았다 이 연구에 참여한 명의 1%(0.56%) . 4,281
+대상자 중 는 중강도의 유산소 신체활동을 주당 회 회 39% “ 3 , 1
+분을 실시 하는 것으로 알고 있었고 는 년 20 ” , 33% “1995 ACSM/ 
+추천 사항인 주당 회 회 분의 신체활동을 선택하였으CDC 5 , 1 30
+며나 머지 는 알지 못하거나 확신할 수 없다고 답하였다, 25.5%  
+[22]. 
+우리나라의 경우는 년에 한국인을 위한 신체활동 가이2010 “
+드라인 2010 [23] 이 발표되었고 주요 내용 역시 년에 미연” , 2008
+방정부 차원에서 만들어진 미국인을 위한 신체활동 가이드라“
+인 을 그대로 담고 있으나 이에 대해 알고 있는 사람은 미국의 ”
+실정과 크게 다르지 않다 이것은 현장에서 사람을 대상으로 신. 
+체활동이나 운동을 처치할 때 그리고 신체활동과 관련된 조사 
+연구뿐만 아니라 정책 제안 시 다양한 오류나 문제를 유발할 수 
+있다 예를 들어 동 연령대의 대상자라 하더라도 연구자마다 서. , 
+로 다른 기준 주당 참여 횟수 소요시간 등 을 적용하여 발생하(,  )
+는 신체활동 참여율의 차이는 연구 자료들의 신뢰성을 낮추게 
+되고 신체활동과 관련된 정책 입안에 필요한 신뢰성 있는 자료, 
+의 확보를 어렵게 한다. 
+은 서구의 최신 신체활동 가이드라인을 제시한 것이<Table 1>
+고 년 우리나라에서 발표된 한국 성인을 위한 신체활동 가, 2010 “
+이드라인 [23]을 요약 정리하면 아래와 같다”· .  
+규칙적인 신체활동은 건강 증진뿐 아니라 체력을 향상시키∙
+며 다양한 만성질환을 예방한다. 
+활동적인 습관을 갖는 것이 좋으며 약간의 신체활동이라도 , ∙
+하는 것이 좋다 앉아 있는 시간을 줄여라. . 
+중강도 유산소 신체활동을 주일에 분 시간 분 이상 11 5 0 ( 2 3 0 )  ∙
+또는 고강도 유산소 신체활동을 주일에 분 시간 분17 5 ( 1 1 5 )  
+이상 실천한다 고강도 신체활동 분은 중강도 신체활동의 . 1
+분과 같다2.  
+유산소 신체활동은 한 번에 분 이상을 하나 분 이상씩 30 10∙
+
+성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 101
+번 나누어 해도 효과는 동일하다3.
+중강도나 고강도 신체활동의 권고량을 배 이상하면 체력2∙
+향상 등과 같은 건강상 이득에 큰 도움이 된다.
+근력운동은 주당 회 이상 실시하라2.  ∙
+이상의 내용은 우리나라뿐만 아니라 에서 제시한 것<Table 1>
+처럼 전 세계에서 동의하는 일반적인 권고 사항이다 즉 신체활. , 
+동이나 운동은 용량반응 이 있다는 것이다 그 렇(dose response) . 
+다면 많이 하면 할수록 좋은가라는 의문이 든다 다시 말해용, . , 
+량반응의 한계는 없는가 아니면 가장 효과적인 역치? (threshold) 
+신체활동량은 존재하는가이다 그 예로 운동선수와 일반인의 . , 
+사망률에 대한 비교를 하지만 이것은 적절한 사례가 되기 힘들
+다 그 이유는 운동선수의 경우선수로 활동하는 기간이 매우 . , 
+한정적이기 때문이다 최근 이와 관련하여 아주 흥미로운 연구. , 
+결과가 발표되었다 즉 미국인을 위한 신체활동 가이드라. , “2008 
+인 [31]에서 제시한 분은 사망률이라는 관점에서 최소한의 ” 150 , 
+신체활동량으로 최고의 효과를 유발할 수 있는 활동량이다 [5]. 
+Arem et al [5]은 이 양보다 배 분 주 증가시킴으로써 사3-5 ( 450 / ) ≥
+망률을 최저로 낮출 수 있다고 제안하였다 그리고 추천되는 신. 
+체활동량을 배 증가 분 주 시켜도 사망률은 신체활동을 10 (1,500 / )
+배 증가했을 때와 유사하다 즉 사망률을 최소화시키는 역치 3.  ,  
+신체활동량은 주당 분이라는 것이다 또한 추천되는 신체활450 . 
+동량인 분보다 배 또는 그 이상 실시해도 운동으로 인한 150 10
+위험은 없다고 제안하고 있다 [5] 이 연구가 년 동안. 11 (1992- 
+명을 대상으로 수행되었다는 점에서 신빙성이 높2003) 661,137
+아 보이지만 이 결과만으로 신체활동량에 대한 역치와 한계를 
+정하는 것은 무리가 있다 추후 더 많은 근거가 쌓일 때 이러한 . 
+제안이 받아지게 될 것이다. 
+앞서 언급했듯이 한국인을 위한 신체활동 가이드라인 이 발, “ ”
+표된지 약 년이 지났으나 이를 아는 사람은 매우 드물다 규칙5.  
+적인 신체활동으로 얻는 건강 혜택이 매우 크다는 측면에서 국민
+들에게 보다 적극적인 홍보가 필요하다 즉 성공적인 캠페인이 . , 
+사회적 분위기를 바꾸고 금연과 안전밸트의 착용에 대한 사회적 
+기준을 변화시키듯이 대중매체를 통한 지속적이고 조직적인 캠
+페인을 통해 신체활동에 대한 국민 참여를 증가시켜야 한다.
+References Physical Activity Guideline
+United States [32]
+• All adults should avoid inactivity. Some physical activity is better than none, and adults who participate in any 
+amount of physical activity gain some health benefits. 
+• For substantial health benefits, adults should do at least 150 minutes (2 hours and 30 minutes) a week of moderate 
+intensity, or 75 minutes (1 hour and 15 minutes) a week of vigorous-intensity aerobic physical activity, or an 
+equivalent combination of moderate- and vigorous-intensity aerobic activity. Aerobic activity should be performed in 
+episodes of at least 10 minutes, and preferably, it should be spread throughout the week. 
+• For additional and more extensive health benefits, adults should increase their aerobic physical activity to 300 
+minutes (5 hours) a week of moderate-intensity, or 150 minutes a week of vigorous-intensity aerobic physical 
+activity, or an equivalent combination of moderate- and vigorous-intensity activity. Additional health benefits are 
+gained by engaging in physical activity beyond this amount. 
+• Adults should also do muscle-strengthening activities that are moderate or high intensity and involve all major 
+muscle groups on 2 or more days a week, as these activities provide additional health benefits. 
+Canada [11]
+• To achieve health benefits, adults aged 18-64 years should accumulate at least 150 minutes of moderate-to 
+vigorous-intensity aerobic physical activity per week, in bouts of 10 minutes or more.
+• It is also beneficial to add muscle and bone strengthening activities using major muscle groups, at least 2 days per 
+week.
+• More daily physical activity provides greater health benefits 
+United Kingdom [19]
+• Adults should aim to be active daily. Over a week, activity should add up to at least 150 minutes (2½ hours) of 
+moderate intensity activity in bouts of 10 minutes or more one way to approach this is to do 30 minutes on at –
+least 5 days a week. 
+• Alternatively, comparable benefits can be achieved through 75 minutes of vigorous intensity activity spread across 
+the week or combinations of moderate and vigorous intensity activity. 
+• Adults should also undertake physical activity to improve muscle strength on at least two days a week. 
+• All adults should minimise the amount of time spent being sedentary (sitting) for extended periods. 
+Australia [6]
+• Doing any physical activity is better than doing none. If you currently do no physical activity, start by doing some, 
+and gradually build up to the recommended amount. 
+• Be active on most, preferably all, days every week. 
+• Accumulate 150 to 300 minutes (2 ½ to 5 hours) of moderate intensity physical activity or 75 to 150 minutes (1 ¼ 
+to 2 ½ hours) of vigorous intensity physical activity, or an equivalent combination of both moderate and vigorous 
+activities, each week. 
+• Do muscle strengthening activities on at least 2 days each week
+World Health Organization [33]
+• Adults aged 18 64 should do at least 150 minutes of moderate-intensity aerobic physical activity throughout the –
+week or do at least 75 minutes of vigorous-intensity aerobic physical activity throughout the week or an equivalent 
+combination of moderate- and vigorous-intensity activity. 
+• Aerobic activity should be performed in bouts of at least 10 minutes duration.
+• For additional health benefits, adults should increase their moderate-intensity aerobic physical activity to 300 
+minutes per week, or engage in 150 minutes of vigorous-intensity aerobic physical activity per week, or an 
+equivalent combination of moderate- and vigorous-intensity activity.
+• Muscle-strengthening activities should be done involving major muscle groups on 2 or more days a week.
+Table 1. Summary of physical activity guidelines/recommendations for adults (18-64 years) from other references 
+
+운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
+102 /g48801 박동호 김창선 김광준 ,  ,  
+신체활동에 대한 새로운 정의. Ⅲ
+미국의 보건복지부(U.S. Department of Health and Human 
+에서 출간한 신체활동 가이드라인 을 시Services; USHHS) “2008 ”
+작으로 서구 선진국뿐만 아니라 에서 조차도 이러한 가이WHO
+드라인을 채택하고 있다는 점은 매우 흥미롭다 여기(Table 1). 
+서 또 하나 주목할 것은 신체활동 에 대한 새로“ (Physical activity)”
+운 정의다 기존의 신체활동의 개념은 골격근의 수축에 의해 . “
+유발되는 에너지 소비의 증가와 함께 이루어지는 신체 움직임”
+이다 즉 신체활동은 신체움직임 으로 간주되. , (bodily movement)
+며새 로 운  개념에 의하면 신체움직임을 기초선 활동, (baseline 
+과 건강증진 신체활동activity) (Health-enhancing physical activity)
+이라는 개로 분류하였다는 점이다 2( T a b l e  2 ) .  
+그 예로 과거의 신체활동 정의에 의하면 신체활동의 범주에 , , 
+속하는 서있기 천천히 걷기가벼운 물건을 들어올리기 등과 같, , 
+은 일상생활에서의 가벼운 강도의 활동을 기초선 활동(baseline 
+으로 간주하고 이러한 기초선 활동만을 수행할 때 과거activity) , 
+의 정의와는 달리 비활동 으로 구분하였다는 점이다(inactivity) . 
+또한 그리 높지 않은 계단오르기와 같은 중강도 또는 격렬한 강
+도의 활동도 그 수행시간이 매우 짧을 경우 에서 제시, <Table 3>
+한 가이드라인에 적용하기에는 너무 짧은 시간의 활동임으로 기
+초선 이하의 활동으로 간주하여 비활동으로 구분하였다 [32]. 
+더욱이 성인을 위한 유산소 신체활동량 비활동 낮은 ( inactive, 
+중정도 많은 을 기준으로 에서처 럼 low, medium, high) <Table 3>
+가지 신체활동 수준으로 정의한 것은 매우 유용한 정보를 제공4
+한다 이러한 분류는 건강 혜택과 관련된 신체활동의 양에 따른 . 
+명확한 기준을 제공하기 때문이다 예를 들면 낮은 신체활동의 . , 
+양 은 약간 또는 조금 의 건강혜택을 제공하지만 중(Low) (Some)
+정도의 양 은 상당한 건강혜택을 그리고 많(Medium) (Substantial) 
+은 양 의 신체활동은 더 큰 또는 추가적인 건강(High) (Additional) 
+혜택을 제공한다는 명확한 기준을 제공하기 때문이다. 
+운동과 신체활동 강도의 구분. Ⅳ
+체육학을 전공하는 학생을 포함한 운동전문가 그리고 연구자 
+역시도 저강도 중강도 고강도의 운동강도는 무엇을 기준으로 , , 
+어떻게 구분할 수 있는지에 대한 질문에 답변하기란 쉽지 않다. 
+이러한 질문에 대한 답을 찾기 위해서는 다양한 기관과 조직
+에서 제공하는 신체활동 가이드라인의 비교를 통해서 그 해답을 
+찾을 수 있을 것으로 생각한다 그러나 이것 역시 쉽지 않다. . 
+그 이유는 첫째 유산소 운동강도의 기준으로 , %HRmax, 
+%V̇O2 그리고 또는 max, %HRR %VO 2 와 같은 상대적 강도R, RPE
+뿐만 아니라 대사당량(relative intensity) (metabolic equivalent; 
+과 같은 절대적 운동강도 의 기준이 혼용MET) (absolute intensity)
+되어 사용되기 때문이다 둘째 동일한 에서의 운동 중 . , %HRmax
+Terminology Definitions
+Physical 
+Activity
+Baseline Activity•
+• Baseline activity refers to the light-intensity activities of daily life, such as standing, walking slowly, and lifting 
+lightweight objects. People vary in how much baseline activity they do. People who do only baseline activity are 
+considered to be inactive. They may do very short episodes of moderate- or vigorous-intensity activity, such as 
+climbing a few flights of stairs, but these episodes aren’t long enough to count toward meeting the Guidelines. 
+The Guidelines don’t comment on how variations in types and amounts of baseline physical activity might affect 
+health, as this was not addressed by the Advisory Committee report. 
+Health-Enhancing•
+Physical Activity
+• Health-enhancing physical activityis activity that, when added to baseline activity, produces health benefits. In 
+this document, the term “physical activity” generally refers to health-enhancing physical activity. Brisk walking, 
+jumping rope, dancing, lifting weights, climbing on playground equipment at recess, and doing yoga are all 
+examples of physical activity. Some people (such as postal carriers or carpenters on construction sites) may get 
+enough physical activity on the job to meet the Guidelines. 
+Adopted from [32]
+Table 2. Definitions of Physical Activity terminology from U.S. Department of Health and Human Services [32]
+Terminology Definitions
+Inactive No activity beyond baseline None Being inactive is unhealthy
+Low Activity beyond baseline but fewer than 150 minutes a week Some Low levels of activity are clearly preferable to an inactive lifestyle. 
+Medium 150 minutes to 300 minutes a week Substantial Activity at the high end of this range has additional and more extensive health benefits than activity at the low end.
+High More than 300 minutes a week Additional Current science does not allow researchers to identify an upper limit of activity above which there are no additional health benefits.
+Adopted from [32]
+Table 3. Classification of Total Weekly Amounts of Aerobic Physical Activity Into Four Categories
+
+성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 103
+%V̇O2 또는 max, %HRR %VO 2 이 서로 다르게 나타날 수 있다 이R.  
+것은 %V̇O2 가 기준이 되든 아니면 이나 max %HRR %VO 2 이 기준R
+이 되어도 마찬가지이다셋째 만약 . , %HRmax, %V ̇O2 그리고 max, 
+또는 %HRR %VO 2 이 동일하게 반응한다하더라도 는 개인의 RR P E
+주관적 특성이 반영됨으로 이것 역시도 다르게 나타날 수 있다. 
+넷째, MET(1 MET= 3.5 mL O2 는 상대적 운동강도가 아닌 /kg/min)
+절대적 운동강도이기 때문에 개인의 훈련 상태 또는 체력수준 
+그리고 개인의 다양한 특성 질환 연령 등 에 따라 (,  ) 다르게 반응
+할 수 있다 특히 를 강도의 기준으로 활용할 때는 연령별에 . , MET
+따른 강도의 제시가 필요하다 그 이유는 유산소 능력의 경우. , 
+세 이후 년 마다 평균적으로 약 감소하기 때문이다 30 10 8-10% 
+[14,16] 다섯째 운동강도를 구분하는 또는 표현하는 용어 역시. , 
+도 매우 혼란스럽다 그 예로 서구 유명저널에서 조차도 매우 . , 
+낮은 강도는 강도 또는 강도로 낮은 강도 “very light” “sedentary” , 
+또는 저강도 는 또는 강도로 혼용되고 있으며 더욱“low” “resting” , 
+이 우리말로 고강도에 해당하는 용어는 “vigorous”, “high”, “hard”, 
+등으로 다양하게 사용되고 있“very hard”, “intense”, “strenuous” 
+다 국내의 경우 역시 한국 성인을 위한 신체활동 가이드라인 . “
+[23]에서의 중강도와 고강도의 분류 기준은 점의 자각강도”1 - 1 0
+를 활용하였고 중강도를 심장박동이 조금 빨라지는 또는 호흡, “
+이 약간 가쁜 상태 자각정도 점 초반에서 점 중반이하 그리(4 6) ”  
+고 고강도를 심장박동이 많이 빨라지는 또는 호흡이 많이 가쁜 “
+상태자각정도 점 중반이상에서 점 후반까지로  애매하게 기(68 ) ”
+술하고 있다 그 외에도 여러 가지 이유가 있을 수 있으며 이러. , 
+한 이유만으로도 운동강도를 획일적으로 또는 명확하게 구분하
+는 것은 다소 한계가 있다 그럼에도 불구하고 많은 학자들과 . 
+과 같은 공신력 있는 기관에서는 나름대로 운동강도를 구ACSM
+분하고 있다 이것은 앞서 언급한 신체활동이나 운동(Table 4). 
+과 관련된 가이드라인을 정부나 학술 단체에서 제공하는 이유와 
+유사할 것이다 다시 말해 운동강도에 대한 용어뿐만 아니라 저. , 
+중 고강도의 기준을 연구자마다 서로 다르게 설정한다면 운동 , , 
+강도에 따른 생리적 반응과 적응 정도가 다르게 나타날 수 있고, 
+이는 연구 자료의 신뢰성을 낮출 수 있다 특히 인체 생리적. , , 
+내분비계 및 대사 반응은 운동강도에 민감하기 때문에 더욱 그
+Intensity category* Relative Intensity Absolute Intensity%HRR or %VO2R %HRmax %V̇O2max RPE (6-20) MET
+Inactive <25 <50<30<10 <2
+Low 25-39 50-64 30-44 10-11 2-2.9
+Moderate 40-59 65-74 45-64 12-13 3-5.9
+High 60 ≥7 5 ≥6 5 ≥1 4 - 1 8 6 - 8 . 9
+Maximal 100 100 100 19 ≥9 ≥
+* Modified from [2,3,27].  
+ - HRR method: Target HR (THR)= [HRmaxa HRrest) × % intensity desired] + HRrest–
+ - VO2R method: Target VO2R = [(VO2maxb VO– 2restc) × % intensity desired] + VO2restc
+ - HR method: Target HR = HRmaxa × % intensity desired
+ - VO2 method: Target VO2 = VO2maxb × % intensity desired
+ - MET method: Target MET = [(VO2maxb)/3.5 ml/kg/min] × %intensity desired
+Terminology
+ aHRmax is the highest value obtained during maximal exercise or it can be estimated by 220-age.
+ bVO2max is the highest value obtained during maximal exercise or it can be estimated from a submaximal exercise test.
+ cVO2rest is 3.5 ml/kg/min  
+ - RR, heart rate reserve; HRmax, maximal heart rate; RPE, rating of perceived exertion; VO2max, maximum oxygen consumption; VO2R,
+oxygen uptake reserve; MET, metabolic equivalent (1 MET= 3.5 ml/kg/min).
+Table 5. New categories of estimating intensity of aerobic exercise and physical activity
+Intensity*
+Relative Intensity
+Intensity≠
+Relative Intensity Absolute Intensity
+%HRR %HRmax RPE %HRR/%VO2R %HRmax %V̇O2max RPE MET
+Very light <20<35 <10 Very light <30 <57 <37 9 ≤< 2  
+Light 20-39 35-54 10-11 Light 30-<40 57-<64 37-<45 9-11 2-<3
+Moderate 40-59 55-69 12-13 Moderate 40-<60 64-<76 46-<64 12-13 3-<6
+Hard 60-84 70-89 14-16 Vigorous 60-<90 76-<96 64-<91 14-17 6-8.8
+Very Hard 85 ≥9 0 ≥ 17-19 Near maximal to 
+maximal 90≥9 6 ≥9 1 ≥1 8 ≥8 . 8 ≥Maximal 100 100 20
+HRR, heart rate reserve; HRmax, maximal heart rate; RPE, rating of perceived exertion; V̇O2max, maximum oxygen consumption; 
+VO2R, oxygen uptake reserve; MET, metabolic equivalent. 
+* ACSM (2000). Adapted from [30].  ≠ACSM (2014). Adapted from [17]. 
+Table 4. Methods of estimating intensity of aerobic exercise and physical activity [2,3]
+
+운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
+104 /g48801 박동호 김창선 김광준 ,  ,  
+러하다 또한 현장에서 활동하는 운동전문가들이 운동을 처치. 
+할 때 많은 혼란을 유발할 뿐만 아니라 자칫 운동을 실행하는 
+사람들이 부적합한 또는 잠재적으로 안전하지 않은 운동을 실행
+하게 될 수도 있기 때문이다. 
+따라서 신체활동이나 운동의 강도를 획일적으로 또는 명확하
+게 구분하는 것은 한계가 있으나 이러한 이유로 표준화된 신체
+활동이나 운동의 강도 구분이 필요하다 따라서 본 연구에서는 . 
+에서 제시한 것처럼 가지의 운동강도를 제안하고자 <Table 5> 5
+한다 이러한 구분에 대한 논리는 첫째 운동이나 신체활동 시 . , 
+생리적인 스트레스가 상대적으로 유사하게 나타나는 범위를 강
+도 기준으로 구분하였으며 둘째 가장 쉽게 기억할 수 있는 강도 , 
+범위를 기준으로 하였고마지막으로 운동 또는 신체활동의 강, , 
+도와 관련된 선행연구들에서 일반적으로 사용되는 강도의 구분
+을 기초로 하였다. 
+여기서 제안하는 강도는 비활동 저강도 중강(inactive), (Low), 
+도 고강도 최대강도 가지(moderate), (high or vigorous), (maximal) 5
+의 구분이다 (Table 5).
+비활동 1. 
+서구의 경우 신체활동이 건강 증진뿐만 아니라 질환을 치료, 
+하는 방법으로 인정되면서 비활동 가 벼운 활동(inactivity), (light 
+그리고 앉아 있거나 앉아서 행해지는 활동activity) (sedentary ac-
+을 종종 혼용하여 사용하지만 이에 대한 양 또는 강도라는 tivity)
+측면에서의 명확한 구분은 찾아보기 힘들다 최근 년 미국. 2008
+인을 위한 신체활동 가이드라인 [32]이 발표되면서 신체활동을 , 
+기초선 활동 과 건강증진 신체활동(baseline activity) (health-en-
+으로 구분되었고 여기서 기초선 활동을 hancing physical activity) , 
+비활동으로 구분하였다 즉 기초선 활동은 개인마다 기초선 활. , 
+동의 양은 다양할 수 있으나 일상생활에서의 가벼운 강도의 활
+동으로 서있거나 천천히 걷기가벼운 물건 들기와 같은 활동으, , 
+로 정의되며 이러한 활동을 비활동으로 정의하였다는 점이다, . 
+또한 중강도 또는 고강도로 계단을 빠르게 올라가더라도 그 시
+간이 매우 짧아 신체활동 가이드라인을 충족하지 못한다면 그것 
+역시도 비활동으로 간주하였다는 점이다. 
+그렇다면 어느 정도의 강도를 기준으로 비활동으로 정의할 , 
+것인가가 중요한 이슈가 된다. Pate et al [28]은 좌업상태의 대사
+당량의 수준을 미만으로 제안하였다 그 예로 시 청1.6 MET . , TV 
+이나 차에 타고 있는 상태 가만히 서있기(1.0 MET), (1.2 MET), 
+앉아서 책보기 는 전형적인 좌업이나 좌업 활동이라 할 (1.3 MET)
+수 있다 반면에앉아서 공부 하거나 서서 책읽기. , (1.8 MET) (1.8 
+천천히 걷기 와 같은 가 벼운 활동 MET), (<2 MET) [29]은 다소 MET
+를 증가시키나 미만에 해당하며 건강증진을 위한 신체활2 MET , 
+동이라 보기 힘들다 따라서 미만의 활동을 비활동으로 . 2 MET 
+정의하는 것이 타당해 보인다.
+저강도2. 
+저강도 활동은 집안에서의 일상 생활의 한 부분(low intensity) 
+으로 서서 침대를 정리하거나 설거지 하기 그리고 악(2-2.5 MET)
+기를 연주하는 활동 뿐만 아니라 당구 다 트(2-2.5 MET) (2.5 MET), 
+낚시(2.5 MET), (2.5 MET) [29] 등과 같은 레크리에이션 활동을 
+포함한다 이러한 활동들은 에 해당하며 대표적인 상. 2-2.9 MET , 
+대적 강도인 심박수를 기준으로 에 상응하는 강도50-64 %HRmax
+이다 [2,3,27]. 
+실제로 이 강도 범위에서의 신체활동은 장시간동안 수행한다
+하더라도 건강 증진이라는 측면에서 한계가 존재한다. Levine et 
+al [25]은 운동이 아닌 집에서 하는 설거지나 청소 그리고 직업적
+으로 수행하는 낮은 강도의 작업은 비만 발생률뿐만 아니라 당
+뇨질환을 증가시킨다고 보고하였다 물론 앉아서 일하거나 공. 
+부하는 것보다 서서 하는 것은 에너지 소비라는 측면에서 분명
+한 효과가 있으나 이는 장기간동안 매일 장시간 시간 일 수, ( 4 / ) ≥
+행하는 것을 전제로 한다.
+중강도3. 
+중강도 활동은 유리 창이나 차를 닦는 행위 (moderate intensity) 
+그리고 바닥을 걸레나 청소기를 이용하여 닦는일 상(3-3.5 MET) 
+생활뿐만 아니라 걷기 빠르게 걷기( 4 . 8  k m / h ,  3 . 0  M E T ) ,  ( 6. 4  
+가볍게 또는 빠르게 수행하는 볼륨 댄싱 골프km/h), (3-4.5 MET), 
+비경쟁적 배구 탁구 배드민턴(4.3 MET), (3-4 MET), (4 MET), (4.5 
+더블 테니스 그리고 윈드서핑 과 같은 레크MET), (5 MET) (3 MET)
+리에이션 활동을 포함한다 이러한 활동들은 에 해당. 3-5.9 MET
+하며 이는 상대적 강도인 에 상응한다 , 65-74 %HRmax [2,3,27]. 
+미국인을 위한 신체활동 가이드라인“2008  [32] 을 기준으로 ”
+할 때 주당 중강도 분의 신체활동량은 주당 회 분 회, 150 3 (50 /1 ), 
+주당 회 분 회 그리고 매일 분에 상응하는 양의 활동량이5 (30 /1 ) 22
+다 하루 시간 분 중 분은 에 해당하는 비 율 분. 24 (1,440 ) 22 1.5% (22
+분 로 매우 적은 양이다 그럼에도 불구하고 하루 에 /1,440 ) . 1.5%
+해당하는 분을 중강도 이상으로 장기간 동안 수행할 때 개인22
+의 수명뿐만 아니라 심장질환을 포함한 다양한 만성질환뿐만 아
+니라 여러 종류의 암 대장암 유방암 등까지로 예방하거나 지연(,  )
+하는 건강혜택을 부여한다 [1,9,13,18,31,34,35].
+그럼에도 불구하고 년부터 년 까지 평균 년  단 위 로  1994 2013 2-3
+
+성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 105
+실시한 국민생활체육활동 참여 실태조사 세 이상 대상 “ (10 )  [26]”
+를 살펴보면 전혀 신체활동에 참여하지 않는 사람이 평균적으, 
+로 에 해당하였으며 이러한 경향은 조사 년도에 따라 큰 폭40% , 
+의 차이가 있으나 약 년 동안 크게 변화하지 않았다 20 (Fig. 1).
+년도에 명을 대상으로 우리나라에서 실시한 2012 9,000 “2013 
+국민생활체육활동 참여 실태조사 [26]를 살펴보면 규칙적인 신”,  
+체활동에 전혀 참여하지 않는 사람은 이고 주당 회 이상 41.8% , 1
+참여하는 사람은 에 해당하였다 이중 주당 회 참여하는 45.5% . 1
+사람은 회 로 회 이상 참여하는 사람은 에 14.1%, 2 8.8% 3 22.6%
+지나지 않는다 더욱이 주당 회 이상 참여하는 사람들이 한번 . 1
+신체활동을 할 때 소요하는 시간은 분미만이 분30 0.9%, 30-60
+미만이 분미만이 분미만이 15%, 60-90 37.9%, 90-120 11.9%, 
+분미만이 그리고 분이상이 에 해당하였120-180 19.9% 180 14.5%
+다 (Fig. 2).
+미국을 포함한 서구와 우리나라의 성인을 위한 신체활동 가
+이드라인을 기준으로 할 때 주당 중강도 이상 분이상의 신체, 150
+활동량을 만족하는 한국인의 비율은 어떻게 될지 의문이다.
+예를 들어 강도를 제외하더라도 주당 회 분 이상 주당 , 1 150 , 
+회 분 이상 또는 주당 회 분 이상을 실시한다면 이러한 27 5 ,  35 0 ,  
+기준에 부합할 것이다 만약 주당 회 분 이상을 실시한다면. 1 150 , 
+주당 회 이상 참여하는 한국 사람이 임으로 회 1 45.5% 1 120-180
+분 실시하는 집단을 포함하더라도 약 15.7% (45.5%×.344= 15.7%)
+이며 주당 회의 경우 분미만의 비율을 절반으로 가정하여 , 2 60-90
+산정하면 그리고 주당 회 회 분 , 29.7%(45.5%×.653= 29.7%) 3 , 1 60
+이상을 실시한다면 에 해당한다 결론적19%(22.6×.842= 19.03%) . 
+으로 신체활동 가이드라인을 기준으로 할 때 규칙적인 신체활
+동에 참여하는 한국인은 명중 명 에 지나지 않10 2-3 (15.7-29.7%)
+는다.
+고강도4. 
+고강도 활동은 조 깅(high intensity) (8 km/h, 8 MET; 9.6 km/h, 
+을 포함한 평지에서의 사이클10 MET) (16-19 km, 6 MET; 19-22.5 
+크로스컨츄리 스키km/h, 8 MET), (4 km/h, 7 MET; 8-12.5 km/h, 
+싱글 테니스 배구경기 수영9 MET), (8 MET), (8 MET), (6-10 MET), 
+축구 농구 경기 등이 해당된다 물 론 어떻게 (7-10 MET), (8 MET) . 
+실시하느냐에 따라 는 아주 높게 증가할 수 있으나 MET 6-9.9 
+에 해당하며 에 해당한다 MET , 75-99 %HRmax [2,3,27]. 
+년 우리나라에서 실시한2012  국민생활체육활동 참여 실“2013 
+태조사 [25] 규칙적으로 주당 회 이상 참여하는 사람은 ”, 1 45.5%
+에 해당하였으나 이중 만이 고강도 신체활동에 참여한다13.8%
+고 응답하였다 이는 의 참여자 중 약 만이 고강도 신. 45.5% 6.3%
+체활동에 참여하는 것으로 참여 비율이 매우 저조하다. 
+비슷한 양의 고강도 신체활동으로부터 얻는 건강 혜택은 중
+강도보다도 높다 국내외에서 개발된 성인을 위한 신체활동 가. 
+이드라인에서는 고강도 분이 중강도 분에 상응하는 건강75 150
+Fig. 2. The current status of participation and none-participation 
+in physical activity based on Korean population in 2013 
+Data from [26].  
+Fig. 1. Ratio of none-participation in physical activity. Data from 
+2013 National Sport Participation Survey in Korea [26].
+
+운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
+106 /g48801 박동호 김창선 김광준 ,  ,  
+혜택을 부여하고 더 많은 신체활동은 추가적인 건강혜택을 제, 
+공하는 것으로 권고하고 있다 [32]. 
+최대강도5. 
+최대강도 활동은 달리기(maximal intensity) (11 km/h, 11 MET)
+를 포함한 빠른 속도로 수영하기(11 MET; 19-22.5 km/h, 8 MET) 
+등이 해당된다 이러한 강도는 안정시 대사수준의 배 이상. 10 (≥
+을 의미하는 것으로 생리 시스템의 항상성 혼란이 극심10 MET)
+하게 발생하는 수준에 해당하며, 100 %HRmax, 100 %V̇O2 또max 
+는 100 %VO2 에 상응하는 강도이다 R [2,3,27]. 
+일반적으로 100 %V̇O2 의 강도를 지속하면서 달릴 수 있는 max
+시간은 체력수준에 따라 차이가 있지만 일반인의 경우 분 정, 1-3
+도 그리고 잘 훈련된 중장거리 선수의 경우 분가량 이 속도를 4-8
+유지하면서 달릴 수 있는 강도로 [8,20] 이 강도를 분 동안 유, 10
+지하는 것은 거의 불가능하다 하지만 최대산소섭취량. (V ̇O2max)
+의 효율적 증가는 V̇O2 의 강도에 반복적으로 노출될 때 효율max
+적으로 개선되는 것으로 보고되고 있다 [7,20,21] 따라서 일반인. 
+의 경우짧은 시간 분 의 반복적인 인터벌 강도로써의 최대, (1-3 )
+강도(V̇O2 또는 의 활용은 심 폐지구력을 효율적으로 max HRmax)
+증가시킬 것이다. 
+결론. Ⅴ
+한국인을 위한 신체활동 가이드라인 “ 2010 [23]이 발표되었으”
+나 이를 아는 사람은 매우 드물다 규칙적인 신체활동으로부터 . 
+얻는 건강 혜택이 매우 크다는 측면에서 국민들에게 보다 적극
+적인 홍보가 필요하다 이를 위해 정부는 대중매체를 통한 지속. 
+적이고 조직적인 캠페인을 통해 신체활동에 대한 국민의 참여를 
+증가시켜야 한다.
+국민들의 참여 기간에 따른 신체활동의 형태와 강도 이에 따, 
+른 에너지 소비량 또는 다양한 지역 간의 참여율 형태 건강혜택, 
+에 대한 비교 분석에 있어서 추천되는 강도나 양은 중요한 정보
+이기에 신체활동과 운동의 강도에 대한 표준화는 필요하다 더. 
+욱이 건강증진 차원에서 신체활동이나 운동의 강도에 따라 개, 
+인의 생리학적 대사적 반응과 적응의 정도가 다르게 나타나기 , 
+때문에 현장에서 운동을 처치하는 운동전문가나 지도받는 사람
+의 경우 훨씬 더 일관성 있는 기준의 사용이 요구된다 이러한 . 
+관점에서 절대적 강도로 활용되고 있는 의 연령별 기준이 MET
+마련되어야 할 것이며 이를 위해서는 수많은 근거가 제시되어, 
+야 할 것이다.
+마지막으로 본 연구에서는 신체활동이나 운동의 강도를 구분
+하기 위해 가지의 운동강도를 제안한다 비활동 저강5 . (inactive), 
+도 중강도 고강도 최대강도 가(low), (moderate), (high), (maximal) 5
+지의 구분이다 이와 같은 가지 강도 기준이 연구자들과 건강 . 5
+및 체력 전문가들에게 받아들어 진다면 신체활동이나 운동의 , 
+강도 기준이 표준화되어 질 것이고 이는 국내에서 이루어지는 , 
+신체활동이나 운동 처치와 관련된 연구의 신뢰성 확보에 크게 
+기여할 것으로 판단된다.
+References
+[1] Albanes D, Blair A, & Taylor PR (1989). Physical activity and risk 
+of cancer in the NHANES I population. American Journal of Public 
+Health, 79(6): 744-750.
+[2] American College of Sports Medicine (2000). ACSM’s quidelines 
+for exercise testing and prescription. 6th ed. Baltimore, Maryland: 
+Williams & Wilkins, 145-162. 
+[3] American College of Sports Medicine (2014). ACSM’s quidelines 
+for exercise testing and prescription. 9th ed. New York: Williams 
+& Wilkins, 162-179. 
+[4] Anderson LH, Martinson BC, Crain AL, Pronk NP, Whitebird RR et 
+al (2005). Health care charges associated with physical inactivity, 
+overweight, and obesity. Preventing Chronic Disease, 2(4): A09.
+[5] Arem H, Moore SC, Patel A, Hartge P, Berrington de Gonzalez A 
+et al (2015). Leisure time physical activity and mortality: A detailed 
+pooled analysis of the dose-response relationship. JAMA Internal 
+Medicine, Apr 6. E1-E9.
+[6] Australian Government (2014). Australia’s Physical Activity and 
+Sedentary Behaviour Guidelines for Adults. Commonwealth of 
+Australia 2014, Department of Health. 2015 Apr. 24; Retrieved from 
+http://www.health.gov.au/internet/main/publish 
+Ing.nsf/Content/health-pubhlth-strateg-phys-act-guidelines#ap
+aadult 
+[7] Berthoin S, Manteca F, Gerbeaux M, & Lensel-Corbeil G (1995). 
+Effect of a 12-week training programme on maximal aerobic speed 
+(MAS) and running time to exhaustion at 100% of MAS for students 
+aged 14 to 17 years. The Journal of Sports Medicine and Physical 
+Fitness, 35(4): 251-256.
+[8] Billat VL, Blondel N, & Berthoin S (1999). Determination of the 
+velocity associated with the longest time to exhaustion at maximal 
+oxygen uptake. European Journal of Applied Physiology and 
+Occupational Physiology, 80(2): 159-161.
+[9] Biswas A, Oh PI, Faulkner GE, Bajaj RR, Silver MA et al (2015). 
+Sedentary time and its association with risk for disease incidence, 
+mortality, and hospitalization in adults: A systematic review and 
+meta-analysis. Annals of Internal Medicine, 162(2): 123-132.
+[10] Blair SN, Kohl HW, Paffenbarger RS, Clark DG, Cooper KH et al 
+
+성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 107
+(1989). Physical fitness and all-cause mortality. A prospective 
+study of healthy men and women. Jama, 262(17): 2395-2401.
+[11] Canadian Society for Exercise Physiology (2010). Canadian 
+Physical Activity Guidelines and Canadian Sedentary Behaviour 
+Guidelines. Canadian Physical Activity Guidelines (18-64 years). 
+2015 Apr. 23; Retrieved from http://www.csep. ca/english/view. 
+asp?x=949. 
+[12] Carlson SA, Fulton JE, Schoenborn CA, & Loustalot F (2010). 
+Trend and prevalence estimates based on the 2008 physical 
+activity guidelines for americans. American Journal of Preventive 
+Medicine, 39(4): 305-313.
+[13] D'Avanzo B, Nanni O, La Vecchia C, Franceschi S, Negri E et al 
+(1996). Physical activity and breast cancer risk. Cancer 
+Epidemiology, Biomarkers & Prevention, 5(3): 155-160.
+[ 1 4 ] D e p a r t m e n t  o f  A r t s ,  S p o r t ,  t h e  E n vi r o n m e n t  a n d  T e r r i t o r i e s  
+[DASET] (1992). Pilot survey of the fitness of Australians, Canberra.
+[15] Fraser GE & Shavlik DJ (2001). Ten years of life: Is it a matter 
+of choice? Archives of Internal Medicine, 161(13): 1645-1652.
+[16] Fuchi T, Iwaoka K, Higuchi M, & Kobayashi S (1989). 
+Cardiovascular changes associated with decreased aerobic 
+capacity and aging in long-distance runners. European Journal 
+of Applied Physiology and Occupational Physiology, 58(8): 
+884-889. 
+[17] Garber CE, Blissmer B, Deschenes MR, Franklin BA, Lamonte MJ 
+et al. (2011). American College of Sports Medicine position stand. 
+Quantity and quality of exercise for developing and maintaining 
+cardiorespiratory, musculoskeletal, and neuromotor fitness in 
+apparently healthy adults: guidance for prescribing exercise. 
+Medicine and Science in Sports and Exercise, 43(7): 1334-1359,
+[18] Gortmaker SL, Dietz Jr WH, & Cheung LW (1990). Inactivity, diet, 
+and the fattening of america. Journal of the American Dietetic 
+Association, 90(9): 1247-1252, 1255.
+[ 1 9 ]g o v. i k  [ h o m e p a g e  o n  t h e  I n t e r n e t ]  U K  P h y s i c a l  A c t i vi t y  
+Guidelines. Department of Health; 2011. 2015 Apr. 24; Retrieved 
+from: http://www.gov.uk/government/publicatIons/uk-physical 
+-activity-guidelines.
+[20] Jones AM (1998). A five year physiological case study of an 
+olympic runner. British Journal of Sports Medicine, 32(1): 39-43.
+[21] Jones AM, & Carter H (2000). The effect of endurance training 
+on parameters of aerobic fitness. Sports Medicine, 29(6): 
+373-386.
+[22] Kay MC, Carroll DD, Carlson SA, & Fulton JE (2014). Awareness 
+and knowledge of the 2008 physical activity guidelines for 
+americans. Journal of Physical Activity & Health, 11(4): 693-698.
+[23] Korea Health Promotion Foundation (2012). Development of 
+Physical Activity Guidelines and Self-prescription Guides for 
+Korean. 
+[ 2 4 ] L e e s  S J ,  &  B o o t h  F W  ( 2 0 0 4 ) .  S e d e n t a r y  d e a t h  s y n d r o m e .  
+Canadian Journal of Applied Physiology,  29(4): 447-460, 
+discussion 444-446.
+[25] Levine JA, Eberhardt NL, & Jensen MD (1999). Role of 
+nonexercise activity thermogenesis in resistance to fat gain in 
+humans. Science, 283(5399): 212-214.
+[26] Ministray Ministry of Culture, Sports and Tourism (2012). 2013 
+National Sport Participation Survey in Korea. 
+[27] Norton K, Norton L, & Sadgrove D (2010). Position statement on 
+physical activity and exercise intensity terminology. Journal of 
+Science and Medicine in Sport, 13(5): 496-502.
+[28] Pate RR, O'Neill JR, & Lobelo F (2008). The evolving definition 
+of "sedentary". Exercise and Sport Sciences Reviews, 36(4): 
+173-178.
+[29] Pate RR, Pratt M, Blair SN, Haskell WL, Macera CA et al (1995). 
+Physical activity and public health. A recommendation from the 
+centers for disease control and prevention and the american 
+college of sports medicine. Jama, 273(5): 402-407.
+[30] Pollock, ML, Gaesser GA, Butcher JD, Despres J, Dishman RK 
+et al. (1998). ACSM Position Stand: The Recommended Quantity 
+and Quality of Exercise for Developing and Maintaining 
+Cardiorespiratory and Muscular Fitness, and Flexibility in Healthy 
+Adults. Medicine and Science in Sports and Exercise, 30(6): 
+975-991.
+[31] Smith EL, & Raab DM (1986). Osteoporosis and physical activity. 
+Acta Medica Scandinavica. 711: 149-156.
+[32] U.S. Department of Health and Human Services (2008). Physical 
+Activity for Americans: Be Active, Healthy, and Happy!. 2015 Apr. 
+24; Retrieved from www.health.gov/ paguidelines. 
+[33] WHO global recommendation on physical activity for health 
+(2010). World Health Organization. 2015 Apr. 24; Retrieved from: 
+http://www.who.int/dietphysicalactivity/factsheet_recomm 
+endations/en/.
+[34] Yates LB, Djousse L, Kurth T, Buring JE, & Gaziano JM (2008). 
+Exceptional longevity in men: Modifiable factors associated with 
+survival and function to age 90 years. Archives of Internal 
+Medicine, 168(3): 284-290.
+[35] Zamboni M, Mazzali G, Fantin F, Rossi A, Di & Francesco V 
+(2008). Sarcopenic obesity: A new category of obesity in the 
+elderly. Nutrition, Metabolism, and Cardiovascular Diseases, 18(5): 
+388-395.

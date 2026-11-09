@@ -28,21 +28,14 @@
 허리둘레는 양발을 25~30 cm 정도 벌리고 편안하게 선 상태에서, 숨을 내쉰 후 줄자를 이용해 측정합니다. 측정 위치는 옆구리에서 갈비뼈 가장 아래와 골반
 가장 위의 중간 지점입니다.
 요약문
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 1/14
 2. 비만의 국내 유병률
 1) 체질량지수(BMI)를 기준으로 한 유병률
 2022년 기준, 우리나라 성인의 비만 유병률은 38.4%로 나타났으며, 2013년 이후 최근 10년간 지속적으로 증가하는 추세를 보이고 있습니다. 특히, 남성에
 서의 증가폭이 더 두드러졌습니다.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 2/14
 2) 복부비만의 유병률 변화
 2022년 기준, 우리나라 성인의 복부비만 유병률은 24.5%로, 2013년 이후 최근 10년간 지속적으로 증가해 왔습니다. 남성의 경우 복부비만 유병률이 꾸준히
 증가하고 있는 반면, 여성은 2019년 이후 다소 감소하는 추세를 보이고 있습니다.
- 
 건강에 미치는 영향 
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 3/14
 · 비만은 당뇨병, 고혈압, 이상지질혈증, 심뇌혈관질환, 천식, 암, 근골격계 질환 등 다양한 질환의 발생 위험을 높일 뿐만 아니라 여러 정신건강 문제와도 관련
 이 있습니다.
 1. 비만과 신체건강
@@ -59,8 +52,6 @@ lipoprotein, HDL)은 감소해 정상 체중인 사람보다 이상지질혈증 
 mg/dL 감소하고, 5~8 kg 감량 시 저밀도 콜레스테롤은 약 5 mg/dL 감소하며 고밀도 콜레스테롤은 2~3 mg/dL 증가합니다. 특히 2형 당뇨병이 동반된 비만
 전단계 또는 비만 환자가 1년간 8%, 4년간 총 5.3% 체중을 줄였을 때 고밀도 콜레스테롤은 증가하고 중성지방은 감소하는 효과가 나타났습니다. 또한, 성인
 의 경우 생활 습관 교정과 함께 체중 조절 약물을 병행하면 체중 감량과 지질 개선이 동시에 이루어진다는 연구 결과도 있습니다.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 4/14
 3) 고혈압
 비만 단계가 진행될수록 정상 체중인 사람에 비해 고혈압 발생 위험이 남성은 약 2.5배, 여성은 약 4배 더 높아집니다. 고혈압과 비만이 함께 있는 환자는 전체
 체중의 5~15% 이상을 감량해 혈압을 낮추는 것이 권장되며, 필요 시에는 더 많은 체중 감량도 고려할 수 있습니다. 또한, 고혈압이 동반된 비만 환자는 약물치
@@ -115,8 +106,6 @@ https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/
 다. 
 물론, 개인의 생활 패턴이나 체중 감량 목표에 따라 치료 방법은 다를 수 있습니다. 하지만 어떤 경우든 식사치료, 운동치료, 행동치료를 균형 있게 병행하는 것
 이 가장 안전하고 효과적인 체중 감량 및 유지 방법입니다.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 5/14
 2) 식사치료
 비만 치료에서 식사 조절은 가장 기본이자 필수적인 요소입니다. 식사치료는 총 에너지 섭취량을 조절하여 체내에서 에너지 결핍 상태를 유도합니다.
 ① 가장 흔히 사용하는 식사조절 방법은 하루 섭취 열량을 500 kcal 줄이는 것입니다. 예를 들면 매일 과자 한 봉지를 줄이거나, 콜라 대신 물을 마시는 것만으
@@ -153,146 +142,15 @@ https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/
 행동 개발, 지속적인 환자 중심 치료가 포함됩니다. 이와 함께 체중 조절 및 유지 계획, 구조화된 식사 계획, 식사 대체, 식사량 조절에 대한 이해, 비상 상황 관
 리 등 다양한 행동 변화 기술도 활용됩니다. 
 특히, ‘실수’가 발생했을 때 이를 어떻게 대처할지에 대한 구체적인 계획을 세우고, 대체 행동을 준비하는 것도 중요한 부분입니다. 
-5) 약물치료
-비만의 기본적인 치료는 식사조절, 운동, 생활습관 개선(행동치료)입니다. 하지만 이런 노력만으로도 체중의 5% 이상을 줄이기 어려운 경우, 약물치료를 보조
-적으로 사용할 수 있습니다. 
-비만은 단기간에 해결되는 문제가 아니라, 오랜 시간 꾸준히 관리해야 하는 만성 질환입니다. 따라서 식사, 운동, 생활습관 개선과 함께, 장기 복용이 가능하다
-고 승인된 비만 약물을 사용하는 것은 안전하고 지속적인 체중 감량 및 유지에 효과적일 뿐 아니라, 비만으로 생길 수 있는 여러 가지 합병증(예: 고혈압, 당뇨
-병 등)을 개선하는 데도 도움이 됩니다. 
-비만 약물치료는 일반적으로 다음과 같은 경우에 고려됩니다:
-· 체질량지수 25 kg/㎡ 이상인 경우 
-· 체질량지수 23 kg/㎡ 이상이면서, 고혈압, 당뇨병, 이상지질혈증, 수면무호흡증 같은 비만 관련 질환이 있는 경우 
-하지만 우리나라 식약처(의약품 허가기관) 기준은 조금 다릅니다. 현재는 다음과 같은 경우에만 약물치료가 허가되어 있습니다:
-· 체질량지수 30 kg/㎡ 이상인 경우 
-· 또는 체질량지수 27 kg/㎡ 이상이면서 비만 관련 질환이 있는 경우 
-이처럼 의학적 권고 기준과 실제 약물 허가 기준에는 차이가 있을 수 있으므로, 전문의와 상담 후 적절하게 사용하는 것이 중요합니다. 
-또한 비만 치료제를 사용할 경우, 약을 갑자기 끊거나 스스로 중단하면 체중이 다시 쉽게 늘어날 수 있으므로, 약물 복용은 반드시 의사와의 상담을 통해 관리
-해야 합니다. 현재 국내에서 허가된 비만 치료제들은 장기 사용이 가능한 약들이므로, 꾸준히 추적 관찰하며 복용 여부를 조절하는 것이 바람직합니다. 
-약물 복용 후 3개월 안에 체중이 5% 이상 줄지 않는 경우, 다른 약으로 바꾸거나 중단을 고려할 수 있습니다. 그리고 임신 중에는 모든 비만 치료약의 사용이
-금지되어 있으므로, 임신 가능성이 있는 경우 반드시 의료진과 상의해야 합니다.
-① 장기간(1년 이상) 사용이 가능한 약물
-- 오르리스타트(Orlistat): 하루 3번, 한 번에 120 mg씩 지방이 포함된 식사와 함께 또는 식사 후 1시간 이내에 복용하는 비만 치료제입니다. 
-이 약은 음식 속 지방을 분해하는 리파아제라는 효소의 작용을 억제하여, 장이 지방을 흡수하는 것을 약 30% 정도 막아 체중을 감량하는 데 도움을 줍니다. 
-또한 오르리스타트는 단순히 체중을 줄이는 것뿐 아니라, 혈중 지질(콜레스테롤, 중성지방) 개선, 혈당 및 인슐린 저항성 개선, 2형 당뇨병 예방에도 효과가 있
-는 것으로 알려져 있습니다. 다만, 지방 흡수를 막는 작용으로 인해 지용성 비타민(A, D, E, K 등)의 흡수도 함께 줄어들 수 있으므로, 종합 비타민제를 함께 복
-용하는 것이 권장됩니다. 
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 6/14
-아래와 같은 경우에는 복용을 피해야 합니다: 
-· 만성 흡수장애 증후군이 있는 경우 
-· 담즙(쓸개즙) 분비에 문제가 있는 경우 
-또한, 드물지만 간손상 사례가 보고된 바 있어 복용 중 피로감, 황달, 진한 소변 등의 증상이 나타난다면 간기능 검사를 받아보는 것이 필요합니다. 그리고 고수
-산뇨증, 수산칼슘 결석, 신장결석 등의 병력이 있는 경우에는 소변으로 수산염 배출이 늘어날 수 있으므로 주의하여 복용해야 합니다.
- 
-- 날트렉손-부프로피온(Naltrexone –  Bupropion): Naltrexone과 bupropion이 함께 들어 있는 복합 비만 치료제입니다.
-bupropion은 도파민과 노르에피네프린의 재흡수를 억제해, 음식에 대한 욕구와 섭취를 줄이는 효과가 있습니다. 또한 Naltrexone은 뇌의 쾌락 중추에 작용하
-는 ‘μ 아편 수용체’를 차단해, 음식 섭취에서 느끼는 보상감(쾌락)을 낮춰줍니다. 이와 함께 카나비노이드 1 수용체의 작용을 억제하고, β-엔도르핀의 영향을
-줄여 식욕 증가를 막는 역할도 합니다. 즉, 이 약은 뇌의 식욕과 보상 중추를 동시에 억제하여 식탐과 식욕을 줄이고, 충동적인 과식을 조절해 체중 감량에 도움
-을 줍니다. 
-하지만 신장이나 간기능에 문제가 있는 경우, 이 약을 복용할 때 주의가 필요합니다. 또한, 이 약은 용량이 높아질수록 발작 위험이 증가할 수 있기 때문에, 과
-거에 발작(경련) 병력이 있는 사람은 복용해서는 안 됩니다. 정해진 복용 일정을 잘 지키면 발작의 위험을 최소화할 수 있으며, 음주는 발작 위험을 높일 수 있
-으므로, 복용 중에는 가능한 한 술을 마시지 않거나 줄이는 것이 좋습니다. 이 약의 권장 시작 용량은 1일 1회, 1회 1정이며, 최대 권장 용량은 1일 2회, 1회 2
-정, 하루 총 4정입니다(날트렉손 HCl 32 mg + 부프로피온 HCl 360 mg). 이보다 더 많이 복용해서는 안 됩니다.
-- 리라글루타이드(Liraglutide): 하루 1회 피하주사로 투여하는 비만 치료제입니다. 이 약은 글루카곤 유사 펩타이드-1(Glucagon Like Peptide-1, GLP-1) 수
-용체를 활성화하여 포만감을 높이고 식욕을 줄여, 체중 감량에 도움을 줍니다. 또한 혈당 조절, 혈압 감소, 혈중 지질(콜레스테롤 등) 개선 효과도 있어, 대사 건
-강 전반에 긍정적인 영향을 줄 수 있습니다. 
-하지만 신기능이나 간기능에 이상이 있는 경우, 이 약은 주의해서 사용해야 합니다. 또한, 갑상선수질암의 병력이 있거나, 가족 중에 관련 병력이 있는 경우, 혹
-은 다발내분비선종증과 같은 질환이 있는 경우에는 복용을 피해야 합니다. 
-이 약을 투여한 후에는 췌장염, 담석증, 담낭염 등이 발생할 수 있으므로 복용 중 복통이나 소화기 증상이 나타나면 즉시 진료를 받아야 하며, 급성 췌장염으로
-진단된 경우에는 다시 복용해서는 안 됩니다. 아울러, 염증성 장질환이나 당뇨병성 위마비(위장 운동 장애)가 있는 환자에게도 이 약의 투여는 권장되지 않습니
-다.
-- 펜터민/토피라메이트(Phentermine/ topiramate): 음식 섭취와 관계없이 매일 아침 1회 복용하는 비만 치료제입니다. 이 약은 식욕을 억제하는 교감신경계
-작용제인 펜터민(phentermine)과, 항경련제인 토피라메이트(topiramate)가 결합된 복합제로, 식욕 감소를 통해 체중 감량 효과를 유도합니다. 
-그러나 신장이나 간기능에 문제가 있는 경우에는 신중하게 투약해야 합니다. 또한 심혈관계 질환 위험이 높은 환자, 갑상선기능항진증 환자, 녹내장 환자, 그리
-고 심한 불안이나 흥분 상태에 있는 환자에게는 이 약을 투여하지 않습니다.
-- 세마글루타이드(Semaglutide): 1주에 한 번 피하주사로 투여하며, 강력한 글루카곤 유사 펩타이드(Glucagon Like Peptide-1, GLP-1) 수용체 작용을 통해
-식욕을 억제하고 포만감을 높여 체중 감량에 도움을 줍니다. 다만, 오심, 구토, 설사, 변비, 복통, 소화불량 등 위장관 부작용이 나타날 수 있으며, 중증의 신장
-이나 간기능 장애가 있는 경우에는 신중히 투약해야 합니다. 
-또한, 당뇨병망막병증이 있는 2형 당뇨병 환자에게서 이 약 사용 시 관련 합병증 위험이 증가할 수 있으므로, 이런 환자들은 꼼꼼히 관찰하며 임상 지침에 따라
-치료해야 합니다. 급성 췌장염 발생 가능성도 있으니 주의가 필요하며, 급성 췌장염이 확진되면 다시 투여하지 않아야 합니다. 염증성 장질환이나 당뇨병 위마
-비 등 중증 위장관 질환이 있는 경우에도 투약이 권장되지 않습니다.
-- 티르제파타이드(Tirzepatide): 1주에 한 번 피하주사로 투여하며, 글루카곤 유사 펩타이드(Glucagon Like Peptide-1, GLP-1) 수용체와 포도당 의존성 인
-슐린 분비 촉진 폴리펩타이드(Glucose-dependent insulinotropic polypeptide, GIP)를 동시에 활성화해 식욕을 억제하고 포만감을 높이며 혈당 조절을 개선
-해 체중 감량에 도움을 줍니다. 다만, 오심, 구토, 설사, 변비, 복통, 소화불량 같은 위장관 부작용이 나타날 수 있으며, 중증의 신장이나 간기능 장애가 있는 경
-우에는 신중히 투약해야 합니다. 
-또한, 투약 후 급성 췌장염이 발생할 수 있으므로 주의가 필요하며, 급성 췌장염이 확진되면 다시 투여하지 않아야 합니다. 염증성 장질환이나 당뇨병 위마비
-등 중증 위장관 질환이 있는 경우에도 투약을 권장하지 않습니다.
-② 단기간(12주 이내) 사용이 가능한 약물
-단기간의 약물치료를 통한 체중 감량은 바람직한 체중 조절 방법으로 보기 어렵습니다. 특히 단기간 투여만 허가된 비만 치료제를 사용할 경우, 감량된 체중을
-유지하기 위한 별도의 전략이 함께 마련되어야 합니다. 아래의 약물들은 4주 이내 단기 사용을 원칙으로 하며, 이 기간 동안 충분한 체중 감량 효과가 확인되면
-치료를 일시적으로 연장할 수 있지만, 총 투여 기간이 12주를 초과하는 것은 권장되지 않습니다. 또한, 조절되지 않는 고혈압 환자를 비롯해 심혈관 질환이 있
-는 환자, 갑상선기능항진증이나 녹내장이 있는 환자, 그리고 정신적으로 불안하거나 흥분 상태에 있는 환자에게는 이 약을 투여하지 않습니다.
-- 펜터민(Phentermine): 암페타민 계열 약물로, 노르에피네프린 분비를 자극해 식욕을 억제합니다. 국내에서는 단기간 사용만 허가되어 있어 복용 시 주의가
-필요합니다.
-- 펜디메트라진(Phendimetrazine): 노르에피네프린의 분비를 자극하여 식욕을 억제합니다. 국내에서는 단기간 사용만 허가되어 있어 복용 시 주의해야 합니
-다.
-- 디에틸프로피온(Diethylpropion): 도파민과 노르에피네프린의 재흡수를 억제하고 분비를 촉진해 식욕을 줄이는 약물입니다. 국내에서는 단기간 사용만 허가
-되어 있어 복용 시 주의해야 합니다.
-6) 수술치료
-대한비만학회 진료지침에 따르면, 체질량지수가 35 kg/㎡ 이상인 고도비만(3단계 비만) 환자, 또는 체질량지수 30 kg/㎡ 이상(2단계 비만)이면서 비만 관련
-질환을 동반한 환자, 체질량지수 27 kg/㎡ 이상이면서 2형 당뇨병이 있는 환자 중에서 비수술 치료로 체중 감량에 실패한 경우, 수술적 치료인 비만대사수술
-을 고려할 수 있습니다. 
-비만대사수술은 체중 감량과 감량된 체중의 장기 유지에 가장 효과적인 방법 중 하나로 평가되며, 당뇨병을 포함한 다양한 비만 관련 질환의 개선에도 긍정적
-인 효과를 보입니다. 특히 식사나 운동 등 생활습관 개선만으로 충분한 체중 감량이 어려운 환자에게는 수술이 현실적이고 효과적인 대안이 될 수 있습니다.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 7/14
-① 위소매절제술: 이 수술은 섭취 제한형 비만 수술로, 위의 일부를 절제하여 위 용적을 줄임으로써 음식 섭취량을 자연스럽게 감소시키는 방법입니다. 특히 위
-소매절제술을 시행한 후 초기에는 식욕을 유발하는 호르몬인 그렐린(Ghrelin)의 혈중 농도가 크게 감소하며, 이 효과는 수술 후 5년까지도 유지되는 것으로 보
-고되고 있습니다. 
-다만, 수술 이후에는 아연, 비타민 D, 엽산, 철분, 비타민 B12와 같은 영양소 결핍이 발생할 수 있으므로, 이를 예방하고 건강 상태를 유지하기 위해 정기적인
-영양 평가와 보충이 매우 중요합니다.
-② 루와이 위우회술: 섭취 제한형과 흡수 제한형이 결합된 비만 수술입니다. 이 수술은 위의 윗부분에 작은 주머니를 만들어 음식 섭취량을 제한하고, 섭취한
-음식이 대부분의 위, 십이지장, 공장의 일부를 우회하도록 하여 영양소의 흡수도 줄이는 방식입니다. 
-이러한 구조적인 변화로 인해 체중 감량 효과가 뛰어나지만, 단백질 결핍, 빈혈, 비타민 B12·엽산·칼슘 결핍, 속발성 부갑상선기능항진증 등 영양학적인 문제
-가 발생할 수 있으므로, 장기적인 추적 관찰과 함께 비타민, 미네랄, 단백질의 꾸준한 보충이 매우 중요합니다.
-③ 조절형 위밴드 수술: 섭취 제한형 수술치료로, 위-식도 경계부에서 약 3 cm 아래에 조절 가능한 밴드를 삽입하여 식사량을 제한하고 포만감을 유도함으로
-써 체중 감량 효과를 얻는 술식입니다. 밴드 내에 주입되는 식염수의 양에 따라 밴드의 내경을 조절할 수 있으며, 이를 통해 섭취량을 조절하게 됩니다. 장기적
-인 체중 감량을 위해서는 밴드의 적극적인 조절과 정기적인 유지 관리가 매우 중요합니다. 
-이 술식은 복강 내와 복벽에 인공 이식물(위밴드)을 삽입하는 방식이기 때문에, 밴드의 미끄러짐, 위벽의 미란성 괴사, 열공탈장, 포트 손상 등의 합병증이 발생
-할 수 있어 지속적인 모니터링이 필요합니다.
-세 가지 수술법 모두 안전하고 효과적이지만, 위우회술과 위소매절제술이 위밴드 수술보다 체중 감량 효과가 더 뛰어납니다. 다만, 위밴드 수술은 식염수 주입
-을 통해 밴드의 크기를 조절할 수 있어 장기적인 체중 조절에 유리하고, 필요 시 밴드를 제거해 원래 상태로 복원이 가능한 장점이 있습니다. 안전하고 효과적
-인 수술 치료를 위해서는 수술 전후에 적절한 식습관과 운동 습관 등 생활 습관의 개선이 꼭 필요합니다.
 실천 방법-맞춤형 실천 방법 
 • 고혈압 환자의 경우, 체중을 감량하면 혈압이 자연스럽게 낮아지는 효과가 있습니다. 특히 대사증후군이 동반된 고혈압 환자는 체중 감량과 적극적인 혈압
 관리가 강력히 권고됩니다.
 • 당뇨병 고위험군이 체중을 줄이면 당뇨병 발생 위험을 낮출 수 있으며, 비만 성인은 체중 감량을 통해 혈당이 개선되는 효과를 기대할 수 있습니다.
 • 이상지질혈증 환자는 적정 체중을 유지하는 것이 매우 중요합니다. 체중을 줄이면 저밀도 콜레스테롤 수치가 낮아지는 등, 지질 수치가 개선된다는 연구 결
 과가 있습니다.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 8/14
 • 전반적으로 체중 감량은 혈압, 혈중 콜레스테롤, 혈당을 낮추는 데 도움이 되어, 심혈관질환의 발생 위험과 사망률을 줄이는 효과가 있습니다.
 • 암 생존자의 경우에도 체중 감량은 건강에 긍정적인 영향을 미칩니다. 특히 유방암과 자궁내막암에서 그 효과가 잘 알려져 있으며, 최근에는 위암 생존자에
 게서도 체중 감량 시 심혈관질환 위험 감소 효과가 보고되었습니다.
-1. 고혈압과 비만
-고혈압은 체중과 밀접한 관련이 있어, 체중을 줄이면 혈압도 자연스럽게 낮아집니다. 국내외 연구 및 진료지침에 따르면, 표준 체중(키(m) × 키(m) × BMI: 남
-자 22, 여자 21)을 기준으로 10% 이상 초과한 고혈압 환자가 약 5 kg 정도 체중을 감량하면 뚜렷한 혈압 감소 효과를 기대할 수 있습니다. 
-특히 당뇨병, 이상지질혈증, 좌심실비대 등이 동반된 환자에게는 체중 감량이 더욱 도움이 됩니다. 이때, 운동, 절주, 소금 섭취 제한 등을 함께 시행하면 체중
-감량에 따른 혈압 감소 효과는 더 커집니다. 
-체중 감량은 먼저 4~5 kg 정도를 목표로 시도하고, 필요에 따라 추가로 5 kg 감량을 고려합니다. 일반적으로 체중을 10 kg 감량하면 혈압은 약 10 mmHg 정
-도 낮아지는 효과가 있습니다. 
-고혈압 환자의 많은 수는 고혈압뿐 아니라 비만, 이상지질혈증, 고혈당증 등으로 구성된 대사증후군을 함께 가지고 있습니다. 대사증후군을 동반한 고혈압 환
-자의 치료 목표는 단순히 혈압을 낮추는 것을 넘어서, 당뇨병 발생 위험을 줄이고 심뇌혈관질환 예방 및 사망률 감소까지 포함됩니다.
-2. 당뇨병과 비만
-국내외 연구 및 진료지침에 따르면, 체중이 증가한 당뇨병 고위험군은 2형 당뇨병 예방을 위해 초기 체중의 5% 이상을 감량하고 이를 유지할 것을 권고하고 있
-습니다. 이를 위해 주 150분 이상 중등도 강도의 운동(예: 호흡이 약간 가쁜 상태의 빠른 걷기, 자전거 타기 등)과 식이요법을 병행하도록 권고합니다.
-미국의 『비만 환자의 2형 당뇨병 진료지침』에서도, 비만 전단계 또는 비만 상태의 2형 당뇨병 환자에게 5% 이상의 체중 감량을 권고하고 있으며, 당화혈색소
-감소를 위해 생활습관 교정을 통한 5~15%의 체중 감량을 제안하고 있습니다. 
-또한, 체질량지수가 25 kg/㎡ 이상인 성인 비만 2형 당뇨병 환자를 대상으로 한 연구에서는, 식이 조절을 통한 체중 감량이 당뇨병 개선에 효과적인 것으로 나
-타났습니다. 더불어, 비만대사수술은 약물치료에 비해 더 우수한 혈당 개선 효과를 보이는 것으로 알려져 있습니다. 
-2018년 대한비만대사외과학회의 비만대사수술 진료지침에 따르면, 아시아인(한국인 포함)의 경우 체질량지수 27.5 kg/㎡ 이상이면서 혈당 조절이 어려운 2
-형 당뇨병 환자는 수술적 치료를 고려할 수 있습니다.
-3. 이상지질혈증과 비만
-국내외 연구 및 진료지침에 따르면, 적정 체중 유지를 위한 열량 조절과 규칙적인 운동을 통한 체중 감량은 혈중 지질 개선에 효과적입니다. 이에 따라, 비만 전
-단계 또는 비만 성인에게는 혈중 콜레스테롤 개선을 위해 최소 5% 이상의 체중 감량이 권장됩니다. 또한, 여러 연구를 종합한 메타분석 결과에 따르면, 3~5%
-의 체중 감량만으로도 저밀도 콜레스테롤을 약 5 mg/dL 감소, 중성지방을 약 15 mg/dL 감소, 고밀도 콜레스테롤을 약 2~3 mg/dL 증가시키는 것으로 보고
-되었습니다.
-4. 심뇌혈관질환과 비만
-국내외 연구 및 진료지침에 따르면, 비만은 체질량지수가 증가함에 따라 심방세동 발생 위험을 점차 높이며, 심방세동 환자에서는 허혈성 뇌졸중, 혈전색전증,
-사망 위험 또한 증가할 수 있습니다. 그러나 심방세동 환자가 체중을 적극적으로 감량하면, 심방세동의 재발 위험이 낮아지고 증상이 호전되는 효과가 보고되
-었습니다. 대한뇌졸중학회 역시 뇌졸중의 2차 예방을 위해 체중 감량을 권고하고 있습니다. 실제로 체중 증가는 뇌졸중 발생률 증가와 관련이 있기 때문에, 비
-만 전단계 또는 비만 환자에게는 보다 적극적인 체중 감량이 권장됩니다. 따라서, 심뇌혈관질환 예방을 위해서는 더욱 적극적인 체중 관리가 필요합니다.
-도움 및 지지 
 1. 비만 관련 정보
 1) 대한비만학회 
 - 비만 상식, 영양 상식, 운동 상식 등 정보 제공
@@ -306,8 +164,6 @@ https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/
 - 최신 경향에 대한 소식지 제공 및 식품 영양성분 등 정보 제공
 3) 한국영양학회 
 - 최신 경향에 대한 소식지 제공
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 9/14
 4) 보건복지부
 - 2020 한국인 영양소 섭취 기준 제공
 3. 운동 관련 정보
@@ -322,141 +178,3 @@ A.
 obesity)이라 하며, 건강에 심각한 영향을 미칠 수 있는 상태입니다.
 체질량지수는 체중과 키만을 고려한 지표이므로, 체지방의 분포나 근육량은 반영하지 못합니다. 반면, 허리둘레는 내장지방의 축적 정도를 직접적으로 나
 타내기 때문에, 심혈관질환, 당뇨병, 대사증후군의 위험을 보다 정확하게 예측할 수 있습니다.
-참고문헌 
-1. 대한간학회. (2024). 대사이상지방간질환 진료 가이드라인.
-2. 대한당뇨병학회. (2023). 당뇨병 진료지침.
-3. 대한뇌졸중학회. (2017). 뇌졸중 진료지침.
-4. 대한비만학회. (2024). 비만치료지침.
-5. 대한고혈압학회. (2022). 고혈압 진료지침.
-6. 대한비만학회. (2019.07.10.). 간헐적 단식 열풍에 대한 대한비만학회의 입장. http://general.kosso.or.kr/html/?
-pmode=BBBS0001300004&smode=view&seq=1231
-7. 대한비만학회. (2024). Obesity fact sheet.
-8. 대한영양사협회. (2022.09.01.). 성인비만관리. https://www.dietitian.or.kr/work/business/kb_c_adult_obesity_food.do
-9. 한국지질동맥경화학회. (2022). 이상지질혈증 팩트 시트
-10. Dattilo AM, Kris-Etherton P. (1992). Effects of weight reduction on blood lipids and lipoproteins: a meta-analysis. The American journal of
-clinical nutrition. 56(2):320-8.
-11. Willett WC, Manson JE, Stampfer MJ, Colditz GA, Rosner B, Speizer FE, et al. (1995). Weight, weight change, and coronary heart disease
-in women: risk within the'normal'weight range. Jama. 273(6):461-5.
-12. Dhurandhar NV, A. R. (1997). Appetite-suppressant drugs and primary pulmonary hypertension. N Engl J Med.
-13. Galanis DJ, Harris T, Sharp DS, Petrovitch H. (1998). Relative weight, weight change, and risk of coronary heart disease in the Honolulu
-Heart Program. American Journal of Epidemiology. 147(4):379-86.
-14. Kastarinen, M. J., Nissinen, A. M., Vartiainen, E. A., Jousilahti, P. J., Korhonen, H. J., Puska, P. M., & Tuomilehto, 
-15. J. O. (2000). Blood pressure levels and obesity trends in hypertensive and normotensive Finnish population from 1982 to 1997. Journal of
-Hypertension,18(3), 255-262.
-16. Kastarinen, M. J., Nissinen, A. M., Vartiainen, E. A., Jousilahti, P. J., Korhonen, H. J., Puska, P. M., & Tuomilehto, J. O. (2000). Blood
-pressure levels and obesity trends in hypertensive and normotensive Finnish population from 1982 to 1997. Journal of Hypertension,18(3),
-255-262.
-17. Calle, E. E., Rodriguez, C., Walker-Thurmond, K., & Thun, M. J. (2003). Overweight, obesity, and mortality from cancer in a prospectively
-studied cohort of U.S. adults. The New England journal of medicine, 348(17), 1625 – 1638.
-18. Oh SW, Shin SA, Yun YH, Yoo T, Huh BY. (2004). Cut-off point of BMI and obesity-related comorbidities and mortality in middle-aged
-Koreans. Obes Res. 12:2031-2040.
-19. Lustig RH et al. (2004). Obesity, leptin resistance, and the effects of insulin reduction. Int J Obes Relat Metab Disord, 28(10):1344-8.
-20. Poobalan A, Aucott L, Smith WC, Avenell A, Jung R, Broom J, et al. (2004). Effects of weight loss in overweight/obese individuals and
-long-term lipid outcomes--a systematic review. Obes Rev. 5(1):43-50.
-21. Van Gaal LF, Mertens IL, Ballaux D. (2005). What is the relationship between risk factor reduction and degree of weight loss? European
-Heart Journal Supplements. 7(suppl_L):L21-L6.
-22. Jee SH, Pastor-Barriuso R, Appel LJ, Suh I, Miller ER 3rd, Guallar E. (2005). Body mass index and incident ischemic heart disease in South
-Korean men and women. Am J Epidemiol, 162:42-48.
-23. Oh SW, Yoon YS, Shin SA. (2005). Effects of excess weight on cancer incidences depending on cancer sites and histologic findings among
-men: Korea National Health Insurance Corporation Study. J Clin Oncol, 23:4742-4754.
-24. Jee SH, Sull JW, Park J, et al. (2006). Body-mass index and mortality in Korean men and women. N Engl J Med, 355:779-787.
-25. Beuther, D. A., & Sutherland, E. R. (2007). Overweight, obesity, and incident asthma: a meta-analysis of prospective epidemiologic
-studies. Am J Respir Crit Care Med, 175(7), 661-666. doi:10.1164/rccm.200611-1717OC.
-26. Adams, T. D., Gress, R. E., Smith, S. C., Halverson, R. C., Simper, S. C., Rosamond, W. D., ... Hunt, S. C. (2007). Long-Term Mortality after
-Gastric Bypass Surgery. New England Journal of Medicine,357(8), 753-761.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 10/14
-27. Anandacoomarasamy, A., Caterson, I., Sambrook, P., Fransen, M., & March, L. (2007). The impact of obesity on the musculoskeletal
-system. International Journal of Obesity,32(2), 211-222.
-28. Anandacoomarasamy, A., Caterson, I., Sambrook, P., Fransen, M., & March, L. (2007). The impact of obesity on the musculoskeletal
-system. International Journal of Obesity,32(2), 211-222.
-29. Franko DL et al. (2008). The relationship between meal frequency and body mass index in black and white adolescent girls: more is less.
-Int J Obes (Lond), 32(1):23-9.
-30. Jee, S. H., Yun, J. E., Park, E. J., Cho, E. R., Park, I. S., Sull, J. W., ... Samet, J. M. (2008). Body mass index and cancer risk in Korean men
-and women. International Journal of Cancer,123(8), 1892-1896. doi:10.1002/ijc.23719
-31. Gariepy, G., Nitka, D., & Schmitz, N. (2009). The association between obesity and anxiety disorders in the population: A systematic review
-and meta-analysis. International Journal of Obesity,34(3), 407-419.
-32. Buschemeyer WC 3rd et al. (2010). Effect of intermittent fasting with or without caloric restriction on prostate cancer growth and survival
-in SCID mice. Prostate, 70(10):1037-43.
-33. Castello L et al. (2010). Alternate-day fasting protects the rat heart against age-induced inflammation and fibrosis by inhibiting oxidative
-damage and NF-kB activation. Free Radic Biol Med, 48(1):47-54.
-34. Lu J et al. (2011). Alternate day fasting impacts the brain insulin-signaling pathway of young adult male C57BL/6 mice. J Neurochem.
-117(1):154-63.
-35. Hurren KM, B. H. (2011). Lorcaserin: an investigational serotonin 2C agonist for weight loss. Am J Health Syst Pharm.
-36. Fryar CD, Carroll MD, Ogden CL. (2011). Prevalence of overweight, obesity, and extreme obesity among adults: United States, trends
-1960-1962 through 2009-2010. the US: National Center for Health Statistics.
-37. Jung, H.-K., Hong, S. J., Jo, Y., Jeon, S. W., Cho, Y. K., Lee, K. J., ... Han, S.U. (2012). Updated Guidelines 2012 for Gastroesophageal
-Reflux Disease. The Korean Journal of Gastroenterology, 60(4). doi:10.4166/kjg.2012.60.4.195
-38. Klop, B., Elte, J., & Cabezas, M. (2013). Dyslipidemia in Obesity: Mechanisms and Potential Targets. Nutrients,5(4), 1218-1240.
-39. Abed HS, Wittert GA, Leong DP, Shirazi MG, Bahrami B, Middeldorp ME, et al. (2013). Effect of weight reduction and cardiometabolic risk
-factor management on symptom burden and severity in patients with atrial fibrillation: a randomized clinical trial. 310(19):2050-60.
-40. Group LAR. (2013). Cardiovascular effects of intensive lifestyle intervention in type 2 diabetes. New England journal of medicine.
-369(2):145-54.
-41. Moreno B et al. (2014). Comparison of a very low-calorie-ketogenic diet with a standard low-calorie diet in the treatment of obesity.
-Endocrine. 47(3):793-805.
-42. Kushner RF. (2014). Weight loss strategies for treatment of obesity. Prog Cardiovasc Dis. 56(4):465-72.
-43. Mohanan, S., Tapp, H., Mcwilliams, A., & Dulin, M. (2014). Obesity and asthma: Pathophysiology and implications for diagnosis and
-management in primary care. Experimental Biology and Medicine,239(11), 1531-1540.
-44. Johnston BC et al. (2014). JAMA. Comparison of weight loss among named diet programs in overweight and obese adults: a meta-
-analysis, 312(9):923-33.
-45. Kim MK, Lee WY, Kang JH, et al. (2014). 2014 clinical practice guidelines for overweight and obesity in Korea. Endocrinol Metab (Seoul),
-29:405 – 409.
-46. Avila, C., Holloway, A. C., Hahn, M. K., Morrison, K. M., Restivo, M., Anglin, R., & Taylor, V. H. (2015). An Overview of Links Between
-Obesity and Mental Health. Current Obesity Reports,4(3), 303-310.
-47. Tinsley GM, La Bounty PM. (2015). Effects of intermittent fasting on body composition and clinical health markers in humans. Nutr Rev,
-73(10):661-74.
-48. Schoenfeld BJ, Aragon AA, Krieger JW. (2015). Effects of meal frequency on weight loss and body composition: a meta-analysis. Nutr
-Rev, 73(2):69-82.
-49. Johnstone A. (2015). Fasting for weight loss: an effective strategy or latest dieting trend? Int J Obes (Lond), 39(5):727-33.
-50. Jackson VM et al. (2015). Latest approaches for the treatment of obesity. Expert Opin Drug Discov. 10(8):825-39.
-51. Pathak RK, Middeldorp ME, Meredith M, Mehta AB, Mahajan R, Wong CX, et al. (2015). Long-term effect of goal-directed weight
-management in an atrial fibrillation cohort: a long-term follow-up study (LEGACY). Journal of the American College of Cardiology.
-65(20):2159-69.
-52. Wolfe BM, Kvach E, Eckel RH. (2016). Treatment of Obesity: Weight Loss and Bariatric Surgery. Circ Res. 118(11):1844-55.
-53. Bao P-P, Cai H, Peng P, Gu K, Su Y, Shu X-O, et al. (2016). Body mass index and weight change in relation to triple-negative breast cancer
-survival. Cancer Causes & Control, 27(2):229-36.
-54. Garvey WT, Mechanick JI, Brett EM, Garber AJ, Hurley DL, Jastreboff AM, et al. (2016). American Association of Clinical Endocrinologists
-and American College of Endocrinology comprehensive clinical practice guidelines for medical care of patients with obesity. Endocrine
-Practice. 22(s3):1-203.
-55. Group LAR. (2016). Association of the magnitude of weight loss and changes in physical fitness with long-term cardiovascular disease
-outcomes in overweight or obese people with type 2 diabetes: a post-hoc analysis of the Look AHEAD randomised clinical trial. The Lancet
-Diabetes & Endocrinology. 4(11):913-21.
-56. Martinez-Huenchullan S et al. (2017). The emerging role of skeletal muscle extracellular matrix remodelling in obesity and exercise. Obes
-Rev. 18(7):776-790.
-57. Nordmann AJ et al. (2016). Effects of low-carbohydrate vs low-fat diets on weight loss and cardiovascular risk factors: a meta-analysis of
-randomized controlled trials. Arch Intern Med, 166(3):285-93.
-58. Wurtman, J., & Wurtman, R. (2017). The Trajectory from Mood to Obesity. Current Obesity Reports,7(1), 1-5.
-59. Noakes TD, Windt J. (2017). Evidence that supports the prescription of low-carbohydrate high-fat diets: a narrative review. Br J Sports
-Med, 51(2):133-139.
-60. Martinussen C et al. (2017). Emerging drugs for the treatment of obesity. Expert Opin Emerg Drugs. 22(1):87-99.
-61. Schauer DP, Feigelson HS, Koebnick C, Caan B, Weinmann S, Leonard AC, et al. (2017). Association between weight loss and the risk of
-cancer after bariatric surgery. Obesity. 25:S52-S7.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 11/14
-62. Jackson SE, Heinrich M, Beeken RJ, Wardle J. (2017). Weight loss and mortality in overweight and obese cancer survivors: a systematic
-review. PloS one. 12(1):e0169173.
-63. Luo J, Chlebowski RT, Hendryx M, Rohan T, Wactawski-Wende J, Thomson CA, et al. (2017). Intentional Weight Loss and Endometrial
-Cancer Risk. Journal of clinical oncology: official journal of the American Society of Clinical Oncology. 35(11):1189-93.
-64. Bohula EA, Wiviott SD, McGuire DK, Inzucchi SE, Kuder J, Im K, et al. (2018). Cardiovascular safety of lorcaserin in overweight or obese
-patients. New England Journal of Medicine. 379(12):1107-17.
-65. Shin DW, Suh B, Park Y, Lim H, Suh Y-S, Yun JM, et al. (2018). Risk of Coronary Heart Disease and Ischemic Stroke Incidence in Gastric
-Cancer Survivors: A Nationwide Study in Korea. Annals of surgical oncology. 25(11):3248-56.
-66. Pareek M, Schauer PR, Kaplan LM, Leiter LA, Rubino F, Bhatt DL. (2018). Metabolic surgery: weight loss, diabetes, and beyond. Journal of
-the American College of Cardiology. 71(6):670-87.
-67. Lean ME, Leslie WS, Barnes AC, Brosnahan N, Thom G, McCombie L, et al. (2018). Primary care-led weight management for remission of
-type 2 diabetes (DiRECT): an open-label, cluster-randomised trial. The Lancet. 391(10120):541-51.
-68. Seidelmann SB et al. (2018). Dietary carbohydrate intake and mortality: a prospective cohort study and meta-analysis. Lancet Public
-Health, 3(9):e419-e428.
-69. Kuk JL, Christensen RA, Wharton S. (2019). Absolute Weight Loss, and Not Weight Loss Rate, Is Associated with Better Improvements in
-Metabolic Health. Journal of Obesity.
-70. Bittner VA. (2019). The New 2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease..Circulation.
-71. American Diabetes Association. (2019). 8. Obesity Management for the Treatment of Type 2 Diabetes: Standards of Medical Care in
-Diabetes-2019. Diabetes care, 42(Suppl 1), S81 – S89. https://doi.org/10.2337/dc19-S008
-72. Yang, Y. S., Han, B. D., Han, K., Jung, J. H., & Son, J. W. (2022). Obesity Fact Sheet in Korea, 2021: Trends in Obesity Prevalence and
-Obesity-Related Comorbidity Incidence Stratified by Age from 2009 to 2019. Journal of Obesity & Metabolic Syndrome, 31(2), 169.
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 12/14
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 13/14
-26. 11. 5. 오후  11:18 비만  | 국가건강정보포털  | 질병관리청
-https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694 14/14

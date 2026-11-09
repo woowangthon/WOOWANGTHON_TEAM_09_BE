@@ -1,57 +1,3 @@
-
-관리번호 사업-05-2022-028-15
-등록월 2022년 9월
-발행월 2022년 9월
-발행처 보건복지부, 한국건강증진개발원
-기획 이현지, 손성봉
-집필진 중앙대학교 임비오, 화성의과학대학교 조지훈, 강원대학교 임승택,
-한국스포츠정책과학원 박수현, 한국건강증진개발원 손성봉
-자문 ‧ 감수 고신대학교 고광욱, 한국중‧고육상연맹 조효진,
-인제대학교서울백병원 하정구, 국립국어원 김선철
-주소 (30113) 세종특별자치시 도움4로 13 보건복지부
-(04933) 서울특별시 광진구 능동로 400, 한국건강증진개발원(8~10F)
-전화번호 044-202-2835(보건복지부)
-02-3781-3589(한국건강증진개발원)
-홈페이지 www.khealth.or.kr
-디자인 ‧편집 케이엠커뮤니케이션(주)
-이 달리기 가이드라인은 건강한 일반 성인을 대상으로 작성되었으며, 건강증진과 손상예방을 위한 달리기 방법을 
-담고 있습니다.
-※ 코로나19 등 감염병 예방을 위해 실내에서는 마스크를 착용하는 것이 바람직하며, 질환자는 달리기 전 의사와의 상담이 반드시 필요합니다.
-목 차
-[부록] 달리기 전
-건강 체크리스트
-20
-참고문헌
-21
-달리기 가이드라인의
-대상 및 활용 안내
-6
-달리기의
-중요성
-7
-달리기의
-9대 효과
-8
-달리기
-권장량
-9
-달리기 속도
-판정 방법
-11
-달리기 전
-준비사항
-12
-올바른
-달리기 자세
-14
-달리기 손상
-예방법
-16
-달리기
-유의사항
-18
-4
-안전하고 영리한 한국인의 달리기 지침서
 한눈에 보는 한국인을 위한 달리기 가이드라인01
   규칙적인 달리기의 9대 효과
  심폐기능 강화  고혈압 · 심장병 예방  비만 · 당뇨병 예방
@@ -88,7 +34,6 @@ L 또는 V자 형태로 리듬에
 천천히 달리기 2분
 =
 빠르게 달리기 1분
-5
  달리기 손상예방법!!
 ① 달리기 계획세우기 달리는 시간과 거리를 점진적으로 증가하기(10% 규칙)
 ② 준비운동하기 가벼운 강도로 시작하여 점차 강도를 늘리기
@@ -126,10 +71,6 @@ L 또는 V자 형태로 리듬에
 달리기 중 개인이 정한 시간에 따라 섭취(예: 20분마다 200㎖)
 달리기 후 일반 식사, 음료로 수분유지 가능
  달리기 전에 준비하세요!!
-
-
-
-9
 05달리기 권장량
 세계보건기구(WHO)와 한국인을 위한 신체활동 지침서에서는 건강증진을 위해 
 일주일에 150분 이상의 중강도 유산소 신체활동이나 75분 이상의 고강도 유산소 
@@ -154,8 +95,6 @@ L 또는 V자 형태로 리듬에
 유지하는 데 도움이 됩니다.
 " 골격근 손상을 예방하기 위해서는 본인의 체력수준에 맞게 점진적으로 달리는
 양을 늘려나가는 것이 중요합니다!"
-
-11
 06달리기 속도 판정 방법
   자각 강도에 의한 판정
 걷거나 달릴 때 필요한 노력의 정도에 따라 느끼는 심리적 또는 신체적 부담을 의미하며, 휴식 시 
@@ -177,8 +116,6 @@ L 또는 V자 형태로 리듬에
 구 분 강 도
 조깅(jogging) · 약 8km/h 경우, 중강도 신체활동에 해당됨· 약 10km/h 경우, 고강도 신체활동에 해당됨
 달리기(running) · 약 11km/h 이상인 경우, 고강도 신체활동에 해당됨
-
-13
   수분섭취[21,22]
 일반적인 식사 및 음료를 섭취하는 것만으로도 수분 유지가 가능
 달리기 후
@@ -193,8 +130,6 @@ L 또는 V자 형태로 리듬에
 최소 10분 이상의 준비운동을 합니다.
   자외선 차단
 챙이 있는 모자 착용, 선크림 잘 바르기, 스포츠용 고글을 착용하여 자외선으로부터 눈을 보호하기
-14
-안전하고 영리한 한국인의 달리기 지침서
 올바른 달리기 자세08
 안전하고 효율적으로 달리기 위해서는 올바른 달리기 자세를 알아야합니다. 그리고 개인의 
 신체적 특성에 따라 달리기 자세는 달라질 수 있으므로, 자신만의 올바른 달리기 자세를 찾아야 
@@ -218,7 +153,6 @@ L 또는 V자 형태로 리듬에
 시선  
 호흡하기 편한 자세로 전방 
 20~30m를 주시한다. 
-15
   호흡[23,24,25]
   들숨과 날숨이 의식되지 않을 정도로 편안하고 자연스럽게, 많은 산소 교환이 일어나도록 호흡하는 
 연습을 합니다.
@@ -244,8 +178,6 @@ L 또는 V자 형태로 리듬에
   달리다가 호흡이 너무 힘들고 숨이 차면, 숨을 깊게 들이 마시고 한번 내뱉습니다.
    얕은 호흡인 가슴호흡보다, 깊은 호흡인 복식 호흡을 합니다.
 (연습법 : 누워서 배에 책을 올려놓고, 책을 올리고 내리는 호흡 연습)
-
-17
   달리기 손상 예방법[39,40,41]
 달리기 손상을 예방하기 위해서는 적절한 달리기 목표와 계획을 세우고 알맞은 복장을 착용하여 
 충분한 준비운동 후에 올바른 자세로 달려야 합니다. 또한, 손상 치료 후 달리기를 다시 시작하는 
@@ -286,10 +218,6 @@ L 또는 V자 형태로 리듬에
   긴장 지점까지 스트레칭하고 근육군당 최소 1회 20~30초 동안 유지하기
   스트레칭할 때 반동을 주지 않도록 주의하기
   특정 부위가 뻣뻣한 경우에는 더 자주* 스트레칭하기   * 초기 워밍업 후 또는 달리기 후
-
-
-20
-안전하고 영리한 한국인의 달리기 지침서
 11 부록  달리기 전 건강 체크리스트
 규칙적인 신체활동의 건강상의 이점은 이미 잘 알려져 있으며, 대부분의 사람에게 신체활동의 참여는 
 매우 안전합니다.
@@ -315,77 +243,3 @@ L 또는 V자 형태로 리듬에
 •  위의 모든 질문에 대해 하나 또는 그 이상 “예”라고 대답하였다면 의사와 상담 후 달리기를 계획하는 것이 좋습니다.
 •   달리기를 시작하려는 시점에 감기나 발열 등과 같은 일시적인 증상이 있다면, 상태가 호전될 때까지 기다리는 것이 좋습니다.
 •  달리기를 하는 중에 건강상의 변화가 생겼다면 운동을 일시적으로 중지하고 의사나 운동전문가의 상담을 받는 것이 좋습니다.
-21
-12 참고문헌
-1. 한국인을 위한 걷기 가이드라인(만 18세-64세). 보건복지부, 한국건강증진개발원
-2.  https://health.chosun.com/site/data/html_dir/2011/07/12/ 2011071201532.html
-3. http://www.mkhealth.co.kr/news/articleView.html?idxno=42575
-4. https://www.ftimes.kr/news/articleView.html?idxno=13644
-5.  https://health.chosun.com/site/data/html_dir/2011/07/12/ 2011071201532.html
-6. https://www.outsourcing.co.kr/news/articleView.html?idxno=93031
-7. https://www.donga.com/news/It/article/all/20201013/103392036/1
-8.  http://100marathonsclub.com/bbs/board.php?bo_table=study &wr_id=174
-9. https://www.mk.co.kr/news/it/view/2020/07/758381/
-10.  https://m.post.naver.com/viewer/postView.naver?volumeNo  =30735360&memberNo=5
-1668889&navigationType=push
-11. http://www.doctorstimes.com/news/articleView.html?idxno=152836
-12. https://www.donga.com/news/It/article/all/20220311/112294053/1
-13. WHO guidelines on physical activity and sedentary behaviour, 2020.
-14. 한국인을 위한 신체활동 지침서. 보건복지부, 2013,
-15.  Ooms L., Veenhof C. and Bakker Hd. Effectivenss of start to run, a 6-week training 
-program for novice runners, on increasing health-enhancing physical activity: a controlled 
-study. BMC Public Health, 2013;13:697.
-16.  Videbæk S, Bueno AM, Nielsen RO, et al. Incidence of Running·Related Injuries Per 1000 
-h of running in Different Types of Runners: A Systematic Review and Meta-Analysis. 
-Sports Med, 2015;45:1017–26.
-17.  ACSM guideline for exercise testing and prescription 10th, Lippincott Williams & Wikins
-18.  https://www.nbcnews.com/better/health/6-tips-stay-fit-wa rm-winter-ncna944061
-19. https://www.joongang.co.kr/article/327666#home
-20. 한국스포츠정책과학원, 생활체육 3GO준비운동.
-21.  Wyndham CH, Strydom NB. (1969). The danger of an inadequate water intake during 
-marathon running. S Afr Med J. 1969 Jul 19;43(29):893-6.
-22.  ACSM. (2022). Acsm's Guidelines for Exercise Testing and Prescription. ed 11th.
-23.  https://post.naver.com/viewer/postView.naver?memberNo =37966086 
-&volumeNo=28848695
-24. https://takearest21.tistory.com/216
-25. https://www.mk.co.kr/news/it/view/2020/11/1138644/
-26. https://www.donga.com/news/article/all/20110517/37295467/1
-27. https://n.news.naver.com/article/023/0003599395?cds=news_my
-28.  What Is the Proper Running Form, Anyway? https://www.shape.com/fitness/cardio/
-proper-running-form
-29.  The ultimate guide on how to start running to get ultra-fit  https://www.insider.com/
-how-to-start-running
-30.  Proper Running Form For Beginners - Kat Rentas livinginslacktide.com
-31. 장기언(2005). 달리기손상. 대한재활의학회지, 제29권 제 3호.
-32. 대한운동교육평가원 역, 운동손상학 15th, 대한미디어
-33.  Kim YK. (2014). Anatomical structure, treatment and rehabilitation of iliotibial band 
-syndrome. KACEP Annual Meeting. 74
-34.  Robert L. B, Michael Fredericson. (2019). Iliotibial Band Syndrome in Runners. Phys Med 
-Rehabil Clin N Am 27:53-77.
-35.  Byungjoo Noh. (2018). Medial Tibial Stress Syndrome: Focused on Tibial Fascial-traction 
-Theory and Prevention Strategies. Asian J Kinesiol 2018; 20(2):38-42 · DOI: https://doi.
-org/10.15758/ajk.2018.20.2.38
-36.  Hart LE (2002). Prevention of lower limb soft tissue injuries in runners: a review. Clin J 
-Sport Med, 12: 320-321.
-37.  Rathleff MS, Mølgaard CM, Fredberg U, et al.(2015). High-load strength training improves 
-outcome in patients with plantar fasciitis: a randomized controlled trial with 12-month 
-follow-up. Scand J Med Sci Sports.25(3):e292-e300.
-38.  Matthew J. Matava (2016). Sports tip. Running and Jogging Injuries. American 
-Orthopaedic Society for Sports Medicine.
-22
-39.  Running Injury Prevention Tips & Return to Running Program(2007). The Brigham and 
-Women's Hospital.
-40.  Steven L C. (2018). The Return to running programme is based on a programme.
-41.  서승석, 김정한 (2010). 달리기 운동을 하는 사람에서 무릎 손상의 예방과 재활. 대한정형외과 스포츠
-의학회지, 9(1): 22-27.
-42.  Filippo M,  Lorenzo S, Valerio B, Andrea C, Andrea T, Silvia G, Giacomo R & Marco T.(2020). 
-Prevalence and incidence of low back pain among runners: a systematic review. BMC 
-Musculoskeletal Disorders, 21:343. doi: 10.1186/s12891-020-03357-4.
-43.  김진수, 황문현. 초미세먼지 환경에서의 일회성 유산소 운동이 동맥경직도에 미치는 영향. Exericse 
-Science, 2021, 32(2), 257-263. 
-44.  Martin L, Doggart AL, Whyte GP. Comparison of physiological responses to morning and 
-evening submaximal running. J Sports Sci. 2001 Dec;19(12):969-76. 
-45.  Davis J. Running in Cold Weather–Avoiding Hypothermia and Staying Safe. ruuners 
-connect.
-46. Road runners club of america(RRCA). Hot weather running tips.
-23

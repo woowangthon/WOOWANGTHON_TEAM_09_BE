@@ -1,27 +1,3 @@
-❚ Review
-운동과학 년 제 권 제 호, 2015 , 24 2 .
-Exercise Science, 2015, Vol.24, No.2.
-http://dx.doi.org/10.15857/ksep.2015.24.2.99
-pISSN 1226-1726 eISSN 2384-0544
-성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰
-박동호1) 김창선, 2) 김광준, 3)*
-1)인하대학교 예술체육학부 스포츠과학과 2)동덕여자대학교 체육학과 3)한국스포츠개발원 스포츠과학실
-Dong-Ho Park, Chang-Sun Kim, Kwang-Jun Kim (2015). Consideration about Physical Activity Guideline and Exercise Intensity for Adult. 
-Exercise Science, 24(2): 99-107
-PURPOSE: The purpose of this review was to (i) suggest the need of physical activity (PA) guidelines for Korean via introduction of PA guideline 
-for adult in the West; and (ii) propose new categories of PA and exercise intensity in human.
-METHODS: The terminology used for monitoring and promoting PA and exercise among researchers, health and fitness professionals varies 
-considerably. The variation of terminology or category related to PA and exercise intensity can be confusing for researchers, health and fitness 
-professionals. The inconsistency in terms also makes it difficult to track changes in PA/exercise pattern over time and across studies. We 
-reviewed previous literatures focused on terminology and category of PA and aerobic exercise intensity with MEDLINE, Pubmed, and website 
-of government organization.
-RESULTS: We introduced well-known PA guidelines such as the PA guideline of United States, Canada, United Kingdom, Australia, World 
-Health Orgarnization (WHO) as well as Korea, We also proposed five categories of PA and aerobic exercise intensity (inactive, low, moderate, 
-high, and maximal intensity) in human. 
-CONCLUSIONS: This proposal address the doubt of standardization of PA and aerobic exercise intensity and make suggestions that may assist 
-those undertaking research and prescribing PA and exercise.
-Key words: physical activity, guideline, exercise, intensity, adult
-주요어: 신체활동 가이드라인 운동 강도 성인, , , , 
 서론. Ⅰ
 남녀노소를 불문하고 건강을 유지 또는 향상시키기 위하여 
 가장 중요한 요인으로 간주되는 것은 신체활동(physical activity; 
@@ -56,8 +32,6 @@ Key words: physical activity, guideline, exercise, intensity, adult
 교신저자 김광준: , norman7@sports.re.kr
 Tel: +82-2-970-9539, Fax: +82-2-970-9593
 Received 28 April. 2015, Revised 11 May. 2015, Accepted 17 May. 2015
-
-운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
 100 /g48801 박동호 김창선 김광준 ,  ,  
 아 많은 혼란을 유발한다 특히 건강 및 체력관련 전문가들과 . , 
 연구자들 사이에서의 신체활동이나 운동의 강도에 대한 표준화
@@ -138,7 +112,6 @@ Received 28 April. 2015, Revised 11 May. 2015, Accepted 17 May. 2015
 이상 실천한다 고강도 신체활동 분은 중강도 신체활동의 . 1
 분과 같다2.  
 유산소 신체활동은 한 번에 분 이상을 하나 분 이상씩 30 10∙
-
 성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 101
 번 나누어 해도 효과는 동일하다3.
 중강도나 고강도 신체활동의 권고량을 배 이상하면 체력2∙
@@ -220,8 +193,6 @@ minutes per week, or engage in 150 minutes of vigorous-intensity aerobic physica
 equivalent combination of moderate- and vigorous-intensity activity.
 • Muscle-strengthening activities should be done involving major muscle groups on 2 or more days a week.
 Table 1. Summary of physical activity guidelines/recommendations for adults (18-64 years) from other references 
-
-운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
 102 /g48801 박동호 김창선 김광준 ,  ,  
 신체활동에 대한 새로운 정의. Ⅲ
 미국의 보건복지부(U.S. Department of Health and Human 
@@ -291,7 +262,6 @@ Medium 150 minutes to 300 minutes a week Substantial Activity at the high end of
 High More than 300 minutes a week Additional Current science does not allow researchers to identify an upper limit of activity above which there are no additional health benefits.
 Adopted from [32]
 Table 3. Classification of Total Weekly Amounts of Aerobic Physical Activity Into Four Categories
-
 성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 103
 %V̇O2 또는 max, %HRR %VO 2 이 서로 다르게 나타날 수 있다 이R.  
 것은 %V̇O2 가 기준이 되든 아니면 이나 max %HRR %VO 2 이 기준R
@@ -361,8 +331,6 @@ HRR, heart rate reserve; HRmax, maximal heart rate; RPE, rating of perceived exe
 VO2R, oxygen uptake reserve; MET, metabolic equivalent. 
 * ACSM (2000). Adapted from [30].  ≠ACSM (2014). Adapted from [17]. 
 Table 4. Methods of estimating intensity of aerobic exercise and physical activity [2,3]
-
-운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
 104 /g48801 박동호 김창선 김광준 ,  ,  
 러하다 또한 현장에서 활동하는 운동전문가들이 운동을 처치. 
 할 때 많은 혼란을 유발할 뿐만 아니라 자칫 운동을 실행하는 
@@ -442,7 +410,6 @@ al [25]은 운동이 아닌 집에서 하는 설거지나 청소 그리고 직�
 니라 여러 종류의 암 대장암 유방암 등까지로 예방하거나 지연(,  )
 하는 건강혜택을 부여한다 [1,9,13,18,31,34,35].
 그럼에도 불구하고 년부터 년 까지 평균 년  단 위 로  1994 2013 2-3
-
 성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 105
 실시한 국민생활체육활동 참여 실태조사 세 이상 대상 “ (10 )  [26]”
 를 살펴보면 전혀 신체활동에 참여하지 않는 사람이 평균적으, 
@@ -493,8 +460,6 @@ in physical activity based on Korean population in 2013
 Data from [26].  
 Fig. 1. Ratio of none-participation in physical activity. Data from 
 2013 National Sport Participation Survey in Korea [26].
-
-운동과학 년 제 권 제 호, 2015 , 24 2 , 99-107
 106 /g48801 박동호 김창선 김광준 ,  ,  
 혜택을 부여하고 더 많은 신체활동은 추가적인 건강혜택을 제, 
 공하는 것으로 권고하고 있다 [32]. 
@@ -541,130 +506,3 @@ Fig. 1. Ratio of none-participation in physical activity. Data from
 강도 기준이 표준화되어 질 것이고 이는 국내에서 이루어지는 , 
 신체활동이나 운동 처치와 관련된 연구의 신뢰성 확보에 크게 
 기여할 것으로 판단된다.
-References
-[1] Albanes D, Blair A, & Taylor PR (1989). Physical activity and risk 
-of cancer in the NHANES I population. American Journal of Public 
-Health, 79(6): 744-750.
-[2] American College of Sports Medicine (2000). ACSM’s quidelines 
-for exercise testing and prescription. 6th ed. Baltimore, Maryland: 
-Williams & Wilkins, 145-162. 
-[3] American College of Sports Medicine (2014). ACSM’s quidelines 
-for exercise testing and prescription. 9th ed. New York: Williams 
-& Wilkins, 162-179. 
-[4] Anderson LH, Martinson BC, Crain AL, Pronk NP, Whitebird RR et 
-al (2005). Health care charges associated with physical inactivity, 
-overweight, and obesity. Preventing Chronic Disease, 2(4): A09.
-[5] Arem H, Moore SC, Patel A, Hartge P, Berrington de Gonzalez A 
-et al (2015). Leisure time physical activity and mortality: A detailed 
-pooled analysis of the dose-response relationship. JAMA Internal 
-Medicine, Apr 6. E1-E9.
-[6] Australian Government (2014). Australia’s Physical Activity and 
-Sedentary Behaviour Guidelines for Adults. Commonwealth of 
-Australia 2014, Department of Health. 2015 Apr. 24; Retrieved from 
-http://www.health.gov.au/internet/main/publish 
-Ing.nsf/Content/health-pubhlth-strateg-phys-act-guidelines#ap
-aadult 
-[7] Berthoin S, Manteca F, Gerbeaux M, & Lensel-Corbeil G (1995). 
-Effect of a 12-week training programme on maximal aerobic speed 
-(MAS) and running time to exhaustion at 100% of MAS for students 
-aged 14 to 17 years. The Journal of Sports Medicine and Physical 
-Fitness, 35(4): 251-256.
-[8] Billat VL, Blondel N, & Berthoin S (1999). Determination of the 
-velocity associated with the longest time to exhaustion at maximal 
-oxygen uptake. European Journal of Applied Physiology and 
-Occupational Physiology, 80(2): 159-161.
-[9] Biswas A, Oh PI, Faulkner GE, Bajaj RR, Silver MA et al (2015). 
-Sedentary time and its association with risk for disease incidence, 
-mortality, and hospitalization in adults: A systematic review and 
-meta-analysis. Annals of Internal Medicine, 162(2): 123-132.
-[10] Blair SN, Kohl HW, Paffenbarger RS, Clark DG, Cooper KH et al 
-
-성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 /g48801 107
-(1989). Physical fitness and all-cause mortality. A prospective 
-study of healthy men and women. Jama, 262(17): 2395-2401.
-[11] Canadian Society for Exercise Physiology (2010). Canadian 
-Physical Activity Guidelines and Canadian Sedentary Behaviour 
-Guidelines. Canadian Physical Activity Guidelines (18-64 years). 
-2015 Apr. 23; Retrieved from http://www.csep. ca/english/view. 
-asp?x=949. 
-[12] Carlson SA, Fulton JE, Schoenborn CA, & Loustalot F (2010). 
-Trend and prevalence estimates based on the 2008 physical 
-activity guidelines for americans. American Journal of Preventive 
-Medicine, 39(4): 305-313.
-[13] D'Avanzo B, Nanni O, La Vecchia C, Franceschi S, Negri E et al 
-(1996). Physical activity and breast cancer risk. Cancer 
-Epidemiology, Biomarkers & Prevention, 5(3): 155-160.
-[ 1 4 ] D e p a r t m e n t  o f  A r t s ,  S p o r t ,  t h e  E n vi r o n m e n t  a n d  T e r r i t o r i e s  
-[DASET] (1992). Pilot survey of the fitness of Australians, Canberra.
-[15] Fraser GE & Shavlik DJ (2001). Ten years of life: Is it a matter 
-of choice? Archives of Internal Medicine, 161(13): 1645-1652.
-[16] Fuchi T, Iwaoka K, Higuchi M, & Kobayashi S (1989). 
-Cardiovascular changes associated with decreased aerobic 
-capacity and aging in long-distance runners. European Journal 
-of Applied Physiology and Occupational Physiology, 58(8): 
-884-889. 
-[17] Garber CE, Blissmer B, Deschenes MR, Franklin BA, Lamonte MJ 
-et al. (2011). American College of Sports Medicine position stand. 
-Quantity and quality of exercise for developing and maintaining 
-cardiorespiratory, musculoskeletal, and neuromotor fitness in 
-apparently healthy adults: guidance for prescribing exercise. 
-Medicine and Science in Sports and Exercise, 43(7): 1334-1359,
-[18] Gortmaker SL, Dietz Jr WH, & Cheung LW (1990). Inactivity, diet, 
-and the fattening of america. Journal of the American Dietetic 
-Association, 90(9): 1247-1252, 1255.
-[ 1 9 ]g o v. i k  [ h o m e p a g e  o n  t h e  I n t e r n e t ]  U K  P h y s i c a l  A c t i vi t y  
-Guidelines. Department of Health; 2011. 2015 Apr. 24; Retrieved 
-from: http://www.gov.uk/government/publicatIons/uk-physical 
--activity-guidelines.
-[20] Jones AM (1998). A five year physiological case study of an 
-olympic runner. British Journal of Sports Medicine, 32(1): 39-43.
-[21] Jones AM, & Carter H (2000). The effect of endurance training 
-on parameters of aerobic fitness. Sports Medicine, 29(6): 
-373-386.
-[22] Kay MC, Carroll DD, Carlson SA, & Fulton JE (2014). Awareness 
-and knowledge of the 2008 physical activity guidelines for 
-americans. Journal of Physical Activity & Health, 11(4): 693-698.
-[23] Korea Health Promotion Foundation (2012). Development of 
-Physical Activity Guidelines and Self-prescription Guides for 
-Korean. 
-[ 2 4 ] L e e s  S J ,  &  B o o t h  F W  ( 2 0 0 4 ) .  S e d e n t a r y  d e a t h  s y n d r o m e .  
-Canadian Journal of Applied Physiology,  29(4): 447-460, 
-discussion 444-446.
-[25] Levine JA, Eberhardt NL, & Jensen MD (1999). Role of 
-nonexercise activity thermogenesis in resistance to fat gain in 
-humans. Science, 283(5399): 212-214.
-[26] Ministray Ministry of Culture, Sports and Tourism (2012). 2013 
-National Sport Participation Survey in Korea. 
-[27] Norton K, Norton L, & Sadgrove D (2010). Position statement on 
-physical activity and exercise intensity terminology. Journal of 
-Science and Medicine in Sport, 13(5): 496-502.
-[28] Pate RR, O'Neill JR, & Lobelo F (2008). The evolving definition 
-of "sedentary". Exercise and Sport Sciences Reviews, 36(4): 
-173-178.
-[29] Pate RR, Pratt M, Blair SN, Haskell WL, Macera CA et al (1995). 
-Physical activity and public health. A recommendation from the 
-centers for disease control and prevention and the american 
-college of sports medicine. Jama, 273(5): 402-407.
-[30] Pollock, ML, Gaesser GA, Butcher JD, Despres J, Dishman RK 
-et al. (1998). ACSM Position Stand: The Recommended Quantity 
-and Quality of Exercise for Developing and Maintaining 
-Cardiorespiratory and Muscular Fitness, and Flexibility in Healthy 
-Adults. Medicine and Science in Sports and Exercise, 30(6): 
-975-991.
-[31] Smith EL, & Raab DM (1986). Osteoporosis and physical activity. 
-Acta Medica Scandinavica. 711: 149-156.
-[32] U.S. Department of Health and Human Services (2008). Physical 
-Activity for Americans: Be Active, Healthy, and Happy!. 2015 Apr. 
-24; Retrieved from www.health.gov/ paguidelines. 
-[33] WHO global recommendation on physical activity for health 
-(2010). World Health Organization. 2015 Apr. 24; Retrieved from: 
-http://www.who.int/dietphysicalactivity/factsheet_recomm 
-endations/en/.
-[34] Yates LB, Djousse L, Kurth T, Buring JE, & Gaziano JM (2008). 
-Exceptional longevity in men: Modifiable factors associated with 
-survival and function to age 90 years. Archives of Internal 
-Medicine, 168(3): 284-290.
-[35] Zamboni M, Mazzali G, Fantin F, Rossi A, Di & Francesco V 
-(2008). Sarcopenic obesity: A new category of obesity in the 
-elderly. Nutrition, Metabolism, and Cardiovascular Diseases, 18(5): 
-388-395.

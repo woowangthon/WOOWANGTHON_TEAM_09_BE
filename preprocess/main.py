@@ -1,4 +1,7 @@
-"""preprocess/src 안의 모든 PDF에서 텍스트를 추출해 preprocess/result/<파일명>.txt로 저장한다."""
+"""preprocess/src 안의 모든 PDF에서 텍스트를 추출해 preprocess/original-result/<파일명>.txt로 저장한다.
+
+추출한 원문은 그대로 두고, 검색에 쓸 정제본(result/)은 clean.py가 만든다.
+"""
 
 from pathlib import Path
 
@@ -6,7 +9,7 @@ from pypdf import PdfReader
 
 BASE_DIR = Path(__file__).parent
 SRC_DIR = BASE_DIR / "src"
-RESULT_DIR = BASE_DIR / "result"
+RESULT_DIR = BASE_DIR / "original-result"   # 추출 원문. 정제본은 clean.py -> result/
 
 
 def extract_text(pdf_path: Path) -> str:
