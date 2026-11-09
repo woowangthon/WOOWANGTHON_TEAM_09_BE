@@ -1,12 +1,11 @@
-"""preprocess/original-result/*.txt -> preprocess/result/*.txt 정제.
-
-줄 단위 삭제만 한다 (문장 수정·추가 없음). 남기는 대상: 아동·청소년, 성인, 공통 (청소년~중장년).
-
-    python preprocess/clean.py                 # 정제본 생성
-    python preprocess/clean.py --log <폴더>    # 지운 줄(줄 번호, 이유, 내용)도 문서별로 저장
-
-문서를 추가하면 app/rag/documents.py의 섹션 규칙을 먼저 넣고, 필요하면 아래 DOCS에 문서별 삭제 규칙을 추가한다.
-"""
+# preprocess/original-result/*.txt -> preprocess/result/*.txt 정제.
+#
+# 줄 단위 삭제만 한다 (문장 수정·추가 없음). 남기는 대상: 아동·청소년, 성인, 공통 (청소년~중장년).
+#
+#     python preprocess/clean.py                 # 정제본 생성
+#     python preprocess/clean.py --log <폴더>    # 지운 줄(줄 번호, 이유, 내용)도 문서별로 저장
+#
+# 문서를 추가하면 app/rag/documents.py의 섹션 규칙을 먼저 넣고, 필요하면 아래 DOCS에 문서별 삭제 규칙을 추가한다.
 import argparse
 import re
 import sys
@@ -78,7 +77,7 @@ GUIDE_TITLE = "한국인을 위한 신체활동 지침서"
 
 
 def line_targets(stem, text):
-    """원문 줄마다 (분리 규칙에 포함됐는지, 대상)."""
+    # 원문 줄마다 (분리 규칙에 포함됐는지, 대상).
     lines = text.splitlines()
     sections = SPLITTERS.get(stem, split_default)(text)
     info = [None] * len(lines)           # None = 분리 규칙이 버린 줄

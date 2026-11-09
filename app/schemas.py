@@ -1,10 +1,9 @@
-"""요청과 AI 출력의 형식 (Pydantic 모델).
-
-- PlanRequest: /output 이 받는 쿼리 파라미터
-- UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
-- ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
-- WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
-"""
+# 요청과 AI 출력의 형식 (Pydantic 모델).
+#
+# - PlanRequest: /output 이 받는 쿼리 파라미터
+# - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
+# - ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
+# - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
 
 import copy
 from datetime import date, datetime
@@ -47,7 +46,8 @@ class LoginRequest(BaseModel):
 
 
 class InfoCreate(BaseModel):
-    """info 테이블 (모두 int2). 범위는 PlanRequest와 같다."""
+    model_config = ConfigDict(json_schema_extra={"description": "info 테이블 (모두 int2). 범위는 PlanRequest와 같다."})
+
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
@@ -57,7 +57,8 @@ class InfoCreate(BaseModel):
 # ---------- 일정 ----------
 
 class ScheduleIn(BaseModel):
-    """시각에 시간대가 없으면(예: 2026-11-10T09:00) 한국 시간으로 본다."""
+    model_config = ConfigDict(json_schema_extra={"description": "시각에 시간대가 없으면(예: 2026-11-10T09:00) 한국 시간으로 본다."})
+
     name: str | None = Field(None, max_length=100, description="일정 이름 (예: 자료구조 수업)")
     start_term: datetime = Field(description="시작 시각 (예: 2026-11-10T09:00 또는 2026-11-10T09:00+09:00)")
     end_term: datetime = Field(description="마치는 시각. 시작 시각보다 늦어야 함")
@@ -111,7 +112,7 @@ class WorkoutPlan(BaseModel):
 
 
 def strip_titles(schema):
-    """Pydantic이 자동으로 넣는 "title" 항목을 지운다 (AI에게 보내는 스키마 크기를 줄이려고)."""
+    # Pydantic이 자동으로 넣는 "title" 항목을 지운다 (AI에게 보내는 스키마 크기를 줄이려고).
     if isinstance(schema, dict):
         return {k: strip_titles(v) for k, v in schema.items() if not (k == "title" and isinstance(v, str))}
     if isinstance(schema, list):
@@ -123,7 +124,7 @@ PLAN_SCHEMA = strip_titles(WorkoutPlan.model_json_schema())
 
 
 def plan_schema_for(names: list[str]) -> dict:
-    """운동 이름 enum을 names로 좁힌 계획 스키마. 사용자에 따라 고를 수 있는 운동을 제한할 때 쓴다."""
+    # 운동 이름 enum을 names로 좁힌 계획 스키마. 사용자에 따라 고를 수 있는 운동을 제한할 때 쓴다.
     schema = copy.deepcopy(PLAN_SCHEMA)
     schema["$defs"]["Exercise"]["properties"]["name"]["enum"] = names
     return schema

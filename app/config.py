@@ -1,4 +1,4 @@
-"""경로, 환경변수, AI 모델 설정. 설정값은 모두 여기서 바꾼다."""
+# 경로, 환경변수, AI 모델 설정. 설정값은 모두 여기서 바꾼다.
 
 import os
 from pathlib import Path

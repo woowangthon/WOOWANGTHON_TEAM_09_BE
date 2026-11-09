@@ -1,4 +1,4 @@
-"""BM25 검색기. 외부 의존성 없이 문자 bigram 토크나이저로 한국어·영어 문서를 검색한다."""
+# BM25 검색기. 외부 의존성 없이 문자 bigram 토크나이저로 한국어·영어 문서를 검색한다.
 
 import math
 import re
@@ -11,7 +11,7 @@ from app.rag.documents import COMMON
 
 
 def _tokenize(text: str) -> list[str]:
-    """공백/특수문자로 단어를 나눈 뒤 문자 bigram으로 쪼갠다 (한국어 조사 변형에 강함)."""
+    # 공백/특수문자로 단어를 나눈 뒤 문자 bigram으로 쪼갠다 (한국어 조사 변형에 강함).
     tokens = []
     for word in re.findall(r"[0-9A-Za-z가-힣]+", text.lower()):
         if len(word) == 1:
@@ -37,13 +37,13 @@ class BM25Retriever:
         self.idf = {t: math.log(1 + (n - f + 0.5) / (f + 0.5)) for t, f in df.items()}
 
     def core_chunks(self, target: str) -> list[Chunk]:
-        """대상의 핵심 지침(권장량) 청크. 검색 점수와 상관없이 항상 참고 문서에 넣는다."""
+        # 대상의 핵심 지침(권장량) 청크. 검색 점수와 상관없이 항상 참고 문서에 넣는다.
         return [c for c in self.chunks if c.core and target in c.targets]
 
     def search(
         self, query: str, top_k: int = 4, targets: set[str] | None = None, exclude: list[Chunk] | None = None,
     ) -> list[tuple[Chunk, float]]:
-        """targets가 있으면 그 대상이나 "공통"인 청크만 검색한다."""
+        # targets가 있으면 그 대상이나 "공통"인 청크만 검색한다.
         allowed = (targets | {COMMON}) if targets else None
         excluded = {id(c) for c in exclude or []}
         q_tokens = set(_tokenize(query))
@@ -69,8 +69,8 @@ class BM25Retriever:
     def search_many(
         self, queries: list[str], top_k: int = 4, targets: set[str] | None = None, exclude: list[Chunk] | None = None,
     ) -> list[tuple[Chunk, float]]:
-        """여러 검색어(한국어/영어)로 검색해 순위를 합친다 (Reciprocal Rank Fusion).
-        검색어마다 BM25 점수 크기가 달라 점수 대신 순위로 합치고, 반환 점수는 가장 높았던 BM25 점수다."""
+        # 여러 검색어(한국어/영어)로 검색해 순위를 합친다 (Reciprocal Rank Fusion).
+        # 검색어마다 BM25 점수 크기가 달라 점수 대신 순위로 합치고, 반환 점수는 가장 높았던 BM25 점수다.
         fused: dict[int, list] = {}  # id(chunk) -> [chunk, rrf 점수, 최고 BM25 점수]
         for query in queries:
             for rank, (chunk, score) in enumerate(self.search(query, top_k, targets, exclude), 1):

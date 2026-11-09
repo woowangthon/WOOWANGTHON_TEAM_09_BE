@@ -1,7 +1,6 @@
-"""preprocess/src 안의 모든 PDF에서 텍스트를 추출해 preprocess/original-result/<파일명>.txt로 저장한다.
-
-추출한 원문은 그대로 두고, 검색에 쓸 정제본(result/)은 clean.py가 만든다.
-"""
+# preprocess/src 안의 모든 PDF에서 텍스트를 추출해 preprocess/original-result/<파일명>.txt로 저장한다.
+#
+# 추출한 원문은 그대로 두고, 검색에 쓸 정제본(result/)은 clean.py가 만든다.
 
 from pathlib import Path
 

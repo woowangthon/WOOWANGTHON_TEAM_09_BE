@@ -1,4 +1,4 @@
-"""AI에게 보내는 프롬프트: 시스템 프롬프트와 사용자 메시지 조립."""
+# AI에게 보내는 프롬프트: 시스템 프롬프트와 사용자 메시지 조립.
 
 from datetime import date
 
@@ -17,7 +17,7 @@ SYSTEM_PROMPT = (
 
 
 def build_user_info(profile: dict, limit_intensity: bool) -> str:
-    """[사용자 정보] 부분."""
+    # [사용자 정보] 부분.
     return "\n".join([
         f"- 나이: {profile['age']}세 (대상: {profile['target_group']})",
         f"- 키/몸무게: {profile['height_cm']}cm / {profile['weight_kg']}kg",
@@ -29,7 +29,7 @@ def build_user_info(profile: dict, limit_intensity: bool) -> str:
 
 
 def build_context(sources: list[dict]) -> str:
-    """[참고 문서] 부분. 조각마다 번호, 출처, 대상을 붙인다."""
+    # [참고 문서] 부분. 조각마다 번호, 출처, 대상을 붙인다.
     return "\n\n".join(
         f"[문서 {s['id']}] (출처: {s['source']} / 대상: {', '.join(s['targets'])})\n{s['text']}" for s in sources
     )
@@ -37,7 +37,7 @@ def build_context(sources: list[dict]) -> str:
 
 def build_user_message(sources: list[dict], exercise_list: str, start: date, end: date, schedule: str,
                        user_info: str) -> str:
-    """AI에게 보내는 사용자 메시지 전체."""
+    # AI에게 보내는 사용자 메시지 전체.
     return (
         f"[참고 문서]\n{build_context(sources)}\n\n"
         f"[운동 목록]\n{exercise_list}\n\n"

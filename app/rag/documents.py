@@ -1,8 +1,7 @@
-"""참고 문서를 섹션으로 나누고, 섹션마다 대상(성인, 노인, 임산부 등)을 붙이는 규칙.
-
-문서마다 제목 형식이 달라 문서별 규칙(SPLITTERS)을 둔다.
-새 문서를 preprocess/result/에 추가했다면 여기에 규칙을 추가한다. 규칙이 없으면 문서 전체가 "공통"이 된다.
-"""
+# 참고 문서를 섹션으로 나누고, 섹션마다 대상(성인, 노인, 임산부 등)을 붙이는 규칙.
+#
+# 문서마다 제목 형식이 달라 문서별 규칙(SPLITTERS)을 둔다.
+# 새 문서를 preprocess/result/에 추가했다면 여기에 규칙을 추가한다. 규칙이 없으면 문서 전체가 "공통"이 된다.
 
 import re
 from dataclasses import dataclass
@@ -20,7 +19,7 @@ class Section:
 # ---------- 대상 분류 ----------
 
 def classify_heading(heading: str) -> tuple[str, ...]:
-    """섹션 제목으로 대상을 정한다. 더 구체적인 대상(장애, 질환, 임신)을 먼저 본다."""
+    # 섹션 제목으로 대상을 정한다. 더 구체적인 대상(장애, 질환, 임신)을 먼저 본다.
     h = heading.upper()
     if "장애" in h or "DISABILITY" in h:
         return ("장애인",)
@@ -140,7 +139,7 @@ def split_by_markers(
     start: re.Pattern | None = None,
     stop: re.Pattern | None = None,
 ) -> list[Section]:
-    """start 줄부터 stop 줄 전까지 읽고, markers 패턴과 맞는 줄에서 대상을 바꾼다 (먼저 맞는 패턴 우선)."""
+    # start 줄부터 stop 줄 전까지 읽고, markers 패턴과 맞는 줄에서 대상을 바꾼다 (먼저 맞는 패턴 우선).
     sections = [Section(default, [])]
     started = start is None
     for line in text.splitlines():

@@ -1,13 +1,12 @@
-"""운동 계획 생성의 전체 흐름. 이 파일만 읽으면 요청 하나가 어떻게 처리되는지 알 수 있다.
-
-1. 기간 확인 (최대 MAX_PLAN_DAYS일)
-2. 프로필 계산 (대상, BMI)            -> profile.py
-3. 고를 수 있는 운동 정하기            -> exercises.py
-4. 참고 문서 조각 고르기 (RAG)         -> search.py, rag/
-5. 캠퍼스 일정 + 프롬프트 조립         -> schedule.py, prompts.py
-6. AI 호출 (구조화된 출력)             -> llm.py, schemas.py
-7. 응답 검증 후 운동 부위·근육 정보, 종료 시각·총 시간 붙이기
-"""
+# 운동 계획 생성의 전체 흐름. 이 파일만 읽으면 요청 하나가 어떻게 처리되는지 알 수 있다.
+#
+# 1. 기간 확인 (최대 MAX_PLAN_DAYS일)
+# 2. 프로필 계산 (대상, BMI)            -> profile.py
+# 3. 고를 수 있는 운동 정하기            -> exercises.py
+# 4. 참고 문서 조각 고르기 (RAG)         -> search.py, rag/
+# 5. 캠퍼스 일정 + 프롬프트 조립         -> schedule.py, prompts.py
+# 6. AI 호출 (구조화된 출력)             -> llm.py, schemas.py
+# 7. 응답 검증 후 운동 부위·근육 정보, 종료 시각·총 시간 붙이기
 
 from datetime import date, timedelta
 
@@ -24,7 +23,7 @@ from app.search import select_sources
 
 
 class PlanError(Exception):
-    """계획을 만들 수 없을 때. api.py가 status_code의 HTTP 오류로 바꾼다."""
+    # 계획을 만들 수 없을 때. api.py가 status_code의 HTTP 오류로 바꾼다.
 
     def __init__(self, status_code: int, detail: str):
         super().__init__(detail)
@@ -33,7 +32,7 @@ class PlanError(Exception):
 
 
 def create_plan(req: PlanRequest) -> dict:
-    """/output 응답: {"profile": ..., "plan": ..., "sources": [...]}"""
+    # /output 응답: {"profile": ..., "plan": ..., "sources": [...]}
     # 1. 기간
     start = req.start_date or date.today()
     end = req.end_date or start + timedelta(days=6)

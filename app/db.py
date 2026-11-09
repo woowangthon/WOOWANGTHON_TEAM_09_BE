@@ -1,14 +1,13 @@
-"""Supabase DB 접근.
-
-user.password(해시)는 로그인 확인(fetch_login)에서만 읽고, 다른 곳에서는 조회하지 않는다.
-
-테이블
-- user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
-- info:     id(-> user.id), age, height, weight
-- schedule: author(-> user.id), id, start_term, end_term (timestamptz), name
-
-연결 확인:  python -m app.db <user_id>
-"""
+# Supabase DB 접근.
+#
+# user.password(해시)는 로그인 확인(fetch_login)에서만 읽고, 다른 곳에서는 조회하지 않는다.
+#
+# 테이블
+# - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
+# - info:     id(-> user.id), age, height, weight
+# - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name
+#
+# 연결 확인:  python -m app.db <user_id>
 
 import sys
 from dataclasses import dataclass
@@ -30,14 +29,15 @@ class ScheduleEvent:
 
 @lru_cache(maxsize=1)
 def get_client() -> Client:
-    """처음 쓸 때 한 번만 연결한다. 키가 없어도 서버는 뜨고, DB를 쓰는 순간 오류가 난다."""
+    # 처음 쓸 때 한 번만 연결한다. 키가 없어도 서버는 뜨고, DB를 쓰는 순간 오류가 난다.
     if not SUPABASE_URL or not SUPABASE_KEY:
         raise RuntimeError(".env에 SUPABASE_URL, SUPABASE_KEY가 없습니다.")
     return create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 class NameTakenError(Exception):
-    """같은 name(로그인 아이디)의 사용자가 이미 있음."""
+    # 같은 name(로그인 아이디)의 사용자가 이미 있음.
+    pass
 
 
 UNIQUE_VIOLATION = "23505"   # PostgreSQL 오류 코드
@@ -49,7 +49,7 @@ def name_exists(name: str) -> bool:
 
 
 def insert_user(name: str, password_hash: str) -> dict:
-    """user 행을 만들고 {"name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError."""
+    # user 행을 만들고 {"name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError.
     if name_exists(name):
         raise NameTakenError(name)
     try:
@@ -62,26 +62,27 @@ def insert_user(name: str, password_hash: str) -> dict:
 
 
 def fetch_login(name: str) -> dict | None:
-    """로그인 확인용 {"id", "password"}. 없으면 None."""
+    # 로그인 확인용 {"id", "password"}. 없으면 None.
     rows = get_client().table("user").select("id, password").eq("name", name).limit(1).execute().data
     return rows[0] if rows else None
 
 
 def fetch_user(user_id: int) -> dict | None:
-    """user 테이블의 {"name", "created_at"} (id·password는 내보내지 않는다). 없으면 None."""
+    # user 테이블의 {"name", "created_at"} (id·password는 내보내지 않는다). 없으면 None.
     rows = get_client().table("user").select("name, created_at").eq("id", user_id).limit(1).execute().data
     return rows[0] if rows else None
 
 
 class IdentityColumnError(Exception):
-    """info.id가 identity(자동 증가) 열이라 user.id를 넣을 수 없음. DB 설정 문제."""
+    # info.id가 identity(자동 증가) 열이라 user.id를 넣을 수 없음. DB 설정 문제.
+    pass
 
 
 CANNOT_INSERT_IDENTITY = "428C9"   # GENERATED ALWAYS AS IDENTITY 열에 값을 넣으려 함
 
 
 def upsert_user_info(user_id: int, age: int, height: int, weight: int) -> dict:
-    """info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id)."""
+    # info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id).
     try:
         row = (
             get_client().table("info")
@@ -97,7 +98,7 @@ def upsert_user_info(user_id: int, age: int, height: int, weight: int) -> dict:
 
 
 def fetch_user_info(user_id: int) -> dict | None:
-    """info 테이블의 {"age", "height", "weight"}. 없으면 None."""
+    # info 테이블의 {"age", "height", "weight"}. 없으면 None.
     rows = (
         get_client().table("info")
         .select("age, height, weight")
@@ -110,7 +111,7 @@ def fetch_user_info(user_id: int) -> dict | None:
 
 
 def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]:
-    """start~end(포함) 기간과 겹치는 사용자의 일정. 시작 시각 순."""
+    # start~end(포함) 기간과 겹치는 사용자의 일정. 시작 시각 순.
     range_start = datetime.combine(start, time.min, TIMEZONE)
     range_end = datetime.combine(end + timedelta(days=1), time.min, TIMEZONE)
     rows = (
@@ -139,12 +140,12 @@ SCHEDULE_COLUMNS = "id, name, start_term, end_term"
 
 
 def _local_time(value: str) -> str:
-    """DB의 timestamptz -> 한국 시간의 "YYYY-MM-DDTHH:MM:SS" (시간대 표기 없음)."""
+    # DB의 timestamptz -> 한국 시간의 "YYYY-MM-DDTHH:MM:SS" (시간대 표기 없음).
     return datetime.fromisoformat(value).astimezone(TIMEZONE).replace(tzinfo=None).isoformat(timespec="seconds")
 
 
 def _schedule_out(row: dict) -> dict:
-    """DB 행 -> 응답. 시각은 한국 시간으로 바꾸고 시간대 표기(+09:00)는 뺀다."""
+    # DB 행 -> 응답. 시각은 한국 시간으로 바꾸고 시간대 표기(+09:00)는 뺀다.
     return {
         "id": row["id"],
         "name": row["name"],
@@ -154,7 +155,7 @@ def _schedule_out(row: dict) -> dict:
 
 
 def list_schedules(user_id: int, start: date | None = None, end: date | None = None) -> list[dict]:
-    """사용자의 일정. start/end(포함)를 주면 그 기간과 겹치는 일정만. 시작 시각 순."""
+    # 사용자의 일정. start/end(포함)를 주면 그 기간과 겹치는 일정만. 시작 시각 순.
     query = get_client().table("schedule").select(SCHEDULE_COLUMNS).eq("author", user_id)
     if end is not None:
         query = query.lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
@@ -172,7 +173,7 @@ def get_schedule(user_id: int, schedule_id: int) -> dict | None:
 
 
 class ScheduleConflictError(Exception):
-    """다른 일정과 시간이 겹침. conflicts: 겹치는 일정 목록(응답 형식)."""
+    # 다른 일정과 시간이 겹침. conflicts: 겹치는 일정 목록(응답 형식).
 
     def __init__(self, conflicts: list[dict]):
         super().__init__("일정 시간이 겹침")
@@ -181,7 +182,7 @@ class ScheduleConflictError(Exception):
 
 def overlapping_schedules(user_id: int, start_term: datetime, end_term: datetime,
                           exclude_id: int | None = None) -> list[dict]:
-    """[start_term, end_term)과 겹치는 본인 일정. 끝과 시작이 맞닿는 것(10:00 끝, 10:00 시작)은 겹침이 아니다."""
+    # [start_term, end_term)과 겹치는 본인 일정. 끝과 시작이 맞닿는 것(10:00 끝, 10:00 시작)은 겹침이 아니다.
     query = (
         get_client().table("schedule").select(SCHEDULE_COLUMNS)
         .eq("author", user_id)
@@ -194,7 +195,7 @@ def overlapping_schedules(user_id: int, start_term: datetime, end_term: datetime
 
 
 def insert_schedule(user_id: int, name: str | None, start_term: datetime, end_term: datetime) -> dict:
-    """겹치는 일정이 있으면 ScheduleConflictError."""
+    # 겹치는 일정이 있으면 ScheduleConflictError.
     if conflicts := overlapping_schedules(user_id, start_term, end_term):
         raise ScheduleConflictError(conflicts)
     row = (
@@ -208,7 +209,7 @@ def insert_schedule(user_id: int, name: str | None, start_term: datetime, end_te
 
 def update_schedule(user_id: int, schedule_id: int, name: str | None,
                     start_term: datetime, end_term: datetime) -> dict | None:
-    """본인 일정이 아니거나 없으면 None. 다른 일정과 겹치면 ScheduleConflictError."""
+    # 본인 일정이 아니거나 없으면 None. 다른 일정과 겹치면 ScheduleConflictError.
     if get_schedule(user_id, schedule_id) is None:
         return None
     if conflicts := overlapping_schedules(user_id, start_term, end_term, exclude_id=schedule_id):
@@ -223,7 +224,7 @@ def update_schedule(user_id: int, schedule_id: int, name: str | None,
 
 
 def delete_schedule(user_id: int, schedule_id: int) -> bool:
-    """지웠으면 True, 본인 일정이 아니거나 없으면 False."""
+    # 지웠으면 True, 본인 일정이 아니거나 없으면 False.
     rows = get_client().table("schedule").delete().eq("author", user_id).eq("id", schedule_id).execute().data
     return bool(rows)
 

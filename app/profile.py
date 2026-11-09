@@ -1,10 +1,10 @@
-"""사용자 입력으로 계산하는 값: 대상(성인/노인 등), BMI 분류, 건강 상태로 알 수 있는 추가 대상."""
+# 사용자 입력으로 계산하는 값: 대상(성인/노인 등), BMI 분류, 건강 상태로 알 수 있는 추가 대상.
 
 from app.schemas import PlanRequest
 
 
 def target_group_of(age: int) -> str:
-    """신체활동 지침서의 대상 구분 (아동·청소년 6~18세, 성인 19~64세, 노인 65세 이상)."""
+    # 신체활동 지침서의 대상 구분 (아동·청소년 6~18세, 성인 19~64세, 노인 65세 이상).
     if age <= 18:
         return "아동·청소년"
     if age <= 64:
@@ -13,7 +13,7 @@ def target_group_of(age: int) -> str:
 
 
 def bmi_category_of(bmi: float, age: int) -> str | None:
-    """대한비만학회 성인 BMI 기준. 아동·청소년은 성인 기준을 쓸 수 없어 None."""
+    # 대한비만학회 성인 BMI 기준. 아동·청소년은 성인 기준을 쓸 수 없어 None.
     if age <= 18:
         return None
     if bmi < 18.5:
@@ -37,14 +37,14 @@ HEALTH_NOTE_TARGETS = {
 
 
 def targets_from_notes(health_notes: str | None) -> set[str]:
-    """건강 상태 메모에 들어 있는 키워드로 추가 대상을 찾는다."""
+    # 건강 상태 메모에 들어 있는 키워드로 추가 대상을 찾는다.
     if not health_notes:
         return set()
     return {t for t, words in HEALTH_NOTE_TARGETS.items() if any(w in health_notes for w in words)}
 
 
 def build_profile(req: PlanRequest) -> dict:
-    """응답의 "profile". 대상과 BMI는 AI가 해석하지 않도록 서버가 계산한다."""
+    # 응답의 "profile". 대상과 BMI는 AI가 해석하지 않도록 서버가 계산한다.
     bmi = round(req.weight_kg / (req.height_cm / 100) ** 2, 1)
     return {
         "age": req.age,
@@ -60,5 +60,5 @@ def build_profile(req: PlanRequest) -> dict:
 
 
 def limits_intensity(profile: dict) -> bool:
-    """비만(성인 BMI 25 이상)이면 경력과 관계없이 고강도 운동을 빼고 저~중강도만 쓴다."""
+    # 비만(성인 BMI 25 이상)이면 경력과 관계없이 고강도 운동을 빼고 저~중강도만 쓴다.
     return profile["bmi_category"] is not None and profile["bmi"] >= 25

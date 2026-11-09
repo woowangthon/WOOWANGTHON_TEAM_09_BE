@@ -1,4 +1,4 @@
-"""섹션을 검색 단위인 조각(chunk)으로 나누고, 모든 참고 문서의 조각을 읽어 온다."""
+# 섹션을 검색 단위인 조각(chunk)으로 나누고, 모든 참고 문서의 조각을 읽어 온다.
 
 from dataclasses import dataclass
 from pathlib import Path
@@ -19,7 +19,7 @@ class Chunk:
 
 
 def _split_chunks(lines: list[str]) -> list[str]:
-    """줄 단위로 이어붙여 CHUNK_SIZE 정도의 청크를 만들고, 앞 청크 끝부분을 겹치게 한다."""
+    # 줄 단위로 이어붙여 CHUNK_SIZE 정도의 청크를 만들고, 앞 청크 끝부분을 겹치게 한다.
     lines = [line.strip() for line in lines if line.strip()]
     chunks, current = [], ""
     for line in lines:
@@ -33,7 +33,7 @@ def _split_chunks(lines: list[str]) -> list[str]:
 
 
 def _is_core(source: str, targets: tuple[str, ...], text: str) -> bool:
-    """신체활동 지침서에서 대상별 권장량("신체활동 지침" 소제목)이 담긴 청크."""
+    # 신체활동 지침서에서 대상별 권장량("신체활동 지침" 소제목)이 담긴 청크.
     return source == "신체활동 지침서" and COMMON not in targets and "신체활동 지침\n" in text
 
 

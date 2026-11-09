@@ -1,4 +1,4 @@
-"""HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다."""
+# HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다.
 
 from datetime import date
 from typing import Annotated
@@ -29,27 +29,34 @@ def read_root():
     return {"Hello": "World"}
 
 
-@router.get("/output")
+@router.get(
+    "/output",
+    description="사용자 정보와 기간을 받아 운동 계획을 만든다.",
+)
 def output(req: Annotated[PlanRequest, Query()]):
-    """사용자 정보와 기간을 받아 운동 계획을 만든다."""
     try:
         return create_plan(req)
     except PlanError as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
 
 
-@router.post("/user", status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/user",
+    status_code=status.HTTP_201_CREATED,
+    description="회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다.",
+)
 def create_user(body: UserCreate):
-    """회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다."""
     try:
         return insert_user(body.name, hash_password(body.password))
     except NameTakenError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="이미 사용 중인 아이디입니다.")
 
 
-@router.post("/login")
+@router.post(
+    "/login",
+    description="아이디·비밀번호가 맞으면 JWT 액세스 토큰을 준다. 아이디와 비밀번호 중 무엇이 틀렸는지는 알려주지 않는다.",
+)
 def login(body: LoginRequest):
-    """아이디·비밀번호가 맞으면 JWT 액세스 토큰을 준다. 아이디와 비밀번호 중 무엇이 틀렸는지는 알려주지 않는다."""
     user = fetch_login(body.name)
     if not verify_password(user["password"] if user else None, body.password):
         raise HTTPException(
@@ -60,19 +67,25 @@ def login(body: LoginRequest):
     return {"access_token": create_access_token(user["id"]), "token_type": "bearer"}
 
 
-@router.get("/user")
+@router.get(
+    "/user",
+    description="로그인한 본인의 정보. 헤더: Authorization: Bearer <토큰>. 건강 정보(info)가 없으면 info는 null.",
+)
 def read_me(user_id: int = Depends(current_user_id)):
-    """로그인한 본인의 정보. 헤더: Authorization: Bearer <토큰>. 건강 정보(info)가 없으면 info는 null."""
     user = fetch_user(user_id)
     if user is None:   # 토큰은 유효하지만 탈퇴 등으로 사용자가 없는 경우
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="사용자를 찾을 수 없습니다.")
     return {**user, "info": fetch_user_info(user_id)}
 
 
-@router.post("/info")
+@router.post(
+    "/info",
+    description=(
+        "로그인한 본인의 건강 정보(나이, 키, 몸무게)를 저장한다. 없으면 만들고, 있으면 덮어쓴다(upsert).\n"
+        "헤더: Authorization: Bearer <토큰>."
+    ),
+)
 def save_info(body: InfoCreate, user_id: int = Depends(current_user_id)):
-    """로그인한 본인의 건강 정보(나이, 키, 몸무게)를 저장한다. 없으면 만들고, 있으면 덮어쓴다(upsert).
-    헤더: Authorization: Bearer <토큰>."""
     try:
         return upsert_user_info(user_id, body.age, body.height, body.weight)
     except IdentityColumnError:
@@ -89,20 +102,22 @@ SCHEDULE_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail
 
 
 def schedule_conflict(e: ScheduleConflictError) -> HTTPException:
-    """409. detail에 겹치는 일정 목록을 담아, 앱에서 어떤 일정과 겹치는지 보여줄 수 있게 한다."""
+    # 409. detail에 겹치는 일정 목록을 담아, 앱에서 어떤 일정과 겹치는지 보여줄 수 있게 한다.
     return HTTPException(
         status_code=status.HTTP_409_CONFLICT,
         detail={"message": "다른 일정과 시간이 겹칩니다.", "conflicts": e.conflicts},
     )
 
 
-@router.get("/schedule")
+@router.get(
+    "/schedule",
+    description="본인 일정 목록 (시작 시각 순). start·end를 주면 그 기간과 겹치는 일정만.",
+)
 def read_schedules(
     user_id: int = Depends(current_user_id),
     start: date | None = Query(None, description="이 날짜(포함) 이후와 겹치는 일정만"),
     end: date | None = Query(None, description="이 날짜(포함) 이전과 겹치는 일정만"),
 ):
-    """본인 일정 목록 (시작 시각 순). start·end를 주면 그 기간과 겹치는 일정만."""
     if start and end and end < start:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="end는 start보다 빠를 수 없습니다.")
     return list_schedules(user_id, start, end)
@@ -116,18 +131,23 @@ def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     return schedule
 
 
-@router.post("/schedule", status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/schedule",
+    status_code=status.HTTP_201_CREATED,
+    description="다른 일정과 시간이 겹치면 409.",
+)
 def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
-    """다른 일정과 시간이 겹치면 409."""
     try:
         return insert_schedule(user_id, body.name, body.start_term, body.end_term)
     except ScheduleConflictError as e:
         raise schedule_conflict(e)
 
 
-@router.put("/schedule/{schedule_id}")
+@router.put(
+    "/schedule/{schedule_id}",
+    description="일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄). 다른 일정과 시간이 겹치면 409.",
+)
 def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(current_user_id)):
-    """일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄). 다른 일정과 시간이 겹치면 409."""
     try:
         schedule = update_schedule(user_id, schedule_id, body.name, body.start_term, body.end_term)
     except ScheduleConflictError as e:

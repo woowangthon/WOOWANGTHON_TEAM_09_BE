@@ -1,11 +1,10 @@
-"""AI에게 줄 참고 문서 조각 고르기.
-
-1. 사용자 대상의 핵심 지침(권장량) 조각은 항상 넣는다 (pinned).
-2. 나머지 자리는 한국어 검색어와 영어 검색어로 따로 검색한 결과를 번갈아 채운다.
-   참고 문서에 영문 자료가 섞여 있어 한국어 검색어만으로는 영문 조각이 검색되지 않고,
-   한 번에 합치면 서로 겹치는 한국어 결과가 점수를 독차지해 영문 자료가 밀려난다.
-검색어는 AI 호출 없이 고정 사전으로 만든다 (토큰 절약).
-"""
+# AI에게 줄 참고 문서 조각 고르기.
+#
+# 1. 사용자 대상의 핵심 지침(권장량) 조각은 항상 넣는다 (pinned).
+# 2. 나머지 자리는 한국어 검색어와 영어 검색어로 따로 검색한 결과를 번갈아 채운다.
+#    참고 문서에 영문 자료가 섞여 있어 한국어 검색어만으로는 영문 조각이 검색되지 않고,
+#    한 번에 합치면 서로 겹치는 한국어 결과가 점수를 독차지해 영문 자료가 밀려난다.
+# 검색어는 AI 호출 없이 고정 사전으로 만든다 (토큰 절약).
 
 from app.profile import targets_from_notes
 from app.rag import BM25Retriever, Chunk
@@ -37,7 +36,7 @@ GOAL_DEFAULT = ("운동 권장량", "physical activity recommendations")
 
 def build_search_queries(target_group: str, goal: str, experience: str, obese: bool,
                          extra_targets: set[str]) -> tuple[list[str], list[str]]:
-    """사용자 정보로 (한국어 검색어, 영어 검색어)를 만든다."""
+    # 사용자 정보로 (한국어 검색어, 영어 검색어)를 만든다.
     ko = [f"{target_group} 신체활동 권장량"]
     en = [f"{TARGET_EN[target_group]} physical activity recommendations"]
 
@@ -64,7 +63,7 @@ def build_search_queries(target_group: str, goal: str, experience: str, obese: b
 
 
 def base_search_query(profile: dict) -> str:
-    """기본 한국어 검색어: 사용자 문장 대신 대상·목표·체형·건강 상태로 구성."""
+    # 기본 한국어 검색어: 사용자 문장 대신 대상·목표·체형·건강 상태로 구성.
     is_obese = bool(profile["bmi_category"] and "비만" in profile["bmi_category"])
     return " ".join(filter(None, [
         profile["target_group"], "운동 권장", profile["goal"],
@@ -74,7 +73,7 @@ def base_search_query(profile: dict) -> str:
 
 
 def interleave(*result_lists: list[tuple]) -> list[tuple]:
-    """여러 검색 결과를 번갈아 하나씩 꺼내 합친다 (같은 조각은 한 번만)."""
+    # 여러 검색 결과를 번갈아 하나씩 꺼내 합친다 (같은 조각은 한 번만).
     merged, seen = [], set()
     for group in zip(*(lst + [None] * (max(map(len, result_lists)) - len(lst)) for lst in result_lists)):
         for item in group:
@@ -87,7 +86,7 @@ def interleave(*result_lists: list[tuple]) -> list[tuple]:
 # ---------- 참고 문서 선택 ----------
 
 def select_sources(profile: dict, limit_intensity: bool, top_k: int) -> list[dict]:
-    """참고 문서 조각 목록. 응답의 "sources"이자, AI에게 보낼 [참고 문서]의 재료다."""
+    # 참고 문서 조각 목록. 응답의 "sources"이자, AI에게 보낼 [참고 문서]의 재료다.
     # 검색 대상: 나이 기준 대상 + 건강 상태로 알 수 있는 대상(임산부, 만성질환자, 장애인)
     targets = {profile["target_group"]} | targets_from_notes(profile["health_notes"])
 
