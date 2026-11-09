@@ -2,6 +2,7 @@
 
 import os
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
@@ -24,3 +25,9 @@ AI_MODEL = "claude-sonnet-5"
 
 # 같은 요청은 저장해 둔 응답을 돌려줘 토큰을 쓰지 않는다. LLM_CACHE=0 이면 끈다.
 LLM_CACHE_ENABLED = os.getenv("LLM_CACHE", "1") != "0"
+
+# ---------- Supabase ----------
+# 서버 전용 키(service_role)는 RLS를 무시하므로 .env에만 두고 앱(클라이언트)에 절대 넣지 않는다.
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+TIMEZONE = ZoneInfo("Asia/Seoul")   # DB의 timestamptz(UTC 저장)를 이 시간대로 바꿔 쓴다
