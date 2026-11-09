@@ -1,16 +1,18 @@
 """HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다."""
 
+from datetime import date
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 
 from app.auth import create_access_token, current_user_id, hash_password, verify_password
 from app.db import (
     IdentityColumnError, NameTakenError,
-    fetch_login, fetch_user, fetch_user_info, insert_user, upsert_user_info,
+    delete_schedule, fetch_login, fetch_user, fetch_user_info, get_schedule, insert_schedule, insert_user,
+    list_schedules, update_schedule, upsert_user_info,
 )
 from app.planner import PlanError, create_plan
-from app.schemas import InfoCreate, LoginRequest, PlanRequest, UserCreate
+from app.schemas import InfoCreate, LoginRequest, PlanRequest, ScheduleIn, UserCreate
 
 router = APIRouter()
 
@@ -78,3 +80,50 @@ def save_info(body: InfoCreate, user_id: int = Depends(current_user_id)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="DB 설정 오류: info.id가 자동 증가(identity) 열이라 사용자 id를 넣을 수 없습니다.",
         )
+
+
+
+# ---------- 일정 (모두 로그인 필요, 본인 일정만) ----------
+
+SCHEDULE_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="일정을 찾을 수 없습니다.")
+
+
+@router.get("/schedule")
+def read_schedules(
+    user_id: int = Depends(current_user_id),
+    start: date | None = Query(None, description="이 날짜(포함) 이후와 겹치는 일정만"),
+    end: date | None = Query(None, description="이 날짜(포함) 이전과 겹치는 일정만"),
+):
+    """본인 일정 목록 (시작 시각 순). start·end를 주면 그 기간과 겹치는 일정만."""
+    if start and end and end < start:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="end는 start보다 빠를 수 없습니다.")
+    return list_schedules(user_id, start, end)
+
+
+@router.get("/schedule/{schedule_id}")
+def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
+    schedule = get_schedule(user_id, schedule_id)
+    if schedule is None:
+        raise SCHEDULE_NOT_FOUND
+    return schedule
+
+
+@router.post("/schedule", status_code=status.HTTP_201_CREATED)
+def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
+    return insert_schedule(user_id, body.name, body.start_term, body.end_term)
+
+
+@router.put("/schedule/{schedule_id}")
+def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(current_user_id)):
+    """일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄)."""
+    schedule = update_schedule(user_id, schedule_id, body.name, body.start_term, body.end_term)
+    if schedule is None:
+        raise SCHEDULE_NOT_FOUND
+    return schedule
+
+
+@router.delete("/schedule/{schedule_id}", status_code=status.HTTP_204_NO_CONTENT)
+def remove_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
+    if not delete_schedule(user_id, schedule_id):
+        raise SCHEDULE_NOT_FOUND
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

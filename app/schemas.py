@@ -2,15 +2,17 @@
 
 - PlanRequest: /output 이 받는 쿼리 파라미터
 - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
+- ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
 - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
 """
 
 import copy
-from datetime import date
+from datetime import date, datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from app.config import TIMEZONE
 from app.exercises import EXERCISE_CATALOG
 
 
@@ -49,6 +51,27 @@ class InfoCreate(BaseModel):
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
+
+
+
+# ---------- 일정 ----------
+
+class ScheduleIn(BaseModel):
+    """시각에 시간대가 없으면(예: 2026-11-10T09:00) 한국 시간으로 본다."""
+    name: str | None = Field(None, max_length=100, description="일정 이름 (예: 자료구조 수업)")
+    start_term: datetime = Field(description="시작 시각 (예: 2026-11-10T09:00 또는 2026-11-10T09:00+09:00)")
+    end_term: datetime = Field(description="마치는 시각. 시작 시각보다 늦어야 함")
+
+    @field_validator("start_term", "end_term")
+    @classmethod
+    def _assume_kst(cls, v: datetime) -> datetime:
+        return v.replace(tzinfo=TIMEZONE) if v.tzinfo is None else v
+
+    @model_validator(mode="after")
+    def _check_order(self):
+        if self.end_term <= self.start_term:
+            raise ValueError("end_term은 start_term보다 늦어야 합니다.")
+        return self
 
 
 # ---------- AI 출력 (구조화된 출력 스키마) ----------

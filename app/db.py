@@ -133,6 +133,67 @@ def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]
     ]
 
 
+# ---------- schedule CRUD (모두 author = 로그인한 사용자로 제한) ----------
+
+SCHEDULE_COLUMNS = "id, name, start_term, end_term"
+
+
+def _schedule_out(row: dict) -> dict:
+    """DB 행 -> 응답. 시각은 한국 시간(+09:00)으로 바꾼다."""
+    return {
+        "id": row["id"],
+        "name": row["name"],
+        "start_term": datetime.fromisoformat(row["start_term"]).astimezone(TIMEZONE).isoformat(),
+        "end_term": datetime.fromisoformat(row["end_term"]).astimezone(TIMEZONE).isoformat(),
+    }
+
+
+def list_schedules(user_id: int, start: date | None = None, end: date | None = None) -> list[dict]:
+    """사용자의 일정. start/end(포함)를 주면 그 기간과 겹치는 일정만. 시작 시각 순."""
+    query = get_client().table("schedule").select(SCHEDULE_COLUMNS).eq("author", user_id)
+    if end is not None:
+        query = query.lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
+    if start is not None:
+        query = query.gt("end_term", datetime.combine(start, time.min, TIMEZONE).isoformat())
+    return [_schedule_out(r) for r in query.order("start_term").execute().data]
+
+
+def get_schedule(user_id: int, schedule_id: int) -> dict | None:
+    rows = (
+        get_client().table("schedule").select(SCHEDULE_COLUMNS)
+        .eq("author", user_id).eq("id", schedule_id).limit(1).execute().data
+    )
+    return _schedule_out(rows[0]) if rows else None
+
+
+def insert_schedule(user_id: int, name: str | None, start_term: datetime, end_term: datetime) -> dict:
+    row = (
+        get_client().table("schedule")
+        .insert({"author": user_id, "name": name,
+                 "start_term": start_term.isoformat(), "end_term": end_term.isoformat()})
+        .execute().data[0]
+    )
+    return _schedule_out(row)
+
+
+def update_schedule(user_id: int, schedule_id: int, name: str | None,
+                    start_term: datetime, end_term: datetime) -> dict | None:
+    """본인 일정이 아니거나 없으면 None."""
+    rows = (
+        get_client().table("schedule")
+        .update({"name": name, "start_term": start_term.isoformat(), "end_term": end_term.isoformat()})
+        .eq("author", user_id).eq("id", schedule_id)
+        .execute().data
+    )
+    return _schedule_out(rows[0]) if rows else None
+
+
+def delete_schedule(user_id: int, schedule_id: int) -> bool:
+    """지웠으면 True, 본인 일정이 아니거나 없으면 False."""
+    rows = get_client().table("schedule").delete().eq("author", user_id).eq("id", schedule_id).execute().data
+    return bool(rows)
+
+
 if __name__ == "__main__":
     uid = int(sys.argv[1]) if len(sys.argv) > 1 else 1
     print("info:", fetch_user_info(uid))
