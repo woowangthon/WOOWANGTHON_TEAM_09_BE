@@ -4,9 +4,9 @@
 2. 프로필 계산 (대상, BMI)            -> profile.py
 3. 고를 수 있는 운동 정하기            -> exercises.py
 4. 참고 문서 조각 고르기 (RAG)         -> search.py, rag/
-5. 프롬프트 조립                       -> prompts.py
+5. 캠퍼스 일정 + 프롬프트 조립         -> schedule.py, prompts.py
 6. AI 호출 (구조화된 출력)             -> llm.py, schemas.py
-7. 응답 검증 후 운동 부위·근육 정보 붙이기
+7. 응답 검증 후 운동 부위·근육 정보, 종료 시각·총 시간 붙이기
 """
 
 from datetime import date, timedelta
@@ -18,6 +18,7 @@ from app.exercises import add_exercise_info, allowed_exercise_names, exercise_li
 from app.llm import chat_completion
 from app.profile import build_profile, limits_intensity
 from app.prompts import SYSTEM_PROMPT, build_user_info, build_user_message
+from app.schedule import add_session_times, busy_slots, parse_hhmm, schedule_text
 from app.schemas import PlanRequest, WorkoutPlan, plan_schema_for
 from app.search import select_sources
 
@@ -56,9 +57,10 @@ def create_plan(req: PlanRequest) -> dict:
         )
         return {"profile": profile, "plan": plan.model_dump(), "sources": []}
 
-    # 5. 프롬프트
+    # 5. 캠퍼스 일정 + 프롬프트
+    schedule = schedule_text(busy_slots(start, end))
     user_info = build_user_info(profile, limit_intensity)
-    user_message = build_user_message(sources, exercise_list_text(allowed_names), start, end, user_info)
+    user_message = build_user_message(sources, exercise_list_text(allowed_names), start, end, schedule, user_info)
 
     # 6. AI 호출
     content = chat_completion(
@@ -84,4 +86,12 @@ def create_plan(req: PlanRequest) -> dict:
     if disallowed:
         raise PlanError(502, f"AI 응답에 허용되지 않은 운동 포함: {sorted(disallowed)}")
 
-    return {"profile": profile, "plan": add_exercise_info(plan.model_dump()), "sources": sources}
+    for s in plan.sessions:
+        if s.start_time is not None:
+            try:
+                parse_hhmm(s.start_time)
+            except ValueError:
+                raise PlanError(502, f"AI 응답의 시작 시각 형식 오류 ({s.date}): {s.start_time}")
+
+    plan_dict = add_session_times(add_exercise_info(plan.model_dump()))
+    return {"profile": profile, "plan": plan_dict, "sources": sources}

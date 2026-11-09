@@ -35,11 +35,13 @@ def build_context(sources: list[dict]) -> str:
     )
 
 
-def build_user_message(sources: list[dict], exercise_list: str, start: date, end: date, user_info: str) -> str:
+def build_user_message(sources: list[dict], exercise_list: str, start: date, end: date, schedule: str,
+                       user_info: str) -> str:
     """AI에게 보내는 사용자 메시지 전체."""
     return (
         f"[참고 문서]\n{build_context(sources)}\n\n"
         f"[운동 목록]\n{exercise_list}\n\n"
         f"[계획 기간]\n{start.isoformat()} ~ {end.isoformat()} ({(end - start).days + 1}일)\n\n"
+        f"[캠퍼스 일정]\n{schedule}\n\n"
         f"[사용자 정보]\n{user_info}"
     )

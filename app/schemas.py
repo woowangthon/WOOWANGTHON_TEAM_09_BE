@@ -41,6 +41,7 @@ class Exercise(BaseModel):
     sets: int | None = Field(description="세트 수, 없으면 null")
     reps: int | None = Field(description="세트당 반복 횟수, 시간 기반이면 null")
     duration_seconds: int | None = Field(description="시간(초): 세트가 있으면 세트당, 없으면 전체. 횟수 기반이면 null")
+    estimated_minutes: int = Field(description="이 운동의 예상 소요 시간(분). 세트 운동은 세트 사이 휴식 포함")
 
 
 class DailySession(BaseModel):
@@ -48,6 +49,7 @@ class DailySession(BaseModel):
 
     date: str = Field(description="YYYY-MM-DD")
     focus: str = Field(description="운동 초점 (예: 가슴·삼두, 휴식)")
+    start_time: str | None = Field(description="운동 시작 시각 HH:mm (24시간제). [캠퍼스 일정]의 수업과 겹치지 않고 운동 가능 시간 안에 끝나도록. 휴식하는 날은 null")
     exercises: list[Exercise]
 
 

@@ -25,6 +25,7 @@ app/
   schemas.py            요청(PlanRequest)과 AI 출력(WorkoutPlan) 형식
   prompts.py            시스템 프롬프트, AI에게 보낼 메시지 조립
   search.py             검색어 만들기, 참고 문서 조각 고르기
+  schedule.py           캠퍼스 일정(지금은 모두 공강, 나중에 Supabase 연동), 운동 종료 시각 계산
   llm.py                AI 호출 (캐시, 토큰 사용량 로그)
   config.py             경로, 환경변수, 모델 이름
   rag/
