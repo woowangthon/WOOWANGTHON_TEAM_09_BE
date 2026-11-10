@@ -3,6 +3,8 @@
 # - PlanRequest: POST /plan 의 요청 본문 (나이·키·몸무게·경력은 DB의 info에서 읽는다)
 # - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
 # - ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
+# - WorkoutExerciseUpdate: PUT /workout-exercise/{id} 의 요청 본문
+# - WeeklyBlockIn: POST /weekly-block, PUT /weekly-block/{id} 의 요청 본문
 # - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
 
 import copy
@@ -20,8 +22,9 @@ from app.exercises import EXERCISE_CATALOG
 
 class PlanRequest(BaseModel):
     goal: str = Field(min_length=1, max_length=200, description="운동 목표 (예: 체중 감량, 근력 향상)")
-    start_date: date | None = Field(None, description="계획 시작일 (YYYY-MM-DD). 없으면 오늘")
-    end_date: date | None = Field(None, description="계획 종료일 (YYYY-MM-DD). 없으면 시작일로부터 7일. 기간은 최대 14일")
+    week: date | None = Field(
+        None, description="이 날짜가 속한 주(월~일)의 계획을 만든다 (YYYY-MM-DD). 없으면 이번 주. 이미 지난 요일은 빼고 짠다",
+    )
 
 
 
@@ -75,6 +78,25 @@ class ScheduleIn(BaseModel):
         if self.end_term <= self.start_term:
             raise ValueError("end_term은 start_term보다 늦어야 합니다.")
         return self
+
+
+class WeeklyBlockIn(BaseModel):
+    model_config = ConfigDict(json_schema_extra={"description": "매주 반복되는 수업·운동 불가 시간"})
+
+    weekday: int = Field(ge=1, le=7, description="요일 (1=월, 2=화, ..., 7=일)")
+    start_time: str = Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d$", description="시작 시각 HH:mm (예: 09:00)")
+    end_time: str = Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d$", description="마치는 시각 HH:mm. 시작보다 늦어야 함")
+    name: str | None = Field(None, max_length=100, description="이름 (예: 자료구조)")
+
+    @model_validator(mode="after")
+    def _check_order(self):
+        if self.end_time <= self.start_time:   # "HH:mm" 문자열은 사전순 = 시간순
+            raise ValueError("end_time은 start_time보다 늦어야 합니다.")
+        return self
+
+
+class WorkoutExerciseUpdate(BaseModel):
+    completed: bool = Field(description="이 운동을 했는지")
 
 
 # ---------- AI 출력 (구조화된 출력 스키마) ----------

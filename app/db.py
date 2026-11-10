@@ -7,6 +7,10 @@
 # - info:     id(-> user.id), age, height, weight, experience(text, null 가능)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
+# - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
+#             sets, reps, duration_seconds, estimated_minutes, completed (운동별 이수 여부, 기본 false)
+# - weekly_block: id, author(-> user.id), weekday(1=월 ... 7=일), start_time, end_time (time), name
+#             매주 반복되는 수업·운동 불가 시간
 #
 # 연결 확인:  python -m app.db <user_id>
 
@@ -250,6 +254,149 @@ def insert_schedules(user_id: int, rows: list[tuple[str | None, datetime, dateti
 def delete_schedule(user_id: int, schedule_id: int) -> bool:
     # 지웠으면 True, 본인 일정이 아니거나 없으면 False.
     rows = get_client().table("schedule").delete().eq("author", user_id).eq("id", schedule_id).execute().data
+    return bool(rows)
+
+
+# ---------- workout_exercise (AI 운동 일정의 운동 목록과 이수 여부) ----------
+
+WORKOUT_EXERCISE_COLUMNS = "id, position, name, sets, reps, duration_seconds, estimated_minutes, completed"
+
+
+def insert_workout_exercises(rows: list[dict]) -> list[dict]:
+    # rows: {"schedule_id", "position", "name", "sets", "reps", "duration_seconds", "estimated_minutes"}.
+    # 한 번의 요청으로 저장한다. 저장된 행(schedule_id 포함)을 돌려준다.
+    if not rows:
+        return []
+    return get_client().table("workout_exercise").insert(rows).execute().data
+
+
+def list_workout_exercises(schedule_id: int) -> list[dict]:
+    # 일정 하나의 운동 목록 (순서대로). 본인 일정인지는 부르는 쪽에서 먼저 확인한다.
+    return (
+        get_client().table("workout_exercise").select(WORKOUT_EXERCISE_COLUMNS)
+        .eq("schedule_id", schedule_id).order("position").execute().data
+    )
+
+
+def set_workout_exercise_completed(user_id: int, exercise_id: int, completed: bool) -> dict | None:
+    # 운동 하나의 이수 여부를 바꾼다. 본인 일정의 운동이 아니거나 없으면 None.
+    owned = (
+        get_client().table("workout_exercise")
+        .select("id, schedule!inner(author)")          # schedule과 조인해 작성자를 확인
+        .eq("id", exercise_id).eq("schedule.author", user_id)
+        .limit(1).execute().data
+    )
+    if not owned:
+        return None
+    rows = (
+        get_client().table("workout_exercise")
+        .update({"completed": completed}).eq("id", exercise_id).execute().data
+    )
+    return {k: rows[0][k] for k in WORKOUT_EXERCISE_COLUMNS.split(", ")} if rows else None
+
+
+def delete_schedules_by_ids(user_id: int, schedule_ids: list[int]) -> None:
+    # 여러 일정을 지운다 (/plan 저장 중 실패했을 때 되돌리기용).
+    if schedule_ids:
+        get_client().table("schedule").delete().eq("author", user_id).in_("id", schedule_ids).execute()
+
+
+# ---------- 주간 리포트용: AI 운동 일정과 운동별 이수 여부 ----------
+
+def fetch_ai_workouts(user_id: int, start: date, end: date) -> list[dict]:
+    # start~end(포함)에 시작하는 AI 운동 일정. 한 번의 요청으로 운동별 이수 여부까지 가져온다.
+    # [{"id", "name", "start": datetime(한국 시간), "completed": [bool, ...]}]
+    rows = (
+        get_client().table("schedule")
+        .select("id, name, start_term, workout_exercise(completed)")
+        .eq("author", user_id).eq("created_by_ai", True)
+        .gte("start_term", datetime.combine(start, time.min, TIMEZONE).isoformat())
+        .lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
+        .order("start_term")
+        .execute().data
+    )
+    return [
+        {"id": r["id"], "name": r["name"],
+         "start": datetime.fromisoformat(r["start_term"]).astimezone(TIMEZONE),
+         "completed": [e["completed"] for e in r["workout_exercise"]]}
+        for r in rows
+    ]
+
+
+# ---------- weekly_block (매주 반복되는 수업·운동 불가 시간) ----------
+
+WEEKLY_BLOCK_COLUMNS = "id, weekday, start_time, end_time, name"
+
+
+def _block_out(row: dict) -> dict:
+    # DB의 time("09:00:00") -> "09:00"
+    return {**row, "start_time": row["start_time"][:5], "end_time": row["end_time"][:5]}
+
+
+class BlockConflictError(Exception):
+    # 같은 요일의 다른 반복 일정과 시간이 겹침
+    def __init__(self, conflicts: list[dict]):
+        super().__init__("반복 일정 시간이 겹침")
+        self.conflicts = conflicts
+
+
+def list_weekly_blocks(user_id: int) -> list[dict]:
+    rows = (
+        get_client().table("weekly_block").select(WEEKLY_BLOCK_COLUMNS)
+        .eq("author", user_id).order("weekday").order("start_time").execute().data
+    )
+    return [_block_out(r) for r in rows]
+
+
+def get_weekly_block(user_id: int, block_id: int) -> dict | None:
+    rows = (
+        get_client().table("weekly_block").select(WEEKLY_BLOCK_COLUMNS)
+        .eq("author", user_id).eq("id", block_id).limit(1).execute().data
+    )
+    return _block_out(rows[0]) if rows else None
+
+
+def _overlapping_blocks(user_id: int, weekday: int, start_time: str, end_time: str,
+                        exclude_id: int | None = None) -> list[dict]:
+    query = (
+        get_client().table("weekly_block").select(WEEKLY_BLOCK_COLUMNS)
+        .eq("author", user_id).eq("weekday", weekday)
+        .lt("start_time", end_time).gt("end_time", start_time)
+    )
+    if exclude_id is not None:
+        query = query.neq("id", exclude_id)
+    return [_block_out(r) for r in query.execute().data]
+
+
+def insert_weekly_block(user_id: int, weekday: int, start_time: str, end_time: str, name: str | None) -> dict:
+    # 같은 요일에 겹치는 반복 일정이 있으면 BlockConflictError.
+    if conflicts := _overlapping_blocks(user_id, weekday, start_time, end_time):
+        raise BlockConflictError(conflicts)
+    row = (
+        get_client().table("weekly_block")
+        .insert({"author": user_id, "weekday": weekday, "start_time": start_time, "end_time": end_time, "name": name})
+        .execute().data[0]
+    )
+    return _block_out(row)
+
+
+def update_weekly_block(user_id: int, block_id: int, weekday: int, start_time: str, end_time: str,
+                        name: str | None) -> dict | None:
+    # 본인 것이 아니거나 없으면 None. 겹치면 BlockConflictError.
+    if get_weekly_block(user_id, block_id) is None:
+        return None
+    if conflicts := _overlapping_blocks(user_id, weekday, start_time, end_time, exclude_id=block_id):
+        raise BlockConflictError(conflicts)
+    rows = (
+        get_client().table("weekly_block")
+        .update({"weekday": weekday, "start_time": start_time, "end_time": end_time, "name": name})
+        .eq("author", user_id).eq("id", block_id).execute().data
+    )
+    return _block_out(rows[0]) if rows else None
+
+
+def delete_weekly_block(user_id: int, block_id: int) -> bool:
+    rows = get_client().table("weekly_block").delete().eq("author", user_id).eq("id", block_id).execute().data
     return bool(rows)
 
 

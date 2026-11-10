@@ -1,6 +1,7 @@
 # 캠퍼스 일정(수업 등)과 운동 시간.
 #
-# - schedule_text: 프롬프트의 [캠퍼스 일정] 부분 (DB의 일정 = 운동할 수 없는 시간)
+# - block_events: 매주 반복 일정(weekly_block)을 계획 기간의 날짜별 일정으로 펼친다
+# - schedule_text: 프롬프트의 [캠퍼스 일정] 부분 (반복 일정 + 그 주의 일정 = 운동할 수 없는 시간)
 # - fit_sessions: AI가 정한 운동 시간이 일정과 겹치거나 운동 가능 시간을 벗어나면, 그날 가장 가까운 빈 시간으로 옮긴다.
 #   그날 빈 시간이 없으면 휴식으로 바꾼다. 서버가 마지막으로 확인하므로 저장되는 운동은 일정과 겹치지 않는다.
 # - add_session_times: 종료 시각·총 시간 계산
@@ -10,6 +11,7 @@ from datetime import date, datetime, timedelta
 
 from app.config import TIMEZONE, WORKOUT_HOURS
 from app.db import ScheduleEvent
+from app.week import WEEKDAY_NAMES, days_between
 
 WORKOUT_NAME_PREFIX = "운동: "   # schedule.name 앞에 붙여 운동 일정임을 구분한다 (예: "운동: 가슴·삼두")
 
@@ -31,14 +33,28 @@ def _fmt(event: ScheduleEvent) -> str:
     return f"  {s.strftime('%Y-%m-%d %H:%M')}~{end} {event.name or '(이름 없음)'}"
 
 
-def schedule_text(events: list[ScheduleEvent]) -> str:
-    # [캠퍼스 일정] 부분.
+def block_events(blocks: list[dict], start: date, end: date) -> list[ScheduleEvent]:
+    # weekly_block(weekday 1=월 ... 7=일) -> start~end의 날짜별 일정
+    return [
+        ScheduleEvent(start=_at(d, b["start_time"]), end=_at(d, b["end_time"]), name=b["name"])
+        for d in days_between(start, end) for b in blocks if b["weekday"] == d.weekday() + 1
+    ]
+
+
+def schedule_text(events: list[ScheduleEvent], blocks: list[dict]) -> str:
+    # [캠퍼스 일정] 부분. 반복 일정은 요일별로 한 줄씩 써서 토큰을 아낀다.
     open_, close = WORKOUT_HOURS
     lines = [f"- 운동 가능 시간: 매일 {open_}~{close}"]
-    if not events:
+    if not events and not blocks:
         lines.append("- 수업 등 일정: 없음 (기간 내 모든 날 공강)")
-    else:
-        lines.append("- 수업 등 일정 (이 시간에는 운동할 수 없음):")
+        return "\n".join(lines)
+    lines.append("- 아래 시간에는 운동할 수 없음")
+    if blocks:
+        lines.append("  매주 반복:")
+        lines += [f"  매주 {WEEKDAY_NAMES[b['weekday'] - 1]} {b['start_time']}~{b['end_time']} {b['name'] or '(이름 없음)'}"
+                  for b in blocks]
+    if events:
+        lines.append("  이번 기간 일정:")
         lines += [_fmt(e) for e in events]
     return "\n".join(lines)
 
@@ -107,14 +123,27 @@ def add_session_times(plan: dict) -> dict:
     return plan
 
 
+def workout_sessions(plan: dict) -> list[dict]:
+    # 저장할 운동하는 날 (운동이 있고 시각이 정해진 날). add_session_times 뒤에 쓴다.
+    return [s for s in plan["sessions"] if s["exercises"] and s["start_time"]]
+
+
 def session_rows(plan: dict) -> list[tuple[str, datetime, datetime]]:
-    # 운동하는 날 -> (일정 이름, 시작, 끝). add_session_times 뒤에 쓴다.
+    # 운동하는 날 -> (일정 이름, 시작, 끝). workout_sessions와 같은 순서.
     rows = []
-    for s in plan["sessions"]:
-        if s["exercises"] and s["start_time"]:
-            start = _at(date.fromisoformat(s["date"]), s["start_time"])
-            rows.append((WORKOUT_NAME_PREFIX + s["focus"], start, start + timedelta(minutes=s["total_minutes"])))
+    for s in workout_sessions(plan):
+        start = _at(date.fromisoformat(s["date"]), s["start_time"])
+        rows.append((WORKOUT_NAME_PREFIX + s["focus"], start, start + timedelta(minutes=s["total_minutes"])))
     return rows
+
+
+def exercise_rows(session: dict, schedule_id: int) -> list[dict]:
+    # 그날의 운동 -> workout_exercise 테이블 행
+    return [
+        {"schedule_id": schedule_id, "position": i, "name": e["name"], "sets": e["sets"], "reps": e["reps"],
+         "duration_seconds": e["duration_seconds"], "estimated_minutes": e["estimated_minutes"]}
+        for i, e in enumerate(session["exercises"], 1)
+    ]
 
 
 def overlaps(start: datetime, end: datetime, events: list[ScheduleEvent]) -> list[ScheduleEvent]:

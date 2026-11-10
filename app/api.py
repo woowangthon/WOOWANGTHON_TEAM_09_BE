@@ -6,12 +6,17 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 
 from app.auth import create_access_token, current_user_id, hash_password, verify_password
 from app.db import (
-    IdentityColumnError, NameTakenError, ScheduleConflictError,
+    BlockConflictError, IdentityColumnError, NameTakenError, ScheduleConflictError,
+    delete_weekly_block, get_weekly_block, insert_weekly_block, list_weekly_blocks, update_weekly_block,
     delete_schedule, fetch_login, fetch_user, fetch_user_info, get_schedule, insert_schedule, insert_user,
-    list_schedules, update_schedule, upsert_user_info,
+    list_schedules, list_workout_exercises, set_workout_exercise_completed, update_schedule, upsert_user_info,
 )
 from app.planner import PlanError, create_plan
-from app.schemas import InfoCreate, LoginRequest, PlanRequest, ScheduleIn, UserCreate
+from app.report import weekly_report
+from app.schemas import (
+    InfoCreate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
+)
+from app.week import today
 
 router = APIRouter()
 
@@ -135,11 +140,15 @@ def read_schedules(
     return list_schedules(user_id, start, end)
 
 
-@router.get("/schedule/{schedule_id}")
+@router.get(
+    "/schedule/{schedule_id}",
+    description="일정 하나. AI가 만든 운동 일정이면 exercises에 그날의 운동과 운동별 이수 여부(completed)가 있다.",
+)
 def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     schedule = get_schedule(user_id, schedule_id)
     if schedule is None:
         raise SCHEDULE_NOT_FOUND
+    schedule["exercises"] = list_workout_exercises(schedule_id) if schedule["created_by_ai"] else []
     return schedule
 
 
@@ -174,3 +183,89 @@ def remove_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     if not delete_schedule(user_id, schedule_id):
         raise SCHEDULE_NOT_FOUND
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+
+# ---------- 운동 이수 (AI가 만든 운동 일정의 운동만) ----------
+
+@router.put(
+    "/workout-exercise/{exercise_id}",
+    description="운동 하나의 이수 여부를 바꾼다. 본문 {\"completed\": true}. 본인 일정의 운동이 아니면 404.",
+)
+def update_workout_exercise(exercise_id: int, body: WorkoutExerciseUpdate, user_id: int = Depends(current_user_id)):
+    exercise = set_workout_exercise_completed(user_id, exercise_id, body.completed)
+    if exercise is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="운동을 찾을 수 없습니다.")
+    return exercise
+
+
+
+# ---------- 매주 반복 일정 (수업 시간표, 요일별 운동 불가 시간) ----------
+
+BLOCK_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="반복 일정을 찾을 수 없습니다.")
+
+
+def block_conflict(e: BlockConflictError) -> HTTPException:
+    return HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
+        detail={"message": "같은 요일의 다른 반복 일정과 시간이 겹칩니다.", "conflicts": e.conflicts},
+    )
+
+
+@router.get("/weekly-block", description="본인의 매주 반복 일정 목록 (요일, 시작 시각 순).")
+def read_weekly_blocks(user_id: int = Depends(current_user_id)):
+    return list_weekly_blocks(user_id)
+
+
+@router.get("/weekly-block/{block_id}")
+def read_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
+    block = get_weekly_block(user_id, block_id)
+    if block is None:
+        raise BLOCK_NOT_FOUND
+    return block
+
+
+@router.post(
+    "/weekly-block",
+    status_code=status.HTTP_201_CREATED,
+    description="매주 반복 일정 추가 (예: 매주 월 09:00~10:15 자료구조). 같은 요일의 다른 반복 일정과 겹치면 409.",
+)
+def create_weekly_block(body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
+    try:
+        return insert_weekly_block(user_id, body.weekday, body.start_time, body.end_time, body.name)
+    except BlockConflictError as e:
+        raise block_conflict(e)
+
+
+@router.put("/weekly-block/{block_id}", description="반복 일정 전체를 바꾼다. 겹치면 409.")
+def replace_weekly_block(block_id: int, body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
+    try:
+        block = update_weekly_block(user_id, block_id, body.weekday, body.start_time, body.end_time, body.name)
+    except BlockConflictError as e:
+        raise block_conflict(e)
+    if block is None:
+        raise BLOCK_NOT_FOUND
+    return block
+
+
+@router.delete("/weekly-block/{block_id}", status_code=status.HTTP_204_NO_CONTENT)
+def remove_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
+    if not delete_weekly_block(user_id, block_id):
+        raise BLOCK_NOT_FOUND
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+# ---------- 주간 리포트 ----------
+
+@router.get(
+    "/report",
+    description=(
+        "주간 운동 리포트 (월~일). AI가 계획한 운동의 종목별 이수 여부로 요일별 수행률(%)을 계산한다.\n"
+        "total은 주 전체(앞으로 할 운동 포함), so_far는 오늘까지. 계획이 없는 날의 rate는 null."
+    ),
+)
+def read_report(
+    user_id: int = Depends(current_user_id),
+    week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD). 없으면 이번 주"),
+):
+    return weekly_report(user_id, week or today())
