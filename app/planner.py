@@ -114,6 +114,6 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     if conflicts:
         raise PlanError(409, {"message": "계획을 만드는 동안 추가된 일정과 겹칩니다. 다시 요청하세요.",
                               "conflicts": conflicts})
-    saved = insert_schedules(user_id, rows)
+    saved = insert_schedules(user_id, rows, created_by_ai=True)
 
     return {"profile": profile, "plan": plan_dict, "adjusted": adjusted, "saved": saved, "sources": sources}

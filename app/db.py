@@ -5,7 +5,8 @@
 # 테이블
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
 # - info:     id(-> user.id), age, height, weight, experience(text, null 가능)
-# - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name
+# - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
+#             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 #
 # 연결 확인:  python -m app.db <user_id>
 
@@ -141,7 +142,7 @@ def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]
 
 # ---------- schedule CRUD (모두 author = 로그인한 사용자로 제한) ----------
 
-SCHEDULE_COLUMNS = "id, name, start_term, end_term"
+SCHEDULE_COLUMNS = "id, name, start_term, end_term, created_by_ai"
 
 
 def _local_time(value: str) -> str:
@@ -156,6 +157,7 @@ def _schedule_out(row: dict) -> dict:
         "name": row["name"],
         "start_term": _local_time(row["start_term"]),
         "end_term": _local_time(row["end_term"]),
+        "created_by_ai": row["created_by_ai"],
     }
 
 
@@ -228,14 +230,17 @@ def update_schedule(user_id: int, schedule_id: int, name: str | None,
     return _schedule_out(rows[0]) if rows else None
 
 
-def insert_schedules(user_id: int, rows: list[tuple[str | None, datetime, datetime]]) -> list[dict]:
+def insert_schedules(user_id: int, rows: list[tuple[str | None, datetime, datetime]],
+                     created_by_ai: bool = False) -> list[dict]:
     # 여러 일정을 한 번의 요청으로 저장한다 (전부 저장되거나 전부 실패). rows: (이름, 시작, 끝).
+    # created_by_ai: /plan이 만든 일정이면 True. 사용자 요청(ScheduleIn)에는 이 값이 없어 바꿀 수 없다.
     # 겹침 검사는 하지 않으므로, 부르는 쪽에서 먼저 확인한다 (planner).
     if not rows:
         return []
     data = (
         get_client().table("schedule")
-        .insert([{"author": user_id, "name": n, "start_term": s.isoformat(), "end_term": e.isoformat()}
+        .insert([{"author": user_id, "name": n, "start_term": s.isoformat(), "end_term": e.isoformat(),
+                  "created_by_ai": created_by_ai}
                  for n, s, e in rows])
         .execute().data
     )
