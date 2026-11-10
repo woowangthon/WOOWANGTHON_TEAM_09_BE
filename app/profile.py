@@ -42,8 +42,9 @@ def build_profile(req: PlanRequest, info: dict) -> dict:
         "weight_kg": weight,
         "bmi": bmi,
         "bmi_category": bmi_category_of(bmi, age),
-        "goal": req.goal,
+        "goal": req.goal or info.get("goal"),   # 요청에 없으면 info의 목표
         "experience": info.get("experience"),   # 없으면 None
+        "uses_gym": info.get("uses_gym"),       # 없으면 None (알 수 없음)
         "inbody": {   # 사용자가 직접 입력한 인바디 최신값. 입력하지 않았으면 모두 None
             "measured_at": info.get("inbody_measured_at"),
             "body_fat_percent": info.get("body_fat_percent"),

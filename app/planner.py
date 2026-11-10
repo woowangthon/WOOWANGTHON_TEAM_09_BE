@@ -8,6 +8,7 @@
 # 6. AI 호출 (구조화된 출력)                     -> llm.py, schemas.py
 # 7. 응답 검증
 # 8. 운동 시간을 일정과 겹치지 않게 보정하고 schedule, workout_exercise 테이블에 저장  -> schedule.py, db.py
+#    (다른 계획 추천(regenerate)이면 저장에 성공한 뒤 그 주의 오늘 이후 이전 AI 운동 일정을 지운다)
 
 from datetime import date
 
@@ -15,7 +16,8 @@ from pydantic import ValidationError
 
 from app.config import AI_MODEL
 from app.db import (
-    delete_schedules_by_ids, fetch_schedules, fetch_user_info, insert_schedules, insert_workout_exercises,
+    delete_schedules_by_ids, fetch_ai_workouts, fetch_schedules, fetch_user_info, insert_schedules,
+    insert_workout_exercises,
     list_weekly_blocks,
 )
 from app.exercises import add_exercise_info, allowed_exercise_names, exercise_list_text
@@ -29,7 +31,7 @@ from app.schedule import (
 )
 from app.schemas import PlanRequest, WorkoutPlan, plan_schema_for
 from app.search import select_sources
-from app.week import today, week_bounds
+from app.week import WEEKDAY_NAMES, today, week_bounds
 
 
 class PlanError(Exception):
@@ -42,7 +44,7 @@ class PlanError(Exception):
 
 
 def create_plan(req: PlanRequest, user_id: int) -> dict:
-    # POST /plan 응답: {"profile", "plan", "adjusted", "saved", "sources"}
+    # POST /plan 응답: {"profile", "plan", "adjusted", "saved", "replaced", "sources"}
     # 1. 기간: 요청 날짜(없으면 오늘)가 속한 주의 월~일. 이미 지난 요일은 뺀다 (수요일에 요청하면 수~일)
     monday, end = week_bounds(req.week or today())
     start = max(monday, today())
@@ -53,6 +55,8 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     info = fetch_user_info(user_id)
     if info is None:
         raise PlanError(400, "건강 정보(나이, 키, 몸무게)가 없습니다. POST /info로 먼저 등록하세요.")
+    if not (req.goal or info.get("goal")):
+        raise PlanError(400, "운동 목표가 없습니다. 요청에 goal을 넣거나 POST /info로 goal을 저장하세요.")
     profile = build_profile(req, info)
     limit_intensity = limits_intensity(profile)
 
@@ -65,16 +69,19 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
         plan = WorkoutPlan(
             found=False, start_date=start.isoformat(), end_date=end.isoformat(), sessions=[], precaution="",
         )
-        return {"profile": profile, "plan": plan.model_dump(), "adjusted": [], "saved": [], "sources": []}
+        return {"profile": profile, "plan": plan.model_dump(), "adjusted": [], "saved": [], "replaced": 0, "sources": []}
 
     # 5. DB의 일정(그 주의 일정 + 매주 반복 일정) + 지난주 수행률 + 프롬프트
-    events = fetch_schedules(user_id, start, end)
+    # 다른 계획 추천이면 바꿀 이전 AI 운동 일정(오늘 이후)은 바쁜 시간에서 빼고, 프롬프트에 이전 계획으로 보여준다
+    previous = fetch_ai_workouts(user_id, start, end) if req.regenerate else []
+    replace_ids = {w["id"] for w in previous}
+    events = [e for e in fetch_schedules(user_id, start, end) if e.id not in replace_ids]
     blocks = list_weekly_blocks(user_id)
     busy = events + block_events(blocks, start, end)
     user_info = build_user_info(profile, limit_intensity)
     user_message = build_user_message(
         sources, exercise_list_text(allowed_names), start, end, schedule_text(events, blocks),
-        history_text(user_id, monday), user_info,
+        history_text(user_id, monday), user_info, previous_text(previous),
     )
 
     # 6. AI 호출
@@ -123,7 +130,8 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     rows = session_rows(plan_dict)
 
     # AI가 계획을 만드는 동안 사용자가 일정을 추가했을 수 있으므로 저장 직전에 다시 확인한다
-    latest = fetch_schedules(user_id, start, end) + block_events(list_weekly_blocks(user_id), start, end)
+    latest = ([e for e in fetch_schedules(user_id, start, end) if e.id not in replace_ids]
+              + block_events(list_weekly_blocks(user_id), start, end))
     conflicts = [
         {"date": s.isoformat()[:10], "workout": n, "schedule": e.name}
         for n, s, t in rows for e in overlaps(s, t, latest)
@@ -132,8 +140,22 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
         raise PlanError(409, {"message": "계획을 만드는 동안 추가된 일정과 겹칩니다. 다시 요청하세요.",
                               "conflicts": conflicts})
     saved = save_workouts(user_id, plan_dict, rows)
+    delete_schedules_by_ids(user_id, sorted(replace_ids))   # 새 계획이 저장된 뒤에만 이전 계획을 지운다
 
-    return {"profile": profile, "plan": plan_dict, "adjusted": adjusted, "saved": saved, "sources": sources}
+    return {"profile": profile, "plan": plan_dict, "adjusted": adjusted, "saved": saved,
+            "replaced": len(replace_ids), "sources": sources}
+
+
+def previous_text(workouts: list[dict]) -> str | None:
+    # 다른 계획 추천용 [이전 계획] 부분. 이전 계획이 없으면 None (프롬프트에 넣지 않음).
+    if not workouts:
+        return None
+    lines = [
+        f"- {w['start'].strftime('%m-%d')}({WEEKDAY_NAMES[w['start'].weekday()]}) {w['start'].strftime('%H:%M')} "
+        f"{(w['name'] or '').removeprefix('운동: ')}: {', '.join(w['exercises'])}"
+        for w in workouts
+    ]
+    return "\n".join(lines + ["- 사용자가 다른 계획을 원한다. 위 계획과 운동 구성·요일·시간을 다르게 짜라."])
 
 
 def save_workouts(user_id: int, plan_dict: dict, rows: list) -> list[dict]:

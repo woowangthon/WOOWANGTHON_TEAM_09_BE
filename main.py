@@ -22,7 +22,7 @@ API_DESCRIPTION = """
 2. `POST /login` → `access_token` 받기
 3. `POST /info` 건강 정보·인바디 등록 (가입 때 안 보냈다면 필수)
 4. `POST /weekly-block` 매주 반복 수업·운동 불가 시간 등록, `POST /schedule` 그 주의 일회성 일정 등록
-5. `POST /plan` 주간 운동 계획 생성 → 운동하는 날이 일정에 자동 저장
+5. `POST /plan` 주간 운동 계획 생성 → 운동하는 날이 일정에 자동 저장 (`regenerate: true`면 다른 계획으로 교체, `DELETE /plan`으로 그 주 플랜 삭제)
 6. `PUT /workout-exercise/{id}` 운동한 종목 이수 체크
 7. `GET /report` 요일별 수행률 확인 → 다음 주 `POST /plan`에 지난주 수행률이 반영됨
 
@@ -54,7 +54,7 @@ API_DESCRIPTION = """
 OPENAPI_TAGS = [
     {"name": "인증·사용자", "description": "회원가입, 로그인(JWT 발급), 내 정보"},
     {"name": "건강 정보", "description": "나이·키·몸무게·성별·헬스 경력·인바디. 운동 계획의 입력이 된다"},
-    {"name": "운동 계획", "description": "AI 주간 운동 계획 생성 (월~일). 결과는 일정에 자동 저장"},
+    {"name": "운동 계획", "description": "AI 주간 운동 계획 생성 (월~일), 다른 계획 추천, 플랜 삭제. 결과는 일정에 자동 저장"},
     {"name": "일정", "description": "날짜가 정해진 일정(약속, 시험 등)과 AI 운동 일정. 캘린더 화면용"},
     {"name": "반복 시간표", "description": "매주 반복되는 수업·운동 불가 시간 (요일 + 시각)"},
     {"name": "운동 이수", "description": "AI 운동 일정의 종목별 완료 체크"},

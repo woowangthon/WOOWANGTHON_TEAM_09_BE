@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 
 from app.auth import create_access_token, current_user_id, hash_password, verify_password
 from app.db import (
-    BlockConflictError, IdentityColumnError, NameTakenError, ScheduleConflictError,
+    BlockConflictError, IdentityColumnError, NameTakenError, ScheduleConflictError, delete_ai_workouts,
     delete_weekly_block, get_weekly_block, insert_weekly_block, list_weekly_blocks, update_weekly_block,
     delete_schedule, fetch_login, fetch_user, fetch_user_info, get_schedule, insert_schedule, insert_user,
     list_schedules, list_workout_exercises, set_workout_exercise_completed, update_schedule, upsert_user_info,
@@ -15,13 +15,13 @@ from app.db import (
 from app.planner import PlanError, create_plan
 from app.report import weekly_report
 from app.responses import (
-    BlockConflictOut, ErrorOut, InfoOut, PlanConflictOut, PlanOut, ReportOut, ScheduleConflictOut,
+    BlockConflictOut, ErrorOut, InfoOut, PlanConflictOut, PlanDeleteOut, PlanOut, ReportOut, ScheduleConflictOut,
     ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
 )
 from app.schemas import (
     REQUIRED_INFO, InfoUpdate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
 )
-from app.week import today
+from app.week import today, week_bounds
 
 router = APIRouter()
 
@@ -124,11 +124,15 @@ def read_me(user_id: int = Depends(current_user_id)):
     summary="건강 정보·인바디 저장 (보낸 필드만 수정)",
     response_model=InfoOut,
     description=(
-        "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일)를 저장한다.\n\n"
+        "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일), "
+        "닉네임, 운동 목표, 헬스장 이용 여부, '운동하기 어려운 시간' 원래 입력값을 저장한다.\n\n"
         "- **처음 등록**: `age`, `height`, `weight`, `sex` 필수\n"
         "- **그다음**: 바꿀 필드만 보낸다. 보내지 않은 필드는 그대로 유지된다\n"
         "- 선택 항목(`experience`, 인바디 값)을 지우려면 그 필드를 `null`로 보낸다\n"
-        "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n\n"
+        "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n"
+        "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n"
+        "- `busy_times_raw`: FE 화면 복원용 원래 입력값. 아무 JSON이나 저장되고 그대로 돌아온다. "
+        "서버는 해석하지 않으며, 계획에 반영되는 것은 `POST /weekly-block`으로 등록한 요일별 시간이다\n\n"
         "응답은 저장된 전체 건강 정보다. 이 값들은 `POST /plan`에서 운동 계획을 짤 때 쓰인다."
     ),
     responses={
@@ -165,9 +169,14 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
     description=(
         "`week`가 속한 주(월~일)의 운동 계획을 AI가 만들고, 운동하는 날을 일정(`schedule`)에 저장한다.\n\n"
         "**입력으로 쓰는 것**\n"
-        "- 요청 본문: `goal`(운동 목표), `week`(그 주의 아무 날짜. 없으면 이번 주)\n"
-        "- DB: 건강 정보(`POST /info`), 그 주의 일정(`/schedule`), 매주 반복 시간표(`/weekly-block`), "
+        "- 요청 본문: `goal`(운동 목표. 없으면 `POST /info`의 goal), `week`(그 주의 아무 날짜. 없으면 이번 주), "
+        "`regenerate`(다른 계획 추천)\n"
+        "- DB: 건강 정보(`POST /info`, 헬스장 이용 여부 포함), 그 주의 일정(`/schedule`), 매주 반복 시간표(`/weekly-block`), "
         "지난주 운동 수행률(`/workout-exercise`의 이수 기록)\n\n"
+        "**다른 계획 추천 (`\"regenerate\": true`)**\n"
+        "- 그 주의 오늘 이후 AI 운동 일정을 AI에게 '이전 계획'으로 보여 주고, 운동 구성·요일·시간을 다르게 다시 짠다\n"
+        "- 새 계획이 저장된 뒤에만 이전 일정(과 그 이수 기록)을 지운다. 실패하면 이전 일정은 그대로 남는다\n"
+        "- 지운 개수는 응답의 `replaced`\n"
         "**동작**\n"
         "- 이미 지난 요일은 빼고 짠다 (수요일에 이번 주를 요청하면 수~일)\n"
         "- 운동 시간은 08:00~22:00 안에서 일정·반복 시간표와 겹치지 않게 정한다. "
@@ -175,12 +184,13 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
         "- BMI 25 이상이면 고강도 운동을 뺀다\n"
         "- 운동하는 날은 `schedule`에 `created_by_ai: true`로, 그날의 운동은 `saved[].exercises`에 저장된다. "
         "`saved[].exercises[].id`로 `PUT /workout-exercise/{id}` 이수 체크를 한다\n"
-        "- 저장된 운동 일정은 이후 요청에서 바쁜 시간으로 취급된다. 같은 주를 다시 짜려면 먼저 `DELETE /schedule/{id}`로 지운다\n\n"
+        "- `regenerate` 없이 다시 요청하면 이미 저장된 운동 일정은 바쁜 시간으로 취급된다 (계획이 추가로 쌓임). "
+        "바꾸려면 `regenerate: true`, 지우려면 `DELETE /plan`\n\n"
         "**주의**: AI를 호출하므로 응답까지 수십 초 걸릴 수 있고 토큰 비용이 든다. 버튼 연타를 막아 주세요."
     ),
     responses={
         **AUTH_ERROR,
-        400: {"model": ErrorOut, "description": "건강 정보 미등록 (`POST /info` 먼저), 또는 이미 지난 주"},
+        400: {"model": ErrorOut, "description": "건강 정보 미등록 (`POST /info` 먼저), 운동 목표 없음, 또는 이미 지난 주"},
         409: {"model": PlanConflictOut, "description": "계획을 만드는 동안 추가된 일정과 겹침. 아무것도 저장되지 않음 → 다시 요청"},
         502: {"model": ErrorOut, "description": "AI 응답 형식 오류. 아무것도 저장되지 않음 → 다시 요청"},
     },
@@ -190,6 +200,27 @@ def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
         return create_plan(req, user_id)
     except PlanError as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
+
+
+@router.delete(
+    "/plan",
+    tags=[TAG_PLAN],
+    summary="운동 플랜 삭제 (그 주 전체)",
+    response_model=PlanDeleteOut,
+    description=(
+        "`week`가 속한 주(월~일)의 AI 운동 일정을 모두 지운다. 그 일정의 운동 목록과 이수 기록도 함께 지워져 "
+        "주간 리포트에서도 사라진다 (지난 요일 포함). 사용자가 직접 넣은 일정과 반복 시간표는 그대로.\n\n"
+        "그 주에 플랜이 없으면 `deleted: 0` (오류 아님)."
+    ),
+    responses=AUTH_ERROR,
+)
+def delete_plan(
+    user_id: int = Depends(current_user_id),
+    week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD, 아무 요일이나). 없으면 이번 주"),
+):
+    monday, sunday = week_bounds(week or today())
+    deleted = delete_ai_workouts(user_id, monday, sunday)
+    return {"week_start": monday.isoformat(), "week_end": sunday.isoformat(), "deleted": deleted}
 
 
 # ---------- 일정 (모두 로그인 필요, 본인 일정만) ----------

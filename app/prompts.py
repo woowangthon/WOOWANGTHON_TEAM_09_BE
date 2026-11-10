@@ -25,8 +25,16 @@ def build_user_info(profile: dict, limit_intensity: bool) -> str:
         f"- BMI: {profile['bmi']}" + (f" ({profile['bmi_category']})" if profile["bmi_category"] else ""),
         f"- 헬스 경력: {profile['experience'] or '정보 없음'}",
         f"- 목표: {profile['goal']}",
-    ] + inbody_lines(profile["inbody"])
+    ] + gym_lines(profile["uses_gym"])
+      + inbody_lines(profile["inbody"])
       + (["- 운동 강도 제한: 비만(BMI 25 이상)이므로 저~중강도 운동만 사용"] if limit_intensity else []))
+
+
+def gym_lines(uses_gym: bool | None) -> list[str]:
+    # 헬스장 이용 여부. 모르면 줄을 넣지 않는다.
+    if uses_gym is None:
+        return []
+    return ["- 헬스장 이용: 가능"] if uses_gym else ["- 헬스장 이용: 불가 (기구 없이 할 수 있는 운동 위주로 고를 것)"]
 
 
 def inbody_lines(inbody: dict) -> list[str]:
@@ -50,9 +58,10 @@ def build_context(sources: list[dict]) -> str:
 
 
 def build_user_message(sources: list[dict], exercise_list: str, start: date, end: date, schedule: str,
-                       history: str, user_info: str) -> str:
-    # AI에게 보내는 사용자 메시지 전체.
+                       history: str, user_info: str, previous: str | None = None) -> str:
+    # AI에게 보내는 사용자 메시지 전체. previous: 다른 계획 추천일 때 이전 계획 (없으면 그 부분을 넣지 않는다)
     return (
+        (f"[이전 계획]\n{previous}\n\n" if previous else "") +
         f"[참고 문서]\n{build_context(sources)}\n\n"
         f"[운동 목록]\n{exercise_list}\n\n"
         f"[계획 기간]\n{start.isoformat()} ~ {end.isoformat()} ({(end - start).days + 1}일)\n\n"

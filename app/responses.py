@@ -6,7 +6,7 @@
 # - 시각(하루 안): "HH:mm" (24시간제)
 # - 일시: "YYYY-MM-DDTHH:MM:SS" (한국 시간, 시간대 표기 없음)
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, JsonValue
 
 
 # ---------- 공통 오류 ----------
@@ -77,6 +77,12 @@ class InfoOut(BaseModel):
     skeletal_muscle_kg: float | None = Field(description="인바디 골격근량 (kg). 입력 안 했으면 null", examples=[31.2])
     inbody_measured_at: str | None = Field(description="인바디 측정일 YYYY-MM-DD. 입력 안 했으면 null",
                                            examples=["2026-11-10"])
+    nickname: str | None = Field(description="이름(닉네임). 없으면 null", examples=["근육왕"])
+    goal: str | None = Field(description="운동 목표. 없으면 null", examples=["체중 감량"])
+    uses_gym: bool | None = Field(description="헬스장 이용 여부. 없으면 null", examples=[True])
+    busy_times_raw: JsonValue | None = Field(
+        description="'운동하기 어려운 시간'의 FE 원래 입력값. 보낸 JSON 그대로. 없으면 null",
+        examples=[{"weekdays": ["mon", "wed"], "from": "18:00", "to": "20:00"}])
 
 
 class UserOut(BaseModel):
@@ -148,8 +154,9 @@ class ProfileOut(BaseModel):
         description="대한비만학회 기준: 저체중, 정상, 비만 전단계, 1단계 비만, 2단계 비만, 3단계 비만. "
                     "18세 이하는 성인 기준을 쓸 수 없어 null. 25 이상(1단계 비만부터)이면 고강도 운동을 빼고 계획",
         examples=["비만 전단계"])
-    goal: str = Field(description="요청한 운동 목표", examples=["근력 향상"])
+    goal: str = Field(description="계획에 쓴 운동 목표 (요청의 goal, 없으면 info의 goal)", examples=["근력 향상"])
     experience: str | None = Field(description="헬스 경력 (info 값)", examples=["헬스 3개월"])
+    uses_gym: bool | None = Field(description="헬스장 이용 여부 (info 값). null이면 알 수 없음", examples=[True])
     inbody: InbodyOut = Field(description="인바디 최신값 (입력 안 했으면 값이 모두 null)")
 
 
@@ -211,7 +218,14 @@ class PlanOut(BaseModel):
     plan: PlanDetailOut = Field(description="운동 계획")
     adjusted: list[AdjustmentOut] = Field(description="서버가 AI 계획을 고친 내역 (일정 충돌, 기간 밖 날짜 등). 없으면 빈 배열")
     saved: list[SavedWorkoutOut] = Field(description="schedule에 저장된 운동 일정 (운동하는 날만)")
+    replaced: int = Field(description="regenerate로 지운 이전 AI 운동 일정 수 (regenerate가 아니면 0)", examples=[0])
     sources: list[SourceOut] = Field(description="AI가 참고한 문서 조각 (근거 표시용)")
+
+
+class PlanDeleteOut(BaseModel):
+    week_start: str = Field(description="삭제한 주의 월요일", examples=["2026-11-16"])
+    week_end: str = Field(description="삭제한 주의 일요일", examples=["2026-11-22"])
+    deleted: int = Field(description="삭제한 AI 운동 일정 수 (0이면 그 주에 플랜이 없었음)", examples=[5])
 
 
 # ---------- 주간 리포트 ----------

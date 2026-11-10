@@ -5,7 +5,8 @@
 # 테이블
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
 # - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
-#             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능)
+#             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능),
+#             nickname, goal, uses_gym, busy_times_raw (jsonb: FE가 보낸 '운동하기 어려운 시간' 원래 입력값, 서버는 해석 안 함)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 # - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
@@ -31,6 +32,7 @@ class ScheduleEvent:
     start: datetime      # TIMEZONE(한국 시간) 기준
     end: datetime
     name: str | None
+    id: int | None = None   # schedule.id (반복 일정에서 펼친 것은 None)
 
 
 @lru_cache(maxsize=1)
@@ -80,7 +82,10 @@ def fetch_user(user_id: int) -> dict | None:
     return rows[0] if rows else None
 
 
-INFO_COLUMNS = ("age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at")
+INFO_COLUMNS = (
+    "age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at",
+    "nickname", "goal", "uses_gym", "busy_times_raw",
+)
 
 
 class IdentityColumnError(Exception):
@@ -127,7 +132,7 @@ def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]
     range_end = datetime.combine(end + timedelta(days=1), time.min, TIMEZONE)
     rows = (
         get_client().table("schedule")
-        .select("start_term, end_term, name")
+        .select("id, start_term, end_term, name")
         .eq("author", user_id)
         .lt("start_term", range_end.isoformat())     # 기간 끝 전에 시작하고
         .gt("end_term", range_start.isoformat())     # 기간 시작 후에 끝나는 일정
@@ -140,6 +145,7 @@ def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]
             start=datetime.fromisoformat(r["start_term"]).astimezone(TIMEZONE),
             end=datetime.fromisoformat(r["end_term"]).astimezone(TIMEZONE),
             name=r["name"],
+            id=r["id"],
         )
         for r in rows
     ]
@@ -305,11 +311,11 @@ def delete_schedules_by_ids(user_id: int, schedule_ids: list[int]) -> None:
 # ---------- 주간 리포트용: AI 운동 일정과 운동별 이수 여부 ----------
 
 def fetch_ai_workouts(user_id: int, start: date, end: date) -> list[dict]:
-    # start~end(포함)에 시작하는 AI 운동 일정. 한 번의 요청으로 운동별 이수 여부까지 가져온다.
-    # [{"id", "name", "start": datetime(한국 시간), "completed": [bool, ...]}]
+    # start~end(포함)에 시작하는 AI 운동 일정. 한 번의 요청으로 운동 이름과 운동별 이수 여부까지 가져온다.
+    # [{"id", "name", "start": datetime(한국 시간), "completed": [bool, ...], "exercises": [운동 이름, ...]}]
     rows = (
         get_client().table("schedule")
-        .select("id, name, start_term, workout_exercise(completed)")
+        .select("id, name, start_term, workout_exercise(name, position, completed)")
         .eq("author", user_id).eq("created_by_ai", True)
         .gte("start_term", datetime.combine(start, time.min, TIMEZONE).isoformat())
         .lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
@@ -319,9 +325,22 @@ def fetch_ai_workouts(user_id: int, start: date, end: date) -> list[dict]:
     return [
         {"id": r["id"], "name": r["name"],
          "start": datetime.fromisoformat(r["start_term"]).astimezone(TIMEZONE),
-         "completed": [e["completed"] for e in r["workout_exercise"]]}
+         "completed": [e["completed"] for e in r["workout_exercise"]],
+         "exercises": [e["name"] for e in sorted(r["workout_exercise"], key=lambda e: e["position"])]}
         for r in rows
     ]
+
+
+def delete_ai_workouts(user_id: int, start: date, end: date) -> int:
+    # start~end(포함)에 시작하는 AI 운동 일정을 지운다 (운동 목록·이수 기록은 DB에서 함께 삭제). 지운 개수.
+    rows = (
+        get_client().table("schedule").delete()
+        .eq("author", user_id).eq("created_by_ai", True)
+        .gte("start_term", datetime.combine(start, time.min, TIMEZONE).isoformat())
+        .lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
+        .execute().data
+    )
+    return len(rows)
 
 
 # ---------- weekly_block (매주 반복되는 수업·운동 불가 시간) ----------
