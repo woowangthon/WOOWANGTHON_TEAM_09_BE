@@ -223,6 +223,20 @@ def update_schedule(user_id: int, schedule_id: int, name: str | None,
     return _schedule_out(rows[0]) if rows else None
 
 
+def insert_schedules(user_id: int, rows: list[tuple[str | None, datetime, datetime]]) -> list[dict]:
+    # 여러 일정을 한 번의 요청으로 저장한다 (전부 저장되거나 전부 실패). rows: (이름, 시작, 끝).
+    # 겹침 검사는 하지 않으므로, 부르는 쪽에서 먼저 확인한다 (planner).
+    if not rows:
+        return []
+    data = (
+        get_client().table("schedule")
+        .insert([{"author": user_id, "name": n, "start_term": s.isoformat(), "end_term": e.isoformat()}
+                 for n, s, e in rows])
+        .execute().data
+    )
+    return [_schedule_out(r) for r in data]
+
+
 def delete_schedule(user_id: int, schedule_id: int) -> bool:
     # 지웠으면 True, 본인 일정이 아니거나 없으면 False.
     rows = get_client().table("schedule").delete().eq("author", user_id).eq("id", schedule_id).execute().data

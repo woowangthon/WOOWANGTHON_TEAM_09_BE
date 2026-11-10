@@ -1,4 +1,4 @@
-# 사용자 입력으로 계산하는 값: 대상(성인/노인 등), BMI 분류, 건강 상태로 알 수 있는 추가 대상.
+# 사용자 정보로 계산하는 값: 대상(성인/노인 등), BMI 분류, 건강 상태로 알 수 있는 추가 대상.
 
 from app.schemas import PlanRequest
 
@@ -43,16 +43,18 @@ def targets_from_notes(health_notes: str | None) -> set[str]:
     return {t for t, words in HEALTH_NOTE_TARGETS.items() if any(w in health_notes for w in words)}
 
 
-def build_profile(req: PlanRequest) -> dict:
-    # 응답의 "profile". 대상과 BMI는 AI가 해석하지 않도록 서버가 계산한다.
-    bmi = round(req.weight_kg / (req.height_cm / 100) ** 2, 1)
+def build_profile(req: PlanRequest, info: dict) -> dict:
+    # 응답의 "profile". info: DB info 테이블의 {"age", "height", "weight"}.
+    # 대상과 BMI는 AI가 해석하지 않도록 서버가 계산한다.
+    age, height, weight = info["age"], info["height"], info["weight"]
+    bmi = round(weight / (height / 100) ** 2, 1)
     return {
-        "age": req.age,
-        "target_group": target_group_of(req.age),
-        "height_cm": req.height_cm,
-        "weight_kg": req.weight_kg,
+        "age": age,
+        "target_group": target_group_of(age),
+        "height_cm": height,
+        "weight_kg": weight,
         "bmi": bmi,
-        "bmi_category": bmi_category_of(bmi, req.age),
+        "bmi_category": bmi_category_of(bmi, age),
         "goal": req.goal,
         "experience": req.experience,
         "health_notes": req.health_notes,

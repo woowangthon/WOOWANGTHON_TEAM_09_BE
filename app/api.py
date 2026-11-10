@@ -1,7 +1,6 @@
 # HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다.
 
 from datetime import date
-from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 
@@ -29,13 +28,17 @@ def read_root():
     return {"Hello": "World"}
 
 
-@router.get(
-    "/output",
-    description="사용자 정보와 기간을 받아 운동 계획을 만든다.",
+@router.post(
+    "/plan",
+    description=(
+        "로그인한 본인의 건강 정보(DB의 info)와 일정(DB의 schedule)을 바탕으로 기간의 운동 계획을 만들고, "
+        "운동하는 날을 schedule에 저장한다. 운동 시간은 기존 일정과 겹치지 않는다.\n"
+        "헤더: Authorization: Bearer <토큰>. info가 없으면 400."
+    ),
 )
-def output(req: Annotated[PlanRequest, Query()]):
+def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
     try:
-        return create_plan(req)
+        return create_plan(req, user_id)
     except PlanError as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
 

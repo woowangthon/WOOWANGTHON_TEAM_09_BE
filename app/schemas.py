@@ -1,6 +1,6 @@
 # 요청과 AI 출력의 형식 (Pydantic 모델).
 #
-# - PlanRequest: /output 이 받는 쿼리 파라미터
+# - PlanRequest: POST /plan 의 요청 본문 (나이·키·몸무게는 DB의 info에서 읽는다)
 # - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
 # - ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
 # - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
@@ -18,9 +18,6 @@ from app.exercises import EXERCISE_CATALOG
 # ---------- 사용자 입력 ----------
 
 class PlanRequest(BaseModel):
-    age: int = Field(ge=6, le=100, description="나이 (만 나이)")
-    height_cm: float = Field(gt=50, lt=250, description="키 (cm)")
-    weight_kg: float = Field(gt=10, lt=300, description="몸무게 (kg)")
     goal: str = Field(min_length=1, max_length=200, description="운동 목표 (예: 체중 감량, 근력 향상)")
     experience: Literal["처음", "6개월 미만", "6개월~2년", "2년 이상"] = Field(description="헬스 운동 경력")
     health_notes: str | None = Field(None, max_length=300, description="질환, 부상, 임신 등 참고할 건강 상태")
@@ -46,7 +43,7 @@ class LoginRequest(BaseModel):
 
 
 class InfoCreate(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"description": "info 테이블 (모두 int2). 범위는 PlanRequest와 같다."})
+    model_config = ConfigDict(json_schema_extra={"description": "info 테이블 (모두 int2)."})
 
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")

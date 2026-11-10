@@ -1,44 +1,98 @@
 # 캠퍼스 일정(수업 등)과 운동 시간.
 #
-# - busy_slots: 계획 기간의 바쁜 시간(수업 등). 지금은 연동된 캘린더가 없어 모든 날을 공강으로 본다.
-#   나중에 Supabase DB에서 사용자의 시간표를 불러오도록 이 함수만 바꾸면 된다.
-# - schedule_text: 프롬프트의 [캠퍼스 일정] 부분
-# - add_session_times: AI가 정한 시작 시각과 운동별 예상 시간으로 종료 시각·총 시간을 서버가 계산한다
+# - schedule_text: 프롬프트의 [캠퍼스 일정] 부분 (DB의 일정 = 운동할 수 없는 시간)
+# - fit_sessions: AI가 정한 운동 시간이 일정과 겹치거나 운동 가능 시간을 벗어나면, 그날 가장 가까운 빈 시간으로 옮긴다.
+#   그날 빈 시간이 없으면 휴식으로 바꾼다. 서버가 마지막으로 확인하므로 저장되는 운동은 일정과 겹치지 않는다.
+# - add_session_times: 종료 시각·총 시간 계산
+# - session_rows: 운동하는 날을 schedule 테이블에 저장할 행으로 바꾼다
 
-from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 
-from app.config import WORKOUT_HOURS
+from app.config import TIMEZONE, WORKOUT_HOURS
+from app.db import ScheduleEvent
 
-
-@dataclass
-class BusySlot:
-    date: date
-    start: str   # "HH:mm"
-    end: str     # "HH:mm"
-    title: str   # 예: "자료구조 수업"
-
-
-def busy_slots(start: date, end: date) -> list[BusySlot]:
-    # start~end 기간의 바쁜 시간. TODO: Supabase의 사용자 시간표 연동. 지금은 캘린더가 없으므로 모두 공강.
-    return []
-
-
-def schedule_text(slots: list[BusySlot]) -> str:
-    # [캠퍼스 일정] 부분.
-    open_, close = WORKOUT_HOURS
-    lines = [f"- 운동 가능 시간: 매일 {open_}~{close}"]
-    if not slots:
-        lines.append("- 수업 등 일정: 없음 (기간 내 모든 날 공강)")
-    else:
-        lines.append("- 수업 등 일정 (이 시간에는 운동할 수 없음):")
-        lines += [f"  {s.date.isoformat()} {s.start}~{s.end} {s.title}" for s in slots]
-    return "\n".join(lines)
+WORKOUT_NAME_PREFIX = "운동: "   # schedule.name 앞에 붙여 운동 일정임을 구분한다 (예: "운동: 가슴·삼두")
 
 
 def parse_hhmm(value: str) -> datetime:
     # "HH:mm" -> datetime (날짜는 의미 없음). 형식이 틀리면 ValueError.
     return datetime.strptime(value, "%H:%M")
+
+
+def _at(day: date, hhmm: str) -> datetime:
+    # 그날의 "HH:mm" -> 한국 시간 datetime
+    t = parse_hhmm(hhmm)
+    return datetime(day.year, day.month, day.day, t.hour, t.minute, tzinfo=TIMEZONE)
+
+
+def _fmt(event: ScheduleEvent) -> str:
+    s, e = event.start, event.end
+    end = e.strftime("%H:%M") if e.date() == s.date() else e.strftime("%Y-%m-%d %H:%M")
+    return f"  {s.strftime('%Y-%m-%d %H:%M')}~{end} {event.name or '(이름 없음)'}"
+
+
+def schedule_text(events: list[ScheduleEvent]) -> str:
+    # [캠퍼스 일정] 부분.
+    open_, close = WORKOUT_HOURS
+    lines = [f"- 운동 가능 시간: 매일 {open_}~{close}"]
+    if not events:
+        lines.append("- 수업 등 일정: 없음 (기간 내 모든 날 공강)")
+    else:
+        lines.append("- 수업 등 일정 (이 시간에는 운동할 수 없음):")
+        lines += [_fmt(e) for e in events]
+    return "\n".join(lines)
+
+
+def _free_gaps(day: date, events: list[ScheduleEvent]) -> list[tuple[datetime, datetime]]:
+    # 그날 운동 가능 시간에서 일정을 뺀 빈 구간들
+    open_, close = (_at(day, h) for h in WORKOUT_HOURS)
+    gaps, cursor = [], open_
+    for e in sorted(events, key=lambda e: e.start):
+        if e.end <= cursor or e.start >= close:
+            continue
+        if e.start > cursor:
+            gaps.append((cursor, e.start))
+        cursor = max(cursor, e.end)
+    if cursor < close:
+        gaps.append((cursor, close))
+    return gaps
+
+
+def _best_start(day: date, wanted: datetime, minutes: int, events: list[ScheduleEvent]) -> datetime | None:
+    # wanted에 가장 가까우면서 minutes만큼 들어가는 시작 시각. 없으면 None.
+    length = timedelta(minutes=minutes)
+    best = None
+    for gap_start, gap_end in _free_gaps(day, events):
+        if gap_end - gap_start < length:
+            continue
+        candidate = min(max(wanted, gap_start), gap_end - length)   # 빈 구간 안으로 당기거나 미룬다
+        if best is None or abs(candidate - wanted) < abs(best - wanted):
+            best = candidate
+    return best
+
+
+def fit_sessions(plan: dict, events: list[ScheduleEvent]) -> list[dict]:
+    # plan의 운동 시간을 일정과 겹치지 않게 고친다(plan을 직접 바꾼다). 바꾼 내역을 돌려준다.
+    adjusted = []
+    for session in plan["sessions"]:
+        if not session["exercises"]:            # 휴식하는 날은 시각이 없다
+            session["start_time"] = None
+            continue
+        day = date.fromisoformat(session["date"])
+        minutes = sum(e["estimated_minutes"] for e in session["exercises"])
+        original = session["start_time"]
+        wanted = _at(day, original or WORKOUT_HOURS[0])
+        start = _best_start(day, wanted, minutes, events)
+        if start is None:
+            adjusted.append({"date": session["date"], "from": original, "to": None,
+                             "reason": f"{minutes}분 운동할 빈 시간이 없어 휴식으로 바꿈"})
+            session.update(focus="휴식", exercises=[], start_time=None)
+        elif start != wanted or original is None:
+            new = start.strftime("%H:%M")
+            adjusted.append({"date": session["date"], "from": original, "to": new,
+                             "reason": "일정과 겹치거나 운동 가능 시간을 벗어나 옮김"})
+            session["start_time"] = new
+    return adjusted
 
 
 def add_session_times(plan: dict) -> dict:
@@ -51,3 +105,18 @@ def add_session_times(plan: dict) -> dict:
             if session["start_time"] else None
         )
     return plan
+
+
+def session_rows(plan: dict) -> list[tuple[str, datetime, datetime]]:
+    # 운동하는 날 -> (일정 이름, 시작, 끝). add_session_times 뒤에 쓴다.
+    rows = []
+    for s in plan["sessions"]:
+        if s["exercises"] and s["start_time"]:
+            start = _at(date.fromisoformat(s["date"]), s["start_time"])
+            rows.append((WORKOUT_NAME_PREFIX + s["focus"], start, start + timedelta(minutes=s["total_minutes"])))
+    return rows
+
+
+def overlaps(start: datetime, end: datetime, events: list[ScheduleEvent]) -> list[ScheduleEvent]:
+    # [start, end)와 겹치는 일정 (끝과 시작이 맞닿는 것은 겹침 아님)
+    return [e for e in events if e.start < end and e.end > start]

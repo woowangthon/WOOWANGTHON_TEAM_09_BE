@@ -10,7 +10,8 @@ uvicorn main:app --reload
 ```
 
 - `.env`에 `NOVA_AI_KEY`, `SUPABASE_URL`, `SUPABASE_KEY`, `JWT_SECRET`이 있어야 합니다.
-- 예시 요청: `GET /output?age=20&height_cm=175&weight_kg=70&goal=다이어트&experience=처음&start_date=2026-11-09&end_date=2026-11-15`
+- 예시 요청 (가입 `POST /user` → 로그인 `POST /login` → 건강 정보 `POST /info` 후):
+  `POST /plan` 헤더 `Authorization: Bearer <토큰>`, 본문 `{"goal": "다이어트", "experience": "처음", "start_date": "2026-11-09", "end_date": "2026-11-15"}`
 - API 문서: 서버 실행 후 `/docs`
 
 ## 폴더 구조
@@ -18,7 +19,7 @@ uvicorn main:app --reload
 ```
 main.py                 진입점. FastAPI 앱을 만들고 app/api.py의 라우터를 붙인다
 app/
-  api.py                엔드포인트 (/, /output, /user, /login, /info, /schedule). 오류를 HTTP 응답으로 바꾼다
+  api.py                엔드포인트 (/, /plan, /user, /login, /info, /schedule). 오류를 HTTP 응답으로 바꾼다
   auth.py               비밀번호 해시(Argon2id), JWT 발급·검증
   db.py                 Supabase 읽기·쓰기 (user, info, schedule)
   planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작
@@ -46,14 +47,15 @@ exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 
 ## 요청 하나가 처리되는 순서 (`app/planner.py`)
 
 1. **기간 확인**: 시작일이 없으면 오늘, 종료일이 없으면 7일. 최대 14일 (`app/config.py`의 `MAX_PLAN_DAYS`)
-2. **프로필 계산**: 나이로 대상(성인 등), 키·몸무게로 BMI와 비만 단계를 서버가 계산
+2. **프로필 계산**: DB의 `info`(나이·키·몸무게)로 대상(성인 등)과 BMI·비만 단계를 서버가 계산. 목표·경력·건강 상태는 요청에서 받음
 3. **고를 수 있는 운동**: `exercises.csv`의 운동. 비만(BMI 25 이상)이면 고강도 운동은 뺀다
 4. **참고 문서 고르기**:
    - 대상의 핵심 지침(신체활동 지침서의 권장량)은 항상 넣는다
    - 나머지는 대상이 맞거나 "공통"인 조각 중에서 한국어·영어 검색어로 검색
-5. **프롬프트 조립**: `[참고 문서]`, `[운동 목록]`, `[계획 기간]`, `[사용자 정보]`
+5. **프롬프트 조립**: `[참고 문서]`, `[운동 목록]`, `[계획 기간]`, `[캠퍼스 일정]`(DB의 schedule), `[사용자 정보]`
 6. **AI 호출**: 구조화된 출력(JSON Schema)으로 계획을 받는다. 운동 이름은 스키마로 목록 안에서만 고르게 한다
-7. **검증 후 응답**: 형식을 확인하고, 각 운동에 부위·근육 정보를 CSV에서 붙인다
+7. **검증**: 형식을 확인하고, 각 운동에 부위·근육 정보를 CSV에서 붙인다
+8. **일정 보정·저장**: 운동 시간이 일정과 겹치거나 운동 가능 시간을 벗어나면 그날 가장 가까운 빈 시간으로 옮기고(빈 시간이 없으면 휴식), 운동하는 날을 `schedule`에 `운동: <초점>` 이름으로 저장
 
 ## 자주 하는 작업
 
