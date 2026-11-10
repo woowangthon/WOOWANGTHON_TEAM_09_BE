@@ -12,7 +12,7 @@ uvicorn main:app --reload
 - `.env`에 `NOVA_AI_KEY`, `SUPABASE_URL`, `SUPABASE_KEY`, `JWT_SECRET`이 있어야 합니다.
 - 예시 요청 (가입 `POST /user` → 로그인 `POST /login` → 건강 정보 `POST /info` 후):
   `POST /plan` 헤더 `Authorization: Bearer <토큰>`, 본문 `{"goal": "다이어트", "week": "2026-11-16"}` (그 주 월~일)
-- API 문서: 서버 실행 후 `/docs`
+- API 문서: 서버 실행 후 `/docs` (스웨거), `/openapi.json` (FE·AI 도구에 그대로 넣을 수 있는 명세)
 
 ## 폴더 구조
 
@@ -25,7 +25,8 @@ app/
   planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작
   profile.py            BMI·대상(성인/노인 등) 계산, 건강 상태로 추가 대상 찾기
   exercises.py          운동 목록(exercises.csv) 읽기, 고강도 운동 목록
-  schemas.py            요청(PlanRequest)과 AI 출력(WorkoutPlan) 형식
+  schemas.py            요청 형식(PlanRequest 등)과 AI 출력(WorkoutPlan) 형식
+  responses.py          API 응답 형식 (스웨거 /docs의 응답 스키마)
   prompts.py            시스템 프롬프트, AI에게 보낼 메시지 조립
   search.py             검색어 만들기, 참고 문서 조각 고르기
   report.py             주간 리포트(요일별 수행률), 프롬프트용 지난주 수행 요약

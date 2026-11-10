@@ -49,7 +49,10 @@ def decode_access_token(token: str) -> int:
     return int(payload["sub"])
 
 
-_bearer = HTTPBearer(auto_error=False)
+_bearer = HTTPBearer(
+    auto_error=False,
+    description="POST /login으로 받은 access_token. 헤더 형식: Authorization: Bearer <access_token>",
+)
 
 
 def current_user_id(credentials: HTTPAuthorizationCredentials | None = Depends(_bearer)) -> int:

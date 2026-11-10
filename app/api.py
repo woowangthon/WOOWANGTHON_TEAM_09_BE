@@ -1,4 +1,5 @@
 # HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다.
+# 스웨거(/docs) 문서: 각 엔드포인트의 summary·description·responses, 응답 형식은 responses.py, 요청 형식은 schemas.py.
 
 from datetime import date
 
@@ -13,6 +14,10 @@ from app.db import (
 )
 from app.planner import PlanError, create_plan
 from app.report import weekly_report
+from app.responses import (
+    BlockConflictOut, ErrorOut, InfoOut, PlanConflictOut, PlanOut, ReportOut, ScheduleConflictOut,
+    ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
+)
 from app.schemas import (
     REQUIRED_INFO, InfoUpdate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
 )
@@ -20,8 +25,19 @@ from app.week import today
 
 router = APIRouter()
 
+# ---------- 스웨거 공통 오류 응답 ----------
+AUTH_ERROR = {401: {"model": ErrorOut, "description": "토큰이 없거나 잘못됐거나 만료됨 → 다시 로그인"}}
 
-@router.get("/")
+
+def not_found(what: str) -> dict:
+    return {404: {"model": ErrorOut, "description": f"{what}이(가) 없거나 본인 것이 아님"}}
+
+
+TAG_AUTH, TAG_INFO, TAG_PLAN = "인증·사용자", "건강 정보", "운동 계획"
+TAG_SCHEDULE, TAG_BLOCK, TAG_DONE, TAG_REPORT = "일정", "반복 시간표", "운동 이수", "주간 리포트"
+
+
+@router.get("/", tags=["기타"], summary="서버 상태 확인", description="서버가 켜져 있으면 {\"Hello\": \"World\"}.")
 def read_root():
 
     # response = client.chat.completions.create(
@@ -33,28 +49,22 @@ def read_root():
     return {"Hello": "World"}
 
 
-@router.post(
-    "/plan",
-    description=(
-        "로그인한 본인의 건강 정보(DB의 info)와 일정(DB의 schedule)을 바탕으로 기간의 운동 계획을 만들고, "
-        "운동하는 날을 schedule에 저장한다. 운동 시간은 기존 일정과 겹치지 않는다.\n"
-        "헤더: Authorization: Bearer <토큰>. info가 없으면 400."
-    ),
-)
-def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
-    try:
-        return create_plan(req, user_id)
-    except PlanError as e:
-        raise HTTPException(status_code=e.status_code, detail=e.detail)
-
+# ---------- 인증·사용자 ----------
 
 @router.post(
     "/user",
+    tags=[TAG_AUTH],
+    summary="회원가입",
     status_code=status.HTTP_201_CREATED,
+    response_model=UserOut,
     description=(
-        "회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다.\n"
-        "info(나이, 키, 몸무게, 경력)를 함께 보내면 건강 정보도 저장한다."
+        "아이디(`name`)와 비밀번호로 가입한다. 토큰은 주지 않으므로 이어서 `POST /login`을 호출한다.\n\n"
+        "- `name`: 영문 소문자로 시작, 영문 소문자·숫자 4~20자, 중복 불가\n"
+        "- `password`: 8~128자. 서버에는 Argon2id 해시로만 저장된다\n"
+        "- `info`(선택): 건강 정보를 함께 보내면 가입과 동시에 저장한다 (`age`, `height`, `weight`, `sex` 필수). "
+        "생략하면 나중에 `POST /info`로 등록한다"
     ),
+    responses={409: {"model": ErrorOut, "description": "이미 사용 중인 아이디"}},
 )
 def create_user(body: UserCreate):
     try:
@@ -70,7 +80,15 @@ def create_user(body: UserCreate):
 
 @router.post(
     "/login",
-    description="아이디·비밀번호가 맞으면 JWT 액세스 토큰을 준다. 아이디와 비밀번호 중 무엇이 틀렸는지는 알려주지 않는다.",
+    tags=[TAG_AUTH],
+    summary="로그인 (JWT 발급)",
+    response_model=TokenOut,
+    description=(
+        "아이디·비밀번호가 맞으면 JWT를 준다. 이후 로그인이 필요한 모든 요청에 "
+        "`Authorization: Bearer <access_token>` 헤더를 넣는다.\n\n"
+        "토큰 유효 기간은 서버 설정(`JWT_EXPIRE_MINUTES`, 현재 1주일)을 따른다. 만료되면 401이 오므로 다시 로그인한다."
+    ),
+    responses={401: {"model": ErrorOut, "description": "아이디 또는 비밀번호가 틀림 (어느 쪽인지는 알려주지 않음)"}},
 )
 def login(body: LoginRequest):
     user = fetch_login(body.name)
@@ -85,7 +103,11 @@ def login(body: LoginRequest):
 
 @router.get(
     "/user",
-    description="로그인한 본인의 정보. 헤더: Authorization: Bearer <토큰>. 건강 정보(info)가 없으면 info는 null.",
+    tags=[TAG_AUTH],
+    summary="내 정보 조회",
+    response_model=UserOut,
+    description="로그인한 본인의 아이디, 가입 시각, 건강 정보. 건강 정보를 아직 등록하지 않았으면 `info`는 null.",
+    responses={**AUTH_ERROR, **not_found("사용자")},
 )
 def read_me(user_id: int = Depends(current_user_id)):
     user = fetch_user(user_id)
@@ -94,12 +116,27 @@ def read_me(user_id: int = Depends(current_user_id)):
     return {**user, "info": fetch_user_info(user_id)}
 
 
+# ---------- 건강 정보 ----------
+
 @router.post(
     "/info",
+    tags=[TAG_INFO],
+    summary="건강 정보·인바디 저장 (보낸 필드만 수정)",
+    response_model=InfoOut,
     description=(
-        "로그인한 본인의 건강 정보(나이, 키, 몸무게, 성별, 경력, 인바디)를 저장한다. 보낸 필드만 바꾼다.\n"
-        "처음 등록할 때는 age, height, weight, sex가 필수. 헤더: Authorization: Bearer <토큰>."
+        "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일)를 저장한다.\n\n"
+        "- **처음 등록**: `age`, `height`, `weight`, `sex` 필수\n"
+        "- **그다음**: 바꿀 필드만 보낸다. 보내지 않은 필드는 그대로 유지된다\n"
+        "- 선택 항목(`experience`, 인바디 값)을 지우려면 그 필드를 `null`로 보낸다\n"
+        "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n\n"
+        "응답은 저장된 전체 건강 정보다. 이 값들은 `POST /plan`에서 운동 계획을 짤 때 쓰인다."
     ),
+    responses={
+        **AUTH_ERROR,
+        422: {"description": "값 범위 오류, 필수 필드를 null로 보냄, 측정일이 미래, "
+                             "또는 처음 등록인데 필수 필드가 빠짐 (이때 detail은 문자열)"},
+        500: {"model": ErrorOut, "description": "DB 설정 오류"},
+    },
 )
 def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
     changes = body.model_dump(mode="json", exclude_unset=True)   # 보낸 필드만
@@ -118,10 +155,48 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
         )
 
 
+# ---------- 운동 계획 ----------
+
+@router.post(
+    "/plan",
+    tags=[TAG_PLAN],
+    summary="주간 운동 계획 생성 (AI) + 일정 저장",
+    response_model=PlanOut,
+    description=(
+        "`week`가 속한 주(월~일)의 운동 계획을 AI가 만들고, 운동하는 날을 일정(`schedule`)에 저장한다.\n\n"
+        "**입력으로 쓰는 것**\n"
+        "- 요청 본문: `goal`(운동 목표), `week`(그 주의 아무 날짜. 없으면 이번 주)\n"
+        "- DB: 건강 정보(`POST /info`), 그 주의 일정(`/schedule`), 매주 반복 시간표(`/weekly-block`), "
+        "지난주 운동 수행률(`/workout-exercise`의 이수 기록)\n\n"
+        "**동작**\n"
+        "- 이미 지난 요일은 빼고 짠다 (수요일에 이번 주를 요청하면 수~일)\n"
+        "- 운동 시간은 08:00~22:00 안에서 일정·반복 시간표와 겹치지 않게 정한다. "
+        "AI가 겹치게 짜면 서버가 그날 가장 가까운 빈 시간으로 옮기고, 빈 시간이 없으면 그날을 휴식으로 바꾼다 (`adjusted`에 기록)\n"
+        "- BMI 25 이상이면 고강도 운동을 뺀다\n"
+        "- 운동하는 날은 `schedule`에 `created_by_ai: true`로, 그날의 운동은 `saved[].exercises`에 저장된다. "
+        "`saved[].exercises[].id`로 `PUT /workout-exercise/{id}` 이수 체크를 한다\n"
+        "- 저장된 운동 일정은 이후 요청에서 바쁜 시간으로 취급된다. 같은 주를 다시 짜려면 먼저 `DELETE /schedule/{id}`로 지운다\n\n"
+        "**주의**: AI를 호출하므로 응답까지 수십 초 걸릴 수 있고 토큰 비용이 든다. 버튼 연타를 막아 주세요."
+    ),
+    responses={
+        **AUTH_ERROR,
+        400: {"model": ErrorOut, "description": "건강 정보 미등록 (`POST /info` 먼저), 또는 이미 지난 주"},
+        409: {"model": PlanConflictOut, "description": "계획을 만드는 동안 추가된 일정과 겹침. 아무것도 저장되지 않음 → 다시 요청"},
+        502: {"model": ErrorOut, "description": "AI 응답 형식 오류. 아무것도 저장되지 않음 → 다시 요청"},
+    },
+)
+def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
+    try:
+        return create_plan(req, user_id)
+    except PlanError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.detail)
+
 
 # ---------- 일정 (모두 로그인 필요, 본인 일정만) ----------
 
 SCHEDULE_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="일정을 찾을 수 없습니다.")
+SCHEDULE_CONFLICT_DOC = {409: {"model": ScheduleConflictOut,
+                               "description": "같은 사용자의 다른 일정과 시간이 겹침. detail.conflicts에 겹치는 일정"}}
 
 
 def schedule_conflict(e: ScheduleConflictError) -> HTTPException:
@@ -134,12 +209,20 @@ def schedule_conflict(e: ScheduleConflictError) -> HTTPException:
 
 @router.get(
     "/schedule",
-    description="본인 일정 목록 (시작 시각 순). start·end를 주면 그 기간과 겹치는 일정만.",
+    tags=[TAG_SCHEDULE],
+    summary="내 일정 목록",
+    response_model=list[ScheduleOut],
+    description=(
+        "본인 일정(사용자가 넣은 일정 + AI 운동 일정)을 시작 시각 순으로. "
+        "`start`·`end`를 주면 그 기간과 겹치는 일정만 (캘린더 화면용).\n\n"
+        "운동 목록은 포함되지 않는다. 운동 일정의 운동과 이수 여부는 `GET /schedule/{id}`로 본다."
+    ),
+    responses={**AUTH_ERROR, 400: {"model": ErrorOut, "description": "end가 start보다 빠름"}},
 )
 def read_schedules(
     user_id: int = Depends(current_user_id),
-    start: date | None = Query(None, description="이 날짜(포함) 이후와 겹치는 일정만"),
-    end: date | None = Query(None, description="이 날짜(포함) 이전과 겹치는 일정만"),
+    start: date | None = Query(None, description="이 날짜(포함) 이후와 겹치는 일정만 (YYYY-MM-DD)"),
+    end: date | None = Query(None, description="이 날짜(포함) 이전과 겹치는 일정만 (YYYY-MM-DD)"),
 ):
     if start and end and end < start:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="end는 start보다 빠를 수 없습니다.")
@@ -148,7 +231,12 @@ def read_schedules(
 
 @router.get(
     "/schedule/{schedule_id}",
-    description="일정 하나. AI가 만든 운동 일정이면 exercises에 그날의 운동과 운동별 이수 여부(completed)가 있다.",
+    tags=[TAG_SCHEDULE],
+    summary="일정 하나 (운동 일정이면 운동 목록·이수 여부 포함)",
+    response_model=ScheduleDetailOut,
+    description="AI 운동 일정(`created_by_ai: true`)이면 `exercises`에 그날의 운동과 운동별 이수 여부가 있다. "
+                "사용자 일정이면 `exercises`는 빈 배열.",
+    responses={**AUTH_ERROR, **not_found("일정")},
 )
 def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     schedule = get_schedule(user_id, schedule_id)
@@ -160,8 +248,16 @@ def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
 
 @router.post(
     "/schedule",
+    tags=[TAG_SCHEDULE],
+    summary="일정 추가 (한 번만 있는 일정)",
     status_code=status.HTTP_201_CREATED,
-    description="다른 일정과 시간이 겹치면 409.",
+    response_model=ScheduleOut,
+    description=(
+        "약속, 시험처럼 날짜가 정해진 일정을 추가한다. 매주 반복되는 수업은 `POST /weekly-block`을 쓴다.\n\n"
+        "시각에 시간대가 없으면(예: `2026-11-10T09:00`) 한국 시간으로 본다. "
+        "같은 사용자의 다른 일정과 겹치면 409 (끝과 시작이 맞닿는 것은 허용)."
+    ),
+    responses={**AUTH_ERROR, **SCHEDULE_CONFLICT_DOC},
 )
 def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
     try:
@@ -172,7 +268,12 @@ def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
 
 @router.put(
     "/schedule/{schedule_id}",
-    description="일정 전체를 바꾼다 (name, start_term, end_term 모두 보냄). 다른 일정과 시간이 겹치면 409.",
+    tags=[TAG_SCHEDULE],
+    summary="일정 수정 (전체 교체)",
+    response_model=ScheduleOut,
+    description="`name`, `start_term`, `end_term`을 모두 보낸다. 자기 자신을 뺀 다른 일정과 겹치면 409. "
+                "AI 운동 일정의 시간을 옮겨도 운동 목록과 이수 기록은 유지된다.",
+    responses={**AUTH_ERROR, **not_found("일정"), **SCHEDULE_CONFLICT_DOC},
 )
 def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(current_user_id)):
     try:
@@ -184,19 +285,33 @@ def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(
     return schedule
 
 
-@router.delete("/schedule/{schedule_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/schedule/{schedule_id}",
+    tags=[TAG_SCHEDULE],
+    summary="일정 삭제",
+    status_code=status.HTTP_204_NO_CONTENT,
+    description="응답 본문 없음. AI 운동 일정을 지우면 그날의 운동과 이수 기록도 함께 지워진다.",
+    responses={**AUTH_ERROR, **not_found("일정")},
+)
 def remove_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     if not delete_schedule(user_id, schedule_id):
         raise SCHEDULE_NOT_FOUND
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-
 # ---------- 운동 이수 (AI가 만든 운동 일정의 운동만) ----------
 
 @router.put(
     "/workout-exercise/{exercise_id}",
-    description="운동 하나의 이수 여부를 바꾼다. 본문 {\"completed\": true}. 본인 일정의 운동이 아니면 404.",
+    tags=[TAG_DONE],
+    summary="운동 하나 이수 체크 / 해제",
+    response_model=WorkoutExerciseOut,
+    description=(
+        "`exercise_id`는 `POST /plan` 응답의 `saved[].exercises[].id` 또는 `GET /schedule/{id}`의 `exercises[].id`.\n\n"
+        "`{\"completed\": true}`면 완료, `false`면 취소. 이 기록으로 주간 리포트(`GET /report`)를 계산하고, "
+        "다음 주 계획(`POST /plan`)에 지난주 수행률로 반영한다."
+    ),
+    responses={**AUTH_ERROR, **not_found("운동")},
 )
 def update_workout_exercise(exercise_id: int, body: WorkoutExerciseUpdate, user_id: int = Depends(current_user_id)):
     exercise = set_workout_exercise_completed(user_id, exercise_id, body.completed)
@@ -205,10 +320,11 @@ def update_workout_exercise(exercise_id: int, body: WorkoutExerciseUpdate, user_
     return exercise
 
 
-
 # ---------- 매주 반복 일정 (수업 시간표, 요일별 운동 불가 시간) ----------
 
 BLOCK_NOT_FOUND = HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="반복 일정을 찾을 수 없습니다.")
+BLOCK_CONFLICT_DOC = {409: {"model": BlockConflictOut,
+                            "description": "같은 요일의 다른 반복 일정과 시간이 겹침. detail.conflicts에 겹치는 반복 일정"}}
 
 
 def block_conflict(e: BlockConflictError) -> HTTPException:
@@ -218,12 +334,25 @@ def block_conflict(e: BlockConflictError) -> HTTPException:
     )
 
 
-@router.get("/weekly-block", description="본인의 매주 반복 일정 목록 (요일, 시작 시각 순).")
+@router.get(
+    "/weekly-block",
+    tags=[TAG_BLOCK],
+    summary="반복 시간표 목록",
+    response_model=list[WeeklyBlockOut],
+    description="본인의 매주 반복 일정(수업, 아르바이트 등 운동할 수 없는 시간). 요일, 시작 시각 순.",
+    responses=AUTH_ERROR,
+)
 def read_weekly_blocks(user_id: int = Depends(current_user_id)):
     return list_weekly_blocks(user_id)
 
 
-@router.get("/weekly-block/{block_id}")
+@router.get(
+    "/weekly-block/{block_id}",
+    tags=[TAG_BLOCK],
+    summary="반복 일정 하나",
+    response_model=WeeklyBlockOut,
+    responses={**AUTH_ERROR, **not_found("반복 일정")},
+)
 def read_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
     block = get_weekly_block(user_id, block_id)
     if block is None:
@@ -233,8 +362,15 @@ def read_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
 
 @router.post(
     "/weekly-block",
+    tags=[TAG_BLOCK],
+    summary="반복 일정 추가 (예: 매주 목 09:00~12:00 자료구조)",
     status_code=status.HTTP_201_CREATED,
-    description="매주 반복 일정 추가 (예: 매주 월 09:00~10:15 자료구조). 같은 요일의 다른 반복 일정과 겹치면 409.",
+    response_model=WeeklyBlockOut,
+    description=(
+        "수업 시간표나 요일별로 운동할 수 없는 시간을 등록한다. `POST /plan`이 이 시간을 피해서 운동을 잡는다.\n\n"
+        "`weekday`: 1=월 … 7=일. 시각은 `HH:mm`(24시간제). 같은 요일의 다른 반복 일정과 겹치면 409 (맞닿는 것은 허용)."
+    ),
+    responses={**AUTH_ERROR, **BLOCK_CONFLICT_DOC},
 )
 def create_weekly_block(body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
     try:
@@ -243,7 +379,14 @@ def create_weekly_block(body: WeeklyBlockIn, user_id: int = Depends(current_user
         raise block_conflict(e)
 
 
-@router.put("/weekly-block/{block_id}", description="반복 일정 전체를 바꾼다. 겹치면 409.")
+@router.put(
+    "/weekly-block/{block_id}",
+    tags=[TAG_BLOCK],
+    summary="반복 일정 수정 (전체 교체)",
+    response_model=WeeklyBlockOut,
+    description="`weekday`, `start_time`, `end_time`, `name`을 모두 보낸다. 자기 자신을 뺀 같은 요일의 반복 일정과 겹치면 409.",
+    responses={**AUTH_ERROR, **not_found("반복 일정"), **BLOCK_CONFLICT_DOC},
+)
 def replace_weekly_block(block_id: int, body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
     try:
         block = update_weekly_block(user_id, block_id, body.weekday, body.start_time, body.end_time, body.name)
@@ -254,7 +397,14 @@ def replace_weekly_block(block_id: int, body: WeeklyBlockIn, user_id: int = Depe
     return block
 
 
-@router.delete("/weekly-block/{block_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/weekly-block/{block_id}",
+    tags=[TAG_BLOCK],
+    summary="반복 일정 삭제",
+    status_code=status.HTTP_204_NO_CONTENT,
+    description="응답 본문 없음.",
+    responses={**AUTH_ERROR, **not_found("반복 일정")},
+)
 def remove_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
     if not delete_weekly_block(user_id, block_id):
         raise BLOCK_NOT_FOUND
@@ -265,13 +415,19 @@ def remove_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
 
 @router.get(
     "/report",
+    tags=[TAG_REPORT],
+    summary="주간 운동 리포트 (요일별 수행률)",
+    response_model=ReportOut,
     description=(
-        "주간 운동 리포트 (월~일). AI가 계획한 운동의 종목별 이수 여부로 요일별 수행률(%)을 계산한다.\n"
-        "total은 주 전체(앞으로 할 운동 포함), so_far는 오늘까지. 계획이 없는 날의 rate는 null."
+        "`week`가 속한 주(월~일)의 AI 운동 일정에 대해, 종목별 이수 여부로 요일별 수행률을 계산한다.\n\n"
+        "- 수행률(`rate`) = 완료 종목 수 / 계획 종목 수 × 100 (반올림, 정수 %). 계획이 없는 날은 null\n"
+        "- `total`: 주 전체 (앞으로 할 운동 포함) / `so_far`: 오늘까지의 운동만 → 주 중간에는 `so_far`가 실제 진행률\n"
+        "- 사용자가 직접 넣은 일정은 포함하지 않는다"
     ),
+    responses=AUTH_ERROR,
 )
 def read_report(
     user_id: int = Depends(current_user_id),
-    week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD). 없으면 이번 주"),
+    week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD, 아무 요일이나). 없으면 이번 주"),
 ):
     return weekly_report(user_id, week or today())
