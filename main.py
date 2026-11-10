@@ -6,8 +6,10 @@
 import logging
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import router
+from app.config import CORS_ORIGINS
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:     %(name)s - %(message)s")
 
@@ -65,5 +67,11 @@ app = FastAPI(
     version="1.0.0",
     description=API_DESCRIPTION,
     openapi_tags=OPENAPI_TAGS,
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_ORIGINS,     # 허용할 FE 주소 (app/config.py, 환경변수 CORS_ORIGINS)
+    allow_methods=["*"],           # GET, POST, PUT, DELETE ...
+    allow_headers=["*"],           # Authorization(Bearer 토큰), Content-Type 포함
 )
 app.include_router(router)

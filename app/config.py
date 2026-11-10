@@ -35,3 +35,7 @@ TIMEZONE = ZoneInfo("Asia/Seoul")   # DB의 timestamptz(UTC 저장)를 이 시�
 # ---------- 로그인 (JWT) ----------
 JWT_SECRET = os.getenv("JWT_SECRET")              # 길고 무작위한 값. 예: python -c "import secrets; print(secrets.token_urlsafe(64))"
 JWT_EXPIRE_MINUTES = int(os.getenv("JWT_EXPIRE_MINUTES", "60"))   # 토큰 유효 기간(분). 환경변수로 정한다 (없으면 60분)
+
+# ---------- CORS (브라우저에서 이 API를 부를 수 있는 프론트엔드 주소) ----------
+# 쉼표로 여러 개. 배포한 FE 주소는 환경변수 CORS_ORIGINS로 넣는다 (예: http://localhost:5173,https://app.example.com)
+CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",") if o.strip()]
