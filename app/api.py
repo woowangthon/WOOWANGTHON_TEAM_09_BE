@@ -46,13 +46,22 @@ def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
 @router.post(
     "/user",
     status_code=status.HTTP_201_CREATED,
-    description="회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다.",
+    description=(
+        "회원가입. 비밀번호는 Argon2id(무작위 salt 포함) 해시로만 저장한다. 내부 id는 응답에 넣지 않는다.\n"
+        "info(나이, 키, 몸무게, 경력)를 함께 보내면 건강 정보도 저장한다."
+    ),
 )
 def create_user(body: UserCreate):
     try:
-        return insert_user(body.name, hash_password(body.password))
+        user = insert_user(body.name, hash_password(body.password))
     except NameTakenError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="이미 사용 중인 아이디입니다.")
+    user_id = user.pop("id")
+    info = None
+    if body.info is not None:
+        i = body.info
+        info = upsert_user_info(user_id, i.age, i.height, i.weight, i.experience)
+    return {**user, "info": info}
 
 
 @router.post(
@@ -90,7 +99,7 @@ def read_me(user_id: int = Depends(current_user_id)):
 )
 def save_info(body: InfoCreate, user_id: int = Depends(current_user_id)):
     try:
-        return upsert_user_info(user_id, body.age, body.height, body.weight)
+        return upsert_user_info(user_id, body.age, body.height, body.weight, body.experience)
     except IdentityColumnError:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

@@ -15,6 +15,7 @@ EXERCISES_CSV = BASE_DIR / "exercises.csv"                  # 계획에 쓸 수 
 LLM_CACHE_DIR = BASE_DIR / ".llm_cache"                     # AI 응답 캐시
 
 # ---------- 계획 ----------
+TOP_K = 4            # AI에게 줄 참고 문서 조각 수
 MAX_PLAN_DAYS = 14   # 한 번에 만들 수 있는 계획의 최대 일수 (기간이 길수록 AI 출력 토큰이 늘어난다)
 WORKOUT_HOURS = ("06:00", "22:00")   # 운동할 수 있는 시간대 (헬스장 운영 시간 등에 맞게 바꾼다)
 

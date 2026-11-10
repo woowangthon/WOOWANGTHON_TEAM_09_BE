@@ -54,7 +54,7 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     allowed_names = allowed_exercise_names(limit_intensity)
 
     # 4. 참고 문서
-    sources = select_sources(profile, limit_intensity, req.top_k)
+    sources = select_sources(profile, limit_intensity)
     if not sources:
         plan = WorkoutPlan(
             found=False, start_date=start.isoformat(), end_date=end.isoformat(), sessions=[], precaution="",

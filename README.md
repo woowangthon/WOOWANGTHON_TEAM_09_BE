@@ -11,7 +11,7 @@ uvicorn main:app --reload
 
 - `.env`에 `NOVA_AI_KEY`, `SUPABASE_URL`, `SUPABASE_KEY`, `JWT_SECRET`이 있어야 합니다.
 - 예시 요청 (가입 `POST /user` → 로그인 `POST /login` → 건강 정보 `POST /info` 후):
-  `POST /plan` 헤더 `Authorization: Bearer <토큰>`, 본문 `{"goal": "다이어트", "experience": "처음", "start_date": "2026-11-09", "end_date": "2026-11-15"}`
+  `POST /plan` 헤더 `Authorization: Bearer <토큰>`, 본문 `{"goal": "다이어트", "start_date": "2026-11-09", "end_date": "2026-11-15"}`
 - API 문서: 서버 실행 후 `/docs`
 
 ## 폴더 구조
@@ -47,7 +47,7 @@ exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 
 ## 요청 하나가 처리되는 순서 (`app/planner.py`)
 
 1. **기간 확인**: 시작일이 없으면 오늘, 종료일이 없으면 7일. 최대 14일 (`app/config.py`의 `MAX_PLAN_DAYS`)
-2. **프로필 계산**: DB의 `info`(나이·키·몸무게)로 대상(성인 등)과 BMI·비만 단계를 서버가 계산. 목표·경력·건강 상태는 요청에서 받음
+2. **프로필 계산**: DB의 `info`(나이·키·몸무게·경력)로 대상(성인 등)과 BMI·비만 단계를 서버가 계산. 목표와 기간은 요청 본문에서 받음
 3. **고를 수 있는 운동**: `exercises.csv`의 운동. 비만(BMI 25 이상)이면 고강도 운동은 뺀다
 4. **참고 문서 고르기**:
    - 대상의 핵심 지침(신체활동 지침서의 권장량)은 항상 넣는다

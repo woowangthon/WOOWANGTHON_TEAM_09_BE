@@ -4,7 +4,7 @@
 #
 # 테이블
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
-# - info:     id(-> user.id), age, height, weight
+# - info:     id(-> user.id), age, height, weight, experience(text, null 가능)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name
 #
 # 연결 확인:  python -m app.db <user_id>
@@ -49,7 +49,8 @@ def name_exists(name: str) -> bool:
 
 
 def insert_user(name: str, password_hash: str) -> dict:
-    # user 행을 만들고 {"name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError.
+    # user 행을 만들고 {"id", "name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError.
+    # id는 내부 식별자이므로 응답에 넣지 않는다 (api.py에서 뺀다).
     if name_exists(name):
         raise NameTakenError(name)
     try:
@@ -58,7 +59,7 @@ def insert_user(name: str, password_hash: str) -> dict:
         if e.code == UNIQUE_VIOLATION:   # 동시에 같은 아이디로 가입한 경우 (name에 UNIQUE 제약이 있을 때)
             raise NameTakenError(name) from e
         raise
-    return {"name": row["name"], "created_at": row["created_at"]}
+    return {"id": row["id"], "name": row["name"], "created_at": row["created_at"]}
 
 
 def fetch_login(name: str) -> dict | None:
@@ -73,6 +74,9 @@ def fetch_user(user_id: int) -> dict | None:
     return rows[0] if rows else None
 
 
+INFO_COLUMNS = ("age", "height", "weight", "experience")
+
+
 class IdentityColumnError(Exception):
     # info.id가 identity(자동 증가) 열이라 user.id를 넣을 수 없음. DB 설정 문제.
     pass
@@ -81,12 +85,13 @@ class IdentityColumnError(Exception):
 CANNOT_INSERT_IDENTITY = "428C9"   # GENERATED ALWAYS AS IDENTITY 열에 값을 넣으려 함
 
 
-def upsert_user_info(user_id: int, age: int, height: int, weight: int) -> dict:
+def upsert_user_info(user_id: int, age: int, height: int, weight: int, experience: str | None) -> dict:
     # info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id).
     try:
         row = (
             get_client().table("info")
-            .upsert({"id": user_id, "age": age, "height": height, "weight": weight}, on_conflict="id")
+            .upsert({"id": user_id, "age": age, "height": height, "weight": weight, "experience": experience},
+                    on_conflict="id")
             .execute()
             .data[0]
         )
@@ -94,14 +99,14 @@ def upsert_user_info(user_id: int, age: int, height: int, weight: int) -> dict:
         if e.code == CANNOT_INSERT_IDENTITY:
             raise IdentityColumnError(e.message) from e
         raise
-    return {"age": row["age"], "height": row["height"], "weight": row["weight"]}
+    return {k: row[k] for k in INFO_COLUMNS}
 
 
 def fetch_user_info(user_id: int) -> dict | None:
-    # info 테이블의 {"age", "height", "weight"}. 없으면 None.
+    # info 테이블의 {"age", "height", "weight", "experience"}. 없으면 None.
     rows = (
         get_client().table("info")
-        .select("age, height, weight")
+        .select(", ".join(INFO_COLUMNS))
         .eq("id", user_id)
         .limit(1)
         .execute()

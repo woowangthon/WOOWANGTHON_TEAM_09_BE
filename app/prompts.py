@@ -22,9 +22,8 @@ def build_user_info(profile: dict, limit_intensity: bool) -> str:
         f"- 나이: {profile['age']}세 (대상: {profile['target_group']})",
         f"- 키/몸무게: {profile['height_cm']}cm / {profile['weight_kg']}kg",
         f"- BMI: {profile['bmi']}" + (f" ({profile['bmi_category']})" if profile["bmi_category"] else ""),
-        f"- 헬스 경력: {profile['experience']}",
+        f"- 헬스 경력: {profile['experience'] or '정보 없음'}",
         f"- 목표: {profile['goal']}",
-        f"- 건강 상태: {profile['health_notes'] or '특이사항 없음'}",
     ] + (["- 운동 강도 제한: 비만(BMI 25 이상)이므로 저~중강도 운동만 사용"] if limit_intensity else []))
 
 

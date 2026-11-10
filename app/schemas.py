@@ -1,6 +1,6 @@
 # 요청과 AI 출력의 형식 (Pydantic 모델).
 #
-# - PlanRequest: POST /plan 의 요청 본문 (나이·키·몸무게는 DB의 info에서 읽는다)
+# - PlanRequest: POST /plan 의 요청 본문 (나이·키·몸무게·경력은 DB의 info에서 읽는다)
 # - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
 # - ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
 # - WorkoutPlan: AI가 돌려주는 계획. 이 모델에서 만든 JSON Schema를 AI에게 구조화된 출력 형식으로 준다.
@@ -15,15 +15,13 @@ from app.config import TIMEZONE
 from app.exercises import EXERCISE_CATALOG
 
 
+
 # ---------- 사용자 입력 ----------
 
 class PlanRequest(BaseModel):
     goal: str = Field(min_length=1, max_length=200, description="운동 목표 (예: 체중 감량, 근력 향상)")
-    experience: Literal["처음", "6개월 미만", "6개월~2년", "2년 이상"] = Field(description="헬스 운동 경력")
-    health_notes: str | None = Field(None, max_length=300, description="질환, 부상, 임신 등 참고할 건강 상태")
     start_date: date | None = Field(None, description="계획 시작일 (YYYY-MM-DD). 없으면 오늘")
     end_date: date | None = Field(None, description="계획 종료일 (YYYY-MM-DD). 없으면 시작일로부터 7일. 기간은 최대 14일")
-    top_k: int = Field(4, ge=1, le=10, description="참고할 문서 조각 수")
 
 
 
@@ -35,6 +33,7 @@ class UserCreate(BaseModel):
         description="로그인 아이디. 영문 소문자로 시작, 영문 소문자·숫자 4~20자, 중복 불가 (예: cbnu2026)",
     )
     password: str = Field(min_length=8, max_length=128, description="비밀번호 (8자 이상)")
+    info: "InfoCreate | None" = Field(None, description="건강 정보. 주면 가입과 함께 저장 (나중에 POST /info로 넣어도 됨)")
 
 
 class LoginRequest(BaseModel):
@@ -43,11 +42,17 @@ class LoginRequest(BaseModel):
 
 
 class InfoCreate(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"description": "info 테이블 (모두 int2)."})
+    model_config = ConfigDict(json_schema_extra={"description": "info 테이블. age·height·weight는 int2, experience는 text(없어도 됨)."})
 
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
+    experience: str | None = Field(
+        None, max_length=50, description="헬스 운동 경력, 자유 입력 (예: 처음, 3개월, 1년 반). 모르면 생략(null)",
+    )
+
+
+UserCreate.model_rebuild()   # UserCreate.info가 아래에 정의된 InfoCreate를 쓰므로
 
 
 
