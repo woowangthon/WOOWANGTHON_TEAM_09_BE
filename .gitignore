@@ -22,3 +22,6 @@ Thumbs.db
 
 # 5. AI 응답 캐시
 .llm_cache/
+
+# 테스트 용 스크립트
+scripts/

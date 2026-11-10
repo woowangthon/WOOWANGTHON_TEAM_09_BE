@@ -30,12 +30,13 @@ def bmi_category_of(bmi: float, age: int) -> str | None:
 
 
 def build_profile(req: PlanRequest, info: dict) -> dict:
-    # 응답의 "profile". info: DB info 테이블의 {"age", "height", "weight", "experience"}.
+    # 응답의 "profile". info: DB info 테이블의 값 (db.INFO_COLUMNS).
     # 대상과 BMI는 AI가 해석하지 않도록 서버가 계산한다.
     age, height, weight = info["age"], info["height"], info["weight"]
     bmi = round(weight / (height / 100) ** 2, 1)
     return {
         "age": age,
+        "sex": "남성" if info["sex"] else "여성",
         "target_group": target_group_of(age),
         "height_cm": height,
         "weight_kg": weight,
@@ -43,6 +44,11 @@ def build_profile(req: PlanRequest, info: dict) -> dict:
         "bmi_category": bmi_category_of(bmi, age),
         "goal": req.goal,
         "experience": info.get("experience"),   # 없으면 None
+        "inbody": {   # 사용자가 직접 입력한 인바디 최신값. 입력하지 않았으면 모두 None
+            "measured_at": info.get("inbody_measured_at"),
+            "body_fat_percent": info.get("body_fat_percent"),
+            "skeletal_muscle_kg": info.get("skeletal_muscle_kg"),
+        },
     }
 
 

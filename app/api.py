@@ -14,7 +14,7 @@ from app.db import (
 from app.planner import PlanError, create_plan
 from app.report import weekly_report
 from app.schemas import (
-    InfoCreate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
+    REQUIRED_INFO, InfoUpdate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
 )
 from app.week import today
 
@@ -64,8 +64,7 @@ def create_user(body: UserCreate):
     user_id = user.pop("id")
     info = None
     if body.info is not None:
-        i = body.info
-        info = upsert_user_info(user_id, i.age, i.height, i.weight, i.experience)
+        info = upsert_user_info(user_id, body.info.model_dump(mode="json"))
     return {**user, "info": info}
 
 
@@ -98,13 +97,20 @@ def read_me(user_id: int = Depends(current_user_id)):
 @router.post(
     "/info",
     description=(
-        "로그인한 본인의 건강 정보(나이, 키, 몸무게)를 저장한다. 없으면 만들고, 있으면 덮어쓴다(upsert).\n"
-        "헤더: Authorization: Bearer <토큰>."
+        "로그인한 본인의 건강 정보(나이, 키, 몸무게, 성별, 경력, 인바디)를 저장한다. 보낸 필드만 바꾼다.\n"
+        "처음 등록할 때는 age, height, weight, sex가 필수. 헤더: Authorization: Bearer <토큰>."
     ),
 )
-def save_info(body: InfoCreate, user_id: int = Depends(current_user_id)):
+def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
+    changes = body.model_dump(mode="json", exclude_unset=True)   # 보낸 필드만
+    merged = {**(fetch_user_info(user_id) or {}), **changes}
+    if missing := [k for k in REQUIRED_INFO if merged.get(k) is None]:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+            detail=f"처음 등록할 때는 {', '.join(missing)}가 필요합니다.",
+        )
     try:
-        return upsert_user_info(user_id, body.age, body.height, body.weight, body.experience)
+        return upsert_user_info(user_id, merged)
     except IdentityColumnError:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

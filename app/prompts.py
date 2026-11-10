@@ -20,11 +20,26 @@ def build_user_info(profile: dict, limit_intensity: bool) -> str:
     # [사용자 정보] 부분.
     return "\n".join([
         f"- 나이: {profile['age']}세 (대상: {profile['target_group']})",
+        f"- 성별: {profile['sex']}",
         f"- 키/몸무게: {profile['height_cm']}cm / {profile['weight_kg']}kg",
         f"- BMI: {profile['bmi']}" + (f" ({profile['bmi_category']})" if profile["bmi_category"] else ""),
         f"- 헬스 경력: {profile['experience'] or '정보 없음'}",
         f"- 목표: {profile['goal']}",
-    ] + (["- 운동 강도 제한: 비만(BMI 25 이상)이므로 저~중강도 운동만 사용"] if limit_intensity else []))
+    ] + inbody_lines(profile["inbody"])
+      + (["- 운동 강도 제한: 비만(BMI 25 이상)이므로 저~중강도 운동만 사용"] if limit_intensity else []))
+
+
+def inbody_lines(inbody: dict) -> list[str]:
+    # 인바디 값이 하나라도 있으면 한 줄. 없으면 줄을 넣지 않는다 (토큰 절약).
+    parts = []
+    if inbody["body_fat_percent"] is not None:
+        parts.append(f"체지방률 {inbody['body_fat_percent']}%")
+    if inbody["skeletal_muscle_kg"] is not None:
+        parts.append(f"골격근량 {inbody['skeletal_muscle_kg']}kg")
+    if not parts:
+        return []
+    when = f" ({inbody['measured_at']} 측정)" if inbody["measured_at"] else ""
+    return [f"- 인바디{when}: {', '.join(parts)}"]
 
 
 def build_context(sources: list[dict]) -> str:

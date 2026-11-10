@@ -1,7 +1,7 @@
 # 요청과 AI 출력의 형식 (Pydantic 모델).
 #
 # - PlanRequest: POST /plan 의 요청 본문 (나이·키·몸무게·경력은 DB의 info에서 읽는다)
-# - UserCreate, LoginRequest, InfoCreate: POST /user, POST /login, POST /info 의 요청 본문
+# - UserCreate(+InfoCreate), LoginRequest, InfoUpdate: POST /user, POST /login, POST /info 의 요청 본문
 # - ScheduleIn: POST /schedule, PUT /schedule/{id} 의 요청 본문
 # - WorkoutExerciseUpdate: PUT /workout-exercise/{id} 의 요청 본문
 # - WeeklyBlockIn: POST /weekly-block, PUT /weekly-block/{id} 의 요청 본문
@@ -14,6 +14,7 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.config import TIMEZONE
+from app.week import today
 from app.exercises import EXERCISE_CATALOG
 
 
@@ -44,15 +45,45 @@ class LoginRequest(BaseModel):
     password: str = Field(max_length=128)
 
 
-class InfoCreate(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"description": "info 테이블. age·height·weight는 int2, experience는 text(없어도 됨)."})
+REQUIRED_INFO = ("age", "height", "weight", "sex")   # info에서 비울 수 없는 열 (DB NOT NULL)
+
+
+class InfoUpdate(BaseModel):
+    # POST /info 본문. 보낸 필드만 바꾼다. 처음 등록할 때는 REQUIRED_INFO가 모두 있어야 한다.
+    model_config = ConfigDict(json_schema_extra={"description": (
+        "건강 정보. 보낸 필드만 바꾼다 (처음 등록할 때는 age, height, weight, sex 필수). "
+        "선택 항목을 지우려면 null을 보낸다. 인바디 값은 사용자가 직접 입력한다."
+    )})
+
+    age: int | None = Field(None, ge=6, le=100, description="나이 (만 나이)")
+    height: int | None = Field(None, ge=51, le=249, description="키 (cm)")
+    weight: int | None = Field(None, ge=11, le=299, description="몸무게 (kg). 인바디를 입력할 때 측정 몸무게로 함께 바꾼다")
+    sex: bool | None = Field(None, description="성별 (true = 남성, false = 여성)")
+    experience: str | None = Field(
+        None, max_length=50, description="헬스 운동 경력, 자유 입력 (예: 처음, 3개월, 1년 반)",
+    )
+    body_fat_percent: float | None = Field(None, gt=0, lt=80, description="인바디 체지방률 (%)")
+    skeletal_muscle_kg: float | None = Field(None, gt=0, lt=100, description="인바디 골격근량 (kg)")
+    inbody_measured_at: date | None = Field(None, description="인바디 측정일 (YYYY-MM-DD)")
+
+    @model_validator(mode="after")
+    def _check(self):
+        for k in REQUIRED_INFO:
+            if k in self.model_fields_set and getattr(self, k) is None:
+                raise ValueError(f"{k}는 비울 수 없습니다.")
+        if self.inbody_measured_at and self.inbody_measured_at > today():
+            raise ValueError("inbody_measured_at은 미래일 수 없습니다.")
+        return self
+
+
+class InfoCreate(InfoUpdate):
+    # 가입(POST /user)할 때 함께 보내는 건강 정보. 나이·키·몸무게·성별 필수.
+    model_config = ConfigDict(json_schema_extra={"description": "가입할 때의 건강 정보 (age, height, weight, sex 필수)."})
 
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
-    experience: str | None = Field(
-        None, max_length=50, description="헬스 운동 경력, 자유 입력 (예: 처음, 3개월, 1년 반). 모르면 생략(null)",
-    )
+    sex: bool = Field(description="성별 (true = 남성, false = 여성)")
 
 
 UserCreate.model_rebuild()   # UserCreate.info가 아래에 정의된 InfoCreate를 쓰므로

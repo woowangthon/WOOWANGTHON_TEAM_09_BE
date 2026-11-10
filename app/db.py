@@ -4,7 +4,8 @@
 #
 # 테이블
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
-# - info:     id(-> user.id), age, height, weight, experience(text, null 가능)
+# - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
+#             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 # - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
@@ -79,7 +80,7 @@ def fetch_user(user_id: int) -> dict | None:
     return rows[0] if rows else None
 
 
-INFO_COLUMNS = ("age", "height", "weight", "experience")
+INFO_COLUMNS = ("age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at")
 
 
 class IdentityColumnError(Exception):
@@ -90,13 +91,13 @@ class IdentityColumnError(Exception):
 CANNOT_INSERT_IDENTITY = "428C9"   # GENERATED ALWAYS AS IDENTITY 열에 값을 넣으려 함
 
 
-def upsert_user_info(user_id: int, age: int, height: int, weight: int, experience: str | None) -> dict:
-    # info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id).
+def upsert_user_info(user_id: int, info: dict) -> dict:
+    # info 행을 만들거나, 이미 있으면 덮어쓴다 (info.id = user.id). info: INFO_COLUMNS의 전체 값.
+    # (Postgres upsert는 NOT NULL 열이 모두 있어야 해서, 일부만 바꿀 때도 합친 전체 값을 보낸다)
     try:
         row = (
             get_client().table("info")
-            .upsert({"id": user_id, "age": age, "height": height, "weight": weight, "experience": experience},
-                    on_conflict="id")
+            .upsert({"id": user_id, **{k: info.get(k) for k in INFO_COLUMNS}}, on_conflict="id")
             .execute()
             .data[0]
         )
@@ -108,7 +109,7 @@ def upsert_user_info(user_id: int, age: int, height: int, weight: int, experienc
 
 
 def fetch_user_info(user_id: int) -> dict | None:
-    # info 테이블의 {"age", "height", "weight", "experience"}. 없으면 None.
+    # info 테이블의 INFO_COLUMNS 값. 없으면 None.
     rows = (
         get_client().table("info")
         .select(", ".join(INFO_COLUMNS))
@@ -329,8 +330,9 @@ WEEKLY_BLOCK_COLUMNS = "id, weekday, start_time, end_time, name"
 
 
 def _block_out(row: dict) -> dict:
-    # DB의 time("09:00:00") -> "09:00"
-    return {**row, "start_time": row["start_time"][:5], "end_time": row["end_time"][:5]}
+    # 응답용: 필요한 열만 (author 같은 내부 id는 빼고), DB의 time("09:00:00") -> "09:00"
+    return {"id": row["id"], "weekday": row["weekday"], "start_time": row["start_time"][:5],
+            "end_time": row["end_time"][:5], "name": row["name"]}
 
 
 class BlockConflictError(Exception):
