@@ -27,6 +27,7 @@ app/
   exercises.py          운동 목록(exercises.csv) 읽기, 고강도 운동 목록
   schemas.py            요청 형식(PlanRequest 등)과 AI 출력(WorkoutPlan) 형식
   responses.py          API 응답 형식 (스웨거 /docs의 응답 스키마)
+  examples.py           스웨거 요청 예시 (한 사용자 상황으로 맞춤)
   prompts.py            시스템 프롬프트, AI에게 보낼 메시지 조립
   search.py             검색어 만들기, 참고 문서 조각 고르기
   report.py             주간 리포트(요일별 수행률), 프롬프트용 지난주 수행 요약

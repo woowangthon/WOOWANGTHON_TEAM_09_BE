@@ -22,11 +22,6 @@ from app.exercises import EXERCISE_CATALOG
 # ---------- 사용자 입력 ----------
 
 class PlanRequest(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [
-        {"goal": "체중 감량", "week": "2026-11-16"},
-        {"week": "2026-11-16", "regenerate": True},
-    ]})
-
     goal: str | None = Field(
         None, min_length=1, max_length=200,
         description="운동 목표 (예: 체중 감량, 근력 향상). 없으면 POST /info로 저장한 goal을 쓴다",
@@ -44,7 +39,6 @@ class PlanRequest(BaseModel):
 # ---------- 회원가입 / 로그인 ----------
 
 class UserCreate(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [{"name": "cbnu2026", "password": "password123", "info": {"age": 21, "height": 175, "weight": 70, "sex": True, "experience": "헬스 3개월"}}, {"name": "cbnu2027", "password": "password123"}]})
 
     name: str = Field(
         pattern=r"^[a-z][a-z0-9]{3,19}$",
@@ -55,18 +49,27 @@ class UserCreate(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [{"name": "cbnu2026", "password": "password123"}]})
 
     name: str = Field(max_length=20, description="로그인 아이디")
     password: str = Field(max_length=128, description="비밀번호")
 
 
 REQUIRED_INFO = ("age", "height", "weight", "sex")   # info에서 비울 수 없는 열 (DB NOT NULL)
+HHMM = r"^([01]\d|2[0-3]):[0-5]\d$"                   # 24시간제 HH:mm
+
+
+def busy_time_error(start: str | None, end: str | None) -> str | None:
+    # 매일 운동하기 어려운 시간대(시작, 끝)가 올바르지 않으면 오류 문장. 둘 다 없거나 둘 다 있어야 하고, 같으면 안 된다.
+    if (start is None) != (end is None):
+        return "busy_time_start와 busy_time_end는 함께 보내야 합니다 (지우려면 둘 다 null)."
+    if start is not None and start == end:
+        return "busy_time_start와 busy_time_end가 같을 수 없습니다."
+    return None
 
 
 class InfoUpdate(BaseModel):
     # POST /info 본문. 보낸 필드만 바꾼다. 처음 등록할 때는 REQUIRED_INFO가 모두 있어야 한다.
-    model_config = ConfigDict(json_schema_extra={"examples": [{"age": 21, "height": 175, "weight": 70, "sex": True, "experience": "헬스 3개월"}, {"weight": 72, "body_fat_percent": 25.3, "skeletal_muscle_kg": 31.2, "inbody_measured_at": "2026-11-10"}, {"nickname": "근육왕", "goal": "체중 감량", "uses_gym": True}, {"experience": None}], "description": (
+    model_config = ConfigDict(json_schema_extra={"description": (
         "건강 정보. 보낸 필드만 바꾼다 (처음 등록할 때는 age, height, weight, sex 필수). "
         "선택 항목을 지우려면 null을 보낸다. 인바디 값은 사용자가 직접 입력한다."
     )})
@@ -84,6 +87,12 @@ class InfoUpdate(BaseModel):
     nickname: str | None = Field(None, max_length=30, description="이름(닉네임). 화면 표시용")
     goal: str | None = Field(None, max_length=200, description="운동 목표 (예: 체중 감량). POST /plan에서 goal을 생략하면 이 값을 쓴다")
     uses_gym: bool | None = Field(None, description="헬스장 이용 여부. false면 기구 없이 할 수 있는 운동 위주로 계획")
+    busy_time_start: str | None = Field(
+        None, pattern=HHMM, description="매일 운동하기 어려운 시간대의 시작 HH:mm. busy_time_end와 함께 보낸다 (지우려면 둘 다 null)",
+    )
+    busy_time_end: str | None = Field(
+        None, pattern=HHMM, description="매일 운동하기 어려운 시간대의 끝 HH:mm. 시작보다 이르면 다음 날 시각 (예: 22:00~02:00)",
+    )
 
     @model_validator(mode="after")
     def _check(self):
@@ -97,12 +106,19 @@ class InfoUpdate(BaseModel):
 
 class InfoCreate(InfoUpdate):
     # 가입(POST /user)할 때 함께 보내는 건강 정보. 나이·키·몸무게·성별 필수.
-    model_config = ConfigDict(json_schema_extra={"examples": [{"age": 21, "height": 175, "weight": 70, "sex": True, "experience": "헬스 3개월", "body_fat_percent": 25.3, "skeletal_muscle_kg": 31.2, "inbody_measured_at": "2026-11-10"}], "description": "가입할 때의 건강 정보 (age, height, weight, sex 필수)."})
+    model_config = ConfigDict(json_schema_extra={"description": "가입할 때의 건강 정보 (age, height, weight, sex 필수)."})
 
     age: int = Field(ge=6, le=100, description="나이 (만 나이)")
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
     sex: bool = Field(description="성별 (true = 남성, false = 여성)")
+
+    @model_validator(mode="after")
+    def _check_busy_time(self):
+        # 가입 때는 전체 값을 받으므로 여기서 확인한다 (POST /info는 기존 값과 합친 뒤 api.py에서 확인)
+        if error := busy_time_error(self.busy_time_start, self.busy_time_end):
+            raise ValueError(error)
+        return self
 
 
 UserCreate.model_rebuild()   # UserCreate.info가 아래에 정의된 InfoCreate를 쓰므로
@@ -112,7 +128,7 @@ UserCreate.model_rebuild()   # UserCreate.info가 아래에 정의된 InfoCreate
 # ---------- 일정 ----------
 
 class ScheduleIn(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [{"name": "동아리 모임", "start_term": "2026-11-17T18:00", "end_term": "2026-11-17T20:00"}], "description": "시각에 시간대가 없으면(예: 2026-11-10T09:00) 한국 시간으로 본다."})
+    model_config = ConfigDict(json_schema_extra={"description": "시각에 시간대가 없으면(예: 2026-11-10T09:00) 한국 시간으로 본다."})
 
     name: str | None = Field(None, max_length=100, description="일정 이름 (예: 자료구조 수업)")
     start_term: datetime = Field(description="시작 시각 (예: 2026-11-10T09:00 또는 2026-11-10T09:00+09:00)")
@@ -131,7 +147,7 @@ class ScheduleIn(BaseModel):
 
 
 class WeeklyBlockIn(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [{"weekday": 4, "start_time": "09:00", "end_time": "12:00", "name": "자료구조"}], "description": "매주 반복되는 수업·운동 불가 시간"})
+    model_config = ConfigDict(json_schema_extra={"description": "매주 반복되는 수업·운동 불가 시간"})
 
     weekday: int = Field(ge=1, le=7, description="요일 (1=월, 2=화, ..., 7=일)")
     start_time: str = Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d$", description="시작 시각 HH:mm (예: 09:00)")
@@ -146,7 +162,6 @@ class WeeklyBlockIn(BaseModel):
 
 
 class WorkoutExerciseUpdate(BaseModel):
-    model_config = ConfigDict(json_schema_extra={"examples": [{"completed": True}]})
 
     completed: bool = Field(description="이 운동을 했는지")
 

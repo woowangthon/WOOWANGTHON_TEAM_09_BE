@@ -17,11 +17,11 @@ class ErrorOut(BaseModel):
 
 
 class ScheduleConflictItem(BaseModel):
-    id: int
-    name: str | None
-    start_term: str = Field(examples=["2026-11-10T09:00:00"])
-    end_term: str = Field(examples=["2026-11-10T10:00:00"])
-    created_by_ai: bool
+    id: int = Field(description="겹치는 일정 id", examples=[7])
+    name: str | None = Field(description="겹치는 일정 이름", examples=["동아리 모임"])
+    start_term: str = Field(description="시작 일시", examples=["2026-11-17T18:00:00"])
+    end_term: str = Field(description="끝 일시", examples=["2026-11-17T20:00:00"])
+    created_by_ai: bool = Field(description="AI 운동 일정이면 true", examples=[False])
 
 
 class ScheduleConflictDetail(BaseModel):
@@ -34,11 +34,11 @@ class ScheduleConflictOut(BaseModel):
 
 
 class BlockConflictItem(BaseModel):
-    id: int
-    weekday: int
-    start_time: str
-    end_time: str
-    name: str | None
+    id: int = Field(description="겹치는 반복 일정 id", examples=[3])
+    weekday: int = Field(description="요일 (1=월 ... 7=일)", examples=[4])
+    start_time: str = Field(description="시작 시각 HH:mm", examples=["09:00"])
+    end_time: str = Field(description="끝 시각 HH:mm", examples=["12:00"])
+    name: str | None = Field(description="이름", examples=["자료구조"])
 
 
 class BlockConflictDetail(BaseModel):
@@ -51,7 +51,7 @@ class BlockConflictOut(BaseModel):
 
 
 class PlanConflictItem(BaseModel):
-    date: str = Field(description="운동 날짜", examples=["2026-11-17"])
+    date: str = Field(description="운동 날짜", examples=["2026-11-18"])
     workout: str = Field(description="저장하려던 운동 일정 이름", examples=["운동: 하체·복근"])
     schedule: str | None = Field(description="겹친 일정 이름", examples=["갑자기 생긴 약속"])
 
@@ -80,6 +80,10 @@ class InfoOut(BaseModel):
     nickname: str | None = Field(description="이름(닉네임). 없으면 null", examples=["근육왕"])
     goal: str | None = Field(description="운동 목표. 없으면 null", examples=["체중 감량"])
     uses_gym: bool | None = Field(description="헬스장 이용 여부. 없으면 null", examples=[True])
+    busy_time_start: str | None = Field(description="매일 운동하기 어려운 시간대의 시작 HH:mm. 없으면 null", examples=["22:00"])
+    busy_time_end: str | None = Field(
+        description="매일 운동하기 어려운 시간대의 끝 HH:mm. 시작보다 이르면 다음 날 시각. 없으면 null",
+        examples=["02:00"])
 
 
 class UserOut(BaseModel):
@@ -112,8 +116,8 @@ class WorkoutExerciseOut(BaseModel):
 class ScheduleOut(BaseModel):
     id: int = Field(description="일정 id", examples=[16])
     name: str | None = Field(description="일정 이름. AI 운동 일정은 '운동: <초점>' 형식", examples=["운동: 하체·복근"])
-    start_term: str = Field(description="시작 일시 (한국 시간, 시간대 표기 없음)", examples=["2026-11-17T19:00:00"])
-    end_term: str = Field(description="끝 일시 (한국 시간, 시간대 표기 없음)", examples=["2026-11-17T19:50:00"])
+    start_term: str = Field(description="시작 일시 (한국 시간, 시간대 표기 없음)", examples=["2026-11-18T19:00:00"])
+    end_term: str = Field(description="끝 일시 (한국 시간, 시간대 표기 없음)", examples=["2026-11-18T19:50:00"])
     created_by_ai: bool = Field(description="POST /plan이 만든 운동 일정이면 true. 사용자가 바꿀 수 없다",
                                 examples=[True])
 
@@ -151,7 +155,7 @@ class ProfileOut(BaseModel):
         description="대한비만학회 기준: 저체중, 정상, 비만 전단계, 1단계 비만, 2단계 비만, 3단계 비만. "
                     "18세 이하는 성인 기준을 쓸 수 없어 null. 25 이상(1단계 비만부터)이면 고강도 운동을 빼고 계획",
         examples=["비만 전단계"])
-    goal: str = Field(description="계획에 쓴 운동 목표 (요청의 goal, 없으면 info의 goal)", examples=["근력 향상"])
+    goal: str = Field(description="계획에 쓴 운동 목표 (요청의 goal, 없으면 info의 goal)", examples=["체중 감량"])
     experience: str | None = Field(description="헬스 경력 (info 값)", examples=["헬스 3개월"])
     uses_gym: bool | None = Field(description="헬스장 이용 여부 (info 값). null이면 알 수 없음", examples=[True])
     inbody: InbodyOut = Field(description="인바디 최신값 (입력 안 했으면 값이 모두 null)")
@@ -169,7 +173,7 @@ class PlanExerciseOut(BaseModel):
 
 
 class PlanSessionOut(BaseModel):
-    date: str = Field(description="날짜 YYYY-MM-DD", examples=["2026-11-17"])
+    date: str = Field(description="날짜 YYYY-MM-DD", examples=["2026-11-18"])
     focus: str = Field(description="그날 운동 초점. 쉬는 날은 '휴식'", examples=["하체·복근"])
     start_time: str | None = Field(description="시작 시각 HH:mm. 쉬는 날은 null", examples=["19:00"])
     end_time: str | None = Field(description="끝 시각 HH:mm (= 시작 + total_minutes). 쉬는 날은 null", examples=["19:50"])
@@ -178,7 +182,7 @@ class PlanSessionOut(BaseModel):
 
 
 class PlanDetailOut(BaseModel):
-    found: bool = Field(description="참고 문서에 근거가 있으면 true. false면 sessions가 비어 있다")
+    found: bool = Field(description="참고 문서에 근거가 있으면 true. false면 sessions가 비어 있다", examples=[True])
     start_date: str = Field(description="계획 시작일 (그 주 월요일, 단 이미 지난 요일은 빼서 오늘일 수 있음)",
                             examples=["2026-11-16"])
     end_date: str = Field(description="계획 끝일 (그 주 일요일)", examples=["2026-11-22"])
@@ -188,10 +192,10 @@ class PlanDetailOut(BaseModel):
 
 
 class AdjustmentOut(BaseModel):
-    date: str = Field(description="바뀐 날짜", examples=["2026-11-19"])
+    date: str = Field(description="바뀐 날짜", examples=["2026-11-19"])   # 목: 09:00~12:00 자료구조와 겹쳐 옮김
     from_: str | None = Field(alias="from", description="AI가 정한 시작 시각 HH:mm", examples=["10:00"])
     to: str | None = Field(description="서버가 바꾼 시작 시각 HH:mm. null이면 그날을 뺐거나 휴식으로 바꿈",
-                           examples=["13:00"])
+                           examples=["12:00"])
     reason: str = Field(description="바꾼 이유 (사용자에게 보여줘도 되는 문장)", examples=["일정과 겹치거나 운동 가능 시간을 벗어나 옮김"])
 
     model_config = {"populate_by_name": True, "serialize_by_alias": True}
@@ -205,9 +209,10 @@ class SourceOut(BaseModel):
     id: int = Field(description="참고 문서 번호", examples=[1])
     source: str = Field(description="문서 이름", examples=["신체활동 지침서"])
     targets: list[str] = Field(description="문서 조각의 대상 (성인, 아동·청소년, 공통 등)", examples=[["성인"]])
-    pinned: bool = Field(description="대상의 핵심 지침이라 검색 없이 항상 넣은 조각이면 true")
-    score: float | None = Field(description="검색 점수 (BM25). pinned면 null", examples=[29.509])
-    text: str = Field(description="문서 조각 원문")
+    pinned: bool = Field(description="대상의 핵심 지침이라 검색 없이 항상 넣은 조각이면 true", examples=[True])
+    score: float | None = Field(description="검색 점수 (BM25). pinned면 null", examples=[None])
+    text: str = Field(description="문서 조각 원문", examples=[
+        "신체활동 지침\n중강도 유산소 신체활동을 일주일에 150-300분 또는 고강도 유산소 신체활동을 일주일에\n75-150분 해야 합니다."])
 
 
 class PlanOut(BaseModel):
@@ -243,8 +248,8 @@ class ReportSessionOut(BaseModel):
 
 
 class ReportDayOut(RateOut):
-    date: str = Field(description="날짜 YYYY-MM-DD", examples=["2026-11-17"])
-    weekday: str = Field(description="요일 한 글자 (월~일)", examples=["화"])
+    date: str = Field(description="날짜 YYYY-MM-DD", examples=["2026-11-18"])
+    weekday: str = Field(description="요일 한 글자 (월~일)", examples=["수"])
     sessions: list[ReportSessionOut] = Field(description="그날의 AI 운동 일정")
 
 

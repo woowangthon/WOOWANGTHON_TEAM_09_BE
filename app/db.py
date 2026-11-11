@@ -6,7 +6,8 @@
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
 # - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
 #             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능),
-#             nickname, goal, uses_gym (운동하기 어려운 시간은 weekly_block, schedule에 등록)
+#             nickname, goal, uses_gym,
+#             busy_time_start, busy_time_end (time: 매일 운동하기 어려운 시간대. end <= start면 다음 날 시각)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 # - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
@@ -84,7 +85,7 @@ def fetch_user(user_id: int) -> dict | None:
 
 INFO_COLUMNS = (
     "age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at",
-    "nickname", "goal", "uses_gym",
+    "nickname", "goal", "uses_gym", "busy_time_start", "busy_time_end",
 )
 
 
@@ -110,7 +111,16 @@ def upsert_user_info(user_id: int, info: dict) -> dict:
         if e.code == CANNOT_INSERT_IDENTITY:
             raise IdentityColumnError(e.message) from e
         raise
-    return {k: row[k] for k in INFO_COLUMNS}
+    return _info_out(row)
+
+
+def _info_out(row: dict) -> dict:
+    # DB 행 -> INFO_COLUMNS 값. time("22:00:00") -> "22:00"
+    info = {k: row.get(k) for k in INFO_COLUMNS}
+    for k in ("busy_time_start", "busy_time_end"):
+        if info[k]:
+            info[k] = info[k][:5]
+    return info
 
 
 def fetch_user_info(user_id: int) -> dict | None:
@@ -123,7 +133,7 @@ def fetch_user_info(user_id: int) -> dict | None:
         .execute()
         .data
     )
-    return rows[0] if rows else None
+    return _info_out(rows[0]) if rows else None
 
 
 def fetch_schedules(user_id: int, start: date, end: date) -> list[ScheduleEvent]:

@@ -26,7 +26,8 @@ from app.profile import build_profile, limits_intensity
 from app.prompts import SYSTEM_PROMPT, build_user_info, build_user_message
 from app.report import history_text
 from app.schedule import (
-    add_session_times, block_events, exercise_rows, fit_sessions, overlaps, parse_hhmm, schedule_text, session_rows,
+    add_session_times, block_events, daily_busy_events, daily_busy_text, exercise_rows, fit_sessions, overlaps,
+    parse_hhmm, schedule_text, session_rows,
     workout_sessions,
 )
 from app.schemas import PlanRequest, WorkoutPlan, plan_schema_for
@@ -77,10 +78,13 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     replace_ids = {w["id"] for w in previous}
     events = [e for e in fetch_schedules(user_id, start, end) if e.id not in replace_ids]
     blocks = list_weekly_blocks(user_id)
-    busy = events + block_events(blocks, start, end)
+    busy_start, busy_end = info.get("busy_time_start"), info.get("busy_time_end")   # 매일 운동하기 어려운 시간대
+    daily = daily_busy_events(busy_start, busy_end, start, end)
+    busy = events + block_events(blocks, start, end) + daily
     user_info = build_user_info(profile, limit_intensity)
     user_message = build_user_message(
-        sources, exercise_list_text(allowed_names), start, end, schedule_text(events, blocks),
+        sources, exercise_list_text(allowed_names), start, end,
+        schedule_text(events, blocks, daily_busy_text(busy_start, busy_end)),
         history_text(user_id, monday), user_info, previous_text(previous),
     )
 
@@ -131,7 +135,7 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
 
     # AI가 계획을 만드는 동안 사용자가 일정을 추가했을 수 있으므로 저장 직전에 다시 확인한다
     latest = ([e for e in fetch_schedules(user_id, start, end) if e.id not in replace_ids]
-              + block_events(list_weekly_blocks(user_id), start, end))
+              + block_events(list_weekly_blocks(user_id), start, end) + daily)
     conflicts = [
         {"date": s.isoformat()[:10], "workout": n, "schedule": e.name}
         for n, s, t in rows for e in overlaps(s, t, latest)

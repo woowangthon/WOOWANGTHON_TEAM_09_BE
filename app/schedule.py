@@ -1,6 +1,7 @@
 # 캠퍼스 일정(수업 등)과 운동 시간.
 #
 # - block_events: 매주 반복 일정(weekly_block)을 계획 기간의 날짜별 일정으로 펼친다
+# - daily_busy_events: 매일 운동하기 어려운 시간대(info.busy_time_start~end)를 날짜별 일정으로 펼친다 (다음 날로 넘어가는 경우 포함)
 # - schedule_text: 프롬프트의 [캠퍼스 일정] 부분 (반복 일정 + 그 주의 일정 = 운동할 수 없는 시간)
 # - fit_sessions: AI가 정한 운동 시간이 일정과 겹치거나 운동 가능 시간을 벗어나면, 그날 가장 가까운 빈 시간으로 옮긴다.
 #   그날 빈 시간이 없으면 휴식으로 바꾼다. 서버가 마지막으로 확인하므로 저장되는 운동은 일정과 겹치지 않는다.
@@ -41,14 +42,38 @@ def block_events(blocks: list[dict], start: date, end: date) -> list[ScheduleEve
     ]
 
 
-def schedule_text(events: list[ScheduleEvent], blocks: list[dict]) -> str:
-    # [캠퍼스 일정] 부분. 반복 일정은 요일별로 한 줄씩 써서 토큰을 아낀다.
+DAILY_BUSY_NAME = "운동하기 어려운 시간"
+
+
+def daily_busy_events(busy_start: str | None, busy_end: str | None, start: date, end: date) -> list[ScheduleEvent]:
+    # 매일 busy_start~busy_end ("HH:mm")를 start~end의 날짜별 일정으로. busy_end <= busy_start면 다음 날 시각.
+    # 다음 날로 넘어가는 시간대는 전날 밤에 시작해 start 날 새벽까지 이어지므로 전날부터 펼친다.
+    if not busy_start or not busy_end:
+        return []
+    overnight = busy_end <= busy_start   # "HH:mm" 문자열은 사전순 = 시간순
+    first = start - timedelta(days=1) if overnight else start
+    return [
+        ScheduleEvent(start=_at(d, busy_start), end=_at(d + timedelta(days=overnight), busy_end), name=DAILY_BUSY_NAME)
+        for d in days_between(first, end)
+    ]
+
+
+def daily_busy_text(busy_start: str | None, busy_end: str | None) -> str | None:
+    if not busy_start or not busy_end:
+        return None
+    return f"  매일 {busy_start}~{'다음 날 ' if busy_end <= busy_start else ''}{busy_end} {DAILY_BUSY_NAME}"
+
+
+def schedule_text(events: list[ScheduleEvent], blocks: list[dict], daily: str | None = None) -> str:
+    # [캠퍼스 일정] 부분. 반복 일정은 요일별로, 매일 시간대는 한 줄로 써서 토큰을 아낀다.
     open_, close = WORKOUT_HOURS
     lines = [f"- 운동 가능 시간: 매일 {open_}~{close}"]
-    if not events and not blocks:
+    if not events and not blocks and not daily:
         lines.append("- 수업 등 일정: 없음 (기간 내 모든 날 공강)")
         return "\n".join(lines)
     lines.append("- 아래 시간에는 운동할 수 없음")
+    if daily:
+        lines.append(daily)
     if blocks:
         lines.append("  매주 반복:")
         lines += [f"  매주 {WEEKDAY_NAMES[b['weekday'] - 1]} {b['start_time']}~{b['end_time']} {b['name'] or '(이름 없음)'}"

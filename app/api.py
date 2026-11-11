@@ -2,8 +2,11 @@
 # 스웨거(/docs) 문서: 각 엔드포인트의 summary·description·responses, 응답 형식은 responses.py, 요청 형식은 schemas.py.
 
 from datetime import date
+from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
+from fastapi import APIRouter, Body, Depends, HTTPException, Query, Response, status
+
+from app import examples
 
 from app.auth import create_access_token, current_user_id, hash_password, verify_password
 from app.db import (
@@ -19,7 +22,7 @@ from app.responses import (
     ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
 )
 from app.schemas import (
-    REQUIRED_INFO, InfoUpdate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
+    REQUIRED_INFO, InfoUpdate, busy_time_error, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
 )
 from app.week import today, week_bounds
 
@@ -37,7 +40,13 @@ TAG_AUTH, TAG_INFO, TAG_PLAN = "인증·사용자", "건강 정보", "운동 계
 TAG_SCHEDULE, TAG_BLOCK, TAG_DONE, TAG_REPORT = "일정", "반복 시간표", "운동 이수", "주간 리포트"
 
 
-@router.get("/", tags=["기타"], summary="서버 상태 확인", description="서버가 켜져 있으면 {\"Hello\": \"World\"}.")
+@router.get(
+    "/",
+    tags=["기타"],
+    summary="서버 상태 확인",
+    description="서버가 켜져 있으면 {\"Hello\": \"World\"}.",
+    responses={200: {"content": {"application/json": {"example": {"Hello": "World"}}}}},
+)
 def read_root():
 
     # response = client.chat.completions.create(
@@ -66,7 +75,7 @@ def read_root():
     ),
     responses={409: {"model": ErrorOut, "description": "이미 사용 중인 아이디"}},
 )
-def create_user(body: UserCreate):
+def create_user(body: Annotated[UserCreate, Body(openapi_examples=examples.USER_CREATE)]):
     try:
         user = insert_user(body.name, hash_password(body.password))
     except NameTakenError:
@@ -90,7 +99,7 @@ def create_user(body: UserCreate):
     ),
     responses={401: {"model": ErrorOut, "description": "아이디 또는 비밀번호가 틀림 (어느 쪽인지는 알려주지 않음)"}},
 )
-def login(body: LoginRequest):
+def login(body: Annotated[LoginRequest, Body(openapi_examples=examples.LOGIN)]):
     user = fetch_login(body.name)
     if not verify_password(user["password"] if user else None, body.password):
         raise HTTPException(
@@ -125,23 +134,27 @@ def read_me(user_id: int = Depends(current_user_id)):
     response_model=InfoOut,
     description=(
         "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일), "
-        "닉네임, 운동 목표, 헬스장 이용 여부를 저장한다. "
-        "운동하기 어려운 시간은 여기가 아니라 `POST /weekly-block`(매주 반복), `POST /schedule`(한 번)으로 등록한다.\n\n"
+        "닉네임, 운동 목표, 헬스장 이용 여부, 매일 운동하기 어려운 시간대를 저장한다.\n\n"
         "- **처음 등록**: `age`, `height`, `weight`, `sex` 필수\n"
         "- **그다음**: 바꿀 필드만 보낸다. 보내지 않은 필드는 그대로 유지된다\n"
         "- 선택 항목(`experience`, 인바디 값)을 지우려면 그 필드를 `null`로 보낸다\n"
         "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n"
-        "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n\n"
+        "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n"
+        "- `busy_time_start`, `busy_time_end` (HH:mm): **매일** 운동하기 어려운 시간대. 둘을 함께 보내고, 지우려면 둘 다 null. "
+        "끝이 시작보다 이르면 다음 날 시각이다 (예: 22:00~02:00 = 밤 10시~다음 날 새벽 2시). `POST /plan`이 이 시간을 피한다\n"
+        "- 요일마다 다른 시간(수업 시간표)은 `POST /weekly-block`, 날짜가 정해진 일정은 `POST /schedule`로 등록한다\n\n"
         "응답은 저장된 전체 건강 정보다. 이 값들은 `POST /plan`에서 운동 계획을 짤 때 쓰인다."
     ),
     responses={
         **AUTH_ERROR,
-        422: {"description": "값 범위 오류, 필수 필드를 null로 보냄, 측정일이 미래, "
-                             "또는 처음 등록인데 필수 필드가 빠짐 (이때 detail은 문자열)"},
+        422: {"description": "값 범위 오류, 필수 필드를 null로 보냄, 측정일이 미래, 시각 형식 오류, "
+                             "또는 (detail이 문자열) 처음 등록인데 필수 필드가 빠짐 / busy_time 둘 중 하나만 있음 / 시작과 끝이 같음"},
         500: {"model": ErrorOut, "description": "DB 설정 오류"},
     },
 )
-def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
+def save_info(
+    body: Annotated[InfoUpdate, Body(openapi_examples=examples.INFO)], user_id: int = Depends(current_user_id),
+):
     changes = body.model_dump(mode="json", exclude_unset=True)   # 보낸 필드만
     merged = {**(fetch_user_info(user_id) or {}), **changes}
     if missing := [k for k in REQUIRED_INFO if merged.get(k) is None]:
@@ -149,6 +162,8 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=f"처음 등록할 때는 {', '.join(missing)}가 필요합니다.",
         )
+    if error := busy_time_error(merged.get("busy_time_start"), merged.get("busy_time_end")):
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail=error)
     try:
         return upsert_user_info(user_id, merged)
     except IdentityColumnError:
@@ -170,7 +185,7 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
         "**입력으로 쓰는 것**\n"
         "- 요청 본문: `goal`(운동 목표. 없으면 `POST /info`의 goal), `week`(그 주의 아무 날짜. 없으면 이번 주), "
         "`regenerate`(다른 계획 추천)\n"
-        "- DB: 건강 정보(`POST /info`, 헬스장 이용 여부 포함), 그 주의 일정(`/schedule`), 매주 반복 시간표(`/weekly-block`), "
+        "- DB: 건강 정보(`POST /info`, 헬스장 이용 여부·매일 운동하기 어려운 시간대 포함), 그 주의 일정(`/schedule`), 매주 반복 시간표(`/weekly-block`), "
         "지난주 운동 수행률(`/workout-exercise`의 이수 기록)\n\n"
         "**다른 계획 추천 (`\"regenerate\": true`)**\n"
         "- 그 주의 오늘 이후 AI 운동 일정을 AI에게 '이전 계획'으로 보여 주고, 운동 구성·요일·시간을 다르게 다시 짠다\n"
@@ -178,7 +193,7 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
         "- 지운 개수는 응답의 `replaced`\n"
         "**동작**\n"
         "- 이미 지난 요일은 빼고 짠다 (수요일에 이번 주를 요청하면 수~일)\n"
-        "- 운동 시간은 08:00~22:00 안에서 일정·반복 시간표와 겹치지 않게 정한다. "
+        "- 운동 시간은 08:00~22:00 안에서 일정·반복 시간표·매일 운동하기 어려운 시간대와 겹치지 않게 정한다. "
         "AI가 겹치게 짜면 서버가 그날 가장 가까운 빈 시간으로 옮기고, 빈 시간이 없으면 그날을 휴식으로 바꾼다 (`adjusted`에 기록)\n"
         "- BMI 25 이상이면 고강도 운동을 뺀다\n"
         "- 운동하는 날은 `schedule`에 `created_by_ai: true`로, 그날의 운동은 `saved[].exercises`에 저장된다. "
@@ -194,7 +209,7 @@ def save_info(body: InfoUpdate, user_id: int = Depends(current_user_id)):
         502: {"model": ErrorOut, "description": "AI 응답 형식 오류. 아무것도 저장되지 않음 → 다시 요청"},
     },
 )
-def plan(req: PlanRequest, user_id: int = Depends(current_user_id)):
+def plan(req: Annotated[PlanRequest, Body(openapi_examples=examples.PLAN)], user_id: int = Depends(current_user_id)):
     try:
         return create_plan(req, user_id)
     except PlanError as e:
@@ -289,7 +304,9 @@ def read_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     ),
     responses={**AUTH_ERROR, **SCHEDULE_CONFLICT_DOC},
 )
-def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
+def create_schedule(
+    body: Annotated[ScheduleIn, Body(openapi_examples=examples.SCHEDULE)], user_id: int = Depends(current_user_id),
+):
     try:
         return insert_schedule(user_id, body.name, body.start_term, body.end_term)
     except ScheduleConflictError as e:
@@ -305,7 +322,11 @@ def create_schedule(body: ScheduleIn, user_id: int = Depends(current_user_id)):
                 "AI 운동 일정의 시간을 옮겨도 운동 목록과 이수 기록은 유지된다.",
     responses={**AUTH_ERROR, **not_found("일정"), **SCHEDULE_CONFLICT_DOC},
 )
-def replace_schedule(schedule_id: int, body: ScheduleIn, user_id: int = Depends(current_user_id)):
+def replace_schedule(
+    schedule_id: int,
+    body: Annotated[ScheduleIn, Body(openapi_examples=examples.SCHEDULE)],
+    user_id: int = Depends(current_user_id),
+):
     try:
         schedule = update_schedule(user_id, schedule_id, body.name, body.start_term, body.end_term)
     except ScheduleConflictError as e:
@@ -343,7 +364,11 @@ def remove_schedule(schedule_id: int, user_id: int = Depends(current_user_id)):
     ),
     responses={**AUTH_ERROR, **not_found("운동")},
 )
-def update_workout_exercise(exercise_id: int, body: WorkoutExerciseUpdate, user_id: int = Depends(current_user_id)):
+def update_workout_exercise(
+    exercise_id: int,
+    body: Annotated[WorkoutExerciseUpdate, Body(openapi_examples=examples.WORKOUT_EXERCISE)],
+    user_id: int = Depends(current_user_id),
+):
     exercise = set_workout_exercise_completed(user_id, exercise_id, body.completed)
     if exercise is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="운동을 찾을 수 없습니다.")
@@ -402,7 +427,9 @@ def read_weekly_block(block_id: int, user_id: int = Depends(current_user_id)):
     ),
     responses={**AUTH_ERROR, **BLOCK_CONFLICT_DOC},
 )
-def create_weekly_block(body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
+def create_weekly_block(
+    body: Annotated[WeeklyBlockIn, Body(openapi_examples=examples.WEEKLY_BLOCK)], user_id: int = Depends(current_user_id),
+):
     try:
         return insert_weekly_block(user_id, body.weekday, body.start_time, body.end_time, body.name)
     except BlockConflictError as e:
@@ -417,7 +444,11 @@ def create_weekly_block(body: WeeklyBlockIn, user_id: int = Depends(current_user
     description="`weekday`, `start_time`, `end_time`, `name`을 모두 보낸다. 자기 자신을 뺀 같은 요일의 반복 일정과 겹치면 409.",
     responses={**AUTH_ERROR, **not_found("반복 일정"), **BLOCK_CONFLICT_DOC},
 )
-def replace_weekly_block(block_id: int, body: WeeklyBlockIn, user_id: int = Depends(current_user_id)):
+def replace_weekly_block(
+    block_id: int,
+    body: Annotated[WeeklyBlockIn, Body(openapi_examples=examples.WEEKLY_BLOCK)],
+    user_id: int = Depends(current_user_id),
+):
     try:
         block = update_weekly_block(user_id, block_id, body.weekday, body.start_time, body.end_time, body.name)
     except BlockConflictError as e:

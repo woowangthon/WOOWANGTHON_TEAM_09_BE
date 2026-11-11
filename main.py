@@ -7,6 +7,7 @@ import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.routing import APIRoute
 
 from app.api import router
 from app.config import CORS_ORIGINS
@@ -75,3 +76,20 @@ app.add_middleware(
     allow_headers=["*"],           # Authorization(Bearer 토큰), Content-Type 포함
 )
 app.include_router(router)
+
+
+def openapi_with_null_examples() -> dict:
+    # FastAPI는 명세를 만들 때 값이 null인 키를 지운다. 그러면 "값 지우기(null)" 같은 요청 예시가 {}로 보이므로,
+    # 만든 뒤 요청 예시(app/examples.py)를 원본 그대로 다시 넣는다.
+    if app.openapi_schema:
+        return app.openapi_schema
+    schema = FastAPI.openapi(app)
+    for route in router.routes:
+        examples = getattr(route.body_field.field_info, "openapi_examples", None) if (
+            isinstance(route, APIRoute) and route.body_field is not None) else None
+        for method in (route.methods if examples else ()):
+            schema["paths"][route.path][method.lower()]["requestBody"]["content"]["application/json"]["examples"] = examples
+    return schema
+
+
+app.openapi = openapi_with_null_examples
