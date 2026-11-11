@@ -6,7 +6,7 @@
 # - 시각(하루 안): "HH:mm" (24시간제)
 # - 일시: "YYYY-MM-DDTHH:MM:SS" (한국 시간, 시간대 표기 없음)
 
-from pydantic import BaseModel, Field, JsonValue
+from pydantic import BaseModel, Field
 
 
 # ---------- 공통 오류 ----------
@@ -80,9 +80,6 @@ class InfoOut(BaseModel):
     nickname: str | None = Field(description="이름(닉네임). 없으면 null", examples=["근육왕"])
     goal: str | None = Field(description="운동 목표. 없으면 null", examples=["체중 감량"])
     uses_gym: bool | None = Field(description="헬스장 이용 여부. 없으면 null", examples=[True])
-    busy_times_raw: JsonValue | None = Field(
-        description="'운동하기 어려운 시간'의 FE 원래 입력값. 보낸 JSON 그대로. 없으면 null",
-        examples=[{"weekdays": ["mon", "wed"], "from": "18:00", "to": "20:00"}])
 
 
 class UserOut(BaseModel):

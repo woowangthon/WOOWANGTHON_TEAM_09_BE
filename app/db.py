@@ -6,7 +6,7 @@
 # - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
 # - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
 #             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능),
-#             nickname, goal, uses_gym, busy_times_raw (jsonb: FE가 보낸 '운동하기 어려운 시간' 원래 입력값, 서버는 해석 안 함)
+#             nickname, goal, uses_gym (운동하기 어려운 시간은 weekly_block, schedule에 등록)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 # - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
@@ -84,7 +84,7 @@ def fetch_user(user_id: int) -> dict | None:
 
 INFO_COLUMNS = (
     "age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at",
-    "nickname", "goal", "uses_gym", "busy_times_raw",
+    "nickname", "goal", "uses_gym",
 )
 
 

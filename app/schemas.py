@@ -11,7 +11,7 @@ import copy
 from datetime import date, datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.config import TIMEZONE
 from app.week import today
@@ -66,7 +66,7 @@ REQUIRED_INFO = ("age", "height", "weight", "sex")   # info에서 비울 수 없
 
 class InfoUpdate(BaseModel):
     # POST /info 본문. 보낸 필드만 바꾼다. 처음 등록할 때는 REQUIRED_INFO가 모두 있어야 한다.
-    model_config = ConfigDict(json_schema_extra={"examples": [{"age": 21, "height": 175, "weight": 70, "sex": True, "experience": "헬스 3개월"}, {"weight": 72, "body_fat_percent": 25.3, "skeletal_muscle_kg": 31.2, "inbody_measured_at": "2026-11-10"}, {"nickname": "근육왕", "goal": "체중 감량", "uses_gym": True, "busy_times_raw": {"weekdays": ["mon", "wed"], "from": "18:00", "to": "20:00"}}, {"experience": None}], "description": (
+    model_config = ConfigDict(json_schema_extra={"examples": [{"age": 21, "height": 175, "weight": 70, "sex": True, "experience": "헬스 3개월"}, {"weight": 72, "body_fat_percent": 25.3, "skeletal_muscle_kg": 31.2, "inbody_measured_at": "2026-11-10"}, {"nickname": "근육왕", "goal": "체중 감량", "uses_gym": True}, {"experience": None}], "description": (
         "건강 정보. 보낸 필드만 바꾼다 (처음 등록할 때는 age, height, weight, sex 필수). "
         "선택 항목을 지우려면 null을 보낸다. 인바디 값은 사용자가 직접 입력한다."
     )})
@@ -84,10 +84,6 @@ class InfoUpdate(BaseModel):
     nickname: str | None = Field(None, max_length=30, description="이름(닉네임). 화면 표시용")
     goal: str | None = Field(None, max_length=200, description="운동 목표 (예: 체중 감량). POST /plan에서 goal을 생략하면 이 값을 쓴다")
     uses_gym: bool | None = Field(None, description="헬스장 이용 여부. false면 기구 없이 할 수 있는 운동 위주로 계획")
-    busy_times_raw: JsonValue | None = Field(
-        None, description="'운동하기 어려운 시간'의 FE 원래 입력값 (아무 JSON). 서버는 해석하지 않고 저장·반환만 한다. "
-                          "계획에 반영되는 것은 POST /weekly-block으로 등록한 요일별 시간이다",
-    )
 
     @model_validator(mode="after")
     def _check(self):

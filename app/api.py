@@ -125,14 +125,13 @@ def read_me(user_id: int = Depends(current_user_id)):
     response_model=InfoOut,
     description=(
         "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일), "
-        "닉네임, 운동 목표, 헬스장 이용 여부, '운동하기 어려운 시간' 원래 입력값을 저장한다.\n\n"
+        "닉네임, 운동 목표, 헬스장 이용 여부를 저장한다. "
+        "운동하기 어려운 시간은 여기가 아니라 `POST /weekly-block`(매주 반복), `POST /schedule`(한 번)으로 등록한다.\n\n"
         "- **처음 등록**: `age`, `height`, `weight`, `sex` 필수\n"
         "- **그다음**: 바꿀 필드만 보낸다. 보내지 않은 필드는 그대로 유지된다\n"
         "- 선택 항목(`experience`, 인바디 값)을 지우려면 그 필드를 `null`로 보낸다\n"
         "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n"
-        "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n"
-        "- `busy_times_raw`: FE 화면 복원용 원래 입력값. 아무 JSON이나 저장되고 그대로 돌아온다. "
-        "서버는 해석하지 않으며, 계획에 반영되는 것은 `POST /weekly-block`으로 등록한 요일별 시간이다\n\n"
+        "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n\n"
         "응답은 저장된 전체 건강 정보다. 이 값들은 `POST /plan`에서 운동 계획을 짤 때 쓰인다."
     ),
     responses={
