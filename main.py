@@ -62,8 +62,7 @@ OPENAPI_TAGS = [
     {"name": "운동 이수", "description": "AI 운동 일정의 종목별 완료 체크"},
     {"name": "주간 리포트", "description": "요일별 운동 수행률"},
     {"name": "대시보드", "description": "단과대학별 운동 수행률 경쟁 (학과는 가입할 때 입력)"},
-    {"name": "기타", "descriptio"
-    "n": "서버 상태 확인"},
+    {"name": "기타", "description": "서버 상태 확인"},
 ]
 
 app = FastAPI(
