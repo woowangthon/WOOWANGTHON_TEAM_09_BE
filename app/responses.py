@@ -135,6 +135,17 @@ class WeeklyBlockOut(BaseModel):
     name: str | None = Field(description="이름", examples=["자료구조"])
 
 
+class InbodyImageOut(BaseModel):
+    body_fat_percent: float | None = Field(description="결과지에서 읽은 체지방률 (%). 못 찾으면 null", examples=[37.5])
+    skeletal_muscle_kg: float | None = Field(description="결과지에서 읽은 골격근량 (kg). 못 찾으면 null", examples=[19.3])
+    inbody_measured_at: str | None = Field(description="결과지에서 읽은 측정일 YYYY-MM-DD. 못 찾으면 null",
+                                           examples=["2015-05-04"])
+    missing: list[str] = Field(description="찾지 못한 필드 이름 (사용자에게 직접 입력받는다)", examples=[[]])
+    warnings: list[str] = Field(
+        description="사용자에게 보여줄 주의 문장 (결과지 두 곳의 값이 다름, 글자를 못 찾음 등). 없으면 빈 배열",
+        examples=[["측정일: 결과지에서 다른 값도 읽혔습니다 (검사일시 2015-05-04 / 그 외 2015-01-12). 확인해 주세요."]])
+
+
 # ---------- 운동 계획 (POST /plan) ----------
 
 class InbodyOut(BaseModel):

@@ -1,10 +1,11 @@
 # HTTP 엔드포인트. 요청을 받아 planner·auth·db에 넘기고, 오류를 HTTP 응답으로 바꾸기만 한다.
 # 스웨거(/docs) 문서: 각 엔드포인트의 summary·description·responses, 응답 형식은 responses.py, 요청 형식은 schemas.py.
 
+import logging
 from datetime import date
 from typing import Annotated
 
-from fastapi import APIRouter, Body, Depends, HTTPException, Query, Response, status
+from fastapi import APIRouter, Body, Depends, File, HTTPException, Query, Response, UploadFile, status
 
 from app import examples
 
@@ -15,10 +16,12 @@ from app.db import (
     delete_schedule, fetch_login, fetch_user, fetch_user_info, get_schedule, insert_schedule, insert_user,
     list_schedules, list_workout_exercises, set_workout_exercise_completed, update_schedule, upsert_user_info,
 )
+from app.inbody import extract_inbody
+from app.ocr import ImageError, read_lines
 from app.planner import PlanError, create_plan
 from app.report import weekly_report
 from app.responses import (
-    BlockConflictOut, ErrorOut, InfoOut, PlanConflictOut, PlanDeleteOut, PlanOut, ReportOut, ScheduleConflictOut,
+    BlockConflictOut, ErrorOut, InbodyImageOut, InfoOut, PlanConflictOut, PlanDeleteOut, PlanOut, ReportOut, ScheduleConflictOut,
     ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
 )
 from app.schemas import (
@@ -27,6 +30,7 @@ from app.schemas import (
 from app.week import today, week_bounds
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 # ---------- 스웨거 공통 오류 응답 ----------
 AUTH_ERROR = {401: {"model": ErrorOut, "description": "토큰이 없거나 잘못됐거나 만료됨 → 다시 로그인"}}
@@ -171,6 +175,49 @@ def save_info(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="DB 설정 오류: info.id가 자동 증가(identity) 열이라 사용자 id를 넣을 수 없습니다.",
         )
+
+
+MAX_IMAGE_BYTES = 10 * 1024 * 1024   # 인바디 결과지 사진 최대 10MB
+
+
+@router.post(
+    "/inbody/image",
+    tags=[TAG_INFO],
+    summary="인바디 결과지 사진 읽기 (OCR)",
+    response_model=InbodyImageOut,
+    description=(
+        "인바디 결과지 사진(JPG, PNG 등, 10MB 이하)을 `multipart/form-data`의 `file`로 올리면 "
+        "OCR로 글자를 읽어 체지방률, 골격근량, 측정일을 찾아 돌려준다.\n\n"
+        "- **저장하지 않는다.** OCR은 틀릴 수 있으므로 사용자에게 값을 보여 주고 확인·수정받은 뒤 "
+        "`POST /info`로 저장한다. 응답의 키 이름이 `/info`와 같아 그대로 보내면 된다\n"
+        "- 찾지 못한 값은 null이고 `missing`에 들어간다 → 그 칸만 직접 입력받는다\n"
+        "- `warnings`가 있으면 사용자에게 보여 준다 (예: 결과지 두 곳의 값이 다름)\n"
+        "- 결과지 전체가 나오고 반듯하게 찍힌 사진일수록 정확하다 (약 ±6도 기울기, 휴대폰 회전 정보까지 처리)\n"
+        "- 오픈소스 OCR(RapidOCR)을 서버에서 실행하므로 수 초~십수 초 걸린다. 한 번에 한 장씩 처리한다\n\n"
+        "InBody 270 결과지 기준으로 만들었다. 결과지 안의 그래프 값과 신체변화 표(최근 값)를 서로 대조한다.\n\n"
+        "**로그인 없이 쓸 수 있다** (회원가입 화면에서 인바디를 사진으로 입력받을 수 있도록). 토큰을 보내도 무시한다."
+    ),
+    responses={
+        400: {"model": ErrorOut, "description": "이미지가 아니거나 읽을 수 없음"},
+        413: {"model": ErrorOut, "description": "10MB 초과"},
+        503: {"model": ErrorOut, "description": "OCR 엔진을 준비하지 못함 (모델 파일 문제) → 잠시 후 다시 시도"},
+    },
+)
+def read_inbody_image(
+    file: UploadFile = File(description="인바디 결과지 사진 (JPG, PNG 등, 10MB 이하)"),
+):
+    data = file.file.read(MAX_IMAGE_BYTES + 1)
+    if len(data) > MAX_IMAGE_BYTES:
+        raise HTTPException(status_code=status.HTTP_413_CONTENT_TOO_LARGE, detail="사진은 10MB 이하로 올려 주세요.")
+    try:
+        lines = read_lines(data)
+    except ImageError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+    except (ImportError, OSError, RuntimeError) as e:   # 모델 파일을 못 받았거나 엔진을 만들지 못함
+        logger.exception("OCR 엔진 오류")
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                            detail="사진 읽기 기능을 지금 쓸 수 없습니다. 잠시 후 다시 시도해 주세요.") from e
+    return extract_inbody(lines)
 
 
 # ---------- 운동 계획 ----------
