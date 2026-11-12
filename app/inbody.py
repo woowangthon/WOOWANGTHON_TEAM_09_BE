@@ -1,28 +1,40 @@
-# OCR로 읽은 인바디 결과지에서 체지방률, 골격근량, 측정일을 찾는다.
+# OCR로 읽은 인바디 결과지에서 키, 몸무게, 체지방률, 골격근량, 측정일을 찾는다.
 #
-# 결과지 한 장에 같은 값이 두 번 나오는 것을 이용해 서로 대조한다 (InBody 270 결과지 기준, 좌표는 고정하지 않음)
-#   체지방률·골격근량: ① 그래프 줄 (라벨 오른쪽, 눈금 숫자들과 높이가 다른 숫자 하나)
+# 결과지 한 장에 같은 값이 여러 번 나오는 것을 이용해 서로 대조한다 (InBody 270 결과지 기준, 좌표는 고정하지 않음)
+#   몸무게(체중)·체지방률·골격근량:
+#                       ① 그래프 줄 (라벨 오른쪽, 눈금 숫자들과 높이가 다른 숫자 하나)
 #                       ② 신체변화 표 (라벨 오른쪽 숫자들 중 맨 오른쪽 = 최근)
-#                       ③ "체지방률 37.5%"처럼 라벨과 값이 한 덩어리로 읽힌 경우
+#                       ③ "체지방률 37.5%"처럼 라벨과 값이 한 덩어리이거나, 라벨 오른쪽에 숫자가 하나뿐인 경우
+#                          (체성분분석 표의 "체중 59.1 (45.0~60.8)": 괄호 안 정상 범위는 뺀다)
+#   키: 머리말의 "156.9cm" (cm가 붙은 숫자. "신장" 라벨은 잘 안 읽혀서 cm로 찾고, cm를 못 읽었으면 라벨 바로 아래 숫자)
 #   측정일: ① "2015.05.04" 같은 네 자리 연도 날짜 (검사일시 근처를 우선)  ② 신체변화 표의 마지막 날짜 "15.05.04"
 # 값이 서로 다르면 ①을 쓰고 warnings에 알린다. 찾지 못한 값은 null + missing에 넣는다.
+# 키·몸무게는 POST /info에 그대로 보낼 수 있도록 정수로 반올림한다 (156.9cm -> 157).
 
+import math
 import re
 from datetime import date
 
 from app.ocr import OcrLine
 from app.week import today
 
-# 라벨은 정확히 일치하는 글자로만 찾는다 (체지방"량"(kg)과 체지방"률"(%)이 한 글자 차이라 비슷한 글자 허용은 위험)
+# 라벨은 정확히 일치하는 글자로만 찾는다 (체지방"량"(kg)과 체지방"률"(%)이 한 글자 차이라 비슷한 글자 허용은 위험).
+# 라벨 앞뒤에 다른 한글이 붙어 있으면 다른 항목이다 (적정"체중", "체중"조절, 저"체중").
 FIELDS = {
+    "weight": {"name": "몸무게", "labels": ("체중",), "range": (20.0, 250.0), "integer": True},
     "body_fat_percent": {"name": "체지방률", "labels": ("체지방률", "체지방율"), "range": (1.0, 75.0)},
     "skeletal_muscle_kg": {"name": "골격근량", "labels": ("골격근량",), "range": (5.0, 70.0)},
 }
 DATE_LABELS = ("검사일시", "검사일", "측정일", "측정일시", "testdate")
+HEIGHT_LABELS = ("신장", "키")
+HEIGHT_RANGE = (100.0, 230.0)
 
-# 숫자 하나만 있는 글자: '37.5', '"22.1', '37.5%', '59.1kg'. 앞뒤에 기호·단위만 허용한다
-# (체크박스 '□표준'이 '3표준'으로 읽히는 것처럼 글자가 붙어 있으면 숫자로 보지 않는다)
-NUMBER_ONLY = re.compile(r"^[^\w가-힣]{0,2}(\d{1,3}(?:\.\d{1,2})?)\s*(?:%|kg|㎏)?[^\w가-힣]{0,2}$")
+# 숫자 하나만 있는 글자: '37.5', '"22.1', '37.5%', '59.1kg', '59.1 (45.0~60.8)'(뒤 괄호 = 정상 범위, 뺀다).
+# 앞뒤에 기호·단위만 허용한다 (체크박스 '□표준'이 '3표준'으로 읽히는 것처럼 글자가 붙어 있으면 숫자로 보지 않는다).
+# 괄호가 붙은 숫자('(45.0', '60.8)')는 정상 범위가 쪼개져 읽힌 것이므로 숫자로 보지 않는다.
+NUMBER_ONLY = re.compile(r"^[^\w가-힣()]{0,2}(\d{1,3}(?:\.\d{1,2})?)\s*(?:%|kg|㎏|cm)?"
+                         r"(?:\s*\(\s*[\d.]+\s*[~\-–]\s*[\d.]+\s*\)?)?[^\w가-힣()]{0,2}$")
+HEIGHT_CM = re.compile(r"(\d{2,3}(?:\.\d)?)\s*cm", re.IGNORECASE)   # 머리말의 '156.9cm' ('신장156.9cm'처럼 붙어도 찾음)
 VALUE_AFTER_LABEL = re.compile(r"^[:：]?(\d{1,3}(?:\.\d{1,2})?)(%|kg)?$")   # 라벨 바로 뒤에 숫자(와 단위)만 있을 때
 FULL_DATE = re.compile(r"((?:19|20)\d{2})\s*[.\-/년]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})")
 SHORT_DATE = re.compile(r"^(\d{2})\.(\d{2})\.(\d{2})$")                 # 신체변화 표의 '15.05.04'
@@ -40,12 +52,19 @@ def _number(text: str) -> float | None:
     return float(m.group(1)) if m else None
 
 
+def _has_label(text: str, label: str) -> bool:
+    # 라벨 앞뒤에 다른 한글이 붙지 않은 채로 들어 있는지 ("체중(kg)" O, "적정체중"·"체중조절" X)
+    return re.search(rf"(?<![가-힣]){label}(?![가-힣])", text) is not None
+
+
 def _row_numbers(label: OcrLine, lines: list[OcrLine]) -> list[tuple[OcrLine, float]]:
-    # 라벨 오른쪽, 같은 줄 높이에 있는 숫자들 (왼쪽부터). 간격이 갑자기 벌어지면 다른 칸이므로 거기서 끊는다.
+    # 라벨 오른쪽, 같은 줄 높이에 있는 숫자들 (왼쪽부터). 사이에 다른 한글 글자(다음 칸의 라벨, 예: 오른쪽 패널의
+    # "체중조절")가 나오거나 간격이 갑자기 벌어지면 다른 칸이므로 거기서 끊는다.
     band = label.height * 0.6
-    row = sorted(((ln, v) for ln in lines
-                  if ln is not label and ln.x0 > label.x1 and abs(ln.cy - label.cy) <= band
-                  and (v := _number(ln.text)) is not None), key=lambda p: p[0].x0)
+    right = sorted((ln for ln in lines if ln is not label and ln.x0 > label.x1 and abs(ln.cy - label.cy) <= band),
+                   key=lambda ln: ln.x0)
+    stop = next((ln.x0 for ln in right if re.search(r"[가-힣]", ln.text)), math.inf)
+    row = [(ln, v) for ln in right if ln.x0 < stop and (v := _number(ln.text)) is not None]
     if len(row) < 3:
         return row
     gaps = [b[0].x0 - a[0].x0 for a, b in zip(row, row[1:])]
@@ -92,7 +111,7 @@ def _candidates(field: dict, lines: list[OcrLine]) -> list[tuple[float, str]]:
     found = []
     for label in lines:
         text = _norm(label.text)
-        hit = next((lb for lb in field["labels"] if lb in text), None)
+        hit = next((lb for lb in field["labels"] if _has_label(text, lb)), None)
         if hit is None:
             continue
         # ③ 라벨과 값이 한 덩어리 ("체지방률 37.5%"). 라벨 뒤에 숫자와 단위만 있을 때만 인정한다
@@ -116,6 +135,23 @@ def _candidates(field: dict, lines: list[OcrLine]) -> list[tuple[float, str]]:
     lo, hi = field["range"]
     order = {"라벨 옆": 0, "그래프": 0, "신체변화 표": 1}
     return sorted([(v, src) for v, src in found if lo <= v <= hi], key=lambda c: order[c[1]])
+
+
+def _height_candidates(lines: list[OcrLine]) -> list[tuple[float, str]]:
+    # 키: cm가 붙은 숫자 (위쪽부터). 없으면 "신장" 라벨 바로 아래 숫자 (머리말은 라벨 줄 아래에 값 줄이 있다)
+    lo, hi = HEIGHT_RANGE
+    found = [(float(m.group(1)), "신장") for ln in lines for m in HEIGHT_CM.finditer(ln.text)
+             if lo <= float(m.group(1)) <= hi]
+    if found:
+        return found
+    for label in lines:
+        if not any(_has_label(_norm(label.text), lb) for lb in HEIGHT_LABELS):
+            continue
+        below = [(ln.cy - label.cy, v) for ln in lines
+                 if 0 < ln.cy - label.cy <= label.height * 2.5 and ln.x0 < label.x1 + label.height and ln.x1 > label.x0
+                 and (v := _number(ln.text)) is not None and lo <= v <= hi]
+        found += [(v, "신장") for _, v in sorted(below)[:1]]
+    return found
 
 
 def _valid_date(y: int, m: int, d: int) -> date | None:
@@ -159,13 +195,14 @@ def _pick(name: str, candidates: list, warnings: list[str], fmt=str):
 def extract_inbody(lines: list[OcrLine]) -> dict:
     # POST /inbody/image 응답: 찾은 값 (못 찾으면 null), missing, warnings
     warnings: list[str] = []
-    result = {
-        key: _pick(field["name"], _candidates(field, lines), warnings)
-        for key, field in FIELDS.items()
-    }
+    result = {"height": _pick("키", _height_candidates(lines), warnings)}
+    result |= {key: _pick(field["name"], _candidates(field, lines), warnings) for key, field in FIELDS.items()}
+    for key, field in (("height", {"integer": True}), *FIELDS.items()):
+        if field.get("integer") and result[key] is not None:
+            result[key] = int(result[key] + 0.5)   # POST /info의 height·weight는 정수
     measured = _pick("측정일", _date_candidates(lines), warnings, fmt=lambda d: d.isoformat())
     result["inbody_measured_at"] = measured.isoformat() if measured else None
-    names = {**{k: f["name"] for k, f in FIELDS.items()}, "inbody_measured_at": "측정일"}
+    names = {"height": "키", **{k: f["name"] for k, f in FIELDS.items()}, "inbody_measured_at": "측정일"}
     result["missing"] = [k for k in names if result[k] is None]
     if not lines:
         warnings.append("이미지에서 글자를 찾지 못했습니다. 결과지가 잘 보이게 다시 찍어 주세요.")

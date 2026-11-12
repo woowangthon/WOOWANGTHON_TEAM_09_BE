@@ -33,7 +33,7 @@ app/
   search.py             검색어 만들기, 참고 문서 조각 고르기
   report.py             주간 리포트(요일별 수행률), 프롬프트용 지난주 수행 요약, 단과대학 대시보드
   ocr.py                이미지 -> 글자 줄 (RapidOCR, 한국어 모델, 기울기 보정)
-  inbody.py             OCR 결과에서 인바디 체지방률·골격근량·측정일 찾기 (POST /inbody/image)
+  inbody.py             OCR 결과에서 인바디 키·몸무게·체지방률·골격근량·측정일 찾기 (POST /inbody/image)
   week.py               주(월~일) 계산, 한국 시간 기준 오늘
   schedule.py           캠퍼스 일정(지금은 모두 공강, 나중에 Supabase 연동), 운동 종료 시각 계산
   llm.py                AI 호출 (캐시, 토큰 사용량 로그)
@@ -88,7 +88,7 @@ departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대
 
 ## 인바디 사진 읽기 (OCR)
 
-- `POST /inbody/image`: 결과지 사진에서 체지방률·골격근량·측정일을 읽어 돌려준다 (저장은 FE가 확인 후 `POST /info`). 회원가입 화면에서도 쓰도록 로그인 없이 호출 가능
+- `POST /inbody/image`: 결과지 사진에서 키·몸무게·체지방률·골격근량·측정일을 읽어 돌려준다 (저장은 FE가 확인 후 `POST /info`). 회원가입 화면에서도 쓰도록 로그인 없이 호출 가능
 - 오픈소스 [RapidOCR](https://github.com/RapidAI/RapidOCR) (Apache-2.0)을 ONNX Runtime으로 서버에서 실행한다. 외부 API 호출·비용 없음
   - 글자 위치: PP-OCRv6 det (패키지에 포함) / 글자 인식: 한국어 PP-OCRv5 rec mobile (처음 쓸 때 내려받음, 약 13MB)
 - **배포할 때 모델을 미리 받기**: 빌드 단계에서 `python -m app.ocr` 실행 (안 하면 첫 요청이 모델을 내려받느라 느리거나 실패할 수 있음)

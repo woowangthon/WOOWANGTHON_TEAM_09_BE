@@ -141,6 +141,10 @@ class WeeklyBlockOut(BaseModel):
 
 
 class InbodyImageOut(BaseModel):
+    height: int | None = Field(description="결과지에서 읽은 키 (cm, 정수로 반올림: 156.9 -> 157). 못 찾으면 null",
+                               examples=[157])
+    weight: int | None = Field(description="결과지에서 읽은 몸무게(체중) (kg, 정수로 반올림: 59.1 -> 59). 못 찾으면 null",
+                               examples=[59])
     body_fat_percent: float | None = Field(description="결과지에서 읽은 체지방률 (%). 못 찾으면 null", examples=[37.5])
     skeletal_muscle_kg: float | None = Field(description="결과지에서 읽은 골격근량 (kg). 못 찾으면 null", examples=[19.3])
     inbody_measured_at: str | None = Field(description="결과지에서 읽은 측정일 YYYY-MM-DD. 못 찾으면 null",
