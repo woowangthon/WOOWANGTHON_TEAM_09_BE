@@ -3,10 +3,12 @@
 import hashlib
 import json
 import logging
+import time
 
 from openai import OpenAI
 
 from app.config import AI_BASE_URL, LLM_CACHE_DIR, LLM_CACHE_ENABLED, NOVA_AI_KEY
+from app.logs import log_event
 
 logger = logging.getLogger(__name__)
 
@@ -20,15 +22,18 @@ def chat_completion(**kwargs) -> str:
     key = hashlib.sha256(json.dumps(kwargs, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
     cache_file = LLM_CACHE_DIR / f"{key}.json"
     if LLM_CACHE_ENABLED and cache_file.exists():
-        logger.info("AI 응답 캐시 사용 (토큰 0)")
+        log_event(logger, "ai.cache_hit", model=kwargs.get("model"), cache_key=key[:12])
         return json.loads(cache_file.read_text(encoding="utf-8"))["content"]
 
+    started = time.perf_counter()
     response = client.chat.completions.create(**kwargs)
     content = response.choices[0].message.content
     usage = response.usage
-    if usage:
-        logger.info("AI 토큰 사용량: 입력 %s / 출력 %s / 합계 %s",
-                    usage.prompt_tokens, usage.completion_tokens, usage.total_tokens)
+    log_event(logger, "ai.call", model=kwargs.get("model"), seconds=round(time.perf_counter() - started, 2),
+              prompt_tokens=usage.prompt_tokens if usage else None,
+              completion_tokens=usage.completion_tokens if usage else None,
+              total_tokens=usage.total_tokens if usage else None,
+              finish_reason=response.choices[0].finish_reason, response_chars=len(content or ""))
     if LLM_CACHE_ENABLED:
         LLM_CACHE_DIR.mkdir(exist_ok=True)
         cache_file.write_text(json.dumps({"content": content}, ensure_ascii=False), encoding="utf-8")

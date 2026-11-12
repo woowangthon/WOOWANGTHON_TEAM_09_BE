@@ -3,16 +3,15 @@
 # 코드는 app/ 패키지에 있다. 구조와 요청 처리 흐름은 README.md 참고.
 # API 문서: 서버 실행 후 /docs (스웨거), /redoc, /openapi.json
 
-import logging
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.routing import APIRoute
 
 from app.api import router
-from app.config import CORS_ORIGINS
+from app.config import CORS_ORIGINS, LOG_LEVEL
+from app.logs import AccessLogMiddleware, setup_logging
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s:     %(name)s - %(message)s")
+setup_logging(LOG_LEVEL)   # 로그를 JSON 한 줄씩 (형식과 event 목록은 app/logs.py)
 
 API_DESCRIPTION = """
 충북대 재학생(청소년~중장년)의 **캠퍼스 일정을 고려해 주간 헬스 운동 계획을 만들어 주는** API.
@@ -77,6 +76,7 @@ app.add_middleware(
     allow_methods=["*"],           # GET, POST, PUT, DELETE ...
     allow_headers=["*"],           # Authorization(Bearer 토큰), Content-Type 포함
 )
+app.add_middleware(AccessLogMiddleware)   # 접속·응답 로그. 마지막에 추가해야 맨 바깥에서 CORS 응답까지 기록한다
 app.include_router(router)
 
 

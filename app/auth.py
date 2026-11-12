@@ -14,6 +14,7 @@ from argon2 import PasswordHasher
 from argon2.exceptions import InvalidHashError, VerificationError
 
 from app.config import JWT_EXPIRE_MINUTES, JWT_SECRET
+from app.logs import set_user_id
 
 _hasher = PasswordHasher()
 
@@ -60,9 +61,11 @@ def current_user_id(credentials: HTTPAuthorizationCredentials | None = Depends(_
     if credentials is None:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "로그인이 필요합니다.", headers={"WWW-Authenticate": "Bearer"})
     try:
-        return decode_access_token(credentials.credentials)
+        user_id = decode_access_token(credentials.credentials)
     except jwt.ExpiredSignatureError:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "토큰이 만료되었습니다. 다시 로그인하세요.",
                             headers={"WWW-Authenticate": "Bearer"})
     except (jwt.InvalidTokenError, ValueError):
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "유효하지 않은 토큰입니다.", headers={"WWW-Authenticate": "Bearer"})
+    set_user_id(user_id)   # 접속 로그(http.response)에 누가 요청했는지 남긴다
+    return user_id

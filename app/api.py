@@ -17,6 +17,7 @@ from app.db import (
     list_schedules, list_workout_exercises, set_workout_exercise_completed, update_schedule, upsert_user_info,
 )
 from app.inbody import extract_inbody
+from app.logs import log_event
 from app.ocr import ImageError, read_lines
 from app.planner import PlanError, create_plan
 from app.departments import college_of
@@ -220,7 +221,7 @@ def read_inbody_image(
     except ImageError as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     except (ImportError, OSError, RuntimeError) as e:   # 모델 파일을 못 받았거나 엔진을 만들지 못함
-        logger.exception("OCR 엔진 오류")
+        log_event(logger, "ocr.engine_error", logging.ERROR, exc_info=True, image_bytes=len(data))
         raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                             detail="사진 읽기 기능을 지금 쓸 수 없습니다. 잠시 후 다시 시도해 주세요.") from e
     return extract_inbody(lines)

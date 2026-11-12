@@ -14,6 +14,8 @@ import logging
 
 from PIL import Image, ImageOps, UnidentifiedImageError
 
+from app.logs import log_event
+
 logger = logging.getLogger(__name__)
 
 MAX_SIDE = 2400   # 긴 변이 이보다 크면 줄여서 읽는다 (휴대폰 사진은 4000px 이상이라 느리고 메모리를 많이 씀)
@@ -80,13 +82,16 @@ def read_lines(data: bytes) -> list[OcrLine]:
     with _lock:
         started = time.time()
         result = _run(img)
-        theta = _skew(result)
-        if abs(theta) >= math.radians(1):
+        theta = first_theta = _skew(result)
+        reread = abs(theta) >= math.radians(1)
+        if reread:
             # 기울어진 사진: 기울어진 채로 읽으면 글자 인식이 나빠지므로(예: 53.0 -> $3.0) 이미지를 반듯하게 돌려 다시 읽는다
             img = img.rotate(math.degrees(theta), expand=True, fillcolor="white", resample=Image.Resampling.BICUBIC)
             result = _run(img)
             theta = _skew(result)
-        logger.info("OCR %d줄, %.1f초", len(result.txts or ()), time.time() - started)
+        seconds = time.time() - started
+    log_event(logger, "ocr.read", image_bytes=len(data), image_size=list(img.size), lines=len(result.txts or ()),
+              seconds=round(seconds, 2), skew_degrees=round(math.degrees(first_theta), 2), rotated_and_reread=reread)
     if not result.txts:
         return []
     boxes = _rotate_boxes(_boxes(result), -theta)   # 남은 작은 기울기는 좌표만 돌려 맞춘다
@@ -95,7 +100,12 @@ def read_lines(data: bytes) -> list[OcrLine]:
                 x1=max(x for x, _ in b), y1=max(y for _, y in b))
         for b, t, s in zip(boxes, result.txts, result.scores)
     ]
-    return sorted(lines, key=lambda line: (line.y0, line.x0))
+    lines.sort(key=lambda line: (line.y0, line.x0))
+    # 읽은 글자 전체는 길어서 DEBUG에서만 (LOG_LEVEL=DEBUG): 규칙이 왜 값을 못 찾았는지 볼 때
+    if logger.isEnabledFor(logging.DEBUG):
+        log_event(logger, "ocr.lines", logging.DEBUG,
+                  lines=[f"{ln.text} @({ln.x0:.0f},{ln.y0:.0f}) {ln.score:.2f}" for ln in lines])
+    return lines
 
 
 def _run(img: Image.Image):

@@ -37,6 +37,7 @@ app/
   week.py               주(월~일) 계산, 한국 시간 기준 오늘
   schedule.py           캠퍼스 일정(지금은 모두 공강, 나중에 Supabase 연동), 운동 종료 시각 계산
   llm.py                AI 호출 (캐시, 토큰 사용량 로그)
+  logs.py               구조화된 로그 (JSON 한 줄), 접속·응답 로그 미들웨어
   config.py             경로, 환경변수, 모델 이름
   rag/
     documents.py        문서별 섹션 규칙 (섹션마다 대상을 붙임)
@@ -84,7 +85,7 @@ departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대
 
 - 같은 요청(프롬프트·스키마가 완전히 같음)은 `.llm_cache/`에 저장된 응답을 돌려주어 토큰을 쓰지 않습니다.
 - 끄려면 `LLM_CACHE=0 uvicorn main:app`
-- 실제로 호출하면 토큰 사용량이 로그에 남습니다: `AI 토큰 사용량: 입력 … / 출력 … / 합계 …`
+- 실제로 호출하면 토큰 사용량이 로그(`ai.call`)에 남습니다: `prompt_tokens`, `completion_tokens`, `total_tokens`
 
 ## 인바디 사진 읽기 (OCR)
 
@@ -93,3 +94,24 @@ departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대
   - 글자 위치: PP-OCRv6 det (패키지에 포함) / 글자 인식: 한국어 PP-OCRv5 rec mobile (처음 쓸 때 내려받음, 약 13MB)
 - **배포할 때 모델을 미리 받기**: 빌드 단계에서 `python -m app.ocr` 실행 (안 하면 첫 요청이 모델을 내려받느라 느리거나 실패할 수 있음)
 - 한 장에 약 5초 (기울어진 사진은 반듯하게 돌려 한 번 더 읽어 약 10초), 메모리 최대 약 330MB. 동시에 한 장씩만 처리한다
+
+## 로그 (구조화된 로그)
+
+모든 로그는 한 줄에 JSON 하나로 표준 출력에 나옵니다 (`app/logs.py`). 수준은 환경변수 `LOG_LEVEL` (기본 `INFO`, `DEBUG`면 OCR이 읽은 글자 전체도).
+
+- 공통 키: `ts`(한국 시간), `level`, `logger`, `event`, `request_id`(요청 중 로그를 묶음)
+- 비밀번호·토큰은 남기지 않습니다 (요청 본문은 남기지 않고, 응답의 `access_token`은 `***`)
+
+| event | 언제 | 주요 키 |
+|---|---|---|
+| `http.request` | 요청이 들어옴 | `method`, `path`, `query`, `client`(IP), `user_agent`, `content_type`, `content_length` |
+| `http.response` | 응답을 보냄 | `status`, `duration_ms`, `user_id`(로그인한 요청), `response`(응답 요약: 값은 그대로, 목록은 개수와 첫 항목) |
+| `http.error` | 처리 중 잡히지 않은 예외 | `error`(traceback) |
+| `ocr.read` | 사진 OCR | `image_bytes`, `image_size`, `lines`(읽은 줄 수), `seconds`, `skew_degrees`, `rotated_and_reread` |
+| `ocr.extract` | 결과지에서 값 찾기 | `result`(키·몸무게·체지방률·골격근량·측정일), `missing`, `warnings`, `candidates`(항목별 후보 값과 출처) |
+| `ocr.lines` (DEBUG) | OCR이 읽은 글자 전체 | `lines` (`글자 @(x,y) 신뢰도`) |
+| `ocr.engine_error` | OCR 엔진을 못 씀 | `error` |
+| `ai.call` / `ai.cache_hit` | AI 호출 / 캐시 사용 | `model`, `seconds`, `prompt_tokens`, `completion_tokens`, `total_tokens`, `finish_reason` |
+| `log` | 그 밖의 라이브러리 로그 (uvicorn 등) | `message` |
+
+보기 좋게 보기: `uvicorn main:app 2>&1 | jq .` / 요청 하나만: `jq 'select(.request_id=="df010971")'`

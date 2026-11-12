@@ -11,15 +11,19 @@
 # 값이 서로 다르면 ①을 쓰고 warnings에 알린다. 찾지 못한 값은 null + missing에 넣는다.
 # 키·몸무게는 POST /info에 그대로 보낼 수 있도록 정수로 반올림한다 (156.9cm -> 157).
 
+import logging
 import math
 import re
 from datetime import date
 
+from app.logs import log_event
 from app.ocr import OcrLine
 from app.week import today
 
 # 라벨은 정확히 일치하는 글자로만 찾는다 (체지방"량"(kg)과 체지방"률"(%)이 한 글자 차이라 비슷한 글자 허용은 위험).
 # 라벨 앞뒤에 다른 한글이 붙어 있으면 다른 항목이다 (적정"체중", "체중"조절, 저"체중").
+logger = logging.getLogger(__name__)
+
 FIELDS = {
     "weight": {"name": "몸무게", "labels": ("체중",), "range": (20.0, 250.0), "integer": True},
     "body_fat_percent": {"name": "체지방률", "labels": ("체지방률", "체지방율"), "range": (1.0, 75.0)},
@@ -195,12 +199,14 @@ def _pick(name: str, candidates: list, warnings: list[str], fmt=str):
 def extract_inbody(lines: list[OcrLine]) -> dict:
     # POST /inbody/image 응답: 찾은 값 (못 찾으면 null), missing, warnings
     warnings: list[str] = []
-    result = {"height": _pick("키", _height_candidates(lines), warnings)}
-    result |= {key: _pick(field["name"], _candidates(field, lines), warnings) for key, field in FIELDS.items()}
+    candidates = {"height": _height_candidates(lines), **{key: _candidates(field, lines) for key, field in FIELDS.items()}}
+    result = {"height": _pick("키", candidates["height"], warnings)}
+    result |= {key: _pick(field["name"], candidates[key], warnings) for key, field in FIELDS.items()}
     for key, field in (("height", {"integer": True}), *FIELDS.items()):
         if field.get("integer") and result[key] is not None:
             result[key] = int(result[key] + 0.5)   # POST /info의 height·weight는 정수
-    measured = _pick("측정일", _date_candidates(lines), warnings, fmt=lambda d: d.isoformat())
+    candidates["inbody_measured_at"] = _date_candidates(lines)
+    measured = _pick("측정일", candidates["inbody_measured_at"], warnings, fmt=lambda d: d.isoformat())
     result["inbody_measured_at"] = measured.isoformat() if measured else None
     names = {"height": "키", **{k: f["name"] for k, f in FIELDS.items()}, "inbody_measured_at": "측정일"}
     result["missing"] = [k for k in names if result[k] is None]
@@ -209,4 +215,8 @@ def extract_inbody(lines: list[OcrLine]) -> dict:
     elif len(result["missing"]) == len(names):
         warnings.append("인바디 결과지 항목을 찾지 못했습니다. 결과지 전체가 나오게 다시 찍어 주세요.")
     result["warnings"] = warnings
+    # 개발자용: 최종 값과, 결과지 어디(출처)에서 어떤 값들이 후보로 읽혔는지
+    log_event(logger, "ocr.extract", lines=len(lines),
+              result={k: result[k] for k in names}, missing=result["missing"], warnings=warnings,
+              candidates={k: [[str(v), src] for v, src in c] for k, c in candidates.items()})
     return result
