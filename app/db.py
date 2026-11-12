@@ -3,7 +3,8 @@
 # user.password(해시)는 로그인 확인(fetch_login)에서만 읽고, 다른 곳에서는 조회하지 않는다.
 #
 # 테이블
-# - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시)
+# - user:     id(내부 식별자), created_at, name(로그인 아이디), password(Argon2 해시),
+#             department(학과, null 가능), college(단과대학, 학과에서 서버가 채움, null 가능 = 기타)
 # - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
 #             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능),
 #             nickname, goal, uses_gym,
@@ -57,18 +58,20 @@ def name_exists(name: str) -> bool:
     return bool(rows)
 
 
-def insert_user(name: str, password_hash: str) -> dict:
-    # user 행을 만들고 {"id", "name", "created_at"}을 돌려준다. 아이디가 겹치면 NameTakenError.
+def insert_user(name: str, password_hash: str, department: str | None = None, college: str | None = None) -> dict:
+    # user 행을 만들고 {"id", "name", "created_at", "department", "college"}을 돌려준다. 아이디가 겹치면 NameTakenError.
     # id는 내부 식별자이므로 응답에 넣지 않는다 (api.py에서 뺀다).
     if name_exists(name):
         raise NameTakenError(name)
     try:
-        row = get_client().table("user").insert({"name": name, "password": password_hash}).execute().data[0]
+        row = get_client().table("user").insert(
+            {"name": name, "password": password_hash, "department": department, "college": college}
+        ).execute().data[0]
     except APIError as e:
         if e.code == UNIQUE_VIOLATION:   # 동시에 같은 아이디로 가입한 경우 (name에 UNIQUE 제약이 있을 때)
             raise NameTakenError(name) from e
         raise
-    return {"id": row["id"], "name": row["name"], "created_at": row["created_at"]}
+    return {k: row[k] for k in ("id", "name", "created_at", "department", "college")}
 
 
 def fetch_login(name: str) -> dict | None:
@@ -78,8 +81,8 @@ def fetch_login(name: str) -> dict | None:
 
 
 def fetch_user(user_id: int) -> dict | None:
-    # user 테이블의 {"name", "created_at"} (id·password는 내보내지 않는다). 없으면 None.
-    rows = get_client().table("user").select("name, created_at").eq("id", user_id).limit(1).execute().data
+    # user 테이블의 {"name", "created_at", "department", "college"} (id·password는 내보내지 않는다). 없으면 None.
+    rows = get_client().table("user").select("name, created_at, department, college").eq("id", user_id).limit(1).execute().data
     return rows[0] if rows else None
 
 
@@ -339,6 +342,39 @@ def fetch_ai_workouts(user_id: int, start: date, end: date) -> list[dict]:
          "exercises": [e["name"] for e in sorted(r["workout_exercise"], key=lambda e: e["position"])]}
         for r in rows
     ]
+
+
+def fetch_college_workouts(start: date, end: date) -> tuple[dict[int, str | None], list[dict]]:
+    # 대시보드용: 모든 사용자의 단과대학과, start~end(포함)에 시작하는 모든 AI 운동 일정의 이수 여부.
+    # ({user_id: college}, [{"author", "start": datetime, "completed": [bool, ...]}])
+    colleges = {r["id"]: r["college"] for r in _all_rows(lambda: get_client().table("user").select("id, college").order("id"))}
+    rows = _all_rows(lambda: (
+        get_client().table("schedule")
+        .select("author, start_term, workout_exercise(completed)")
+        .eq("created_by_ai", True)
+        .gte("start_term", datetime.combine(start, time.min, TIMEZONE).isoformat())
+        .lt("start_term", datetime.combine(end + timedelta(days=1), time.min, TIMEZONE).isoformat())
+        .order("id")
+    ))
+    workouts = [
+        {"author": r["author"], "start": datetime.fromisoformat(r["start_term"]).astimezone(TIMEZONE),
+         "completed": [e["completed"] for e in r["workout_exercise"]]}
+        for r in rows
+    ]
+    return colleges, workouts
+
+
+PAGE = 1000   # Supabase는 한 번에 최대 1000행만 돌려준다
+
+
+def _all_rows(query) -> list[dict]:
+    # query(): 정렬된 select 쿼리를 새로 만드는 함수. 1000행씩 끝까지 읽는다.
+    rows: list[dict] = []
+    while True:
+        page = query().range(len(rows), len(rows) + PAGE - 1).execute().data
+        rows += page
+        if len(page) < PAGE:
+            return rows
 
 
 def delete_ai_workouts(user_id: int, start: date, end: date) -> int:

@@ -19,9 +19,10 @@ from app.db import (
 from app.inbody import extract_inbody
 from app.ocr import ImageError, read_lines
 from app.planner import PlanError, create_plan
-from app.report import weekly_report
+from app.departments import college_of
+from app.report import college_dashboard, weekly_report
 from app.responses import (
-    BlockConflictOut, ErrorOut, InbodyImageOut, InfoOut, PlanConflictOut, PlanDeleteOut, PlanOut, ReportOut, ScheduleConflictOut,
+    BlockConflictOut, DashboardOut, ErrorOut, InbodyImageOut, InfoOut, PlanConflictOut, PlanDeleteOut, PlanOut, ReportOut, ScheduleConflictOut,
     ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
 )
 from app.schemas import (
@@ -42,6 +43,7 @@ def not_found(what: str) -> dict:
 
 TAG_AUTH, TAG_INFO, TAG_PLAN = "인증·사용자", "건강 정보", "운동 계획"
 TAG_SCHEDULE, TAG_BLOCK, TAG_DONE, TAG_REPORT = "일정", "반복 시간표", "운동 이수", "주간 리포트"
+TAG_DASHBOARD = "대시보드"
 
 
 @router.get(
@@ -74,6 +76,8 @@ def read_root():
         "아이디(`name`)와 비밀번호로 가입한다. 토큰은 주지 않으므로 이어서 `POST /login`을 호출한다.\n\n"
         "- `name`: 영문 소문자로 시작, 영문 소문자·숫자 4~20자, 중복 불가\n"
         "- `password`: 8~128자. 서버에는 Argon2id 해시로만 저장된다\n"
+        "- `department`(선택): 충북대 학과명 (예: `소프트웨어학부`). 단과대학(`college`)은 서버가 학과로 채운다. "
+        "목록에 없는 이름이면 422. 기타(학과 없음)면 생략하거나 null → 대시보드에서 '기타'\n"
         "- `info`(선택): 건강 정보를 함께 보내면 가입과 동시에 저장한다 (`age`, `height`, `weight`, `sex` 필수). "
         "생략하면 나중에 `POST /info`로 등록한다"
     ),
@@ -81,7 +85,7 @@ def read_root():
 )
 def create_user(body: Annotated[UserCreate, Body(openapi_examples=examples.USER_CREATE)]):
     try:
-        user = insert_user(body.name, hash_password(body.password))
+        user = insert_user(body.name, hash_password(body.password), body.department, college_of(body.department))
     except NameTakenError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="이미 사용 중인 아이디입니다.")
     user_id = user.pop("id")
@@ -119,7 +123,7 @@ def login(body: Annotated[LoginRequest, Body(openapi_examples=examples.LOGIN)]):
     tags=[TAG_AUTH],
     summary="내 정보 조회",
     response_model=UserOut,
-    description="로그인한 본인의 아이디, 가입 시각, 건강 정보. 건강 정보를 아직 등록하지 않았으면 `info`는 null.",
+    description="로그인한 본인의 아이디, 가입 시각, 학과·단과대학, 건강 정보. 건강 정보를 아직 등록하지 않았으면 `info`는 null.",
     responses={**AUTH_ERROR, **not_found("사용자")},
 )
 def read_me(user_id: int = Depends(current_user_id)):
@@ -539,3 +543,28 @@ def read_report(
     week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD, 아무 요일이나). 없으면 이번 주"),
 ):
     return weekly_report(user_id, week or today())
+
+
+# ---------- 대시보드 (단과대학 경쟁) ----------
+
+@router.get(
+    "/dashboard",
+    tags=[TAG_DASHBOARD],
+    summary="단과대학별 운동 수행률 순위",
+    response_model=DashboardOut,
+    description=(
+        "`week`가 속한 주(월~일)에 단과대학별로 AI 운동 일정의 수행률을 비교한다.\n\n"
+        "- 수행률(`rate`) = 소속 학생들의 완료 종목 수 합 / 계획 종목 수 합 × 100 (소수 첫째 자리)\n"
+        "- **오늘까지의 운동만 센다** (앞으로 할 운동 때문에 주 중간에 수행률이 낮아 보이지 않도록). 지난 주는 주 전체\n"
+        "- 단과대학은 가입할 때 받은 학과로 정해진다. 학과가 없는 사용자는 '기타'로 묶고 순위에는 넣지 않는다\n"
+        "- 계획이 하나도 없는 단과대학은 `rank`, `rate`가 null이고 목록 뒤에 온다\n"
+        "- 다른 사용자의 개인 정보(아이디 등)는 나오지 않는다"
+    ),
+    responses=AUTH_ERROR,
+)
+def read_dashboard(
+    user_id: int = Depends(current_user_id),
+    week: date | None = Query(None, description="이 날짜가 속한 주 (YYYY-MM-DD, 아무 요일이나). 없으면 이번 주"),
+):
+    user = fetch_user(user_id)
+    return college_dashboard(week or today(), user["college"] if user else None)

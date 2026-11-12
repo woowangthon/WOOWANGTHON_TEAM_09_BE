@@ -19,13 +19,14 @@ API_DESCRIPTION = """
 운동 계획은 운동 지침 문서(WHO, 대한비만학회, 신체활동 지침서 등)를 근거로 AI가 만든다.
 
 ## 사용 순서
-1. `POST /user` 회원가입 (건강 정보를 함께 보낼 수 있음. 인바디는 `POST /inbody/image`로 사진에서 읽을 수 있음, 로그인 불필요)
+1. `POST /user` 회원가입 (학과·건강 정보를 함께 보낼 수 있음. 인바디는 `POST /inbody/image`로 사진에서 읽을 수 있음, 로그인 불필요)
 2. `POST /login` → `access_token` 받기
 3. `POST /info` 건강 정보·인바디 등록 (가입 때 안 보냈다면 필수)
 4. `POST /weekly-block` 매주 반복 수업·운동 불가 시간 등록, `POST /schedule` 그 주의 일회성 일정 등록
 5. `POST /plan` 주간 운동 계획 생성 → 운동하는 날이 일정에 자동 저장 (`regenerate: true`면 다른 계획으로 교체, `DELETE /plan`으로 그 주 플랜 삭제)
 6. `PUT /workout-exercise/{id}` 운동한 종목 이수 체크
 7. `GET /report` 요일별 수행률 확인 → 다음 주 `POST /plan`에 지난주 수행률이 반영됨
+8. `GET /dashboard` 단과대학별 수행률 순위
 
 ## 인증
 - `/`, `POST /user`, `POST /login`, `POST /inbody/image`를 뺀 모든 API는 헤더 `Authorization: Bearer <access_token>`이 필요하다.
@@ -60,7 +61,9 @@ OPENAPI_TAGS = [
     {"name": "반복 시간표", "description": "매주 반복되는 수업·운동 불가 시간 (요일 + 시각)"},
     {"name": "운동 이수", "description": "AI 운동 일정의 종목별 완료 체크"},
     {"name": "주간 리포트", "description": "요일별 운동 수행률"},
-    {"name": "기타", "description": "서버 상태 확인"},
+    {"name": "대시보드", "description": "단과대학별 운동 수행률 경쟁 (학과는 가입할 때 입력)"},
+    {"name": "기타", "descriptio"
+    "n": "서버 상태 확인"},
 ]
 
 app = FastAPI(

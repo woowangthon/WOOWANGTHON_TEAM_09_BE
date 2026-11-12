@@ -90,6 +90,8 @@ class UserOut(BaseModel):
     name: str = Field(description="로그인 아이디", examples=["cbnu2026"])
     created_at: str = Field(description="가입 시각 (DB 원본 값, UTC, ISO 8601)",
                             examples=["2026-11-09T03:00:00.123456+00:00"])
+    department: str | None = Field(description="학과. 입력하지 않았으면 null (대시보드에서 '기타')", examples=["소프트웨어학부"])
+    college: str | None = Field(description="단과대학 (학과로 서버가 채움). 학과가 없으면 null", examples=["전자정보대학"])
     info: InfoOut | None = Field(description="건강 정보. 아직 등록하지 않았으면 null")
 
 
@@ -272,3 +274,24 @@ class ReportOut(BaseModel):
     so_far: RateOut = Field(description="오늘까지의 운동만 센 수행률 (주 중간에 진행 상황을 볼 때)")
     workout_days: int = Field(description="운동이 계획된 날 수", examples=[4])
     completed_days: int = Field(description="계획된 종목을 모두 완료한 날 수", examples=[2])
+
+
+# ---------- 대시보드 (단과대학 경쟁) ----------
+
+class CollegeRankOut(BaseModel):
+    rank: int | None = Field(description="순위 (수행률 높은 순, 같으면 같은 순위). 그 주에 계획이 없거나 '기타'면 null",
+                             examples=[1])
+    college: str = Field(description="단과대학 이름. 학과를 입력하지 않은 사용자는 '기타'", examples=["전자정보대학"])
+    members: int = Field(description="가입한 소속 학생 수 (운동 계획이 없는 학생 포함)", examples=[12])
+    planned: int = Field(description="소속 학생들의 계획 운동 종목 수 합 (오늘까지)", examples=[96])
+    completed: int = Field(description="그중 완료한 종목 수 합", examples=[71])
+    rate: float | None = Field(description="수행률(%) = completed / planned × 100 (소수 첫째 자리). 계획이 없으면 null",
+                               examples=[74.0])
+
+
+class DashboardOut(BaseModel):
+    week_start: str = Field(description="주의 월요일", examples=["2026-11-16"])
+    week_end: str = Field(description="주의 일요일", examples=["2026-11-22"])
+    my_college: str = Field(description="내 단과대학 (학과가 없으면 '기타')", examples=["전자정보대학"])
+    colleges: list[CollegeRankOut] = Field(
+        description="모든 단과대학 (순위순, 계획 없는 단과대학은 뒤, 맨 끝에 '기타')")

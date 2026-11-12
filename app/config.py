@@ -12,6 +12,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent          # server/
 DOCUMENTS_DIR = BASE_DIR / "preprocess" / "result"          # 전처리된 참고 문서(*.txt)
 EXERCISES_CSV = BASE_DIR / "exercises.csv"                  # 계획에 쓸 수 있는 운동 목록
+DEPARTMENTS_CSV = BASE_DIR / "departments.csv"              # 충북대 학과 -> 단과대학 (GET /dashboard 단과대 경쟁)
 LLM_CACHE_DIR = BASE_DIR / ".llm_cache"                     # AI 응답 캐시
 
 # ---------- 계획 ----------

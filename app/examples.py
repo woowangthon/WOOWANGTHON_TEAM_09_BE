@@ -16,11 +16,15 @@ INFO_FULL = {
 USER_CREATE = {
     "with_info": {
         "summary": "건강 정보와 함께 가입",
-        "value": {"name": "cbnu2026", "password": "password123", "info": INFO_FULL},
+        "value": {"name": "cbnu2026", "password": "password123", "department": "소프트웨어학부", "info": INFO_FULL},
     },
     "account_only": {
         "summary": "계정만 가입 (건강 정보는 나중에 POST /info)",
-        "value": {"name": "cbnu2026", "password": "password123"},
+        "value": {"name": "cbnu2026", "password": "password123", "department": "소프트웨어학부"},
+    },
+    "no_department": {
+        "summary": "학과 없이 가입 (대시보드에서 '기타')",
+        "value": {"name": "cbnu2026", "password": "password123", "department": None},
     },
 }
 

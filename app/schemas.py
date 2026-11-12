@@ -15,6 +15,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 
 from app.config import TIMEZONE
 from app.week import today
+from app.departments import DEPARTMENT_TO_COLLEGE
 from app.exercises import EXERCISE_CATALOG
 
 
@@ -45,7 +46,22 @@ class UserCreate(BaseModel):
         description="로그인 아이디. 영문 소문자로 시작, 영문 소문자·숫자 4~20자, 중복 불가 (예: cbnu2026)",
     )
     password: str = Field(min_length=8, max_length=128, description="비밀번호 (8자 이상)")
+    department: str | None = Field(
+        None, description="충북대 학과명 (departments.csv의 '학과' 중 하나, 예: 소프트웨어학부). "
+                          "단과대학은 서버가 학과로 채운다. 없거나 null이면 대시보드에서 '기타'",
+    )
     info: "InfoCreate | None" = Field(None, description="건강 정보. 주면 가입과 함께 저장 (나중에 POST /info로 넣어도 됨)")
+
+
+    @field_validator("department")
+    @classmethod
+    def known_department(cls, value: str | None) -> str | None:
+        if value is None or not value.strip():
+            return None
+        value = value.strip()
+        if value not in DEPARTMENT_TO_COLLEGE:
+            raise ValueError("충북대 학과명이 아닙니다. departments.csv의 학과명을 그대로 보내거나, 기타면 null로 보내 주세요.")
+        return value
 
 
 class LoginRequest(BaseModel):

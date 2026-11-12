@@ -25,12 +25,13 @@ app/
   planner.py            ★ 계획 생성 전체 흐름. 처음 읽을 때 여기서 시작
   profile.py            BMI·대상(성인/노인 등) 계산, 건강 상태로 추가 대상 찾기
   exercises.py          운동 목록(exercises.csv) 읽기, 고강도 운동 목록
+  departments.py        충북대 학과 -> 단과대학 (departments.csv)
   schemas.py            요청 형식(PlanRequest 등)과 AI 출력(WorkoutPlan) 형식
   responses.py          API 응답 형식 (스웨거 /docs의 응답 스키마)
   examples.py           스웨거 요청 예시 (한 사용자 상황으로 맞춤)
   prompts.py            시스템 프롬프트, AI에게 보낼 메시지 조립
   search.py             검색어 만들기, 참고 문서 조각 고르기
-  report.py             주간 리포트(요일별 수행률), 프롬프트용 지난주 수행 요약
+  report.py             주간 리포트(요일별 수행률), 프롬프트용 지난주 수행 요약, 단과대학 대시보드
   ocr.py                이미지 -> 글자 줄 (RapidOCR, 한국어 모델, 기울기 보정)
   inbody.py             OCR 결과에서 인바디 체지방률·골격근량·측정일 찾기 (POST /inbody/image)
   week.py               주(월~일) 계산, 한국 시간 기준 오늘
@@ -48,6 +49,7 @@ preprocess/
   original-result/      추출한 원문 텍스트 (그대로 보관)
   result/               정제된 텍스트 (검색 대상)
 exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 이름)
+departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대학 안내 기준)
 ```
 
 ## 요청 하나가 처리되는 순서 (`app/planner.py`)
@@ -69,6 +71,7 @@ exercises.csv           계획에 쓸 수 있는 운동 (부위, 근육, 운동 
 |---|---|
 | AI 규칙(말투, 계획 원칙) 바꾸기 | `app/prompts.py`의 `SYSTEM_PROMPT` |
 | 운동 추가·수정 | `exercises.csv` |
+| 학과·단과대학 추가·수정 | `departments.csv` |
 | 고강도로 볼 운동 바꾸기 | `app/exercises.py`의 `HIGH_INTENSITY_EXERCISES` |
 | 참고 문서 추가 | PDF를 `preprocess/src/`에 넣고 `python preprocess/main.py` 실행 → `app/rag/documents.py`의 `SPLITTERS`에 섹션 규칙 추가 (없으면 문서 전체가 "공통") → 필요하면 `preprocess/clean.py`의 `DOCS`에 삭제 규칙 추가 → `python preprocess/clean.py` 실행 |
 | 검색어 사전 바꾸기 | `app/search.py`의 `GOAL_QUERIES`, `TARGET_EN` |
