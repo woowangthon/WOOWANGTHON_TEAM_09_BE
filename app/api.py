@@ -558,9 +558,18 @@ def read_report(
         "- **오늘까지의 운동만 센다** (앞으로 할 운동 때문에 주 중간에 수행률이 낮아 보이지 않도록). 지난 주는 주 전체\n"
         "- 단과대학은 가입할 때 받은 학과로 정해진다. 학과가 없는 사용자는 '기타'로 묶고 순위에는 넣지 않는다\n"
         "- 계획이 하나도 없는 단과대학은 `rank`, `rate`가 null이고 목록 뒤에 온다\n"
-        "- 다른 사용자의 개인 정보(아이디 등)는 나오지 않는다"
+        "- 운동한 학생 수: 그 기간(오늘까지)에 한 종목이라도 완료한 학생. 전체는 `active_users`, 단과대학별은 `active_members` "
+        "(예: 'nn명이 운동을 수행했어요!')\n"
+        "- 다른 사용자의 개인 정보(아이디 등)는 나오지 않는다\n\n"
+        "**화면에 쓰는 법**: 'nn명이 운동을 수행했어요!' → `active_users` / 순위표 → `colleges`를 순서대로 "
+        "(`rank`가 null이면 '-'로 표시) / 내 단과대학 강조 → `college == my_college`"
     ),
-    responses=AUTH_ERROR,
+    responses={
+        200: {"content": {"application/json": {"example": examples.DASHBOARD_RESPONSE}},
+              "description": "단과대학 순위 (예시는 일부 단과대학만 보임. 실제로는 모든 단과대학 + 기타)"},
+        **AUTH_ERROR,
+        422: {"description": "week 형식 오류 (YYYY-MM-DD)"},
+    },
 )
 def read_dashboard(
     user_id: int = Depends(current_user_id),

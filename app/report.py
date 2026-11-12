@@ -91,17 +91,24 @@ def college_dashboard(day: date, my_college: str | None) -> dict:
     # day가 속한 주(월~일)의 단과대학별 수행률 = 소속 학생들의 (완료 종목 수 합) / (계획 종목 수 합).
     # 아직 오지 않은 날의 운동은 세지 않는다 (주 중간에 앞으로 할 운동 때문에 수행률이 낮아 보이지 않도록).
     # 학과를 입력하지 않은 사용자는 "기타"로 묶고, 순위에는 넣지 않는다.
+    # 운동한 학생(active_members): 그 기간에 운동을 한 종목이라도 완료한 학생 수
     monday, sunday = week_bounds(day)
     colleges, workouts = fetch_college_workouts(monday, min(sunday, today()))
     names = COLLEGES + [OTHER]
-    stats = {name: {"college": name, "members": 0, "planned": 0, "completed": 0} for name in names}
+    stats = {name: {"college": name, "members": 0, "active_members": 0, "planned": 0, "completed": 0}
+             for name in names}
     group = lambda college: stats.get(college) or stats[OTHER]   # CSV에서 빠진 옛 단과대학도 기타로
     for college in colleges.values():
         group(college)["members"] += 1
+    active = set()   # 한 종목이라도 완료한 사용자
     for w in workouts:
         s = group(colleges.get(w["author"]))
         s["planned"] += len(w["completed"])
         s["completed"] += sum(w["completed"])
+        if any(w["completed"]):
+            active.add(w["author"])
+    for user_id in active:
+        group(colleges.get(user_id))["active_members"] += 1
     for s in stats.values():
         s["rate"] = round(s["completed"] * 100 / s["planned"], 1) if s["planned"] else None
 
@@ -115,5 +122,6 @@ def college_dashboard(day: date, my_college: str | None) -> dict:
         "week_start": monday.isoformat(),
         "week_end": sunday.isoformat(),
         "my_college": my_college or OTHER,
+        "active_users": len(active),
         "colleges": ranked + [stats[OTHER]],
     }

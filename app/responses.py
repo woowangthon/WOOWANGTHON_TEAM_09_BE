@@ -286,6 +286,7 @@ class CollegeRankOut(BaseModel):
                              examples=[1])
     college: str = Field(description="단과대학 이름. 학과를 입력하지 않은 사용자는 '기타'", examples=["전자정보대학"])
     members: int = Field(description="가입한 소속 학생 수 (운동 계획이 없는 학생 포함)", examples=[12])
+    active_members: int = Field(description="그 기간(오늘까지)에 운동을 한 종목이라도 완료한 소속 학생 수", examples=[9])
     planned: int = Field(description="소속 학생들의 계획 운동 종목 수 합 (오늘까지)", examples=[96])
     completed: int = Field(description="그중 완료한 종목 수 합", examples=[71])
     rate: float | None = Field(description="수행률(%) = completed / planned × 100 (소수 첫째 자리). 계획이 없으면 null",
@@ -296,5 +297,8 @@ class DashboardOut(BaseModel):
     week_start: str = Field(description="주의 월요일", examples=["2026-11-16"])
     week_end: str = Field(description="주의 일요일", examples=["2026-11-22"])
     my_college: str = Field(description="내 단과대학 (학과가 없으면 '기타')", examples=["전자정보대학"])
+    active_users: int = Field(
+        description="그 기간(오늘까지)에 운동을 한 종목이라도 완료한 전체 학생 수 ('기타' 포함). "
+                    "화면의 'nn명이 운동을 수행했어요!'에 쓴다", examples=[37])
     colleges: list[CollegeRankOut] = Field(
         description="모든 단과대학 (순위순, 계획 없는 단과대학은 뒤, 맨 끝에 '기타')")

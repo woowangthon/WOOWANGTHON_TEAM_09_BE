@@ -84,3 +84,18 @@ WORKOUT_EXERCISE = {
     "done": {"summary": "완료 체크", "value": {"completed": True}},
     "undo": {"summary": "완료 취소", "value": {"completed": False}},
 }
+
+# ---------- 응답 예시 (api.py에서 responses={200: ...}로 붙인다) ----------
+
+DASHBOARD_RESPONSE = {
+    "week_start": "2026-11-16", "week_end": "2026-11-22",
+    "my_college": "전자정보대학",
+    "active_users": 21,   # = 모든 active_members의 합 (기타 포함)
+    "colleges": [
+        {"rank": 1, "college": "공과대학", "members": 10, "active_members": 8, "planned": 64, "completed": 52, "rate": 81.2},
+        {"rank": 2, "college": "전자정보대학", "members": 12, "active_members": 9, "planned": 96, "completed": 71, "rate": 74.0},
+        {"rank": 3, "college": "경영대학", "members": 5, "active_members": 2, "planned": 30, "completed": 12, "rate": 40.0},
+        {"rank": None, "college": "인문대학", "members": 0, "active_members": 0, "planned": 0, "completed": 0, "rate": None},
+        {"rank": None, "college": "기타", "members": 3, "active_members": 2, "planned": 14, "completed": 9, "rate": 64.3},
+    ],
+}
