@@ -74,13 +74,20 @@ REQUIRED_INFO = ("age", "height", "weight", "sex")   # info에서 비울 수 없
 HHMM = r"^([01]\d|2[0-3]):[0-5]\d$"                   # 24시간제 HH:mm
 
 
-def busy_time_error(start: str | None, end: str | None) -> str | None:
-    # 매일 운동하기 어려운 시간대(시작, 끝)가 올바르지 않으면 오류 문장. 둘 다 없거나 둘 다 있어야 하고, 같으면 안 된다.
-    if (start is None) != (end is None):
-        return "busy_time_start와 busy_time_end는 함께 보내야 합니다 (지우려면 둘 다 null)."
-    if start is not None and start == end:
-        return "busy_time_start와 busy_time_end가 같을 수 없습니다."
-    return None
+MAX_BUSY_TIMES = 10   # 방해 금지 시간대 최대 개수
+
+
+class BusyTime(BaseModel):
+    # 매일 반복되는 방해 금지 시간대 하나 (운동 계획이 피한다). end <= start면 end는 다음 날 시각.
+    name: str | None = Field(None, max_length=20, description="이름 (예: 취침, 점심, 직접 설정 3). 없어도 됨")
+    start: str = Field(pattern=HHMM, description="시작 HH:mm")
+    end: str = Field(pattern=HHMM, description="끝 HH:mm. 시작보다 이르면 다음 날 시각 (예: 23:00~07:00)")
+
+    @model_validator(mode="after")
+    def _check(self):
+        if self.start == self.end:
+            raise ValueError("방해 금지 시간대의 시작과 끝이 같을 수 없습니다.")
+        return self
 
 
 class InfoUpdate(BaseModel):
@@ -103,11 +110,10 @@ class InfoUpdate(BaseModel):
     nickname: str | None = Field(None, max_length=30, description="이름(닉네임). 화면 표시용")
     goal: str | None = Field(None, max_length=200, description="운동 목표 (예: 체중 감량). POST /plan에서 goal을 생략하면 이 값을 쓴다")
     uses_gym: bool | None = Field(None, description="헬스장 이용 여부. false면 기구 없이 할 수 있는 운동 위주로 계획")
-    busy_time_start: str | None = Field(
-        None, pattern=HHMM, description="매일 운동하기 어려운 시간대의 시작 HH:mm. busy_time_end와 함께 보낸다 (지우려면 둘 다 null)",
-    )
-    busy_time_end: str | None = Field(
-        None, pattern=HHMM, description="매일 운동하기 어려운 시간대의 끝 HH:mm. 시작보다 이르면 다음 날 시각 (예: 22:00~02:00)",
+    busy_times: list[BusyTime] | None = Field(
+        None, max_length=MAX_BUSY_TIMES,
+        description="매일 방해받고 싶지 않은 시간대 목록 (최대 10개). 보내면 목록 전체를 바꾼다. 모두 지우려면 [] 또는 null. "
+                    "시간대끼리 겹쳐도 된다",
     )
 
     @model_validator(mode="after")
@@ -128,13 +134,6 @@ class InfoCreate(InfoUpdate):
     height: int = Field(ge=51, le=249, description="키 (cm)")
     weight: int = Field(ge=11, le=299, description="몸무게 (kg)")
     sex: bool = Field(description="성별 (true = 남성, false = 여성)")
-
-    @model_validator(mode="after")
-    def _check_busy_time(self):
-        # 가입 때는 전체 값을 받으므로 여기서 확인한다 (POST /info는 기존 값과 합친 뒤 api.py에서 확인)
-        if error := busy_time_error(self.busy_time_start, self.busy_time_end):
-            raise ValueError(error)
-        return self
 
 
 UserCreate.model_rebuild()   # UserCreate.info가 아래에 정의된 InfoCreate를 쓰므로

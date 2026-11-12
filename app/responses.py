@@ -67,6 +67,12 @@ class PlanConflictOut(BaseModel):
 
 # ---------- 사용자 / 건강 정보 ----------
 
+class BusyTimeOut(BaseModel):
+    name: str | None = Field(description="이름. 없으면 null", examples=["취침"])
+    start: str = Field(description="시작 HH:mm", examples=["23:00"])
+    end: str = Field(description="끝 HH:mm. 시작보다 이르면 다음 날 시각", examples=["07:00"])
+
+
 class InfoOut(BaseModel):
     age: int = Field(description="나이 (만 나이)", examples=[21])
     height: int = Field(description="키 (cm)", examples=[175])
@@ -80,10 +86,7 @@ class InfoOut(BaseModel):
     nickname: str | None = Field(description="이름(닉네임). 없으면 null", examples=["근육왕"])
     goal: str | None = Field(description="운동 목표. 없으면 null", examples=["체중 감량"])
     uses_gym: bool | None = Field(description="헬스장 이용 여부. 없으면 null", examples=[True])
-    busy_time_start: str | None = Field(description="매일 운동하기 어려운 시간대의 시작 HH:mm. 없으면 null", examples=["22:00"])
-    busy_time_end: str | None = Field(
-        description="매일 운동하기 어려운 시간대의 끝 HH:mm. 시작보다 이르면 다음 날 시각. 없으면 null",
-        examples=["02:00"])
+    busy_times: list[BusyTimeOut] = Field(description="매일 방해 금지 시간대 목록. 없으면 []")
 
 
 class UserOut(BaseModel):

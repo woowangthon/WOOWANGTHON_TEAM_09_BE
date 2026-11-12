@@ -78,13 +78,13 @@ def create_plan(req: PlanRequest, user_id: int) -> dict:
     replace_ids = {w["id"] for w in previous}
     events = [e for e in fetch_schedules(user_id, start, end) if e.id not in replace_ids]
     blocks = list_weekly_blocks(user_id)
-    busy_start, busy_end = info.get("busy_time_start"), info.get("busy_time_end")   # 매일 운동하기 어려운 시간대
-    daily = daily_busy_events(busy_start, busy_end, start, end)
+    busy_times = info.get("busy_times") or []   # 매일 방해 금지 시간대
+    daily = daily_busy_events(busy_times, start, end)
     busy = events + block_events(blocks, start, end) + daily
     user_info = build_user_info(profile, limit_intensity)
     user_message = build_user_message(
         sources, exercise_list_text(allowed_names), start, end,
-        schedule_text(events, blocks, daily_busy_text(busy_start, busy_end)),
+        schedule_text(events, blocks, daily_busy_text(busy_times)),
         history_text(user_id, monday), user_info, previous_text(previous),
     )
 

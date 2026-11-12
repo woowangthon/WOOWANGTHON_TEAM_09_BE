@@ -8,7 +8,7 @@
 # - info:     id(-> user.id), age, height, weight, sex(boolean, true = 남성), experience(text, null 가능),
 #             body_fat_percent, skeletal_muscle_kg, inbody_measured_at (인바디 최신값, null 가능),
 #             nickname, goal, uses_gym,
-#             busy_time_start, busy_time_end (time: 매일 운동하기 어려운 시간대. end <= start면 다음 날 시각)
+#             busy_times (jsonb, 기본 []: 매일 방해 금지 시간대 [{"name", "start": "HH:mm", "end": "HH:mm"}]. end <= start면 다음 날)
 # - schedule: author(-> user.id), id, start_term, end_term (timestamptz), name,
 #             created_by_ai (기본 false. /plan이 저장한 일정만 true. 사용자 입력으로는 바꿀 수 없다)
 # - workout_exercise: id, schedule_id(-> schedule.id, 일정 삭제 시 함께 삭제), position, name,
@@ -88,7 +88,7 @@ def fetch_user(user_id: int) -> dict | None:
 
 INFO_COLUMNS = (
     "age", "height", "weight", "sex", "experience", "body_fat_percent", "skeletal_muscle_kg", "inbody_measured_at",
-    "nickname", "goal", "uses_gym", "busy_time_start", "busy_time_end",
+    "nickname", "goal", "uses_gym", "busy_times",
 )
 
 
@@ -106,7 +106,8 @@ def upsert_user_info(user_id: int, info: dict) -> dict:
     try:
         row = (
             get_client().table("info")
-            .upsert({"id": user_id, **{k: info.get(k) for k in INFO_COLUMNS}}, on_conflict="id")
+            .upsert({"id": user_id, **{k: info.get(k) for k in INFO_COLUMNS}, "busy_times": _busy_times(info)},
+                    on_conflict="id")
             .execute()
             .data[0]
         )
@@ -118,12 +119,15 @@ def upsert_user_info(user_id: int, info: dict) -> dict:
 
 
 def _info_out(row: dict) -> dict:
-    # DB 행 -> INFO_COLUMNS 값. time("22:00:00") -> "22:00"
+    # DB 행 -> INFO_COLUMNS 값
     info = {k: row.get(k) for k in INFO_COLUMNS}
-    for k in ("busy_time_start", "busy_time_end"):
-        if info[k]:
-            info[k] = info[k][:5]
+    info["busy_times"] = _busy_times(info)
     return info
+
+
+def _busy_times(info: dict) -> list[dict]:
+    # 방해 금지 시간대를 항상 [{"name", "start", "end"}] 모양으로 (null -> [], name 생략 -> null)
+    return [{"name": b.get("name"), "start": b["start"], "end": b["end"]} for b in info.get("busy_times") or []]
 
 
 def fetch_user_info(user_id: int) -> dict | None:

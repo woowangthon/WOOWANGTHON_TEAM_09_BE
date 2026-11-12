@@ -3,14 +3,14 @@
 #
 # 모든 예시는 한 사용자의 상황으로 맞춘다:
 #   cbnu2026, 21세 남성, 175cm 70kg, 목표 체중 감량, 헬스 3개월, 헬스장 이용
-#   매주 목 09:00~12:00 자료구조 / 2026-11-17(화) 18:00~20:00 동아리 모임 / 매일 22:00~다음 날 02:00 운동하기 어려움
+#   매주 목 09:00~12:00 자료구조 / 2026-11-17(화) 18:00~20:00 동아리 모임 / 매일 취침 23:00~다음 날 07:00, 점심 12:00~13:00 방해 금지
 #   계획할 주: 2026-11-16(월) ~ 2026-11-22(일)
 
 INFO_FULL = {
     "age": 21, "height": 175, "weight": 70, "sex": True,
     "experience": "헬스 3개월",
     "nickname": "근육왕", "goal": "체중 감량", "uses_gym": True,
-    "busy_time_start": "22:00", "busy_time_end": "02:00",
+    "busy_times": [{"name": "취침", "start": "23:00", "end": "07:00"}, {"name": "점심", "start": "12:00", "end": "13:00"}],
 }
 
 USER_CREATE = {
@@ -41,13 +41,17 @@ INFO = {
         "summary": "인바디만 입력 (측정 몸무게 함께)",
         "value": {"weight": 72, "body_fat_percent": 25.3, "skeletal_muscle_kg": 31.2, "inbody_measured_at": "2026-11-10"},
     },
-    "busy_time": {
-        "summary": "매일 운동하기 어려운 시간대만 수정 (다음 날로 넘어가도 됨)",
-        "value": {"busy_time_start": "23:00", "busy_time_end": "07:00"},
+    "busy_times": {
+        "summary": "방해 금지 시간대 바꾸기 (목록 전체를 보냄. 다음 날로 넘어가도 됨)",
+        "value": {"busy_times": [
+            {"name": "점심", "start": "12:00", "end": "13:00"},
+            {"name": "저녁", "start": "18:00", "end": "19:00"},
+            {"name": "직접 설정 3", "start": "14:00", "end": "15:00"},
+        ]},
     },
     "clear": {
         "summary": "선택 항목 지우기 (null)",
-        "value": {"experience": None, "busy_time_start": None, "busy_time_end": None},
+        "value": {"experience": None, "busy_times": []},
     },
 }
 

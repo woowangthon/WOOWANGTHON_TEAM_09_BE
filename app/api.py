@@ -26,7 +26,7 @@ from app.responses import (
     ScheduleDetailOut, ScheduleOut, TokenOut, UserOut, WeeklyBlockOut, WorkoutExerciseOut,
 )
 from app.schemas import (
-    REQUIRED_INFO, InfoUpdate, busy_time_error, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
+    REQUIRED_INFO, InfoUpdate, LoginRequest, PlanRequest, ScheduleIn, UserCreate, WeeklyBlockIn, WorkoutExerciseUpdate,
 )
 from app.week import today, week_bounds
 
@@ -142,21 +142,23 @@ def read_me(user_id: int = Depends(current_user_id)):
     response_model=InfoOut,
     description=(
         "나이, 키, 몸무게, 성별, 헬스 경력, 인바디(체지방률·골격근량·측정일), "
-        "닉네임, 운동 목표, 헬스장 이용 여부, 매일 운동하기 어려운 시간대를 저장한다.\n\n"
+        "닉네임, 운동 목표, 헬스장 이용 여부, 방해 금지 시간대를 저장한다.\n\n"
         "- **처음 등록**: `age`, `height`, `weight`, `sex` 필수\n"
         "- **그다음**: 바꿀 필드만 보낸다. 보내지 않은 필드는 그대로 유지된다\n"
         "- 선택 항목(`experience`, 인바디 값)을 지우려면 그 필드를 `null`로 보낸다\n"
         "- 인바디를 입력할 때는 측정 몸무게를 `weight`로 함께 보내면 BMI에 반영된다\n"
         "- `goal`: `POST /plan`에서 goal을 생략하면 이 값을 쓴다 / `uses_gym`: false면 기구 없이 할 수 있는 운동 위주로 계획\n"
-        "- `busy_time_start`, `busy_time_end` (HH:mm): **매일** 운동하기 어려운 시간대. 둘을 함께 보내고, 지우려면 둘 다 null. "
-        "끝이 시작보다 이르면 다음 날 시각이다 (예: 22:00~02:00 = 밤 10시~다음 날 새벽 2시). `POST /plan`이 이 시간을 피한다\n"
+        "- `busy_times`: **매일** 방해받고 싶지 않은 시간대 목록 `[{\"name\": \"취침\", \"start\": \"23:00\", \"end\": \"07:00\"}, ...]` "
+        "(최대 10개, `name`은 생략 가능). 보내면 **목록 전체를 바꾼다** (하나만 추가·삭제할 때도 전체 목록을 보낸다). "
+        "모두 지우려면 `[]`. 끝이 시작보다 이르면 다음 날 시각이다 (23:00~07:00 = 밤 11시~다음 날 아침 7시). "
+        "`POST /plan`이 이 시간들을 피한다\n"
         "- 요일마다 다른 시간(수업 시간표)은 `POST /weekly-block`, 날짜가 정해진 일정은 `POST /schedule`로 등록한다\n\n"
         "응답은 저장된 전체 건강 정보다. 이 값들은 `POST /plan`에서 운동 계획을 짤 때 쓰인다."
     ),
     responses={
         **AUTH_ERROR,
         422: {"description": "값 범위 오류, 필수 필드를 null로 보냄, 측정일이 미래, 시각 형식 오류, "
-                             "또는 (detail이 문자열) 처음 등록인데 필수 필드가 빠짐 / busy_time 둘 중 하나만 있음 / 시작과 끝이 같음"},
+                             "방해 금지 시간대의 시작과 끝이 같음·11개 이상, 또는 (detail이 문자열) 처음 등록인데 필수 필드가 빠짐"},
         500: {"model": ErrorOut, "description": "DB 설정 오류"},
     },
 )
@@ -170,8 +172,6 @@ def save_info(
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=f"처음 등록할 때는 {', '.join(missing)}가 필요합니다.",
         )
-    if error := busy_time_error(merged.get("busy_time_start"), merged.get("busy_time_end")):
-        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail=error)
     try:
         return upsert_user_info(user_id, merged)
     except IdentityColumnError:
