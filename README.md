@@ -130,7 +130,6 @@ departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대
 | 비만 | 비만의 정의(BMI 25 이상), 동반 질환, 치료 목표와 방법 | 질병관리청 국가건강정보포털 ([링크](https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694)) |
 | 운동 | 신체활동과 운동의 구분, 운동 강도·종류, 고강도 간헐적 운동(HIIT) 주의점 | 질병관리청 국가건강정보포털 ([링크](https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5293)) |
 | American College of Sports Medicine Position Stand: Resistance Training Prescription | 건강한 성인의 근력운동 처방(강도·세트·빈도 등)이 근기능·근비대에 미치는 영향 | ACSM (Currier 외), Med Sci Sports Exerc 58(4): 851-872, 2026 |
-| ACSM's Complete Guide to Fitness & Health (샘플 챕터) | 건강한 생활습관(신체활동·영양)과 개인별 운동 계획 세우기 | American College of Sports Medicine, Human Kinetics ([책 소개·샘플 다운로드](https://acsm.org/education-resources/books/complete-guide-fitness-health/)) |
 
 ## 사용한 오픈소스 소프트웨어
 

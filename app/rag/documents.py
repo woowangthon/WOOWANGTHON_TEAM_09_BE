@@ -181,9 +181,6 @@ RUNNING_STOP = re.compile(r"^\d+ 참고문헌")
 ACSM_STAND_START = re.compile(r"^SUMMARY")       # 앞부분(저자, 소속)은 제외
 ACSM_STAND_STOP = re.compile(r"^REFERENCES\s*$")
 
-# ACSM's Complete Guide (발췌본): 생활습관 전반을 다루는 장이라 공통. 앞부분 홍보 문구만 제외.
-ACSM_GUIDE_START = re.compile(r"^ONE\s*$")
-
 # 대한비만학회 비만 진료지침 2022 (JOMES 32(1), 영문): 권고안 8~11번이 다른 대상을 다룬다.
 # 본문의 "새 주제" 부분도 대상이 섞여 있어 각 문단 첫 문장으로 나눈다.
 KSSO_MARKERS: list[Marker] = [
@@ -229,8 +226,6 @@ SPLITTERS = {
         text, [], default=("성인",), start=RUNNING_START, stop=RUNNING_STOP),
     "american-college-of-sports-medicine-position-stand": lambda text: split_by_markers(
         text, [], default=("성인", "노인"), start=ACSM_STAND_START, stop=ACSM_STAND_STOP),
-    "acsms-complete-guide-fitness-health-sample-download": lambda text: split_by_markers(
-        text, [], start=ACSM_GUIDE_START),
     "비만 _ 국가건강정보포털 _ 질병관리청": split_obesity_portal,
     "jomes-32-1-1": lambda text: split_by_markers(
         text, KSSO_MARKERS, start=KSSO_START, stop=KSSO_STOP),

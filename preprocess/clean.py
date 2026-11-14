@@ -48,12 +48,6 @@ DOCS = {
               R(r"^\d{3} Official Journal of the American College of Sports Medicine"),
               R(r"^\s*QoE = \d+%\s*$"), R(r"^\s*[✔✖?]\s*$"), R(r"^\s*ND\s*$"),
               R(r"^\s*[↑↓?] \d+ reviews?; n = [\d,]+\s*$")]),                                  # 표 칸 조각
-    "acsms-complete-guide-fitness-health-sample-download": dict(
-        # 그림 안 글자(축 숫자, 짧은 라벨). 그림 설명(FIGURE ...)이나 본문(60자 이상인 줄)이 나오면 끝
-        ranges=[(R(r"^E6843/ACSM/"), R(r"^(FIGURE \d|.{60,})"))],
-        drop=[R(r"^ACSM’s Complete Guide to Fitness & Health\d+\s*$"),
-              R(r"^Making Healthy Lifestyle Choices \d+\s*$"),
-              R(r"^Source: ")]),
     "jomes-32-1-1": dict(
         ranges=[(R(r"^METHODS\s*$"), R(r"^1\. Diagnosis of obesity")),                         # 지침 개발 방법
                 (R(r"^6\. Pharmacotherapy"), R(r"^8\. Obesity in the elderly")),                # 약물·수술 권고
