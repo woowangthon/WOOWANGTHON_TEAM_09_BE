@@ -115,3 +115,19 @@ departments.csv         충북대 학과 -> 단과대학 (홈페이지 단과대
 | `log` | 그 밖의 라이브러리 로그 (uvicorn 등) | `message` |
 
 보기 좋게 보기: `uvicorn main:app 2>&1 | jq .` / 요청 하나만: `jq 'select(.request_id=="df010971")'`
+
+## 참고 문서 (RAG 자료 출처)
+
+운동 계획의 근거로 쓰는 문서입니다 (원본 PDF: `preprocess/src/`, 전처리 결과: `preprocess/result/`).
+
+| 문서명 | 내용 | 출처 |
+|---|---|---|
+| WHO 신체활동 및 좌식행동 가이드라인 | 연령대별 권장 신체활동량(유산소·근력), 좌식행동 줄이기 권고 | 세계보건기구(WHO), 2020 (한국어판) |
+| 신체활동 지침서 (한국인을 위한 신체활동 지침서 개정판) | 한국인 생애주기별(아동·청소년·성인·노인 등) 신체활동 권장 기준 | 보건복지부·한국건강증진개발원, 2023 |
+| 한국인을 위한 달리기 가이드라인 | 달리기의 효과, 올바른 자세, 강도·속도별 달리기 방법 | 보건복지부·한국건강증진개발원, 2022 |
+| 성인을 위한 신체활동 가이드라인 및 운동 강도에 대한 고찰 | 해외 성인 신체활동 지침 소개, 신체활동·운동 강도 분류 제안 | 박동호·김창선·김광준, 운동과학 24(2): 99-107, 2015 (doi:10.15857/ksep.2015.24.2.99) |
+| 2022 Clinical Practice Guidelines for Obesity Management in Korea (`jomes-32-1-1`) | 한국 비만 진료지침: 진단 기준, 운동·식사·약물 치료 권고 | 대한비만학회, J Obes Metab Syndr 32: 1-24, 2023 |
+| 비만 | 비만의 정의(BMI 25 이상), 동반 질환, 치료 목표와 방법 | 질병관리청 국가건강정보포털 ([링크](https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6694)) |
+| 운동 | 신체활동과 운동의 구분, 운동 강도·종류, 고강도 간헐적 운동(HIIT) 주의점 | 질병관리청 국가건강정보포털 ([링크](https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5293)) |
+| American College of Sports Medicine Position Stand: Resistance Training Prescription | 건강한 성인의 근력운동 처방(강도·세트·빈도 등)이 근기능·근비대에 미치는 영향 | ACSM (Currier 외), Med Sci Sports Exerc 58(4): 851-872, 2026 |
+| ACSM's Complete Guide to Fitness & Health (샘플 챕터) | 건강한 생활습관(신체활동·영양)과 개인별 운동 계획 세우기 | American College of Sports Medicine, Human Kinetics ([책 소개·샘플 다운로드](https://acsm.org/education-resources/books/complete-guide-fitness-health/)) |
